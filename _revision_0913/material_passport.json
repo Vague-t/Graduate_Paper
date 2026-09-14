@@ -1,0 +1,28 @@
+{
+  "purpose": "0913作者审阅用修订工作稿，不是新增实验或送审认证",
+  "workflow": "academic-research-suite / academic-paper revision / inline roles",
+  "language": "zh-CN",
+  "baseline": "report_final.md",
+  "review_input": "论文严格审阅意见_2026-09-13.md",
+  "authorization": "用户要求把能做的先做并生成新的0913版本；未提供逐条实验事实确认。",
+  "formal_patch_authorization_status": "not_claimed: 未构造作者逐块 adjudication，不宣称 revision-patch/1.1 机器授权通过",
+  "claim_intent_manifests": [{
+    "manifest_version": "1.0",
+    "manifest_id": "M-2026-09-13-0913-draft-01",
+    "emitted_by": "inline revision writer",
+    "claims": [
+      {"claim_id":"C-01","claim_text":"论辩挖掘的跨度、类型、端点及方向联合评价会使组件遗漏限制可恢复边集合。","intended_evidence_kind":"theoretical","planned_refs":[]},
+      {"claim_id":"C-02","claim_text":"原稿研究路线包含训练阶段结论组件增强和推理阶段多候选选择与局部修正。","intended_evidence_kind":"definitional","planned_refs":[]},
+      {"claim_id":"C-03","claim_text":"原稿表格报告AAEC 83.71/64.83、CDCP 76.45/38.17及迁移60.78/43.21；这些记录本轮未独立复现。","intended_evidence_kind":"empirical","planned_refs":[]},
+      {"claim_id":"C-04","claim_text":"评分非下降只约束代理目标，不保证金标准F1提升、非法初始化可恢复或调用次数上界。","intended_evidence_kind":"theoretical","planned_refs":[]},
+      {"claim_id":"C-05","claim_text":"经核查的相关工作支持结构化生成、结构感知增强和反馈修正的背景，但不足以证明本方法首创或各模块独立有效。","intended_evidence_kind":"literature","planned_refs":["kawarada2024","sun2024","eger2017","morio2020","ding2024","evuru2024","pei2023","madaan2023","huang2023"]},
+      {"claim_id":"C-06","claim_text":"粗粒度组件映射和无标签连接仅检验特定单向迁移协议，不能与域内细粒度Relation-F1直接相减。","intended_evidence_kind":"theoretical","planned_refs":[]}
+    ],
+    "manifest_negative_constraints": [
+      {"constraint_id":"MNC-1","rule":"不改变原稿实验数值，不新增种子、数据量、超参数来源、显著性、人工评价或实验日志。"},
+      {"constraint_id":"MNC-2","rule":"不将修正算法建议追认为已实现方法；不声明已达到武汉大学送审要求。"},
+      {"constraint_id":"MNC-3","rule":"不把未核验的作者成果视为虚假，也不继续宣称其已发表。"},
+      {"constraint_id":"MNC-4","rule":"原始Markdown和Word均不覆盖；所有内容变更可通过差异文件复查。"}
+    ]
+  }]
+}

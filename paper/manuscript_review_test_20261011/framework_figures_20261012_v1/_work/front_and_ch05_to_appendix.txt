@@ -1,0 +1,803 @@
+[0] 
+
+[1] 面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究
+
+[2] 2026年10月
+
+[3] 评审功能测试用完整模拟稿：主实验、训练、审核、具名外部对照和运行记录为合成测试内容；案例原文与原生标注来自上传语料，CPU案例预测及规则处理为实际程序输出。以下按完整论文格式呈现，统一适用本说明。
+
+[4] English Title: End-to-End Argument Mining via Relation-Aware Learning and Dependency-Closed Repair
+
+[5] 
+
+[6] 摘要
+
+[7] 端到端论辩挖掘需要同时定位组件、判别论辩角色并抽取有向关系。组件与关系的依赖使局部改写和预测修改产生连锁变化：前者可能破坏原有监督，后者可能使关系端点失效。本文在多候选重排序与有界修正的基础上，研究训练与推理两个阶段的依赖维护。
+
+[8] 训练侧通过关系影响域定位内部、跨边界及NONE因素，利用无损标注输运和逐因素掩码构造可靠对应；原文保留完整图生成监督，变体在可靠组件与关系上提供辅助监督和分布对齐。推理侧将组件变化与全部受影响关系组织为依赖闭合事务，以冻结的完整对象评分、分项接受门和编辑预算共同决定修改，支持局部与全局两条求解路径。CDCP的联合源关系始终以完整超边计数。
+
+[9] 在AAEC和CDCP官方测试集上，完整配置的严格关系F1分别为73.29和52.02，相对继承配置提高8.10和13.26个百分点。固定推理时，新训练分别增加3.63和4.89个百分点；固定T1检查点时，新推理分别增加4.48和8.37个百分点，四项比较均通过14项比较族的Holm校正。完整成对相对无成对的点估计在两语料为正，但校正后证据不足；共同决策与集合动作的独立优势也未获确认。保留CDCP弱评分时返回初始图的失败分析，说明收益依赖候选覆盖和决策区域评分。四份语料的原文案例进一步呈现误边减少、正确关系误删及多源对象身份的实际边界。
+
+[10] 关键词：端到端论辩挖掘；可靠对应；成对学习；依赖闭合；图修正；结构化预测
+
+[11] 
+
+[12] 
+
+[13] Abstract
+
+[14] End-to-end argument mining identifies text spans, argumentative roles, and directed relations. Component–relation dependencies create cascading effects during both local paraphrasing and prediction repair. This thesis investigates dependency maintenance in training and inference, building on multi-candidate reranking and bounded repair.
+
+[15] For training, relation influence domains identify internal, cross-boundary, and NONE factors. Lossless annotation transport and factor masks define reliable correspondences for auxiliary supervision and paired distribution alignment, while original documents retain full-graph generation targets. For inference, dependency-closed transactions jointly reconsider component changes and all affected relations under frozen full-object scores, separate utility gates, and edit budgets. Local and global optimization share the same object identity and constraints. CDCP collective-source relations are evaluated as complete native hyperedges.
+
+[16] On the official AAEC and CDCP test splits, the complete configuration reaches strict relation F1 scores of 73.29 and 52.02, improving over the inherited configuration by 8.10 and 13.26 points. The aggregate training and inference improvements remain significant after Holm correction over fourteen primary comparisons. Paired-learning estimates are positive on both corpora, but their separate contribution does not pass the family-level correction; joint acceptance and set actions likewise lack confirmed independent advantages. A weak-scoring CDCP condition retains abstention as a failure analysis. Traceable cases from four uploaded corpora illustrate both false-edge removal and true-edge loss, emphasizing that higher fixed utility does not guarantee higher extraction F1.
+
+[17] Keywords: End-to-End Argument Mining; Reliable Correspondence; Paired Learning; Dependency Closure; Graph Repair; Structured Prediction
+
+[18] 
+
+[19] 
+
+[20] 第一章 绪论
+
+[21] 
+
+[682] 第五章 两阶段框架的综合分析
+
+[683] 
+
+[684] 5.1 继承基线与外部参照
+
+[685] 所有四格以本文T0/I0为参照，保持官方测试集、原生对象身份和三个种子一致。表2-2的原协议复现核查用于确认继承配置，附录E保留原稿已发表结果；两者不与新严格评价混算。具名外部对照UniASA和Kawarada等的TextToText在附录G按同一评价器报告，保留其本身架构和公开任务接口，因此系统比较不等同于仅改变本文一个模块的因果消融。
+
+[686] 表5-1 比较层次与解释范围
+
+[687] 层次固定条件回答问题训练增量骨干、更新预算、I0整套训练是否改善抽取推理增量T1检查点、候选、评分、合法化I1是否改善初始图两阶段四格同一测试文档、种子与完整对象增量的重叠与交互具名外部官方测试划分、完整对象评价器系统层面的共同任务比较真实CPU案例实际训练输出、固定处理规则可复核错误变化与边界
+
+[688] 
+
+[689] 
+
+[690] 5.2 四格结果与交互
+
+[691] 表5-2 同一测试划分上的四格
+
+[692] 配置AAEC组件F1AAEC关系F1CDCP组件F1CDCP关系F1T0I084.18 ± 0.7965.18 ± 3.4375.99 ± 1.6138.76 ± 3.37T1I086.73 ± 0.6768.81 ± 2.0579.92 ± 1.5143.65 ± 3.53T0I185.27 ± 0.5069.90 ± 2.8378.39 ± 1.3446.72 ± 2.42T1I187.60 ± 0.4473.29 ± 1.7681.91 ± 1.2252.02 ± 2.59
+
+[693] 表5-3 四格关系F1差值与交互
+
+[694] 语料比较差值/pp95% CI三个种子差值身份AAECT1I0 − T0I03.63[1.78, 5.60]1.85 / 4.45 / 4.57主要AAECT1I1 − T1I04.48[3.43, 5.54]3.88 / 4.90 / 4.66主要AAECT0I1 − T0I04.72[3.58, 5.85]3.91 / 5.19 / 5.05探索AAECT1I1 − T0I08.10[5.80, 10.47]5.73 / 9.35 / 9.23探索AAECInteraction − 0-0.24[-0.55, 0.06]-0.03 / -0.29 / -0.39探索CDCPT1I0 − T0I04.89[2.91, 7.23]5.95 / 4.37 / 4.37主要CDCPT1I1 − T1I08.37[6.11, 10.94]7.14 / 8.20 / 9.77主要CDCPT0I1 − T0I07.97[5.84, 10.32]7.33 / 7.29 / 9.27探索CDCPT1I1 − T0I013.26[10.31, 16.01]13.09 / 12.56 / 14.14探索CDCPInteraction − 00.40[-0.70, 1.54]-0.19 / 0.90 / 0.50探索
+
+[695] 完整配置相对T0/I0的关系增量为AAEC 8.10 pp、CDCP 13.26 pp。交互定义为(T1/I1−T1/I0)−(T0/I1−T0/I0)，其区间用于检查训练后修正空间是否变化，不能把两条主效应相加就称为协同。两个阶段可改善部分不同对象，同时也存在重叠恢复。
+
+[696] 
+
+[697] 图5-1 两语料四格关系F1
+
+[698] 
+
+[699] 
+
+[700] 5.3 对象成员与首个阻断
+
+[701] 表5-4 相同关系身份上的成员分解（三种子合计）
+
+[702] 语料初始TP共同恢复训练独有修正独有组合独有丢失单路恢复丢失初始TP完整TPAAEC1582193361091704CDCP29323526301358
+
+[703] “共同恢复”是T1/I0与T0/I1相对T0/I0新增TP的交集；“独有”是各自差集；“组合独有”只出现在T1/I1；完整配置又可能丢失单路恢复或初始TP。表内满足初始TP＋共同＋训练独有＋修正独有＋组合独有−丢失单路−丢失初始=完整TP，每条关系按语义键复核。
+
+[704] 表5-5a 四格金标关系的端点—选择分解
+
+[705] 语料配置金标TP端点缺失端点齐全但未选AAECT0I024271582707138AAECT1I024271670608149AAECT0I124271616685126AAECT1I124271704588135CDCPT0I0756293340123CDCPT1I0756330288138CDCPT0I1756320322114CDCPT1I1756358272126
+
+[706] 表5-5b T1/I1未命中关系的首个阻断
+
+[707] 语料金标TP终态端点缺失完整槽位未入池未评分评分未过门联合约束／接受门超时AAEC242717045880013500CDCP7563582722012400
+
+[708] 首个阻断按表列次序归类，每条未命中关系只计一次。未评分及超时均为0，因此不能用它们解释当前漏检；最后一列包含可行域、预算与接受门，不统一称为求解错误。候选端点“入池”与终态端点“被选”分开，避免把存在竞争跨度误认为正确端点已恢复。
+
+[709] 
+
+[710] 
+
+[711] 5.4 CDCP完整源集合
+
+[712] 表5-6 CDCP按完整源成员数分组
+
+[713] 源数配置TPFPFN关系F1（均值 ± SD）1T0I025739739739.30 ± 2.311T1I029136336344.50 ± 2.791T0I128425037047.79 ± 1.601T1I131822233653.26 ± 1.982T0I025353541.67 ± 10.412T1I027333345.00 ± 5.002T0I125233545.98 ± 9.342T1I127223349.45 ± 2.873T0I099950.00 ± 16.673T1I0108855.56 ± 25.463T0I195956.36 ± 18.453T1I1105859.90 ± 23.49≥4T0I0222228.33 ± 7.22≥4T1I0222228.33 ± 7.22≥4T0I1215229.52 ± 8.25≥4T1I13132115.02 ± 0.63
+
+[714] 原生测试集有218条单源、20条双源、6条三源及8条四源以上关系，总计252条，多源34条；表5-6为三个种子的计数合计。长源集合不能拆成多条独立边增加TP。部分组样本很小，分组均值仅解释误差分布，不承担新的显著性结论。外部转换对四源以上对象的表达损失也单列于附录G。
+
+[715] 
+
+[716] 
+
+[717] 5.5 本章小结
+
+[718] 训练和推理均形成双语料正向主效应，完整系统的增益由四格和同身份对象分解共同支持。结果不要求每种机制或每一源数组都改善；成对项、共同决策、集合动作和重生成比较的证据强度分别报告。整体增量不能替代独立消融的判断。
+
+[719] 
+
+[720] 
+
+[721] 
+
+[722] 第六章 总结与展望
+
+[723] 
+
+[724] 6.1 研究总结
+
+[725] 本文围绕组件与关系依赖开展两项研究：训练阶段以关系影响域、标注输运和因素掩码组织可靠对应学习；推理阶段以固定对象评分、依赖闭合和预算约束组织完整修改。原生超边表示、严格评价和逐对象账本贯穿两个阶段。
+
+[726] 完整系统在AAEC与CDCP上的关系F1分别达到73.29和52.02，相对继承配置增加8.10和13.26 pp；整套训练与整套推理四项主要比较均通过Holm校正。具名系统对照、目标增强池审核、评分区域质量、候选覆盖、训练及推理成本补充了完整评价。
+
+[727] 完整成对的正向估计未通过家族校正，共同接受与集合动作也没有形成独立稳定优势。I1相对等预算重生成的均值更高，但联合区间跨零。因此结论保留系统层面的改进，把机制贡献限定在各自对照支持的范围内。
+
+[728] 
+
+[729] 
+
+[730] 6.2 适用条件与局限
+
+[731] 固定效用的上升不保证真实F1上升。主配置在AAEC有4/240、CDCP有2/450条记录下降，追加评分和搜索也增加了端到端成本。CDCP弱评分v0即使降低关系代价仍触发回退，说明候选与决策区域评分应先于扩大动作空间。
+
+[732] 只有三个种子、CDCP长源关系样本少，限制了细粒度比较的精度。目标增强池中的单层审核区间可能高于总体区间，不能用整体低漂移率保证每层安全。CasiMedicos转换文件有69条缺正文，ArgUNSC没有独立官方测试划分；本文只用它们核对实际文本和原生对象，不据此宣称跨语言、医学判断或跨域泛化效果。
+
+[733] 
+
+[734] 
+
+[735] 6.3 后续研究
+
+[736] 后续可围绕长源集合提案、决策区域的代价敏感校准及低开销对象评分展开，并在新增语料上检验收益是否保持。只有在独立比较显示质量或资源优势时才扩大集合动作；否则采用较简单的固定路由。审核规范和错误账本有助于定位变化来源，不能替代任务指标或独立评价。
+
+[737] 
+
+[738] 
+
+[739] 
+
+[740] 参考文献
+
+[741] [1] LAWRENCE J, REED C. Argument mining: A survey[J]. Computational Linguistics, 2019, 45(4): 765–818. DOI: 10.1162/coli_a_00364. 来源
+
+[742] [2] STAB C, GUREVYCH I. Parsing argumentation structures in persuasive essays[J]. Computational Linguistics, 2017, 43(3): 619–659. DOI: 10.1162/COLI_a_00295. 来源
+
+[743] [3] PARK J, CARDIE C. A corpus of eRulemaking user comments for measuring evaluability of arguments[C]//Proceedings of the Eleventh International Conference on Language Resources and Evaluation. Miyazaki: European Language Resources Association, 2018. 来源
+
+[744] [4] EGER S, DAXENBERGER J, GUREVYCH I. Neural end-to-end learning for computational argumentation mining[C]//Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics, Volume 1. Vancouver: Association for Computational Linguistics, 2017: 11–22. DOI: 10.18653/v1/P17-1002. 来源
+
+[745] [5] MORIO G, OZAKI H, MORISHITA T, et al. Towards better non-tree argument mining: Proposition-level biaffine parsing with task-specific parameterization[C]//Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. Association for Computational Linguistics, 2020: 3259–3266. DOI: 10.18653/v1/2020.acl-main.298. 来源
+
+[746] [6] CAPUTO E, GRECO S, LA CAVA L. Argument component segmentation with fine-tuned large language models[C]//Findings of the Association for Computational Linguistics: EACL 2026. Rabat: Association for Computational Linguistics, 2026: 5154–5167. DOI: 10.18653/v1/2026.findings-eacl.272. 来源
+
+[747] [7] KAWARADA M, HIRAO T, UCHIDA W, et al. Argument mining as a text-to-text generation task[C]//Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics, Volume 1. St. Julian’s: Association for Computational Linguistics, 2024: 2002–2014. DOI: 10.18653/v1/2024.eacl-long.121. 来源
+
+[748] [8] CABESSA J, HERNAULT H, MUSHTAQ U. Argument mining with fine-tuned large language models[C]//Proceedings of the 31st International Conference on Computational Linguistics. Abu Dhabi: Association for Computational Linguistics, 2025: 6624–6635. 来源
+
+[749] [9] DAS N, VAIBHAV V, CHOUDHARY Y S, et al. End-to-end argument mining through autoregressive argumentative structure prediction[EB/OL]. arXiv:2510.16363v1, 2025[2026-09-14]. DOI: 10.48550/arXiv.2510.16363. 来源
+
+[750] [10] CAPUTO E, GRECO S, LA CAVA L. ARGUS: Towards end-to-end argument mining with large language models[C]//Proceedings of the AAAI Conference on Artificial Intelligence, 2026, 40(48): 41547–41549. DOI: 10.1609/aaai.v40i48.42335. 来源
+
+[751] [11] LI H, SCHLEGEL V, SUN Y, et al. Large language models in argument mining: A survey[EB/OL]. arXiv:2506.16383v6, 2025[2026-09-13]. DOI: 10.48550/arXiv.2506.16383. 来源
+
+[752] [12] SUN Y, CHEN G, YANG C, et al. Discourse structure-aware prefix for generation-based end-to-end argumentation mining[C]//Findings of the Association for Computational Linguistics: ACL 2024. Bangkok: Association for Computational Linguistics, 2024: 11597–11613. DOI: 10.18653/v1/2024.findings-acl.689. 来源
+
+[753] [13] DAS N, SARADHI V V, ANAND A. On the role of key phrases in argument mining[C]//Findings of the Association for Computational Linguistics: NAACL 2025. Albuquerque: Association for Computational Linguistics, 2025: 5774–5787. DOI: 10.18653/v1/2025.findings-naacl.319. 来源
+
+[754] [14] SUN Y, CHEN G, ALINEJAD-ROKNY H, et al. Learning first-order logic rules for argumentation mining[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 14133–14148. DOI: 10.18653/v1/2025.acl-long.691. 来源
+
+[755] [15] DING B, QIN C, ZHAO R, et al. Data augmentation using LLMs: Data perspectives, learning paradigms and challenges[C]//Findings of the Association for Computational Linguistics: ACL 2024. Bangkok: Association for Computational Linguistics, 2024: 1679–1705. DOI: 10.18653/v1/2024.findings-acl.97. 来源
+
+[756] [16] EVURU C K, GHOSH S, KUMAR S, et al. CoDa: Constrained generation based data augmentation for low-resource NLP[C]//Findings of the Association for Computational Linguistics: NAACL 2024. Mexico City: Association for Computational Linguistics, 2024: 3754–3769. DOI: 10.18653/v1/2024.findings-naacl.238. 来源
+
+[757] [17] PEI Y, BHUSE P, LIU Z, et al. SegMix: A simple structure-aware data augmentation method[EB/OL]. arXiv:2311.09505v1, 2023[2026-09-13]. DOI: 10.48550/arXiv.2311.09505. 来源
+
+[758] [18] SUN W, LI M, DAVIS J, et al. Weakly-supervised argument mining with boundary refinement and relation denoising[C]//Proceedings of the Ninth Fact Extraction and VERification Workshop (FEVER). Rabat: Association for Computational Linguistics, 2026: 1–12. DOI: 10.18653/v1/2026.fever-1.1. 来源
+
+[759] [19] GENG S, JOSIFOSKI M, PEYRARD M, et al. Grammar-constrained decoding for structured NLP tasks without finetuning[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 10932–10952. DOI: 10.18653/v1/2023.emnlp-main.674. 来源
+
+[760] [20] MADAAN A, TANDON N, GUPTA P, et al. Self-Refine: Iterative refinement with self-feedback[EB/OL]. arXiv:2303.17651v2, 2023[2026-09-13]. DOI: 10.48550/arXiv.2303.17651. 来源
+
+[761] [21] HUANG J, CHEN X, MISHRA S, et al. Large language models cannot self-correct reasoning yet[EB/OL]. arXiv:2310.01798v2, 2024[2026-09-13]. DOI: 10.48550/arXiv.2310.01798. 来源
+
+[762] [22] WANG X, WEI J, SCHUURMANS D, et al. Self-consistency improves chain of thought reasoning in language models[EB/OL]. arXiv:2203.11171v4, 2023[2026-09-13]. DOI: 10.48550/arXiv.2203.11171. 来源
+
+[763] [23] TRAN N, LITMAN D, GODLEY A. Using large language models to analyze students’ collaborative argumentation in classroom discussions[C]//Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con): Full Papers. Pittsburgh: National Council on Measurement in Education, 2025: 111–125. 来源
+
+[764] [24] XIAO Y, LI S. ARGUS: Argumentation-based minimal-change repair for verifiable LLM self-explanations[C]//Proceedings of the 42nd Conference on Uncertainty in Artificial Intelligence. Proceedings of Machine Learning Research, 2026, 337: 7536–7551. 来源
+
+[765] [25] MORIO G, OZAKI H, MORISHITA T, et al. End-to-end argument mining with cross-corpora multi-task learning[J]. Transactions of the Association for Computational Linguistics, 2022, 10: 639–658. DOI: 10.1162/tacl_a_00481. 来源
+
+[766] [26] SAVIGNY H, YUN B. AMELIA: A family of multi-task end-to-end language models for argumentation[J]. Argument & Computation, 2026, 17(1). DOI: 10.1177/19462174251413169. 来源
+
+[767] [27] FEGER M, BOLAND K, DIETZE S. Limited generalizability in argument mining: State-of-the-art models learn datasets, not arguments[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 23900–23915. DOI: 10.18653/v1/2025.acl-long.1164. 来源
+
+[768] [28] ZHAO X, WANG K, PENG W. ORCHID: A Chinese debate corpus for target-independent stance detection and argumentative dialogue summarization[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 9358–9375. DOI: 10.18653/v1/2023.emnlp-main.582. 来源
+
+[769] [29] CHENG L, BING L, HE R, et al. IAM: A comprehensive and large-scale dataset for integrated argument mining tasks[C]//Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics, Volume 1. Dublin: Association for Computational Linguistics, 2022: 2277–2287. DOI: 10.18653/v1/2022.acl-long.162. 来源
+
+[770] [30] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all you need[EB/OL]. arXiv:1706.03762, 2017[2026-09-13]. DOI: 10.48550/arXiv.1706.03762. 来源
+
+[771] [31] QWEN TEAM. Qwen2.5 technical report[EB/OL]. arXiv:2412.15115, 2024[2026-09-13]. DOI: 10.48550/arXiv.2412.15115. 来源
+
+[772] [32] HU E J, SHEN Y, WALLIS P, et al. LoRA: Low-rank adaptation of large language models[EB/OL]. arXiv:2106.09685, 2021[2026-09-13]. DOI: 10.48550/arXiv.2106.09685. 来源
+
+[773] [33] LESTER B, AL-RFOU R, CONSTANT N. The power of scale for parameter-efficient prompt tuning[C]//Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics, 2021: 3045–3059. DOI: 10.18653/v1/2021.emnlp-main.243. 来源
+
+[774] [34] TANG C, PENG M, TIAN G. Improving end-to-end argument mining with LLMs via multi-candidate reranking and bounded repair[C/OL]//ICIC2026 Posters: Poster Volume I. Toronto, 2026[2026-09-20]. DOI: 10.65286/icic.v22i1.76896. 来源
+
+[775] [35] BAO J, HUANG Y, SUN Y, et al. Exploring quality and diversity in synthetic data generation for argument mining[C]//Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing. Suzhou: Association for Computational Linguistics, 2025: 26581–26604. DOI: 10.18653/v1/2025.emnlp-main.1351. 来源
+
+[776] [36] WANG X, SHEN H, QI H, et al. Enhancing low-resource joint entity and relation extraction using large language models within semi-supervised learning[J]. ACM Transactions on Knowledge Discovery from Data, 2026, 20(3): 49:1–49:25. DOI: 10.1145/3799423. 来源
+
+[777] [37] MODARRESSI A, KÖKSAL A, SCHUETZE H. Consistent document-level relation extraction via counterfactuals[C]//Findings of the Association for Computational Linguistics: EMNLP 2024. Miami: Association for Computational Linguistics, 2024: 11501–11507. DOI: 10.18653/v1/2024.findings-emnlp.672. 来源
+
+[778] [38] ZHENG Y, KE W, LIU Q, et al. Making LLMs as fine-grained relation extraction data augmentor[C]//Proceedings of the Thirty-Third International Joint Conference on Artificial Intelligence. International Joint Conferences on Artificial Intelligence Organization, 2024: 6660–6668. DOI: 10.24963/ijcai.2024/736. 来源
+
+[779] [39] ZHONG Y, GAO Y, ZHANG X, et al. ODDA: An OODA-driven diverse data augmentation framework for low-resource relation extraction[C]//Findings of the Association for Computational Linguistics: ACL 2025. Vienna: Association for Computational Linguistics, 2025: 267–285. DOI: 10.18653/v1/2025.findings-acl.15. 来源
+
+[780] [40] ROCHA G, LOPES CARDOSO H, BELOUADI J, et al. Cross-genre argument mining: Can language models automatically fill in missing discourse markers?[J]. Argument & Computation, 2025, 16(1): 3–35. DOI: 10.3233/AAC-230008. 来源
+
+[781] [41] WAEGEMAN W, DEMBCZYŃSKI K, JACHNIK A, et al. On the Bayes-optimality of F-measure maximizers[J]. Journal of Machine Learning Research, 2014, 15(103): 3513–3568. 来源
+
+[782] [42] LIPTON Z C, ELKAN C, NARAYANASWAMY B. Thresholding classifiers to maximize F1 score[EB/OL]. arXiv:1402.1892v2, 2014[2026-09-20]. DOI: 10.48550/arXiv.1402.1892. 来源
+
+[783] [43] LI Z, ZHANG F, LYU K, et al. Re-Cent: A relation-centric framework for joint zero-shot relation triplet extraction[C]//Proceedings of the 31st International Conference on Computational Linguistics. Abu Dhabi: Association for Computational Linguistics, 2025: 7344–7354. 来源
+
+[784] [44] PIROZELLI P, ROCHA V H N, COZMAN F G, et al. An LLM-based system for argument reconstruction[EB/OL]. arXiv:2605.13793v1, 2026[2026-09-20]. DOI: 10.48550/arXiv.2605.13793. 来源
+
+[785] [45] GUO C, PLEISS G, SUN Y, et al. On calibration of modern neural networks[C]//Proceedings of the 34th International Conference on Machine Learning. Proceedings of Machine Learning Research, 2017, 70: 1321–1330. 来源
+
+[786] [46] NICULAE V, PARK J, CARDIE C. Argument mining with structured SVMs and RNNs[C]//Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics, Volume 1. Vancouver: Association for Computational Linguistics, 2017: 985–995. DOI: 10.18653/v1/P17-1091. 来源
+
+[787] [47] BAO J, HE Y, SUN Y, et al. A generative model for end-to-end argument mining with reconstructed positional encoding and constrained pointer mechanism[C]//Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing. Abu Dhabi: Association for Computational Linguistics, 2022: 10437–10449. DOI: 10.18653/v1/2022.emnlp-main.713. 来源
+
+[788] [48] BAO J, JING M, DONG K, et al. UniASA: A unified generative framework for argument structure analysis[J]. Computational Linguistics, 2025, 51(3): 739–784. DOI: 10.1162/coli_a_00553. 来源
+
+[789] [49] ZHANG Z, WANG Q, DING K, et al. Improving synthetic data generation for argument mining via adversarial reinforcement learning[EB/OL]. arXiv:2610.07699v1, 2026[2026-10-10]. DOI: 10.48550/arXiv.2610.07699. 来源
+
+[790] [50] SVIRIDOVA E, YEGINBERGEN A, ESTARRONA A, et al. CasiMedicos-Arg: A medical question answering dataset annotated with explanatory argumentative structures[C]//Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics, 2024: 18463–18475. DOI: 10.18653/v1/2024.emnlp-main.1026. 来源
+
+[791] 
+
+[792] 
+
+[793] 附录A 数据处理与复现协议
+
+[794] 
+
+[795] A.1 三层坐标与异常保留
+
+[796] 原始字符坐标采用半开区间[start,end)，Python字符串按Unicode码点切片。评价token采用固定正则分词，模型子词保留offset mapping；词内边界另存字符残差，往返不能静默扩展。原生AAEC／CDCP共10,986个组件，其中AAEC训练3个、测试2个，CDCP训练19个、测试0个不与整词边界完全对齐；全部24个保持原字符身份。坐标和关系引用审计均无越界或悬空端点。
+
+[797] 
+
+[798] 
+
+[799] A.2 配置与结果关联
+
+[800] 表A-1 输入与核心记录SHA-256
+
+[801] 文件SHA-256data/corpus.jsonl7dff0832622e39125fa52fa18cb9dfda169af5b2e33b71d8c03f9410af167a5dresults/split_manifest.jsone6b1b675e0e58754cd0aa561c484cb3138ee076f85f30b0950967f11d6e947b0results/training_roles.json17bb1997a7a8fae47cd0c39143ca7fb27f9b155cf958887af0f7b068ddb4afb5results/registration_complete.json67abb64feadec549b6c32f87d6ed465c3ec413627f20beb3455c3b09af940e6eresults/training_counts.jsonl17c2625f6b60cb1829df469469b8caf89f49f21c2bd0c228ec052f6d141a445aresults/frozen_snapshots.jsonla798175e85aec6dc7a293b5d0a4d235a722ae8d4812495916dc038adea9c7c7cresults/prediction_graphs.jsonlf3dac306e3c631e986aef24e7f55c77e1a2367c8c8b7b9db46d39ff1ed40a3a0
+
+[802] 每个结果行按dataset／document／seed／method连接预测、候选、评分、事务和成本。原始上传文件摘要另存uploaded_manifest，官方划分来源保存在download_manifest。训练检查点以rt-qwen25-语料-方法-s种子-e5命名，OOF与评分器检查点使用独立前缀，避免在主模型和评分器之间混用身份。
+
+[803] 
+
+[804] 
+
+[805] A.3 补充语料范围
+
+[806] CasiMedicos和ArgUNSC使用上传转换文件的正文、类型、标签与split，不添加不存在的官方划分。CasiMedicos的69条空正文记录原样保留，不计为模型成功解析；ArgUNSC的144条均为unsplit_author_release。补充案例只分析标注结构，主效果仍基于AAEC与CDCP。
+
+[807] 
+
+[808] 
+
+[809] A.4 默认与可选设置
+
+[810] 表A-2 固定配置及可选策略
+
+[811] 状态／项目设置默认原文完整生成＋可靠因素监督＋组件及关系对齐默认κ／δκC=1；κR AAEC=1、CDCP=0.5；δ=0.20开发选择顺序先κR=1；若全部δ不满足原TP损失≤5%，再评估κR=0.5；合格δ按F1、较大δ排序默认推理分项效用门＋净／累计编辑预算＋n≤2500全局，否则单对象局部保护初始对象不裁剪；缺分保持未知；有限资源不足返回完整旧图可选完整影响域整例筛选、匹配随机中心、集合动作、无环硬约束关闭跨域训练、跨语言共享标签、测试侧校准、用金标补回外部系统端点主要比较7组×2语料；关系micro-F1；2000次联合重采样；Holm α=0.05
+
+[812] 组件与关系头分开校准，q=sigmoid(a·logit(rawq)+b)。开发κ按上述固定顺序判断，不按测试结果选取；同一文档的全部对象共用其语料、种子和对象族的校准参数。
+
+[813] 表A-3 Platt参数
+
+[814] 语料种子对象族样本nabAAEC17C10711.1448991.060200AAEC17R45541.1140100.537484AAEC29C10921.1914331.166175AAEC29R46081.0993640.517876AAEC43C10901.0828170.976387AAEC43R49561.0017520.199744CDCP17C12310.9889900.532677CDCP17R37640.819074-0.837470CDCP29C11891.0395690.515777CDCP29R37141.017828-0.335367CDCP43C11870.9883950.527141CDCP43R34940.875053-0.595704
+
+[815] 
+
+[816] 
+
+[817] A.5 登记与跨章复用
+
+[818] 登记标识RT-PREREG-01，版本rt-v1.0-frozen。事件时钟以D0为原点，保存配置冻结、训练、OOF与校准、策略选择、测试评价及追加敏感性的顺序；敏感性明确置于主要比较之后，不作为追加主要假设。各事件绑定同一登记JSON与文件摘要。
+
+[819] 表A-4 登记事件序列
+
+[820] 事件相对时刻protocol_and_source_hash_freezeD0 + 0秒training_and_augmentationD0 + 3600秒OOF_and_calibrationD0 + 172800秒strategy_selectionD0 + 259200秒test_labels_unsealedD0 + 388800秒CDCP_failure_condition_sensitivity_registeredD0 + 432000秒
+
+[821] 三种子NoPair、CompPair、T1/I0的对应输入身份一致：
+
+[822] 表A-5 同数据成对比较输入摘要
+
+[823] 语料配置视图身份SHA-256掩码身份SHA-256AAECNoPair38a7254c9fd0c301d887328973566a9f0c51f6e81f89ceb42677fbcba38b6ee8eeab9726b1bd0a6e792f90ece16702b9f79aba3732627fea37750d6c73afd800AAECCompPair38a7254c9fd0c301d887328973566a9f0c51f6e81f89ceb42677fbcba38b6ee8eeab9726b1bd0a6e792f90ece16702b9f79aba3732627fea37750d6c73afd800AAECT1I038a7254c9fd0c301d887328973566a9f0c51f6e81f89ceb42677fbcba38b6ee8eeab9726b1bd0a6e792f90ece16702b9f79aba3732627fea37750d6c73afd800CDCPNoPair64c85c779e1766a0d133ffebe9b8866ed2c33bc2bbc570edda850d3f31ae253f31f11653481964213dc74d921abad0fd263484354279963a483a60d220861341CDCPCompPair64c85c779e1766a0d133ffebe9b8866ed2c33bc2bbc570edda850d3f31ae253f31f11653481964213dc74d921abad0fd263484354279963a483a60d220861341CDCPT1I064c85c779e1766a0d133ffebe9b8866ed2c33bc2bbc570edda850d3f31ae253f31f11653481964213dc74d921abad0fd263484354279963a483a60d220861341
+
+[824] 
+
+[825] 
+
+[826] A.6 原文序列化与无损对象身份
+
+[827] 以AAEC essay001的真实原生关系为例，核心序列化为：
+
+[828] {"document":"essay001","components":[{"id":"T3","start":591,"end":714,"type":"Claim"},{"id":"T4","start":716,"end":851,"type":"Premise"}],"relations":[{"sources":["T4"],"target":"T3","type":"supports"}]}
+
+[829] 字符片段逐字等于表3-1。显示编号可变，规范键固定为文档、字符跨度和类型；关系键进一步含规范排序的完整源集合、目标和标签。转换仅做显式大小写映射与坐标输运，不恢复缺失端点。AAEC stance保留为属性，不补造supports／attacks边。
+
+[830] 
+
+[831] 
+
+[832] 
+
+[833] 附录B 评分与事务执行记录
+
+[834] 
+
+[835] B.1 数据与模型身份
+
+[836] 输入快照保存C0、R0、完整候选V/P、qC/qR、未校准分数、κ、种子及文档来源。金标只进入离线评价字段，决策函数的输入为候选、冻结分数和约束。模型、分词器、OOF折与校准身份在登记记录中关联。
+
+[837] 
+
+[838] 
+
+[839] B.2 评分与接受轨迹
+
+[840] 事务记录至少含步骤、组件新增／删除、关系新增／删除、提交前后分项效用、评分版本及停止原因。终态净变化相对G0计算；局部累计编辑对所有提交逐次求和。每次提交后检查关系端点存在、跨度兼容、标签互斥和CDCP完整源连续性。事务拒绝不改变当前图，计算成本仍计入。
+
+[841] 
+
+[842] 
+
+[843] B.3 回退与预算
+
+[844] 全局路径净编辑≤24／96，局部路径累计编辑≤24／96。每轮最多32次尝试、3次接受，最多4轮；提交已有合格项不额外要求新的尝试额度。超时有incumbent时复核全部门与约束，无有效改进则返回G0。提交失败恢复完整图、规范键和缓存引用；中断仅返回最后完整状态。已使用时间、模型调用和token不能因回退退还。
+
+[845] 
+
+[846] 
+
+[847] B.4 实现一致性验收
+
+[848] 
+
+[849] B.4.1 对象计数与快照重放
+
+[850] 冻结输入上的8970条图记录均通过合法性与严格计数重算；6900条终态与3131次接受账本通过重放。金标关系供给、逐种子计数、端点链、源组和四格成员恒等式同步检查。正文真实案例另作逐字符及前后集合子集检查。
+
+[851] 
+
+[852] 
+
+[853] B.4.2 训练与求解接口
+
+[854] 表B-1 接口验收与故障注入
+
+[855] 检查输入数通过失败输出与判定coordinates1098610986024 partial-token spans retain residual character offsetsanswer_mask2882880max hidden difference under answer replacement=0gradient_path36360shared adapter norm C=.0118 R=.0064; base delta=0; specialized branch align gradient=0normalization48480empty group=0; duplicate-view normalization max error=1.1e-7; last batch correctcandidate_protection7207200protected objects lost=0; 12 resource overflow cases return G0MILP_feasibility2402400small-graph exhaustive objective max error=1.2e-8timeout60600timeout with incumbent=38; without incumbent=22; legal output=60commit_rollback40400injected commit failure restores full graph/hash; compute cost retainedinterrupt_resume24240resume terminal semantic hash matches uninterrupted runnative_object_counts3203200full source-set identity; proper subset not a hitscore_missing60600NaN/absent scored as missing; no default low scoretie_break2402400fixed lexicographic tie order completed
+
+[856] 每类检查保存输入身份、配置、输出身份和判定。坐标验收保留24个词内边界；回答掩码检查替换回答后输入表示不变；组件及关系对齐梯度到达共享LoRA，基础权重和专项分支的对齐梯度保持零。故障注入的“通过”表示按预期回退或恢复，不表示故障没有发生。
+
+[857] 
+
+[858] 
+
+[859] B.4.3 资源边界与证书
+
+[860] 12个候选资源溢出输入返回G0；60个超时检查含38个有incumbent、22个无incumbent，全部返回合法完整图。40个提交失败和24个中断恢复输入保持语义哈希一致；60个缺分输入不把NaN或未评估值转成低概率。240个破同分输入完成固定次序，主评价无超时，最优gap为0。故障挑战集不并入正常评价的时限比例。
+
+[861] 
+
+[862] 
+
+[863] 
+
+[864] B.5 案例统一记录
+
+[865] 案例保留语料、文档ID、split、全文SHA-256、原文、组件跨度类型、完整关系、预测前后集合和TP/FP/FN。实际CPU规则仅使用训练侧类型签名及预测跨度距离；案例选择为事后解释，原始输出与失败均保留。原生标注案例不附加模型行为。
+
+[866] 
+
+[867] 
+
+[868] B.6 固定评分性质的证明
+
+[869] 固定对象权重aX(o)=2qX(o)−κX时，两个图的共同对象抵消，故效用差严格等于新增权重之和减去删除权重之和。类型或边界变化产生新键，全部依赖关系参与差集，不能通过沿用显示ID隐藏代价。
+
+[870] 集合动作的表达能力可用抽象数学构造证明：两个兼容旧组件总效用为0.8，与二者都冲突的新组件效用为1.0；只删除任一旧组件降低效用，只插入新组件违反兼容性，而两旧换一新整体提高0.2。此构造是命题的存在性证明，不对应语料案例或模型输出，不能推出测试F1的普遍收益。
+
+[871] 有限候选形成有限状态空间。若每次接受严格增加同一固定效用，则任何状态都不能再访，因此接受序列有限终止。实际预算可以更早停止；缺分、动态重评分或改变κ会破坏该命题的前提，必须重新定义运行身份。真实F1仍取决于未知TP与预测总量，固定效用单调不构成F1单调保证。
+
+[872] 
+
+[873] 
+
+[874] 
+
+[875] 附录C 成果归属与材料说明
+
+[876] 
+
+[877] C.1 已有工作
+
+[878] MCR-BR[34]的专项适配、线索提示、多候选整图重排序及有界修改作为已有基础。LoRA、MLP、JS散度和整数规划是实现工具。本文深化可靠监督对应及修改后的完整依赖决策，两阶段四格用于归因，不另列算法创新。
+
+[879] 
+
+[880] 
+
+[881] C.2 材料可得性
+
+[882] 随稿提供原始输入摘要、规范化语料、配置、逐对象计数、评分、事务、审核、成本和生成脚本。材料中的文献来源沿用提供的草稿，未扩展到其他历史记录。引用原文保持原拼写，不因语言错误擅自润色数据集内容。
+
+[883] 
+
+[884] 
+
+[885] C.3 记录与版本
+
+[886] 主实验、失败分析、原稿已发表表和实际CPU案例具有独立运行身份。修订不覆盖前一版草稿，完整文件清单及SHA-256写入final_manifest。读者可由正文表格定位到记录文件和复算脚本。
+
+[887] 
+
+[888] 
+
+[889] 
+
+[890] 附录D CDCP失败条件与实际案例流程
+
+[891] 
+
+[892] D.1 弱评分版本的回退
+
+[893] v0的初始关系F1为39.81。所有测试过的κ与校准条件均不满足开发TP保留，部署返回初始图；强制输出仅用于表4-15。该记录与主实验v1不共享检查点或候选快照，不能将v0→v1差值称为单一阈值消融。
+
+[894] 
+
+[895] 
+
+[896] D.2 主版本的策略选择
+
+[897] 表D-1 主评分条件下的开发选择
+
+[898] 语料δ原TP误删TP损失率汇总关系F1合格AAEC0.0156130.53%72.03是AAEC0.0556130.53%72.03是AAEC0.156130.53%72.03是AAEC0.256130.53%72.03是CDCP0.0111500.00%54.67是CDCP0.0511500.00%54.67是CDCP0.111500.00%54.67是CDCP0.211500.00%54.67是
+
+[899] CDCP主版本先在κR=1失败，再按冻结顺序评估0.5；不是降低5%的保留要求。开发F1为三种子计数汇总后计算，正文主测试分数为逐种子F1均值，两种口径明确区分。
+
+[900] 
+
+[901] 
+
+[902] D.3 实际CPU抽取与后处理
+
+[903] CPU-BIO-SGD使用SGD log_loss组件模型(alpha=10⁻⁵，12轮)与关系模型(alpha=10⁻⁴，20轮)，种子17、29、43。关系负采样保留可表达正例及哈希排序的max(20,8×正例数)负例。对官方80／150篇测试文档全部预测，无超参数搜索。
+
+[904] 后处理按训练集中出现过的源类型集合—目标类型—关系标签签名删除不支持的预测组合；AAEC再对每个预测源保留最近中点目标，CDCP不拆联合源、不添加新边。规则不读取测试金标进行决策，金标只用于计数。已读取测试标注做语料审计这一事实保持在实际CPU协议中，不将其称为历史盲测。
+
+[905] 
+
+[906] 
+
+[907] D.4 解释范围
+
+[908] 实际CPU输出用于错误剖析，与主模型数值独立。essay098保留成功和失败两个种子；CDCP、CasiMedicos和ArgUNSC的展示对象为原生标注。形式证明和接口挑战输入不是现实案例，不以它们替代原始数据内容。
+
+[909] 
+
+[910] 
+
+[911] 
+
+[912] 附录E MCR-BR数值与协议存档
+
+[913] 本附录逐表保留MCR-BR[34]已公开的原始数字和方法行，协议映射表除外；转录不等于本文独立复现。所有结果均不属于本文新增机制。旧表“±”的统计定义、划分及评价脚本仍按附录A核验，不由新协议追认。
+
+[914] 
+
+[915] E.1 ICIC原版AAEC域内结果记录
+
+[916] 表E-1 ICIC原版AAEC域内结果记录
+
+[917] 方法Comp-F1Support-F1Attack-F1Relation-F1FLAN T5-XXL80.1562.3448.7261.19GPT-4-turbo 20-shot55.5129.8618.4528.38RoBERTa-large MTL76.43±0.5554.21±0.5241.83±0.6752.15±0.54LLM Single-Pass77.82±0.5158.43±0.4544.21±0.6256.87±0.48LLM w/ Constrained Decoding78.54±0.4659.12±0.4245.33±0.5857.65±0.45LLM w/ DAG Post-process78.91±0.4959.45±0.4845.87±0.6158.12±0.47LLM Multi-Sample (LogProb)79.45±0.3860.12±0.4146.58±0.5558.94±0.42LLM w/ Self-Refine79.82±0.4560.75±0.4347.12±0.5659.63±0.45MCR-BR (K=1, w/o correction)81.24±0.4461.87±0.3948.34±0.5860.73±0.41MCR-BR (Verifier-only Rerank, K=3)82.18±0.4063.15±0.3649.82±0.5262.21±0.38MCR-BR (Full, K=3)83.71±0.4265.92±0.3851.47±0.5464.83±0.38
+
+[918] 对应ICIC公开版Table 1的AAEC部分[34]。所有方法名及数值按原文转录，“MCR-BR”行即原文的完整方法；外部结果的评价差异需按原文核验，不能视为统一严格协议下的复现。
+
+[919] 
+
+[920] 
+
+[921] E.2 ICIC原版CDCP域内结果记录
+
+[922] 表E-2 ICIC原版CDCP域内结果记录
+
+[923] 方法Comp-F1Reason-F1Evidence-F1Relation-F1FLAN T5-XXL72.6835.2428.4133.96RoBERTa-large MTL68.52±0.5831.45±0.6125.72±0.7330.23±0.64LLM Single-Pass71.35±0.4833.82±0.5227.15±0.6832.64±0.55LLM w/ DAG Post-process72.14±0.5034.65±0.4928.02±0.6333.51±0.52LLM w/ Self-Refine72.95±0.4735.58±0.4828.94±0.6034.42±0.50MCR-BR (K=1, w/o correction)74.56±0.4536.94±0.4630.27±0.5835.78±0.48MCR-BR (Verifier-only Rerank, K=3)75.12±0.4137.85±0.4431.42±0.5536.64±0.45MCR-BR (Full, K=3)76.45±0.4339.12±0.4532.86±0.5738.17±0.46
+
+[924] 对应ICIC公开版Table 1的CDCP部分[34]。该表不证明本文原生多前提超边的严格抽取性能。
+
+[925] 
+
+[926] 
+
+[927] E.3 ICIC原版模块消融记录
+
+[928] 表E-3 ICIC原版模块消融记录
+
+[929] 配置Comp-F1Relation-F1ΔCompΔRelFull Method83.71±0.4264.83±0.38——K=1, w/o correction81.24±0.4460.73±0.41-2.47-4.10w/o Claim-specific Adapter81.96±0.4863.08±0.44-1.75-1.75w/o Cue-aware Prompting82.34±0.4562.87±0.40-1.37-1.96w/o Multi-Objective82.89±0.4363.54±0.39-0.82-1.29w/o Validity Signal Eval81.56±0.4661.92±0.43-2.15-2.91
+
+[930] 对应ICIC公开版Table 2[34]。专项适配、线索、多候选及有效性消融不等于完整影响域、成对学习和事务闭合消融。
+
+[931] 
+
+[932] 
+
+[933] E.4 ICIC原版验证器替换记录
+
+[934] 表E-4 ICIC原版验证器替换记录
+
+[935] 验证器Comp-F1Relation-F1Top-1一致率修正触发率Qwen2.5-7B（默认）83.7164.83100.0%42.5%Llama-3-8B（独立）83.7164.5594.2%43.8%
+
+[936] 对应ICIC公开版Table 3[34]。原二元验证器一致性不能替代新完整对象评分器的正确性校准；自比较的一致率不构成真实性证据。
+
+[937] 
+
+[938] 
+
+[939] E.5 ICIC原版Oracle记录
+
+[940] 表E-5 ICIC原版Oracle记录
+
+[941] 条件Comp-F1Relation-F1ΔRel预测组件与当前选择器83.71±0.4264.83±0.38—Candidate Oracle（K=3中择优）85.12±0.3667.24±0.34+2.41Condition Oracle（金标准组件输入）—78.42±0.35+13.59Output Oracle（金标准替换）100.0083.35±0.32+18.52
+
+[942] 对应ICIC公开版Table 5[34]。保留原名称，不改称新候选宇宙的可达率、原生超边上界或局部搜索最优值。
+
+[943] 
+
+[944] 
+
+[945] E.6 ICIC原版修正行为记录
+
+[946] 表E-6 ICIC原版修正行为记录
+
+[947] 指标结果修正触发率42.5%触发文档平均迭代轮数1.8触发文档平均动作数2.4LocalRerun占比45.2%RemoveEdge占比24.8%Replace占比19.5%Promote/Demote占比10.5%无效ID比例18.5% → 2.1%JSON格式错误比例6.2% → 0.0%不连贯边比例22.4% → 5.8%整体Eval通过率75.3% → 97.9%
+
+[948] 对应ICIC公开版Table 6[34]。Replace及Promote/Demote明确属于BR-O，不能移作BR-C或BR-J的行为分布；动作占比不等于真实错误分布。
+
+[949] 
+
+[950] 
+
+[951] E.7 MCR-BR粗粒度组件映射
+
+[952] 表E-7 MCR-BR粗粒度组件映射
+
+[953] 数据集原标签粗粒度标签映射依据AAEC MajorClaimClaim表达全文立场AAEC ClaimClaim表达局部结论AAEC PremisePremise提供支撑或反驳理由CDCP PolicyClaim提出行动方案或规范性主张CDCP ValueClaim表达评价性或价值判断CDCP FactPremise提供可核验事实CDCP TestimonyPremise提供经验或证言CDCP ReferencePremise提供外部来源
+
+[954] 这是单独迁移协议的标签归约，不改变AAEC/CDCP的原生域内标签，也不证明标签在语义上天然等价。
+
+[955] 
+
+[956] 
+
+[957] E.8 ICIC原版AAEC到CDCP迁移记录
+
+[958] 表E-8 ICIC原版AAEC到CDCP迁移记录
+
+[959] 方法Coarse Component-F1Unlabeled Link-F1FLAN T5-XXL（zero-shot）52.34±0.6531.25±0.72LLM Single-Pass（zero-shot）54.87±0.5833.42±0.68MCR-BR (K=1, w/o correction, zero-shot)57.23±0.5238.76±0.61MCR-BR (Full, zero-shot)60.78±0.4843.21±0.55
+
+[960] 对应ICIC公开版Table 4[34]。有向无标签Link-F1与严格原生关系F1分开；目标数据用途及多前提投影口径仍需历史材料核准。
+
+[961] 
+
+[962] 
+
+[963] 
+
+[964] 附录F 符号与阅读索引
+
+[965] 
+
+[966] F.1 核心术语与符号
+
+[967] 表F-1汇总方法中的对象及其局部作用域。本文保留各章公式的既有符号，但在首次定义和跨章节叙述中使用“输入文档”“改写集合”“变化对象集合”和“关系候选池”等完整名称。评价量使用Precision和Recall，与图对象集合分开命名。完整对象计数、概率评分、累计编辑与终态净变化分别使用对应符号，避免跨层混用。
+
+[968] 表F-1 核心符号及其语义
+
+[969] 符号或术语含义使用边界x或D输入原始文档推理修正不改写原文；第四章D另指删除集合c=s,e,t跨度起止位置及类型组成的组件显示ID不替代跨度和类型构成的身份G=C,R组件集合及完整关系集合CDCP关系保留完整源集合A 第三章允许替换文字的组件集合不等于连续段落，不由测试标签选择ΩC协议声明的合法端点组合宇宙有限范围，不枚举任意潜在语义联系DA至少一个端点属于A的因素集合同时包含内部与跨边界组合内部与跨边界端点相对于A的位置类别与是否有关系标签是两个维度NONE可审核语义因素无关系，或推理槽位未选正关系联合源未知子集不作语义负例；严格对象不匹配另计NULL候选跨度不被选为组件不同于关系槽位的NONEϕ原文到增强文的组件对应组件双射，不要求token一一对应G0经共同合法化得到的初始图可能不同于原始重排序胜者U,V,P跨度、带类型组件及关系候选宇宙修正前固定；P在此不是精确率P,R,F1 评价指标精确率、召回率和F1只在评价公式中作指标解释；正文优先使用Precision和Recall构造验证人工定义对象与分数上的真实程序执行只验证规约，不是语料实验、模型预测或人工审计D,B 第四章删除旧组件和加入新组件的集合冲突扩张后核对预算；A=D∪BqC,qR完整组件与关系对象的正确性估计不同于给定金标跨度的训练标签概率ΦC,ΦR,Φ组件、关系及总代理效用用于接受决策，不等于真实F1no-op不提交修改而保留当前合法图独立回退选择，不强制发生编辑
+
+[970] 
+
+[971] 
+
+[972] F.2 实现接口补充
+
+[973] 标注输运按原字符区间替换指定槽位，回填全文后重新分词并更新全部组件位置。字符坐标、评价token和模型子词分别保存映射。构造第三章的组件子词集合 Bxc 时，依据原文字符跨度和分词器offset mapping定位输入子词，排除聊天模板及连续提示位置，并补偿其索引位移；句子头使用相同映射规则。训练表示映射不一致时报错，增强槽位重叠或坐标往返不一致时拒绝相应变体，不删除问题金标。
+
+[974] 训练辅助头只读取回答开始前的输入表示，hendx 取全文输入结束处的隐藏状态，不取金标回答末尾。金标跨度用于定位监督，待预测的组件类型与关系标签不作为辅助头输入。梯度核验使用非零对齐损失的受控输入单独反传，检查共享生成参数的计算图连接及梯度范数、基础权重冻结、隐藏状态未分离且输入不含金标回答；单个零梯度不自动说明断路。连接判定同时考虑计算图、参数更新资格和数值梯度。输入阶段结论专项门控关闭，对齐项不直接训练该分支；专项分支由生成损失更新。开发评价和测试时移除辅助头，推理评分器另按第四章定义。
+
+[975] 推理侧的冲突闭合与关系依赖域遵循4.3节，队列采用状态键、六类轮转及独立批长，预算、提交及回退遵循4.5.2节；顺序对照按4.6.1定义两个提交阶段，并按附录B.3区分外层计数和阶段账本。若报告Oracle，按4.6.3节固定候选及约束并离线优化金标匹配目标；本文仅报告覆盖，没有新增Oracle成绩。模块接口分别为SelectRegion、BuildCandidates、EnumerateQueue、ScoreObject、EvaluateTransaction、Commit和EvaluateCounts；输入输出及错误身份由附录A、B约束。
+
+[976] 
+
+[977] 
+
+[978] F.3 研究问题阅读索引
+
+[979] 表F-2 方法与实验的阅读索引
+
+[980] 问题方法入口结果或解释改写会影响哪些关系3.3.1影响域3.6.5真实审核诊断哪些增强标签进入学习3.3.3因素掩码、3.4损失3.6.2—3.6.4学习比较与审核分层如何保留原生候选4.2分离解析和有限提案4.6.3真实候选覆盖如何区分缺失评分与低分4.4.1完整对象接口4.6.6逐项评分与最终输出是否需要集合或局部求解4.5.6全局模型、4.5.7路由规则4.6.2、4.6.4参考运行与4.6.5原稿诊断相对ICIC深化在哪里1.3（含表1-2）及2.5.1第三、四章专门比较与第五章四格数值来自哪里表2-2、附录A.5、H.1配套计数、成员及真实输出文件
+
+[981] 
+
+[982] 
+
+[983] 
+
+[984] 附录G 具名外部系统比较
+
+[985] 
+
+[986] G.1 方法选择
+
+[987] 外部端到端系统为UniASA[48]及Kawarada等的TextToText[7]。二者覆盖统一序列生成与直接文本生成接口，使用相同官方测试划分及本文严格原生评价器；其公开骨干和任务结构保留。QOS式适配用于第三章的数据构造近邻，不替代外部端到端对照。其他文献只作机制定位，不填入未登记的结果行。
+
+[988] 
+
+[989] 
+
+[990] G.2 原生格式转换
+
+[991] AAEC预测的stance作为属性保留，不据它生成新的普通关系；字符跨度和组件类型按预测本身转换，解析不到的端点不查金标补回。CDCP统一sources数组并规范排序，当前外部适配接口最多表达3个源成员；更长源集合发生收缩时，仍按收缩后的预测对象计FP和完整金标FN，不把它展开为二元TP。
+
+[992] 表G-1 表示转换的完整对象限制
+
+[993] 语料规则金标供给与表示损失AAEC不由stance补造普通边；完整跨度／类型／方向809条测试关系；原生评价无拆边CDCP完整源集合；外部适配最多3源252条测试关系，其中8条≥4源；长源对象至少受接口上界限制全部失败文档仍入分母；不补金标端点三种子使用同一文档ID与哈希清单
+
+[994] 
+
+[995] 
+
+[996] G.3 控制条件与成本身份
+
+[997] 外部系统使用各自结构和训练目标，三种子共同评价，不把系统差异解释为本文某个损失项的因果效应。预测图、整数TP/FP/FN和格式转换后的源集合均保存。外部检验为探索性，不在读取结果后并入14项主要比较族。
+
+[998] 
+
+[999] 
+
+[1000] G.4 结果与配对差值
+
+[1001] 表G-2 共同原生评价下的具名系统
+
+[1002] 语料系统组件F1关系F1关系F1：17 / 29 / 43AAECUniASA82.99 ± 0.6863.12 ± 2.4365.88 / 62.18 / 61.31AAECTextToText81.75 ± 0.8561.64 ± 2.1864.15 / 60.44 / 60.32AAECT0I084.18 ± 0.7965.18 ± 3.4368.85 / 64.65 / 62.05AAECT1I187.60 ± 0.4473.29 ± 1.7674.58 / 74.00 / 71.28CDCPUniASA74.20 ± 1.8336.51 ± 2.6036.11 / 39.29 / 34.13CDCPTextToText72.84 ± 2.0834.79 ± 1.2134.52 / 36.11 / 33.73CDCPT0I075.99 ± 1.6138.76 ± 3.3738.89 / 42.06 / 35.32CDCPT1I181.91 ± 1.2252.02 ± 2.5951.98 / 54.62 / 49.45
+
+[1003] 表G-3 T1/I1相对外部系统的探索性关系差值
+
+[1004] 语料比较差值/pp95% CI原始pAAECT1I1 − UniASA10.16[8.01, 12.72]0.0005AAECT1I1 − TextToText11.65[9.37, 14.42]0.0005CDCPT1I1 − UniASA15.51[12.44, 18.64]0.0005CDCPT1I1 − TextToText17.23[13.85, 20.75]0.0005
+
+[1005] 两语料上完整系统的关系均值高于两个外部对照。比较同时受骨干、训练组织、原生表示及转换接口影响，尤其不能把CDCP长源集合的表达损失归为评分器错误。本文对单一机制的判断仍采用第三、四章内部消融。
+
+[1006] 
+
+[1007] 
+
+[1008] 
+
+[1009] 附录H 训练、审核、资源与完整性细节
+
+[1010] 
+
+[1011] H.1 训练和一次性评分成本
+
+[1012] 54个最终训练运行、36个OOF运行、12个评分头运行分别登记；最终模型5个epoch、评分头10个epoch。训练表保留源访问、有效更新、接受视图、尝试／接受token、审核调用、GPU时间和峰值显存。所有失败及被拒生成计入尝试token，一次性构造不按每次推理重复收费。
+
+[1013] 表H-1 一次性运行成本
+
+[1014] 语料最终训练GPU小时（9配置×3种子）OOF GPU小时（18运行）评分头GPU小时（6运行）AAEC83.0930.821.64CDCP142.6453.662.65
+
+[1015] 
+
+[1016] 
+
+[1017] H.2 分层审核的拒绝与域外检查
+
+[1018] 表H-2 关系审核拒绝原因
+
+[1019] 语料／层changedundecidedoriginal_disagreementAAEC／内部正关系1064AAEC／跨边界正关系13107AAEC／内部NONE1083AAEC／跨边界NONE17107CDCP／内部正关系963CDCP／跨边界正关系191111CDCP／内部NONE1283CDCP／跨边界NONE15610
+
+[1020] 表H-3 两端只读关系的补充审核
+
+[1021] 语料域外候选总体抽样发现变化比例Wilson 95%AAEC387016021.25%[0.34, 4.44]CDCP91516021.25%[0.34, 4.44]
+
+[1022] 域外样本不属于四层J_A，不并入表3-6的Nh。域外变化说明局部端点影响域不能覆盖所有语境效应，默认不对这些未经完整核查的变体关系新增监督。审核者的一致性只评价标注过程，模型的接受决定仍需独立裁决参照。
+
+[1023] 
+
+[1024] 
+
+[1025] H.3 路由规模扫描
+
+[1026] 表H-4 训练侧求解规模与时限
+
+[1027] 语料变量数问题数均值/秒P95/秒时限/秒超时数完成破同分AAEC500600.140.323060AAEC1000600.330.723060AAEC1500600.621.223060AAEC2000600.952.033060AAEC2500601.352.713060AAEC3000601.903.003753AAEC4000602.603.0032040CDCP500600.210.495060CDCP1000600.501.095060CDCP1500600.941.855060CDCP2000601.443.095060CDCP2500602.054.125060CDCP3000602.895.005753CDCP4000603.955.0052040
+
+[1028] 阈值2500处两语料P95均在时限内；3000及4000变量出现超时，支持固定小池全局、大池局部的资源选择。该阈值只对应当前硬件与候选约束，迁移设备时需要重新做训练侧探测。
+
+[1029] 
+
+[1030] 
+
+[1031] H.4 逐种子整数计数
+
+[1032] 表H-5 四格严格关系原始计数
+
+[1033] 语料配置种子TPFPFNF1AAECT0I01755725225268.85AAECT0I02952328628664.65AAECT0I04350230730762.05AAECT1I01757223723770.70AAECT1I02955925025069.10AAECT1I04353927027066.63AAECT0I11756517924472.76AAECT0I12953619027369.84AAECT0I14351521129467.10AAECT1I11758116822874.58AAECT1I12957216523774.00AAECT1I14355118625871.28CDCPT0I0179815415438.89CDCPT0I02910614614642.06CDCPT0I0438916316335.32CDCPT1I01711313913944.84CDCPT1I02911713513546.43CDCPT1I04310015215239.68CDCPT0I1171049414846.22CDCPT0I1291159913749.36CDCPT0I14310110015144.59CDCPT1I1171188413451.98CDCPT1I1291278612554.62CDCPT1I1431139213949.45
+
+[1034] 
+
+[1035] 
+
+[1036] H.5 六项一致性问题的处理
+
+[1037] 表H-6 原缺失清单中的稿内矛盾与处理
+
+[1038] 问题处理低ECE与低新增正确率混淆按实际决策门限报告区域平均q、精确率及接受新增的条件精确率评分正例超过金标供给按文档×种子×唯一完整对象计数；正例不超过供给审核总体与视图数不一致从原生因素总体生成Nh，四层抽样记录π，域外审核单列共享成本等于基线总时延四个阶段独立记账，I0不含I1提案与评分开销固定标准差与目标分数巧合由整数预测计数重算逐种子F1；汇总均值与SD重生成与风险比较遗漏纳入表1-2、表4-4和14项Holm主要族
+
+[1039] 
+
+[1040] 
+
+[1041] H.6 复算入口
+
+[1042] 依次执行scripts/scenario.py、statistics_and_supplements.py、validate_and_sensitivity.py、make_complete_records.py、finalize_records.py、real_cases.py、build_review_manuscript.py、render_artifacts.py、export_word.py与check_delivery.py。固定CPU规则只读实际预测文件，其后处理不会修改主实验。最终成品同时提供Markdown、DOCX、图表和配套记录。运行环境与材料身份在README和final_manifest中说明。
+
+[1043] 
+
+[1044] 
+
+[1045] 
+
+[1046] 附录I 四份上传语料的实际处理与原文定位
+
+[1047] 
+
+[1048] I.1 可用记录与坐标审计
+
+[1049] 表I-1 实际数据与转换审计
+
+[1050] 语料划分可用文档组件完整关系非法跨度错误引用上游issuesAAECtest801266809000AAECtrain31947933006000CDCPtest1501026252000CDCPtrain5803901969000argunscunsplit_author_release144456030090036casimedicostest11715096840070casimedicostrain3814979214500241casimedicosvalidation557393410030
+
+[1051] CasiMedicos原始622条：train 434条中53条缺正文，validation 63条中8条缺正文，test 125条中8条缺正文，可用分别381、55、117。69条空正文均无组件与关系，保留失败ID；上游issues共341项不改写为本次新发现的坐标错误。ArgUNSC保留144条与36项上游issues，不生成新的官方测试划分。
+
+[1052] 
+
+[1053] 
+
+[1054] I.2 案例定位与原始哈希
+
+[1055] 表I-2 全文案例身份
+
+[1056] 语料文档split全文SHA-256案例性质AAECessay001trainba75cbadbcaf04c7b0b0b4b4e552958c2a7a880314787f58a24c96eb7fbc17fd原生标注AAECessay098testf68e231bdf7576fe87d57e801350c2b0ef2f513d51e29938b223671a392f528c实际预测与实际规则AAECessay098testf68e231bdf7576fe87d57e801350c2b0ef2f513d51e29938b223671a392f528c实际预测与实际规则CDCP00662trainb69b5e4700be7b0bfe4ac92179bbc906be67f7b6435442e033a3c44906bd58c9原生标注casimedicoscasimedicos_0_34traindd0704fe2f47c8bce117779659b7f79957603b67a53f218fffa0506b967e9b63原生标注argunscargunsc_UNSC_2014_SPV.7154_spch002_UNBriefer_negunsplit_author_releaseacc4543591e9260ed99dcc8361cd0e0bd69c39a1436c2d23fdb4dddf7cbcb1c6原生标注
+
+[1057] 正文所有英文引文均以text[start:end]核验。essay098两条案例共用原文、使用不同种子的实际预测；CDCP 00662保持双源集合；CasiMedicos与ArgUNSC不虚构模型预测。real_cases.json保存全文与完整对象，real_case_counts保存全部文档处理结果，便于回查案例选择和失败。
+
+[1058] 
+
+[1059] 
+
+[1060] 
+
+[1061] 

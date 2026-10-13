@@ -1,0 +1,34 @@
+{
+  "purpose": "三幅中文论文方法框架图：全文双创新点、可靠因素成对学习、依赖闭合修正。",
+  "backend": "python",
+  "evidence_identity": "方法与规约示意，不承载实测效果；小图均为抽象结构示意。",
+  "source_version": "基础全文加第一章v4、第二章v2、第三四章v1及附录B6补丁；第五六章和其余附录保持原稿。",
+  "reading_scope": "摘要、全文章节、参考文献、附录A-I、第二章补充材料和空脚注核查。",
+  "claims": [
+    "图1：训练阶段的可靠监督与推理阶段的结构修正，通过训练后的生成器衔接。",
+    "图2：原文完整监督保留；增强只在可靠对应因素上进行辅助监督与成对学习。",
+    "图3：候选与评分冻结后，组件及其依赖关系共同进入合法性、效用和预算决策。"
+  ],
+  "archetype": "分阶段模块流程图，附局部结构示意；每幅使用单一毫米坐标画布。",
+  "roles": {
+    "overview": "解释两项研究的接口与继承基础",
+    "training": "解释增强构造、审核掩码和参数学习",
+    "inference": "解释候选评分、求解路由和共同接受"
+  },
+  "style_reference": "参考用户此前提供论文中实际查看的双阶段虚线分区、浅色模块、双视图编码与直角箭头；不复制其图像或方法内容。",
+  "palette": {"training": "muted blue", "inference": "muted amber", "inherited": "neutral grey"},
+  "dimensions_mm": {"overview": [180,166], "training": [180,188], "inference": [180,207]},
+  "typography": {"font": "Arial Unicode MS", "main_pt": 8.2, "minimum_designed_pt": 7.4, "minimum_audited_pt": 5},
+  "exports": ["600-dpi PNG", "editable-text SVG", "embedded TrueType PDF", "three-page combined PDF", "Python source", "captions.txt"],
+  "integrity_boundaries": [
+    "训练辅助头与推理完整对象评分器独立，不能共用概率含义。",
+    "训练可改写组件文字；推理原文固定。",
+    "增强全文进入共享生成器，只有可靠因素标签进入增强损失。",
+    "组件双射不等于token双射；未审核关系不转为NONE。",
+    "CDCP联合源按完整超边处理。",
+    "默认小池全局，大池或部分缺分单对象局部；集合BR-J为可选。",
+    "共同接受检查分项效用非负、总增量严格大于delta、合法性和预算。",
+    "代理效用提高不表示真实F1单调，图中不提供实验增益数字。"
+  ],
+  "qa": ["render-time alignment gate (single-canvas not applicable with recorded reason)", "equal module and branch geometry audit", "source validator", "PDF 5-pt glyph floor", "PDF collision audit after each revision", "visual inspection of all final PNGs and complete 3-page PDF"]
+}

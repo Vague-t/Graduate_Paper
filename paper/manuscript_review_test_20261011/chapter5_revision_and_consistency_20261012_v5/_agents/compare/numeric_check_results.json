@@ -1,0 +1,97 @@
+[
+  {
+    "check": "附录H逐种子关系F1",
+    "blocks": [
+      "B1116"
+    ],
+    "status": "pass",
+    "detail": "24行整数计数重新计算，与显示F1全部相符。"
+  },
+  {
+    "check": "四格关系F1均值及样本SD",
+    "blocks": [
+      "B0775",
+      "B1116"
+    ],
+    "status": "pass",
+    "values": [
+      {
+        "dataset": "AAEC",
+        "method": "T0I0",
+        "computed": "65.18 ± 3.43"
+      },
+      {
+        "dataset": "CDCP",
+        "method": "T0I0",
+        "computed": "38.76 ± 3.37"
+      },
+      {
+        "dataset": "AAEC",
+        "method": "T1I0",
+        "computed": "68.81 ± 2.05"
+      },
+      {
+        "dataset": "CDCP",
+        "method": "T1I0",
+        "computed": "43.65 ± 3.53"
+      },
+      {
+        "dataset": "AAEC",
+        "method": "T0I1",
+        "computed": "69.90 ± 2.83"
+      },
+      {
+        "dataset": "CDCP",
+        "method": "T0I1",
+        "computed": "46.72 ± 2.42"
+      },
+      {
+        "dataset": "AAEC",
+        "method": "T1I1",
+        "computed": "73.29 ± 1.76"
+      },
+      {
+        "dataset": "CDCP",
+        "method": "T1I1",
+        "computed": "52.02 ± 2.59"
+      }
+    ]
+  },
+  {
+    "check": "对象成员分解恒等式",
+    "blocks": [
+      "B0785"
+    ],
+    "status": "pass",
+    "detail": "AAEC 1582+1+93+36+1−0−9=1704；CDCP 293+2+35+26+3−0−1=358。"
+  },
+  {
+    "check": "端点与首个阻断分解",
+    "blocks": [
+      "B0788",
+      "B0790"
+    ],
+    "status": "pass",
+    "detail": "所有行TP加互斥未命中类别均等于对应三种子金标总量。"
+  },
+  {
+    "check": "CDCP源数分组加总",
+    "blocks": [
+      "B0796",
+      "B1116"
+    ],
+    "status": "pass",
+    "detail": "各配置TP/FP/FN按四组加总，与逐种子整数计数合计一致；组内逐种子方差缺乏分种子行，不在本轮声称复算。"
+  },
+  {
+    "check": "联合重采样CI和Holm p",
+    "blocks": [
+      "B0487",
+      "B0709",
+      "B0777",
+      "B1170"
+    ],
+    "status": "not_reproduced",
+    "detail": "缺少完整逐文档联合计数输入，不能仅凭种子总表重建；只核对重复报告与主要/探索身份。"
+  }
+]

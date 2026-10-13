@@ -1,0 +1,282 @@
+{
+  "target": "v5第五章、第六章及指定前邻页视觉复核",
+  "source_render": "_render_v4",
+  "scope_physical_pages": [
+    72,
+    73,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88
+  ],
+  "pages_reviewed": 16,
+  "method": "逐张通过view_image打开原尺寸PNG，未用联系表替代全页检查；只读文稿。",
+  "verdict": "pass_with_accepted_chapter_end_whitespace",
+  "blocking_findings": [],
+  "nonblocking_observations": [
+    {
+      "pages": [
+        78,
+        79
+      ],
+      "item": "表4-18跨页后仅余1行",
+      "decision": "重复表头完整、行不截断，保留自然跨页，避免整表后推扩大留白。"
+    },
+    {
+      "pages": [
+        81,
+        82
+      ],
+      "item": "表5-3跨页",
+      "decision": "4行/6行分配，续页重复表头正确。"
+    },
+    {
+      "pages": [
+        83,
+        84
+      ],
+      "item": "表5-5a跨页",
+      "decision": "2行/6行分配，续页重复表头正确。"
+    },
+    {
+      "pages": [
+        86,
+        88
+      ],
+      "item": "较大章末留白",
+      "decision": "章节自然收束，无孤立标题或图表异常分页；不为填满版面改动内容。"
+    }
+  ],
+  "chapter5_table_coverage": {
+    "表5-1": [
+      80
+    ],
+    "表5-2": [
+      81
+    ],
+    "表5-3": [
+      81,
+      82
+    ],
+    "表5-4": [
+      83
+    ],
+    "表5-5a": [
+      83,
+      84
+    ],
+    "表5-5b": [
+      84
+    ],
+    "表5-6": [
+      85
+    ]
+  },
+  "figure_coverage": {
+    "图5-1": 82
+  },
+  "checks": {
+    "heading_hierarchy": "pass",
+    "repeated_table_headers": "pass",
+    "caption_visual_binding": "pass",
+    "clipping_or_overlap": "none_observed",
+    "table_cell_overflow": "none_observed",
+    "orphan_headings": "none_observed",
+    "missing_glyphs": "none_observed",
+    "chapter5_explanation_paragraphs": "all_present_and_readable",
+    "chapter6_transition_and_sections": "pass"
+  },
+  "limitations": [
+    "只覆盖指定16页，不把未查看页纳入逐页验收。",
+    "来源是_render_v4；_render_final正文像素一致性由根流程另验。",
+    "视觉通过不等于实验真实性、统计复现或运行定义已核实。"
+  ],
+  "pages": [
+    {
+      "physical_page": 72,
+      "printed_page": 64,
+      "image": "_render_v4/page-72.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "6587eff1f92c2252573c8d8d0589c2a5608e0eb937ef08aee6ec467386b70c45",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表4-6续表表头完整；4.6.2标题、表4-7标题及完整表格同页，无孤立标题。"
+    },
+    {
+      "physical_page": 73,
+      "printed_page": 65,
+      "image": "_render_v4/page-73.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "13bf5953610bd175cbd6a68126550ef39721164ca1ef6087aabbf25719c6a757",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表4-8宽度在正文区内，14行均可读；表后段落自然续页。本轮未检查74页。"
+    },
+    {
+      "physical_page": 75,
+      "printed_page": 67,
+      "image": "_render_v4/page-75.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "5114105b181090bb0e6795c56e71fe3908443588137705d9c984dd118ac79ddd",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "上方续表表头完整；图4-3四个校准子图、坐标和图例清晰，无遮挡或裁切。"
+    },
+    {
+      "physical_page": 76,
+      "printed_page": 68,
+      "image": "_render_v4/page-76.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "07504be5531f12dc904547c029d5820b1b69de5d8205a15ae0bd1b4809726e26",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表4-12完整；4.6.4有正文跟随；表4-13标题与数据同页。长哈希及CPU模型名正常换行。"
+    },
+    {
+      "physical_page": 77,
+      "printed_page": 69,
+      "image": "_render_v4/page-77.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "4355c0e3efd662aefa24fc167b1ea8fe3392e698528ed876b17137bd30c5ca12",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表4-14和4-15原生文本单元格正常换行；解释连续，英文引文可读，无越界。"
+    },
+    {
+      "physical_page": 78,
+      "printed_page": 70,
+      "image": "_render_v4/page-78.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "73989af8d7ddf01066067ecdc508dcce807e7eb7e0f09e07325eabc320ad56c7",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表4-16、4-17及解释完整；4.6.5标题与引入同页；表4-18从本页开始，四条Platt记录完整。"
+    },
+    {
+      "physical_page": 79,
+      "printed_page": 71,
+      "image": "_render_v4/page-79.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "10ef55694b434d149f4c5d727440092578623a4662685605fd5674ba4938c0ef",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表4-18的raw行续页并正确重复表头；图4-4双子图及图题完整；4.7小结及向第五章的承接自然。"
+    },
+    {
+      "physical_page": 80,
+      "printed_page": 72,
+      "image": "_render_v4/page-80.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "7d3d7ed780234ef0bb425904621a8b01a583b2cdd874e7c6f52c185a987e9f4a",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "第五章章题、导语和5.1层级清楚；表5-1全部五类比较完整，CPU文字已修正；表后来源说明自然续页。"
+    },
+    {
+      "physical_page": 81,
+      "printed_page": 73,
+      "image": "_render_v4/page-81.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "03f42d57d78066c1b28a81efde660e05bc4c50d3859a95ea92ce26b3bd0a4765",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "续接5.1后进入5.2；表5-2及解释完整；5.2.2有完整引入，表5-3展示四条记录后续页。"
+    },
+    {
+      "physical_page": 82,
+      "printed_page": 74,
+      "image": "_render_v4/page-82.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "7ff8f54f839f8e5c8074baf408b7eaacad5a84434483e8c62dc7f41f86b826ed",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表5-3续页重复表头，余六条记录完整；条件增量和交互解释齐全；图5-1双子图、标签、误差棒和图题清楚；5.3下有三行导语。"
+    },
+    {
+      "physical_page": 83,
+      "printed_page": 75,
+      "image": "_render_v4/page-83.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "a933f5c1bd90800cf57aa4d28b1eec5d37b1ab63b2ff24be1f778cc59c9f5a71",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "5.3.1、表5-4及三段解释连贯，宽表列名可辨；5.3.2引入完整，表5-5a标题及首两条记录同页后续页。"
+    },
+    {
+      "physical_page": 84,
+      "printed_page": 76,
+      "image": "_render_v4/page-84.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "ca4e3a7e74c92154203af28dac9ddf8bd1b545ab9063201ec391b77160d98445",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "表5-5a重复表头，余六条记录完整；表5-5b及前后解释齐全，多行表头无裁切；5.4标题下有两行正文后续页。"
+    },
+    {
+      "physical_page": 85,
+      "printed_page": 77,
+      "image": "_render_v4/page-85.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "b1c9d5f7d06ca31bd934fbedf5e4f5c2be6c697e7faf491e1d589386b6c0d734",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "承接5.4引入；表5-6全部16行同页；单源、多源和长源段落可读，页面较满但未碰撞页脚。"
+    },
+    {
+      "physical_page": 86,
+      "printed_page": 78,
+      "image": "_render_v4/page-86.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "f767c4378adff8b517ccb017f0811d284e138116a92324327eb7cf8d0ca737f0",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "5.4末段和5.5小结完整；下部留白较大，为章节自然收束，下一页第六章另起，无孤立标题或被强推下页的表格。"
+    },
+    {
+      "physical_page": 87,
+      "printed_page": 79,
+      "image": "_render_v4/page-87.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "5c4a264ac944163e30829b51e65b3195885b047df22205d4291d07a5d2ab9519",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "第六章章题、导语、6.1三个总结段及6.2首段完整；模拟身份和机制边界清晰；6.2下有正文。"
+    },
+    {
+      "physical_page": 88,
+      "printed_page": 80,
+      "image": "_render_v4/page-88.png",
+      "width_px": 827,
+      "height_px": 1170,
+      "sha256": "5b24043b4595a15e26c22d5bb00d99821d4ab866ad9da8fede9ef0f52e558e79",
+      "inspection": "opened_full_page_individually",
+      "status": "pass",
+      "note": "承接6.2后给出6.3及完整正文；无裁切、乱码或异常空行。章末留白较大，属第六章自然结束。"
+    }
+  ]
+}

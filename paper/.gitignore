@@ -1,0 +1,25 @@
+# Rebuildable local environments and installed dependencies.
+.venv/
+venv/
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+
+# Downloaded base-model files. Experiment outputs are retained separately.
+/thesis_experiments/models/
+
+# Local secrets must not be added in future updates.
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+id_rsa
+id_ed25519

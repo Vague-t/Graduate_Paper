@@ -1,0 +1,148 @@
+{
+  "evidence_type": "CONSTRUCTED_TEACHING_EXAMPLE",
+  "model_run": false,
+  "ILP_solver_run": false,
+  "solver": "exhaustive enumeration of 16 binary relation choices",
+  "component_keys": {
+    "a": [
+      "demo_tx",
+      0,
+      8,
+      "Claim"
+    ],
+    "b": [
+      "demo_tx",
+      10,
+      20,
+      "Premise"
+    ],
+    "b_new": [
+      "demo_tx",
+      10,
+      21,
+      "Premise"
+    ],
+    "c": [
+      "demo_tx",
+      22,
+      32,
+      "Premise"
+    ]
+  },
+  "component_scores": {
+    "a": 0.9,
+    "b": 0.55,
+    "b_new": 0.8,
+    "c": 0.85
+  },
+  "relations": {
+    "r1": [
+      "b",
+      "a",
+      "supports"
+    ],
+    "r2": [
+      "c",
+      "b",
+      "supports"
+    ],
+    "r3": [
+      "b_new",
+      "a",
+      "supports"
+    ],
+    "r4": [
+      "c",
+      "b_new",
+      "supports"
+    ]
+  },
+  "relation_scores": {
+    "r1": 0.55,
+    "r2": 0.45,
+    "r3": 0.8,
+    "r4": 0.7
+  },
+  "initial_C": [
+    "a",
+    "b",
+    "c"
+  ],
+  "initial_R": [
+    "r1",
+    "r2"
+  ],
+  "proposed_B": [
+    "b_new"
+  ],
+  "D0": [],
+  "D_after_conflict_closure": [
+    "b"
+  ],
+  "Ptx": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+  ],
+  "delta": ".20",
+  "accepted": {
+    "status": "ENUMERATED_OPTIMUM_FOR_TEACHING_ONLY",
+    "committed": true,
+    "deltaC": "1/2",
+    "deltaR": "1",
+    "total": "3/2",
+    "dC": 2,
+    "dR": 4,
+    "selected": [
+      "r3",
+      "r4"
+    ],
+    "budget_before": {
+      "C": 4,
+      "R": 8
+    },
+    "budget_after": {
+      "C": 2,
+      "R": 4
+    }
+  },
+  "missing_score": {
+    "status": "REJECT_MISSING_SCORE",
+    "committed": false
+  },
+  "negative_part": {
+    "status": "REJECT_COMPONENT_OR_RELATION_GATE",
+    "committed": false,
+    "best_without_part_gate": {
+      "deltaC": "1/2",
+      "deltaR": "-1/5",
+      "total": "3/10",
+      "selected": [
+        "r3"
+      ]
+    }
+  },
+  "constructed_gold_posthoc_only": {
+    "component_before": {
+      "TP": 2,
+      "FP": 1,
+      "FN": 1
+    },
+    "component_after": {
+      "TP": 3,
+      "FP": 0,
+      "FN": 0
+    },
+    "relation_before": {
+      "TP": 0,
+      "FP": 2,
+      "FN": 2
+    },
+    "relation_after": {
+      "TP": 2,
+      "FP": 0,
+      "FN": 0
+    }
+  }
+}

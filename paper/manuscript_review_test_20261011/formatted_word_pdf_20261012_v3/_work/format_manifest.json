@@ -1,0 +1,753 @@
+{
+  "source": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/integrated_revision_20261012_v2/论文整合修订稿_图示公式与术语_v2.docx",
+  "source_sha256": "e61243638c4a85464392054f431b59206646ec50b523d29a676d27528e19e4fc",
+  "output": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/formatted_word_pdf_20261012_v3/论文规范排版稿_v3.docx",
+  "output_sha256": "a7340f3b3275be70a647afd41ff8c7a565a17b1ae3125c73dc2c13a518a0dbc7",
+  "edits": [
+    {
+      "before": "因素掩码是随监督保存的0/1标记：1表示该因素参与相应的增强侧监督或对齐，0表示不参与。它不遮蔽输入文字，也不删除原始金标；组件掩码与关系掩码分别记录，具体判定见3.3.3节。",
+      "after": "因素掩码是随监督保存的0/1标记：1表示该因素参与相应的增强侧监督或对齐，0表示不参与。它不遮蔽输入文字，也不删除原始金标；组件掩码与关系掩码分别记录。"
+    },
+    {
+      "before": "式（3-1）在第二章式（2-6）的LoRA参数化上区分两组低秩矩阵：下标g表示全局分支，下标c表示结论专项分支；h为当前投影的输入表示，h′为输出表示，位置下标t表示当前序列位置。",
+      "after": "两组低秩矩阵的下标g表示全局分支，下标c表示结论专项分支；h为当前投影的输入表示，h′为输出表示，位置下标t表示当前序列位置。"
+    },
+    {
+      "before": "全局分支参与所有位置的计算，结论分支由 gt∈{0,1} 控制。字段按 id（组件编号）、type（类型）、span（原文跨度）排列；可见前缀中的结论类型值完整闭合后，门控在该组件的后续字段开启，并在组件结束时关闭。AAEC 和 CDCP 的触发类型分别为 Claim/MajorClaim 和 Policy/Value；输入、未闭合类型字段及关系区域均令 gt=0。教师强制训练沿用2.2.1节的序列条件，同样只使用当前位置之前已提供的输出前缀，不能读取后续答案来开启门控。",
+      "after": "全局分支参与所有位置的计算，结论分支由 gt∈{0,1} 控制。字段按 id（组件编号）、type（类型）、span（原文跨度）排列；可见前缀中的结论类型值完整闭合后，门控在该组件的后续字段开启，并在组件结束时关闭。AAEC 和 CDCP 的触发类型分别为 Claim/MajorClaim 和 Policy/Value；输入、未闭合类型字段及关系区域均令 gt=0。教师强制训练只使用当前位置之前已提供的输出前缀，不能读取后续答案来开启门控。"
+    },
+    {
+      "before": "表内T4、T5、T6各自以supports指向T3，T4→T7没有标注边。以局部观察集合A={T3,T4}解释因素分类时，T4→T3属于内部正因素，T5→T3和T6→T3属于跨边界正因素，T4→T7属于跨边界NONE（无边状态沿用2.3节的定义）。该观察集合用于说明定义，不等于默认自动选择结果：若默认中心为T3，所有指向T3的完整源成员T4、T5、T6都会进入改写集合。",
+      "after": "表内T4、T5、T6各自以supports指向T3，T4→T7没有标注边。以局部观察集合A={T3,T4}解释因素分类时，T4→T3属于内部正因素，T5→T3和T6→T3属于跨边界正因素，T4→T7属于跨边界NONE。该观察集合用于说明定义，不等于默认自动选择结果：若默认中心为T3，所有指向T3的完整源成员T4、T5、T6都会进入改写集合。"
+    },
+    {
+      "before": "优先集合为空时，从全部合法金标组件按同一顺序回退，并记录fallback；组件集合为空时保留原文、跳过增强。改写集合A由中心及所有指向中心的金标关系的完整源成员组成，去重、不递归扩展。无入关系时仅改写中心；超过三个源成员的金标超边（多前提关系，见2.1.1节）仍完整纳入，新增NONE因素的元数预算不截断金标。其余组件文字只读。",
+      "after": "优先集合为空时，从全部合法金标组件按同一顺序回退，并记录fallback；组件集合为空时保留原文、跳过增强。改写集合A由中心及所有指向中心的金标关系的完整源成员组成，去重、不递归扩展。无入关系时仅改写中心；超过三个源成员的金标超边仍完整纳入，新增NONE因素的元数预算不截断金标。其余组件文字只读。"
+    },
+    {
+      "before": "组件采用第二章定义的规范身份：文档版本、原文字符半开区间和原生类型。增强全文是另一个文本版本，故记为d′；显示ID仅建立追踪对应，不能替代坐标或版本身份。回填后更新所有组件的字符区间，再派生评价token与模型子词表示；只读组件也会随前文长度变化而移动。φ是组件之间的双射，不是字符或token位置之间的双射。关系及超边的全部端点经过同一φ迁移。槽位重叠、坐标往返不一致或端点无法无损输运时，拒绝该视图并保留原始样本。",
+      "after": "组件采用规范身份：文档版本、原文字符半开区间和原生类型。增强全文是另一个文本版本，故记为d′；显示ID仅建立追踪对应，不能替代坐标或版本身份。回填后更新所有组件的字符区间，再派生评价token与模型子词表示；只读组件也会随前文长度变化而移动。φ是组件之间的双射，不是字符或token位置之间的双射。关系及超边的全部端点经过同一φ迁移。槽位重叠、坐标往返不一致或端点无法无损输运时，拒绝该视图并保留原始样本。"
+    },
+    {
+      "before": "式（3-7）中的MeanPool对组件覆盖的输入子词表示取算术均值；方括号及分号表示向量拼接。组件头输出类型分布，式（3-8）的关系头则输出完整端点组合的关系状态分布。",
+      "after": "MeanPool对组件覆盖的输入子词表示取算术均值；方括号及分号表示向量拼接。组件头输出类型分布，式（3-8）的关系头则输出完整端点组合的关系状态分布。"
+    },
+    {
+      "before": "MeanPool对组件覆盖的输入子词表示取算术均值；方括号及分号表示向量拼接。组件头输出类型分布，式（3-8）的关系头则输出完整端点组合的关系状态分布。",
+      "after": "MeanPool对组件覆盖的输入子词表示取算术均值；方括号及分号表示向量拼接。组件头输出类型分布，关系头则输出完整端点组合的关系状态分布。"
+    },
+    {
+      "before": "式（3-10）中的JS散度沿用第二章式（2-7），用于衡量两个视图的预测分布差异；两侧均保留梯度，不将任一视图视为固定目标。",
+      "after": "对齐时两侧均保留梯度，不将任一视图视为固定目标。"
+    },
+    {
+      "before": "式（3-4）的完整影响域DA是定义范围，JA是实际审核范围，RA才是增强关系损失的入口。默认JA通常小于DA；完整筛选才令JA=DA，语义未知Usem始终在两者之外。图3-1的两个分支应按这一集合关系理解。",
+      "after": "完整影响域DA是定义范围，JA是实际审核范围，RA才是增强关系损失的入口。默认JA通常小于DA；完整筛选才令JA=DA，语义未知Usem始终在两者之外。图3-1的两个分支应按这一集合关系理解。"
+    },
+    {
+      "before": "成对项先在每个非空因素组内平均，再按同源接受视图平均。总损失见式（3-14）：",
+      "after": "成对项先在每个非空因素组内平均，再按同源接受视图平均。总损失为："
+    }
+  ],
+  "headings": [
+    {
+      "bookmark": "ThesisHeading_001",
+      "title": "摘要",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_002",
+      "title": "Abstract",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_003",
+      "title": "第一章 绪论",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_004",
+      "title": "1.1 研究背景与意义",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_005",
+      "title": "1.2 国内外研究现状",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_006",
+      "title": "1.2.1 端到端论辩挖掘与生成建模",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_007",
+      "title": "1.2.2 关系保持数据增强",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_008",
+      "title": "1.2.3 结构化预测与论辩图修正",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_009",
+      "title": "1.3 研究问题与主要研究工作",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_010",
+      "title": "1.4 论文组织结构",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_011",
+      "title": "第二章 相关理论与技术",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_012",
+      "title": "2.1 论辩挖掘任务与结构表示",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_013",
+      "title": "2.1.1 论辩组件与关系",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_014",
+      "title": "2.1.2 字符坐标与对象身份",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_015",
+      "title": "2.2 预训练语言模型与学习方法",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_016",
+      "title": "2.2.1 注意力机制与自回归生成",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_017",
+      "title": "2.2.2 参数高效适配与连续提示",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_018",
+      "title": "2.2.3 数据增强与因素一致性学习",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_019",
+      "title": "2.3 候选评分与结构化决策",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_020",
+      "title": "2.4 评价指标与计数原则",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_021",
+      "title": "2.5 公共实验条件与统计分析",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_022",
+      "title": "2.6 训练与推理的阶段接口",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_023",
+      "title": "2.7 本章小结",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_024",
+      "title": "第三章 关系影响域约束的增强与成对学习",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_025",
+      "title": "3.1 引言",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_026",
+      "title": "3.2 总体框架与基础模型",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_027",
+      "title": "3.2.1 类型条件低秩适配",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_028",
+      "title": "3.2.2 线索提示与原有监督",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_029",
+      "title": "3.3 关系影响域与可靠增强视图",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_030",
+      "title": "3.3.1 改写范围与关系因素",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_031",
+      "title": "3.3.2 条件生成与字符坐标迁移",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_032",
+      "title": "3.3.3 审核掩码与语义未知因素",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_033",
+      "title": "3.3.4 从改写到训练的完整示例",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_034",
+      "title": "3.4 成对组件与关系学习",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_035",
+      "title": "3.4.1 辅助预测与可靠因素对齐",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_036",
+      "title": "3.4.2 源文档归一化与参数更新",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_037",
+      "title": "3.5 算法及性质",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_038",
+      "title": "3.6 实验结果与分析",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_039",
+      "title": "3.6.1 实验设置与受控比较",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_040",
+      "title": "3.6.2 主结果与机制消融",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_041",
+      "title": "3.6.3 分层审核与语义漂移",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_042",
+      "title": "3.6.4 训练成本与方法局限",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_043",
+      "title": "3.7 本章小结",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_044",
+      "title": "第四章 多候选驱动的依赖闭合论辩图修正",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_045",
+      "title": "4.1 引言",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_046",
+      "title": "4.2 候选生成与初始图",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_047",
+      "title": "4.2.1 完整候选生成与初始图选择",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_048",
+      "title": "4.2.2 固定对象候选与资源边界",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_049",
+      "title": "4.3 对象评分与接受准则",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_050",
+      "title": "4.3.1 固定评分器与开发风险选择",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_051",
+      "title": "4.3.2 计数效用与完整事务接受",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_052",
+      "title": "4.4 依赖闭合与事务构造",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_053",
+      "title": "4.4.1 组件冲突闭合",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_054",
+      "title": "4.4.2 完整关系重建",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_055",
+      "title": "4.4.3 一次完整事务与两种拒绝情形",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_056",
+      "title": "4.5 求解算法及性质",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_057",
+      "title": "4.5.1 局部求解与有界执行",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_058",
+      "title": "4.5.2 全局对象选择",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_059",
+      "title": "4.5.3 方法性质与适用条件",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_060",
+      "title": "4.5.4 规模路由与返回语义",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_061",
+      "title": "4.6 实验与分析",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_062",
+      "title": "4.6.1 主结果与受控比较",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_063",
+      "title": "4.6.2 候选覆盖与修正空间",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_064",
+      "title": "4.6.3 评分质量与修正代价",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_065",
+      "title": "4.6.4 实际规则诊断与原生关系案例",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_066",
+      "title": "4.6.5 弱评分条件与回退分析",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_067",
+      "title": "4.7 本章小结",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_068",
+      "title": "第五章 两阶段框架的综合分析",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_069",
+      "title": "5.1 继承基线与外部参照",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_070",
+      "title": "5.2 四格结果与交互",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_071",
+      "title": "5.3 对象成员与首个阻断",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_072",
+      "title": "5.4 CDCP完整源集合",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_073",
+      "title": "5.5 本章小结",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_074",
+      "title": "第六章 总结与展望",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_075",
+      "title": "6.1 研究总结",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_076",
+      "title": "6.2 适用条件与局限",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_077",
+      "title": "6.3 后续研究",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_078",
+      "title": "参考文献",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_079",
+      "title": "附录A 数据处理与复现协议",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_080",
+      "title": "A.1 三层坐标与异常保留",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_081",
+      "title": "A.2 配置与结果关联",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_082",
+      "title": "A.3 补充语料范围",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_083",
+      "title": "A.4 默认与可选设置",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_084",
+      "title": "A.5 登记与跨章复用",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_085",
+      "title": "A.6 原文序列化与无损对象身份",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_086",
+      "title": "附录B 评分与事务执行记录",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_087",
+      "title": "B.1 数据与模型身份",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_088",
+      "title": "B.2 评分与接受轨迹",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_089",
+      "title": "B.3 回退与预算",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_090",
+      "title": "B.4 实现一致性验收",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_091",
+      "title": "B.4.1 对象计数与快照重放",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_092",
+      "title": "B.4.2 训练与求解接口",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_093",
+      "title": "B.4.3 资源边界与证书",
+      "level": 3
+    },
+    {
+      "bookmark": "ThesisHeading_094",
+      "title": "B.5 案例统一记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_095",
+      "title": "B.6 固定评分性质的证明",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_096",
+      "title": "附录C 成果归属与材料说明",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_097",
+      "title": "C.1 已有工作",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_098",
+      "title": "C.2 材料可得性",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_099",
+      "title": "C.3 记录与版本",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_100",
+      "title": "附录D CDCP失败条件与实际案例流程",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_101",
+      "title": "D.1 弱评分版本的回退",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_102",
+      "title": "D.2 主版本的策略选择",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_103",
+      "title": "D.3 实际CPU抽取与后处理",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_104",
+      "title": "D.4 解释范围",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_105",
+      "title": "附录E MCR-BR数值与协议存档",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_106",
+      "title": "E.1 ICIC原版AAEC域内结果记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_107",
+      "title": "E.2 ICIC原版CDCP域内结果记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_108",
+      "title": "E.3 ICIC原版模块消融记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_109",
+      "title": "E.4 ICIC原版验证器替换记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_110",
+      "title": "E.5 ICIC原版Oracle记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_111",
+      "title": "E.6 ICIC原版修正行为记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_112",
+      "title": "E.7 MCR-BR粗粒度组件映射",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_113",
+      "title": "E.8 ICIC原版AAEC到CDCP迁移记录",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_114",
+      "title": "附录F 符号与阅读索引",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_115",
+      "title": "F.1 核心术语与符号",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_116",
+      "title": "F.2 实现接口补充",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_117",
+      "title": "F.3 研究问题阅读索引",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_118",
+      "title": "附录G 具名外部系统比较",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_119",
+      "title": "G.1 方法选择",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_120",
+      "title": "G.2 原生格式转换",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_121",
+      "title": "G.3 控制条件与成本身份",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_122",
+      "title": "G.4 结果与配对差值",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_123",
+      "title": "附录H 训练、审核、资源与完整性细节",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_124",
+      "title": "H.1 训练和一次性评分成本",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_125",
+      "title": "H.2 分层审核的拒绝与域外检查",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_126",
+      "title": "H.3 路由规模扫描",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_127",
+      "title": "H.4 逐种子整数计数",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_128",
+      "title": "H.5 六项一致性问题的处理",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_129",
+      "title": "H.6 复算入口",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_130",
+      "title": "附录I 四份上传语料的实际处理与原文定位",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_131",
+      "title": "I.1 可用记录与坐标审计",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_132",
+      "title": "I.2 案例定位与原始哈希",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_133",
+      "title": "附录J 公共实验配置与统计补充",
+      "level": 1
+    },
+    {
+      "bookmark": "ThesisHeading_134",
+      "title": "S2.1 继承配置的原协议核查",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_135",
+      "title": "S2.2 数据处理与记录用途",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_136",
+      "title": "S2.3 固定训练与推理配置",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_137",
+      "title": "S2.4 研究问题与比较责任",
+      "level": 2
+    },
+    {
+      "bookmark": "ThesisHeading_138",
+      "title": "S2.5 统计结果复算材料",
+      "level": 2
+    }
+  ],
+  "format": {
+    "paper": "A4",
+    "margins_cm": 2.5,
+    "body_pt": 12,
+    "body_line_spacing_pt": 22,
+    "cjk": "宋体",
+    "latin": "Times New Roman",
+    "headings": "黑体"
+  }
+}

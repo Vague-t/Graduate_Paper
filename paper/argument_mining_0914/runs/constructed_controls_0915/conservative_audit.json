@@ -1,0 +1,266 @@
+{
+  "protocol": "repair-audit-exact-typed-endpoints-v1",
+  "gold_used_only_posthoc": true,
+  "before": {
+    "protocol": {
+      "span": "one_based_inclusive",
+      "aggregation": "object_micro",
+      "endpoint_types": true,
+      "coarse": false,
+      "zero_denominator": 0,
+      "failed_output": "zero_predictions_with_failure_record; gold remains in denominator"
+    },
+    "documents": 1,
+    "failures": {},
+    "component": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    "relation": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    "component_by_type": {
+      "Claim": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "f1": 100.0
+      },
+      "Premise": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "f1": 100.0
+      },
+      "MajorClaim": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "relation_by_type": {
+      "Support": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "f1": 100.0
+      },
+      "Attack": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "per_document": [
+      {
+        "id": "constructed-counterexample",
+        "component": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        },
+        "relation": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        }
+      }
+    ]
+  },
+  "after": {
+    "protocol": {
+      "span": "one_based_inclusive",
+      "aggregation": "object_micro",
+      "endpoint_types": true,
+      "coarse": false,
+      "zero_denominator": 0,
+      "failed_output": "zero_predictions_with_failure_record; gold remains in denominator"
+    },
+    "documents": 1,
+    "failures": {},
+    "component": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    "relation": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "f1": 100.0
+    },
+    "component_by_type": {
+      "Claim": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "f1": 100.0
+      },
+      "Premise": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "f1": 100.0
+      },
+      "MajorClaim": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "relation_by_type": {
+      "Support": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "f1": 100.0
+      },
+      "Attack": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "per_document": [
+      {
+        "id": "constructed-counterexample",
+        "component": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        },
+        "relation": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        }
+      }
+    ]
+  },
+  "object_transitions": {
+    "component": {
+      "correct_before": 4,
+      "correct_lost": 0,
+      "correct_gained": 0,
+      "false_positive_before": 0,
+      "false_positive_after": 0,
+      "correct_loss_rate": 0.0
+    },
+    "relation": {
+      "correct_before": 2,
+      "correct_lost": 0,
+      "correct_gained": 0,
+      "false_positive_before": 0,
+      "false_positive_after": 0,
+      "correct_loss_rate": 0.0
+    }
+  },
+  "action_attempts": {},
+  "action_accepts": {},
+  "costs": {
+    "calls": 0,
+    "logical_calls": 0,
+    "input_tokens_observed": 0,
+    "output_tokens_charged": 0,
+    "logical_output_tokens_charged": 0,
+    "seconds": 0,
+    "failed_calls": 0
+  },
+  "scored_documents": 1,
+  "proxy_up_task_down_documents": {
+    "component": {
+      "count": 0,
+      "denominator": 1,
+      "rate": 0.0
+    },
+    "relation": {
+      "count": 0,
+      "denominator": 1,
+      "rate": 0.0
+    }
+  },
+  "per_document": [
+    {
+      "id": "constructed-counterexample",
+      "status": "ok",
+      "transitions": {
+        "component": {
+          "correct_before": 4,
+          "correct_lost": 0,
+          "correct_gained": 0,
+          "false_positive_before": 0,
+          "false_positive_after": 0
+        },
+        "relation": {
+          "correct_before": 2,
+          "correct_lost": 0,
+          "correct_gained": 0,
+          "false_positive_before": 0,
+          "false_positive_after": 0
+        }
+      },
+      "f1_delta": {
+        "component": 0.0,
+        "relation": 0.0
+      },
+      "proxy_delta_same_repair_scale": 0.0,
+      "accepted_actions": []
+    }
+  ],
+  "definitions": {
+    "correct_loss_rate": "Correct exact-match objects lost / all correct objects before repair; not a touched-object rate.",
+    "correct_gained": "Gold exact-match objects present after but absent before; not necessarily one-to-one edits.",
+    "proxy_up_task_down": "Same-scale repair score rises while document F1 falls; legacy traces without initial_repair_score excluded only from this diagnostic.",
+    "costs": "Observed costs; cached logical generation is charged. Cached wall time is not end-to-end time."
+  }
+}

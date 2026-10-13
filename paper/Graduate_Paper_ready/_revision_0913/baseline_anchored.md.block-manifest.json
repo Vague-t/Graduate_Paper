@@ -1,0 +1,2591 @@
+{
+  "manifest_format_version": "1.0",
+  "base_draft_hash": "7b6d719d355c",
+  "blocks": [
+    {
+      "block_id": "B0001",
+      "old_hash": "5d805b47c5ab",
+      "first_line_excerpt": "# 基于大语言模型的端到端论辩挖掘方法研究"
+    },
+    {
+      "block_id": "B0002",
+      "old_hash": "f240e14408fd",
+      "first_line_excerpt": "## 摘要"
+    },
+    {
+      "block_id": "B0003",
+      "old_hash": "aeb9cf3b183c",
+      "first_line_excerpt": "论辩挖掘旨在从非结构化文本中识别论辩组件及其关系，并恢复满足语料标注规范的论辩结构。生成式大语言模型能够以统一序列输出组件、关系和属性，但单次自回归生成容易受…"
+    },
+    {
+      "block_id": "B0004",
+      "old_hash": "d4edd1b7c870",
+      "first_line_excerpt": "首先，面向训练阶段的组件识别，本文提出结论类组件增强方法。该方法利用结构感知数据增强扩充结论类组件及其局部支撑结构，在格式合法性、结构一致性和语义一致性三个层…"
+    },
+    {
+      "block_id": "B0005",
+      "old_hash": "c4f833927949",
+      "first_line_excerpt": "其次，面向推理阶段的论辩图恢复，本文提出MCR-BR方法。多候选重排序模块通过受控采样保留多个完整候选图，并从结构完整性、边语义连贯性和输出合法性三个互补维度…"
+    },
+    {
+      "block_id": "B0006",
+      "old_hash": "5a4a5806e9df",
+      "first_line_excerpt": "最后，本文在统一粗粒度标签与无标签连接评测协议下开展AAEC到CDCP的零样本迁移实验。完整框架的Link-F1较零样本基线提高11.96个F1点，表明基于结…"
+    },
+    {
+      "block_id": "B0007",
+      "old_hash": "59fad887b842",
+      "first_line_excerpt": "**关键词**：论辩挖掘；大语言模型；结构化生成；多候选重排序；推理时修正"
+    },
+    {
+      "block_id": "B0008",
+      "old_hash": "266c21b810ae",
+      "first_line_excerpt": "## Abstract"
+    },
+    {
+      "block_id": "B0009",
+      "old_hash": "637593737d15",
+      "first_line_excerpt": "Argument mining aims to identify argumentative components and their relations f…"
+    },
+    {
+      "block_id": "B0010",
+      "old_hash": "a67c1b2f27a4",
+      "first_line_excerpt": "First, this thesis develops a conclusion-component enhancement method for train…"
+    },
+    {
+      "block_id": "B0011",
+      "old_hash": "0c0b7eaa47fc",
+      "first_line_excerpt": "Second, this thesis proposes MCR-BR for inference-time argument graph recovery.…"
+    },
+    {
+      "block_id": "B0012",
+      "old_hash": "bbf947c0f250",
+      "first_line_excerpt": "Finally, zero-shot transfer from AAEC to CDCP is evaluated under a unified coar…"
+    },
+    {
+      "block_id": "B0013",
+      "old_hash": "24a432747763",
+      "first_line_excerpt": "**Keywords**: Argument Mining; Large Language Models; Structured Generation; Mu…"
+    },
+    {
+      "block_id": "B0014",
+      "old_hash": "1ea363e3f36c",
+      "first_line_excerpt": "## 第一章 绪论"
+    },
+    {
+      "block_id": "B0015",
+      "old_hash": "9f2256846a9a",
+      "first_line_excerpt": "### 1.1 研究背景与意义"
+    },
+    {
+      "block_id": "B0016",
+      "old_hash": "d030f13f3c55",
+      "first_line_excerpt": "#### 1.1.1 计算论辩学的发展历程与学术价值"
+    },
+    {
+      "block_id": "B0017",
+      "old_hash": "0ca79d2a15cd",
+      "first_line_excerpt": "论辩（Argumentation）是人类理性思维和社会交流的核心活动，贯穿于学术讨论、法律诉讼、政策辩论和日常对话等各类场景[1]。论辩的本质在于通过提出主张…"
+    },
+    {
+      "block_id": "B0018",
+      "old_hash": "7c76940a8fe9",
+      "first_line_excerpt": "20世纪中叶，英国哲学家Stephen Toulmin在其开创性著作《论辩的使用》（The Uses of Argument, 1958）中提出了著名的Tou…"
+    },
+    {
+      "block_id": "B0019",
+      "old_hash": "70eb144ffe56",
+      "first_line_excerpt": "计算论辩学（Computational Argumentation）是人工智能与论辩理论交叉融合的新兴研究领域，旨在利用计算方法对论辩进行建模、分析、生成和评…"
+    },
+    {
+      "block_id": "B0020",
+      "old_hash": "8984806401a9",
+      "first_line_excerpt": "论辩挖掘的学术价值体现在多个层面。从理论角度看，论辩挖掘为研究人类论证推理的认知模式提供了实证数据支撑，有助于揭示不同领域、不同文化背景下论辩实践的共性规律与…"
+    },
+    {
+      "block_id": "B0021",
+      "old_hash": "23c77897e994",
+      "first_line_excerpt": "#### 1.1.2 论辩挖掘的社会需求与应用前景"
+    },
+    {
+      "block_id": "B0022",
+      "old_hash": "5983954b4218",
+      "first_line_excerpt": "随着互联网信息的爆炸式增长，海量的用户评论、学术文献、政策文件和社交媒体内容中蕴含着丰富的论证逻辑。如何从这些文本中高效、准确地提取论点及其逻辑支持关系，已成…"
+    },
+    {
+      "block_id": "B0023",
+      "old_hash": "e6663a991d90",
+      "first_line_excerpt": "**舆情分析与观点挖掘**是论辩挖掘的重要应用场景之一。在社交媒体和在线论坛中，用户围绕热点话题展开辩论，表达不同的立场和观点。传统的情感分析仅能识别文本的情…"
+    },
+    {
+      "block_id": "B0024",
+      "old_hash": "178c6f2aca51",
+      "first_line_excerpt": "**法律推理与司法辅助**是论辩挖掘的高价值应用领域。法律文书本质上是结构化的论辩文本，诉状、判决书和法律意见书都遵循\"主张-证据-结论\"的论证范式。论辩挖掘…"
+    },
+    {
+      "block_id": "B0025",
+      "old_hash": "0ff21ecc1ba5",
+      "first_line_excerpt": "**教育评估与写作辅助**是论辩挖掘的另一重要应用方向。议论文写作是培养学生批判性思维能力的重要手段，而传统的作文评分主要依赖人工阅卷，效率低且标准不一。论辩…"
+    },
+    {
+      "block_id": "B0026",
+      "old_hash": "01a7c23d63eb",
+      "first_line_excerpt": "**科学论证评估与学术写作支持**是论辩挖掘的前沿应用领域。科学论文通过系统的论证建立研究贡献的有效性，其论证质量直接影响论文的学术价值和可信度。论辩挖掘技术…"
+    },
+    {
+      "block_id": "B0027",
+      "old_hash": "985df142f9ea",
+      "first_line_excerpt": "**对话系统与智能辩论**代表了论辩挖掘的创新应用前沿。随着对话式AI的发展，构建能够进行有效论辩的智能系统成为重要研究目标。IBM的Project Deba…"
+    },
+    {
+      "block_id": "B0028",
+      "old_hash": "19ea1b4fa541",
+      "first_line_excerpt": "#### 1.1.3 论辩挖掘的任务定义与技术挑战"
+    },
+    {
+      "block_id": "B0029",
+      "old_hash": "dd10cfb7ba2a",
+      "first_line_excerpt": "从任务定义来看，论辩挖掘要求系统联合完成两个紧密耦合的子任务：其一是**论辩组件识别**（Argument Component Identification）…"
+    },
+    {
+      "block_id": "B0030",
+      "old_hash": "747abb6f83a4",
+      "first_line_excerpt": "论辩挖掘任务面临多重技术挑战，使其成为自然语言处理领域的难点问题。"
+    },
+    {
+      "block_id": "B0031",
+      "old_hash": "93b7b3aa41e3",
+      "first_line_excerpt": "**第一，组件边界识别的歧义性**。论辩组件在文本中的边界往往不是显式标记的，一个句子可能同时包含主张和前提的成分，需要模型具备细粒度的语义理解能力才能准确切…"
+    },
+    {
+      "block_id": "B0032",
+      "old_hash": "c2c719a11ef0",
+      "first_line_excerpt": "**第二，组件类型判定的语境依赖性**。同一文本片段在不同的论证上下文中可能扮演不同的角色——它可能是某个主张的前提，同时又是另一个主张本身。组件类型的判定需…"
+    },
+    {
+      "block_id": "B0033",
+      "old_hash": "092984ac4b31",
+      "first_line_excerpt": "**第三，关系预测的隐式性与多样性**。论辩关系通常是隐含的，文本中可能没有明确的连接词或信号词指示支持或攻击关系的存在。此外，支持和攻击关系可以通过多种语言…"
+    },
+    {
+      "block_id": "B0034",
+      "old_hash": "7b4adf19426a",
+      "first_line_excerpt": "**第四，数据集特定结构约束的满足性**。不同论辩语料具有不同的拓扑先验：AAEC的段落内部论证结构通常表现为以Claim为根的树状结构，CDCP则允许更一般…"
+    },
+    {
+      "block_id": "B0035",
+      "old_hash": "6bbecce8fc96",
+      "first_line_excerpt": "**第五，子任务之间的紧密耦合性**。组件识别和关系预测不是独立的任务，而是相互依赖、相互制约的。组件识别的错误会传播到关系预测，导致\"悬空引用\"或\"遗漏连接…"
+    },
+    {
+      "block_id": "B0036",
+      "old_hash": "cdae3d635817",
+      "first_line_excerpt": "#### 1.1.4 大语言模型带来的技术范式转换"
+    },
+    {
+      "block_id": "B0037",
+      "old_hash": "7c0b60d94e8a",
+      "first_line_excerpt": "近年来，大语言模型（Large Language Models, LLM）的快速发展为论辩挖掘任务带来了新的技术范式。以GPT-4、Qwen、Llama为代表…"
+    },
+    {
+      "block_id": "B0038",
+      "old_hash": "9cafe2fa6f49",
+      "first_line_excerpt": "指令微调（Instruction Tuning）技术的提出显著提升了LLM执行特定任务的能力。FLAN（Finetuned Language Models a…"
+    },
+    {
+      "block_id": "B0039",
+      "old_hash": "be8ad7ab4a7c",
+      "first_line_excerpt": "思维链（Chain-of-Thought, CoT）提示技术的引入进一步增强了LLM在复杂论辩理解任务上的表现[19]。通过引导模型模拟人类的推理过程——先识…"
+    },
+    {
+      "block_id": "B0040",
+      "old_hash": "102532203abe",
+      "first_line_excerpt": "约束解码（Constrained Decoding）技术通过在解码阶段对Token概率施加语法掩码，确保模型输出严格符合预定义的结构化模式，有效降低了格式错误…"
+    },
+    {
+      "block_id": "B0041",
+      "old_hash": "ec97787bc7f7",
+      "first_line_excerpt": "参数高效微调（Parameter-Efficient Fine-Tuning）方法为定制化论辩挖掘模型提供了高效途径。LoRA（Low-Rank Adapta…"
+    },
+    {
+      "block_id": "B0042",
+      "old_hash": "4a48e314bffd",
+      "first_line_excerpt": "#### 1.1.5 当前方法的局限性与研究动机"
+    },
+    {
+      "block_id": "B0043",
+      "old_hash": "31232fa8af82",
+      "first_line_excerpt": "尽管大语言模型在端到端论辩挖掘任务上展现出巨大潜力，现有方法仍面临三个关键技术瓶颈，这也构成了本研究的核心动机。"
+    },
+    {
+      "block_id": "B0044",
+      "old_hash": "8380dd36579c",
+      "first_line_excerpt": "**第一，单次生成模式下的错误传播问题**。当前主流的LLM论辩挖掘方法采用单次生成（Single-Pass Generation）范式，即模型在一次前向推理…"
+    },
+    {
+      "block_id": "B0045",
+      "old_hash": "4609de22b974",
+      "first_line_excerpt": "**第二，结论类组件的类别不平衡与结构稀疏性导致提取瓶颈**。在论辩文本中，作为论证结构“锚点”的结论类组件（MajorClaim和Claim）在实例数量上少…"
+    },
+    {
+      "block_id": "B0046",
+      "old_hash": "eb869db76e76",
+      "first_line_excerpt": "**第三，现有方法缺乏主动回溯与修复机制**。现有的端到端系统本质上是\"被动约束\"式的——它们可以在后处理阶段过滤不合法的输出（如违反DAG约束的循环依赖），…"
+    },
+    {
+      "block_id": "B0047",
+      "old_hash": "33369653b0af",
+      "first_line_excerpt": "基于上述分析，本研究通过融合结构感知增强、多候选评估和推理时局部修复，构建更具结构可靠性的论辩图生成框架。本文首先在AAEC和CDCP上检验该框架，不将有限数…"
+    },
+    {
+      "block_id": "B0048",
+      "old_hash": "b48a7cb3ed48",
+      "first_line_excerpt": "### 1.2 国内外研究现状"
+    },
+    {
+      "block_id": "B0049",
+      "old_hash": "ecc07bd2cc9f",
+      "first_line_excerpt": "#### 1.2.1 论辩挖掘理论基础与经典模型"
+    },
+    {
+      "block_id": "B0050",
+      "old_hash": "831a56751ef6",
+      "first_line_excerpt": "论辩挖掘的理论根基可追溯至哲学、修辞学和逻辑学的经典研究。Toulmin模型作为计算论辩学中最具影响力的微观结构模型，将论辩形式化为六个核心要素的组合[3]。…"
+    },
+    {
+      "block_id": "B0051",
+      "old_hash": "fe99e099bb99",
+      "first_line_excerpt": "计算论辩学经历了从基于规则、统计机器学习到深度学习的技术演进历程。早期研究侧重于特定领域的论辩识别，如法律文书和科学论文，主要采用手工设计的特征和规则匹配方法…"
+    },
+    {
+      "block_id": "B0052",
+      "old_hash": "1ca42f5b384a",
+      "first_line_excerpt": "Lawrence和Reed在2019年对论辩挖掘领域进行了系统性综述，将任务定义为五个子任务：分段（Segmentation）、组件识别（Component …"
+    },
+    {
+      "block_id": "B0053",
+      "old_hash": "1340c7e350cd",
+      "first_line_excerpt": "#### 1.2.2 国外论辩挖掘研究进展"
+    },
+    {
+      "block_id": "B0054",
+      "old_hash": "708cdc062136",
+      "first_line_excerpt": "**论辩组件识别**是论辩挖掘的基础任务，其目标是从文本中定位论辩单元的边界并判定其类型。Transformer架构的提出标志着论辩组件识别技术的重要转折。基…"
+    },
+    {
+      "block_id": "B0055",
+      "old_hash": "6269b6c026ed",
+      "first_line_excerpt": "**论辩关系预测**旨在确定已识别组件之间的逻辑连接，是论辩挖掘的核心挑战之一。早期方法将关系预测视为组件对的二元分类问题，通过提取组件对的联合表示输入分类器…"
+    },
+    {
+      "block_id": "B0056",
+      "old_hash": "291582174adf",
+      "first_line_excerpt": "**端到端论辩图生成**近年来成为研究热点，旨在克服流水线方法中的误差累积问题。通过将论辩图结构序列化为特定格式的文本，利用Text-to-Text模型（如T…"
+    },
+    {
+      "block_id": "B0057",
+      "old_hash": "613a5e8b8a04",
+      "first_line_excerpt": "**主要研究团队**方面，德国达姆施塔特工业大学的UKP实验室（Gurevych团队）是论辩挖掘领域的领军力量，发布了AAEC等重要基准数据集，提出了多种经典…"
+    },
+    {
+      "block_id": "B0058",
+      "old_hash": "cdae81bdad2c",
+      "first_line_excerpt": "#### 1.2.3 国内论辩挖掘研究现状"
+    },
+    {
+      "block_id": "B0059",
+      "old_hash": "0505b3b06343",
+      "first_line_excerpt": "国内在中文论辩挖掘领域取得了显著进展，特别是在教育评估和司法判决预测方面。NLPCC（自然语言处理与中文计算会议）等学术会议推动了中文论辩挖掘的发展。NLPC…"
+    },
+    {
+      "block_id": "B0060",
+      "old_hash": "d8a7954f8b70",
+      "first_line_excerpt": "ORCHID数据集的发布填补了中文辩论对话摘要与立场检测的空白[43]。该数据集来源于真实的中文辩论节目，包含辩论对话的详细标注，支持立场检测、论辩对话摘要等…"
+    },
+    {
+      "block_id": "B0061",
+      "old_hash": "ffb118ed043a",
+      "first_line_excerpt": "华东师范大学、武汉大学、大连理工大学等机构在中文论辩分析应用中表现突出。研究者们探索了知识增强框架，利用事件规则引导中文作文中的细粒度论辩挖掘[45]。基于大…"
+    },
+    {
+      "block_id": "B0062",
+      "old_hash": "844f70a4195f",
+      "first_line_excerpt": "|数据集/任务名称|来源机构/会议|主要贡献|组件类型|"
+    },
+    {
+      "block_id": "B0063",
+      "old_hash": "67d9a42a6c53",
+      "first_line_excerpt": "#### 1.2.4 大语言模型结构化生成研究"
+    },
+    {
+      "block_id": "B0064",
+      "old_hash": "f7fefc1fd801",
+      "first_line_excerpt": "大语言模型在结构化信息抽取任务中展现了强大的零样本和少样本能力。通过精心设计的提示模板，LLM能够直接输出JSON、XML等结构化格式，为论辩挖掘提供了新的技…"
+    },
+    {
+      "block_id": "B0065",
+      "old_hash": "54678224a8af",
+      "first_line_excerpt": "指令微调技术的发展显著提升了LLM理解和执行复杂任务指令的能力。FLAN系列工作证明，通过在多样化的任务指令上进行微调，模型能够获得跨任务的泛化能力[21]。…"
+    },
+    {
+      "block_id": "B0066",
+      "old_hash": "8d915327de6a",
+      "first_line_excerpt": "约束解码技术是确保LLM输出结构合法性的关键技术。语法约束解码（Grammar-constrained Decoding）通过在解码阶段对Token概率进行语…"
+    },
+    {
+      "block_id": "B0067",
+      "old_hash": "3b9f81ce986d",
+      "first_line_excerpt": "思维链提示技术开创了LLM推理能力研究的新范式[23]。通过在提示中加入中间推理步骤的示例，模型能够学会分步骤解决复杂问题。在论辩挖掘任务中，CoT引导模型先…"
+    },
+    {
+      "block_id": "B0068",
+      "old_hash": "26135d4dd015",
+      "first_line_excerpt": "#### 1.2.5 数据增强与长尾分布处理研究"
+    },
+    {
+      "block_id": "B0069",
+      "old_hash": "28a3867f905b",
+      "first_line_excerpt": "针对论辩挖掘中的数据稀缺和类别不平衡问题，研究者提出了多种数据增强策略。基于LLM的数据增强方法通过条件生成或改写，能够在保持标签一致性的前提下显著扩充训练数…"
+    },
+    {
+      "block_id": "B0070",
+      "old_hash": "38bac9a7e227",
+      "first_line_excerpt": "长尾分布是论辩挖掘面临的另一个关键挑战。在典型的论辩文本中，攻击关系通常比支持关系稀疏，结论类组件比前提类组件稀少。深度长尾学习的相关综述系统梳理了处理长尾分…"
+    },
+    {
+      "block_id": "B0071",
+      "old_hash": "dec20398689e",
+      "first_line_excerpt": "#### 1.2.6 推理时自纠错技术研究"
+    },
+    {
+      "block_id": "B0072",
+      "old_hash": "97688b5dfcb7",
+      "first_line_excerpt": "推理时自纠错（Self-Correction）是提升LLM输出质量的重要技术方向。Self-Refine理论提出了\"生成-反馈-修正\"的迭代精炼框架，通过模型…"
+    },
+    {
+      "block_id": "B0073",
+      "old_hash": "56a7887b85a1",
+      "first_line_excerpt": "然而，研究也揭示了LLM自纠错的局限性。Huang等人的研究表明，LLM在缺乏外部反馈的情况下难以有效进行推理自纠错，模型往往无法准确判断自身输出的正确性[3…"
+    },
+    {
+      "block_id": "B0074",
+      "old_hash": "505116aeadf0",
+      "first_line_excerpt": "多候选生成与结构化重排序机制为解决单次生成脆弱性提供了新思路。通过生成多个候选输出并使用独立的评分函数进行选择，能够降低对单次采样的依赖[55]。在论辩挖掘任…"
+    },
+    {
+      "block_id": "B0075",
+      "old_hash": "f7bdd7e0a2b3",
+      "first_line_excerpt": "#### 1.2.7 主要基准数据集"
+    },
+    {
+      "block_id": "B0076",
+      "old_hash": "c28c36e33c4f",
+      "first_line_excerpt": "论辩挖掘领域的研究依赖于多个高质量的标注语料库，下表总结了当前主流的基准数据集："
+    },
+    {
+      "block_id": "B0077",
+      "old_hash": "278eafd66931",
+      "first_line_excerpt": "|数据集|领域|组件类型|关系或属性类型|主要特点|"
+    },
+    {
+      "block_id": "B0078",
+      "old_hash": "f828d3f2f9d9",
+      "first_line_excerpt": "AAEC（Argument Annotated Essays Corpus）由德国达姆施塔特工业大学UKP实验室发布，是论辩挖掘领域广泛使用的基准之一[10]…"
+    },
+    {
+      "block_id": "B0079",
+      "old_hash": "dc6c1b2dfcf9",
+      "first_line_excerpt": "CDCP（Cornell eRulemaking Corpus）由康奈尔大学开发，专注于电子政务评论领域的论辩分析[41]。其组件类型包括Fact、Testi…"
+    },
+    {
+      "block_id": "B0080",
+      "old_hash": "fc16b9744f9e",
+      "first_line_excerpt": "AbstRCT数据集针对医学文献摘要中的论辩提取，强调证据与主张之间的支撑关系识别[12]。该数据集来源于随机对照试验（RCT）的摘要，要求模型识别临床声明及…"
+    },
+    {
+      "block_id": "B0081",
+      "old_hash": "d23b6538f834",
+      "first_line_excerpt": "### 1.3 本文的主要研究内容与贡献"
+    },
+    {
+      "block_id": "B0082",
+      "old_hash": "c036aad5e7d1",
+      "first_line_excerpt": "针对上述问题，本文提出面向端到端论辩挖掘的多候选重排序与有界修正框架MCR-BR。全文以“提高关键节点召回—保留多个结构假设—利用下游一致性反馈进行局部恢复”…"
+    },
+    {
+      "block_id": "B0083",
+      "old_hash": "79e9b99011b2",
+      "first_line_excerpt": "#### 1.3.1 核心工作一：融合大模型数据增强的结论性组件提取优化"
+    },
+    {
+      "block_id": "B0084",
+      "old_hash": "a7aa40a3cd4c",
+      "first_line_excerpt": "第一项工作聚焦训练阶段的关键节点识别。针对MajorClaim和Claim实例相对较少且结构影响较大的特点，本文采用结构感知数据增强扩充结论类组件及其局部支撑…"
+    },
+    {
+      "block_id": "B0085",
+      "old_hash": "5b8659de78b2",
+      "first_line_excerpt": "该方法与普通重采样或全局LoRA的区别在于：增强对象不是孤立文本片段，而是带有局部关系结构的组件集合；参数增量也集中作用于结论类类型值的生成阶段。AAEC实验…"
+    },
+    {
+      "block_id": "B0086",
+      "old_hash": "cf27e2060a79",
+      "first_line_excerpt": "#### 1.3.2 核心工作二：基于多候选评估与有界修正的论辩图生成方法"
+    },
+    {
+      "block_id": "B0087",
+      "old_hash": "22309e92f114",
+      "first_line_excerpt": "第二项工作聚焦推理阶段的完整图恢复。与一次生成后直接提交结果不同，MCR首先通过温度采样和提示改写生成$K$个组件候选集，并分别构建完整候选图$S_k=(C^…"
+    },
+    {
+      "block_id": "B0088",
+      "old_hash": "50fd37fc752f",
+      "first_line_excerpt": "对重排序后仍存在异常的图，BR执行有预算的“检测—修复—重评分”循环。错误按照有效性、连贯性和完整性分类并按严重度排序，候选动作包括Promote/Demot…"
+    },
+    {
+      "block_id": "B0089",
+      "old_hash": "a173c86cbe1c",
+      "first_line_excerpt": "#### 1.3.3 跨领域泛化性验证"
+    },
+    {
+      "block_id": "B0090",
+      "old_hash": "6db333484b9e",
+      "first_line_excerpt": "为检验上述方法是否过度依赖AAEC的标签与语言模式，本文开展AAEC到CDCP的零样本迁移实验。考虑到两套标注体系不兼容，组件被映射到粗粒度Claim/Pre…"
+    },
+    {
+      "block_id": "B0091",
+      "old_hash": "0293febc2319",
+      "first_line_excerpt": "#### 1.3.4 本文的主要贡献"
+    },
+    {
+      "block_id": "B0092",
+      "old_hash": "c367eea7c8ff",
+      "first_line_excerpt": "本文的贡献概括为两项方法贡献和一项实验性贡献："
+    },
+    {
+      "block_id": "B0093",
+      "old_hash": "3a45e6982856",
+      "first_line_excerpt": "1. **结论组件的结构感知增强方法**：面向结论类组件的数据不平衡与结构关键性，联合局部子图增强、Claim-specific Adapter、Cue-aw…"
+    },
+    {
+      "block_id": "B0094",
+      "old_hash": "28f2da858558",
+      "first_line_excerpt": "本文MCR-BR方法的阶段性成果已发表于ICIC 2026会议论文[57]。在该工作的基础上，本文进一步系统化任务定义，补充结论组件的数据增强设计、方法推导、…"
+    },
+    {
+      "block_id": "B0095",
+      "old_hash": "73c56412ede5",
+      "first_line_excerpt": "### 1.4 论文组织结构"
+    },
+    {
+      "block_id": "B0096",
+      "old_hash": "d6706fe0a27b",
+      "first_line_excerpt": "本文共分为六章，各章内容安排如下："
+    },
+    {
+      "block_id": "B0097",
+      "old_hash": "955cf23d8632",
+      "first_line_excerpt": "**第一章 绪论**：介绍论辩挖掘的研究背景与意义，从计算论辩学发展历程、社会需求和技术挑战三个维度阐述研究动机，综述国内外相关研究进展，概述本文的主要研究内…"
+    },
+    {
+      "block_id": "B0098",
+      "old_hash": "4172e1b600ba",
+      "first_line_excerpt": "**第二章 论辩挖掘相关理论与大语言模型基础**：系统介绍论辩挖掘任务的形式化定义与图结构表示，详细阐述Toulmin论辩模型理论框架，介绍大语言模型结构化生…"
+    },
+    {
+      "block_id": "B0099",
+      "old_hash": "78afebfc1333",
+      "first_line_excerpt": "**第三章 融合大模型数据增强的结论性组件提取优化**：分析结论组件的类别不平衡、结构角色稀疏及其错误传播路径，提出局部子图级结构感知增强策略，设计Claim…"
+    },
+    {
+      "block_id": "B0100",
+      "old_hash": "27fec10b3351",
+      "first_line_excerpt": "**第四章 基于多候选评估与有界修正的论辩图生成方法**：形式化多候选组件生成、完整图构建和三维一致性评分，给出图约束下的有界局部修正算法，并通过AAEC、C…"
+    },
+    {
+      "block_id": "B0101",
+      "old_hash": "8b3d61c81c44",
+      "first_line_excerpt": "**第五章 端到端论辩挖掘的跨领域泛化性分析与适配**：分析AAEC与CDCP在文体、标签体系和图拓扑上的差异，定义粗粒度组件映射及无标签连接协议，通过零样本…"
+    },
+    {
+      "block_id": "B0102",
+      "old_hash": "68db87f0666b",
+      "first_line_excerpt": "**第六章 总结与展望**：总结本文的主要研究工作和创新成果，分析现有方法的局限性，展望未来的研究方向。"
+    },
+    {
+      "block_id": "B0103",
+      "old_hash": "6218e1d1eb28",
+      "first_line_excerpt": "## 第二章 论辩挖掘相关理论与大语言模型基础"
+    },
+    {
+      "block_id": "B0104",
+      "old_hash": "9e817aa03513",
+      "first_line_excerpt": "本章系统介绍论辩挖掘任务的理论基础与技术背景。首先，详细阐述Toulmin论辩模型的理论框架，对论辩挖掘任务进行形式化定义，介绍论辩组件、论辩关系及论辩图的数…"
+    },
+    {
+      "block_id": "B0105",
+      "old_hash": "8b1c9ccc8807",
+      "first_line_excerpt": "### 2.1 论辩挖掘任务定义与图结构形式化"
+    },
+    {
+      "block_id": "B0106",
+      "old_hash": "580c0d2a5d39",
+      "first_line_excerpt": "#### 2.1.1 Toulmin论辩模型理论框架"
+    },
+    {
+      "block_id": "B0107",
+      "old_hash": "22ea94d694ff",
+      "first_line_excerpt": "Toulmin论辩模型是计算论辩学中最具影响力的微观结构模型，为形式化描述论辩结构提供了理论基础[3]。Stephen Toulmin在1958年提出该模型，…"
+    },
+    {
+      "block_id": "B0108",
+      "old_hash": "b4c2bef3d453",
+      "first_line_excerpt": "**主张（Claim）**是论辩的核心论点，表达论辩者试图建立或辩护的立场。主张回答\"你在主张什么\"的问题，是整个论辩的出发点和归宿。在论辩图中，主张通常处于…"
+    },
+    {
+      "block_id": "B0109",
+      "old_hash": "c8933cb9a567",
+      "first_line_excerpt": "**数据（Data/Grounds）**是支撑主张的事实性证据，回答\"你凭什么这样说\"的问题。数据可以包括经验观察、统计数字、历史事件、专家意见等，为主张提供…"
+    },
+    {
+      "block_id": "B0110",
+      "old_hash": "1d1f3b12c362",
+      "first_line_excerpt": "**保证（Warrant）**是连接数据与主张的推理规则或论证原则，回答\"数据如何支持主张\"的问题。保证通常是隐含的推理前提，体现论辩者的逻辑推理方式。例如，…"
+    },
+    {
+      "block_id": "B0111",
+      "old_hash": "cd9554f8c90a",
+      "first_line_excerpt": "**支撑（Backing）**是为保证提供进一步支持的辅助信息，回答\"保证为什么可靠\"的问题。当保证本身需要证成时，支撑提供更深层次的理由。支撑使论辩的推理链…"
+    },
+    {
+      "block_id": "B0112",
+      "old_hash": "bcbbee42640b",
+      "first_line_excerpt": "**限定词（Qualifier）**表达主张的确信程度或适用范围，如\"可能\"、\"通常\"、\"在大多数情况下\"等。限定词体现论辩的谨慎性和精确性，避免过度概括。"
+    },
+    {
+      "block_id": "B0113",
+      "old_hash": "fffebcb07b8c",
+      "first_line_excerpt": "**反驳（Rebuttal）**指出主张不成立的例外条件或反对意见，回答\"在什么情况下主张不成立\"的问题。反驳体现论辩的辩证性质，承认主张的局限性。"
+    },
+    {
+      "block_id": "B0114",
+      "old_hash": "5eff27878df7",
+      "first_line_excerpt": "|Toulmin要素|定义|功能|在计算建模中的对应|"
+    },
+    {
+      "block_id": "B0115",
+      "old_hash": "877a1598d401",
+      "first_line_excerpt": "在计算论辩挖掘中，研究者通常将Toulmin模型的六要素简化为更易于标注和预测的三元结构：主张类组件（对应Claim）、前提类组件（对应Data、Warran…"
+    },
+    {
+      "block_id": "B0116",
+      "old_hash": "e02610797ee3",
+      "first_line_excerpt": "#### 2.1.2 论辩组件的定义与分类"
+    },
+    {
+      "block_id": "B0117",
+      "old_hash": "de9bec74f7ef",
+      "first_line_excerpt": "论辩组件（Argument Component）是构成论辩结构的基本单元，指文本中承载特定论证功能的语言片段。根据其在论证结构中的角色，论辩组件可分为以下几种…"
+    },
+    {
+      "block_id": "B0118",
+      "old_hash": "8e98497e1e46",
+      "first_line_excerpt": "**定义2.1（主要主张，MajorClaim）**：主要主张表达作者针对全文议题的总体立场。在AAEC中，MajorClaim通常出现在引言或结论部分，并通…"
+    },
+    {
+      "block_id": "B0119",
+      "old_hash": "339c50fbd589",
+      "first_line_excerpt": "**定义2.2（主张，Claim）**：主张是段落级或局部论证结构中的中心结论，通常接收Premise或其他局部组件的支持或攻击，并以stance属性表达其相…"
+    },
+    {
+      "block_id": "B0120",
+      "old_hash": "a75321f41ba5",
+      "first_line_excerpt": "**定义2.3（前提，Premise）**：前提是为Claim或其他Premise提供支撑或反驳的论据单元，包括事实陈述、数据引用、例证说明、推理依据或逻辑推…"
+    },
+    {
+      "block_id": "B0121",
+      "old_hash": "1410c55bcc97",
+      "first_line_excerpt": "不同数据集根据具体领域的需求，定义了不同粒度的组件类型集合。在AAEC（Argument Annotated Essays Corpus）数据集中，组件类型集…"
+    },
+    {
+      "block_id": "B0122",
+      "old_hash": "a90ccdc19099",
+      "first_line_excerpt": "- **Fact**：客观事实陈述，可被独立验证"
+    },
+    {
+      "block_id": "B0123",
+      "old_hash": "9183632a7207",
+      "first_line_excerpt": "不同数据集的组件类型定义差异反映了论辩挖掘任务的领域依赖性，也为跨领域迁移带来了挑战。"
+    },
+    {
+      "block_id": "B0124",
+      "old_hash": "7938147ab63e",
+      "first_line_excerpt": "**定义2.4（论辩组件的形式化表示）**：给定输入文本$D = (t_1, t_2, \\dots, t_n)$，其中$t_i$表示第$i$个token，一个…"
+    },
+    {
+      "block_id": "B0125",
+      "old_hash": "f16dd7ba575a",
+      "first_line_excerpt": "$$c = (s, e, \\tau)$$"
+    },
+    {
+      "block_id": "B0126",
+      "old_hash": "2145f7ee6dbd",
+      "first_line_excerpt": "其中$s \\in \\{1, 2, \\dots, n\\}$为组件的起始位置索引，$e \\in \\{s, s+1, \\dots, n\\}$为结束位置索引，$\\ta…"
+    },
+    {
+      "block_id": "B0127",
+      "old_hash": "703ff74e6153",
+      "first_line_excerpt": "论辩组件识别任务可形式化为从文本$D$到组件集合$C = \\{c_1, c_2, \\dots, c_m\\}$的映射，要求正确识别每个组件的边界$(s_i, e…"
+    },
+    {
+      "block_id": "B0128",
+      "old_hash": "314566353348",
+      "first_line_excerpt": "#### 2.1.3 论辩关系的定义与类型"
+    },
+    {
+      "block_id": "B0129",
+      "old_hash": "7ee1860c033a",
+      "first_line_excerpt": "论辩关系（Argument Relation）描述了论辩组件之间的逻辑连接，是论证结构的核心要素。常见的论辩关系包括支持关系和攻击关系[10][39]："
+    },
+    {
+      "block_id": "B0130",
+      "old_hash": "1573d2a4393e",
+      "first_line_excerpt": "**定义2.5（支持关系，Support）**：若组件$c_i$为组件$c_j$提供证据、理由或正面论证，则称$c_i$支持$c_j$，记为$c_i \\xri…"
+    },
+    {
+      "block_id": "B0131",
+      "old_hash": "58dca7511e14",
+      "first_line_excerpt": "**定义2.6（攻击关系，Attack）**：若组件$c_i$对组件$c_j$提出质疑、反驳或负面论证，则称$c_i$攻击$c_j$，记为$c_i \\xrig…"
+    },
+    {
+      "block_id": "B0132",
+      "old_hash": "f291e4fa5dbc",
+      "first_line_excerpt": "**定义2.7（论辩关系的形式化表示）**：给定两个论辩组件$c_i$和$c_j$，它们之间的论辩关系$r$可表示为三元组："
+    },
+    {
+      "block_id": "B0133",
+      "old_hash": "c63bf25dbdca",
+      "first_line_excerpt": "$$r = (c_i, c_j, \\rho)$$"
+    },
+    {
+      "block_id": "B0134",
+      "old_hash": "6064c0394be0",
+      "first_line_excerpt": "其中$c_i$为源组件，$c_j$为目标组件，$\\rho$为数据集定义的关系类型。对AAEC有$\\mathcal{R}_{AAEC}=\\{Support, A…"
+    },
+    {
+      "block_id": "B0135",
+      "old_hash": "74eb546f6ad6",
+      "first_line_excerpt": "论辩关系的方向性是其重要特征。在论辩图中，关系边从论据源指向被支撑或被反驳的目标。需要将关系边与节点立场属性区分：以AAEC为例，Claim对MajorCla…"
+    },
+    {
+      "block_id": "B0136",
+      "old_hash": "96d9e4847c35",
+      "first_line_excerpt": "#### 2.1.4 论辩图的DAG形式化表示"
+    },
+    {
+      "block_id": "B0137",
+      "old_hash": "c036339a08f4",
+      "first_line_excerpt": "论辩图（Argument Graph）是对文本论辩结构的图论表示，将组件抽象为节点，将关系抽象为有向边。论辩理论本身并不要求所有语料的图都具有同一种拓扑；本文…"
+    },
+    {
+      "block_id": "B0138",
+      "old_hash": "54cd884a990e",
+      "first_line_excerpt": "**定义2.8（论辩图）**：给定输入文本$D$，其对应的论辩图$G$定义为二元组："
+    },
+    {
+      "block_id": "B0139",
+      "old_hash": "bf6bb324370e",
+      "first_line_excerpt": "$$G = (V, E)$$"
+    },
+    {
+      "block_id": "B0140",
+      "old_hash": "2b6b1dbcf94e",
+      "first_line_excerpt": "其中："
+    },
+    {
+      "block_id": "B0141",
+      "old_hash": "424eb821fb8c",
+      "first_line_excerpt": "- $V = \\{v_1, v_2, \\dots, v_m\\}$为节点集合，每个节点$v_i$对应一个论辩组件$c_i = (s_i, e_i, \\tau_i…"
+    },
+    {
+      "block_id": "B0142",
+      "old_hash": "3ac6345182df",
+      "first_line_excerpt": "**定义2.9（实验图的无环约束）**：在本文采用的图表示中，候选图$G=(V,E)$需满足无环性，即不存在节点序列$v_{i_1},v_{i_2},\\dot…"
+    },
+    {
+      "block_id": "B0143",
+      "old_hash": "a19ebbcc06a7",
+      "first_line_excerpt": "$$(v_{i_1}, v_{i_2}, \\cdot) \\in E \\land (v_{i_2}, v_{i_3}, \\cdot) \\in E \\land \\…"
+    },
+    {
+      "block_id": "B0144",
+      "old_hash": "70214c1dc650",
+      "first_line_excerpt": "这里的无环性是一项与本文实验语料和输出表示相匹配的合法性条件，而不是对所有论辩理论或所有论辩语料的普遍断言。该条件用于检测生成模型产生的循环引用，并为后续候选…"
+    },
+    {
+      "block_id": "B0145",
+      "old_hash": "386b97fadbe4",
+      "first_line_excerpt": "**定义2.10（论辩图的结构特性）**：论辩图$G=(V,E)$具有以下可计算结构特性："
+    },
+    {
+      "block_id": "B0146",
+      "old_hash": "d0a6d9df3113",
+      "first_line_excerpt": "- **入度（In-degree）**：节点$v$的入度$d_{in}(v)=|\\{(u,v,\\cdot)\\in E\\}|$，表示指向该组件的直接关系数量。"
+    },
+    {
+      "block_id": "B0147",
+      "old_hash": "3585fc6cb9f8",
+      "first_line_excerpt": "上述性质用于描述和验证预测图，不作为组件类型的硬编码判定规则。特别地，本文的结构完整性评分按数据集标注规范计算，不要求AAEC中的MajorClaim必须具有…"
+    },
+    {
+      "block_id": "B0148",
+      "old_hash": "7f884e7f382a",
+      "first_line_excerpt": "#### 2.1.5 端到端论辩挖掘任务的输入输出定义"
+    },
+    {
+      "block_id": "B0149",
+      "old_hash": "5f3e7e52d4b6",
+      "first_line_excerpt": "端到端论辩挖掘（End-to-End Argument Mining）要求系统以原始文本为输入并输出可评价的完整论辩结构，不依赖人工提供的金标准组件作为中间输…"
+    },
+    {
+      "block_id": "B0150",
+      "old_hash": "6bc47f2b065a",
+      "first_line_excerpt": "**定义2.11（端到端论辩挖掘任务）**：给定输入文本$D=(t_1,t_2,\\dots,t_n)$和数据集标注规范$\\mathcal{A}$，端到端论辩挖…"
+    },
+    {
+      "block_id": "B0151",
+      "old_hash": "ef72edb2d9fa",
+      "first_line_excerpt": "$$G^*=f(D,\\mathcal{A})=(V^*,E^*)$$"
+    },
+    {
+      "block_id": "B0152",
+      "old_hash": "68d1ed7de5b5",
+      "first_line_excerpt": "其中$\\mathcal{D}$为输入文本空间，$\\mathcal{G}_{\\mathcal{A}}$为满足数据集标注规范$\\mathcal{A}$及本文合法性…"
+    },
+    {
+      "block_id": "B0153",
+      "old_hash": "6b21ae116d55",
+      "first_line_excerpt": "在基于大语言模型的生成式方法中，论辩图被序列化为结构化文本格式（如JSON），模型通过自回归生成直接输出包含组件和关系信息的结构化序列[20]："
+    },
+    {
+      "block_id": "B0154",
+      "old_hash": "4b3c1a3959e1",
+      "first_line_excerpt": "$$\\hat{y} = \\text{LLM}(D; \\theta)$$"
+    },
+    {
+      "block_id": "B0155",
+      "old_hash": "953580a1f793",
+      "first_line_excerpt": "其中$\\hat{y}$为JSON格式的输出序列，包含组件列表$\\{(s_i, e_i, \\tau_i)\\}$和关系列表$\\{(i, j, \\rho_{ij})…"
+    },
+    {
+      "block_id": "B0156",
+      "old_hash": "213c315dfaa8",
+      "first_line_excerpt": "```json"
+    },
+    {
+      "block_id": "B0157",
+      "old_hash": "5ab003af49dd",
+      "first_line_excerpt": "这种序列化方案将图结构展平为线性序列，使得标准的序列到序列模型能够处理论辩图生成任务。"
+    },
+    {
+      "block_id": "B0158",
+      "old_hash": "e0f237d873e0",
+      "first_line_excerpt": "端到端论辩挖掘任务具有以下特性和挑战："
+    },
+    {
+      "block_id": "B0159",
+      "old_hash": "696da9b35603",
+      "first_line_excerpt": "|任务特性|描述|技术挑战|"
+    },
+    {
+      "block_id": "B0160",
+      "old_hash": "1532e85933d0",
+      "first_line_excerpt": "### 2.2 大语言模型结构化生成技术"
+    },
+    {
+      "block_id": "B0161",
+      "old_hash": "bc5b4c155171",
+      "first_line_excerpt": "#### 2.2.1 Transformer架构与自注意力机制"
+    },
+    {
+      "block_id": "B0162",
+      "old_hash": "3294118955cd",
+      "first_line_excerpt": "Transformer架构是当代大语言模型的基础，由Vaswani等人在2017年提出[56]。其核心创新在于自注意力机制（Self-Attention），能…"
+    },
+    {
+      "block_id": "B0163",
+      "old_hash": "af95991085e4",
+      "first_line_excerpt": "**定义2.12（缩放点积注意力）**：给定查询矩阵$Q \\in \\mathbb{R}^{n \\times d_k}$、键矩阵$K \\in \\mathbb{R…"
+    },
+    {
+      "block_id": "B0164",
+      "old_hash": "55e19b29cfaf",
+      "first_line_excerpt": "$$\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right…"
+    },
+    {
+      "block_id": "B0165",
+      "old_hash": "e85e385f93c3",
+      "first_line_excerpt": "其中$d_k$为键向量的维度，$\\sqrt{d_k}$为缩放因子。缩放因子的引入是为了防止当$d_k$较大时，点积结果的方差过大，导致softmax函数进入梯…"
+    },
+    {
+      "block_id": "B0166",
+      "old_hash": "755878136412",
+      "first_line_excerpt": "注意力机制的计算过程可分解为三个步骤："
+    },
+    {
+      "block_id": "B0167",
+      "old_hash": "7cbbd5986ccd",
+      "first_line_excerpt": "1. **相似度计算**：通过$QK^T$计算查询与所有键之间的点积相似度"
+    },
+    {
+      "block_id": "B0168",
+      "old_hash": "39be7608221d",
+      "first_line_excerpt": "**定义2.13（多头注意力）**：多头注意力通过并行计算多组注意力，捕捉不同子空间的特征表示："
+    },
+    {
+      "block_id": "B0169",
+      "old_hash": "c6a1fd119ec9",
+      "first_line_excerpt": "$$\\text{MultiHead}(Q, K, V) = \\text{Concat}(head_1, \\dots, head_h)W^O$$"
+    },
+    {
+      "block_id": "B0170",
+      "old_hash": "5d28112ff091",
+      "first_line_excerpt": "其中每个注意力头定义为："
+    },
+    {
+      "block_id": "B0171",
+      "old_hash": "3686fa14124d",
+      "first_line_excerpt": "$W_i^Q \\in \\mathbb{R}^{d_{model} \\times d_k}$, $W_i^K \\in \\mathbb{R}^{d_{model}…"
+    },
+    {
+      "block_id": "B0172",
+      "old_hash": "3744408343cb",
+      "first_line_excerpt": "**Transformer编码器**由多层堆叠的自注意力层和前馈网络组成。每一层包含："
+    },
+    {
+      "block_id": "B0173",
+      "old_hash": "aa89b2a45df2",
+      "first_line_excerpt": "1. 多头自注意力子层：$\\text{LayerNorm}(x + \\text{MultiHead}(x, x, x))$"
+    },
+    {
+      "block_id": "B0174",
+      "old_hash": "343c15126059",
+      "first_line_excerpt": "其中前馈网络定义为："
+    },
+    {
+      "block_id": "B0175",
+      "old_hash": "9d29bd94c04f",
+      "first_line_excerpt": "**Transformer解码器**在编码器的基础上增加了掩码自注意力机制，确保位置$i$只能关注位置$1, 2, \\dots, i$的信息，实现自回归生成。"
+    },
+    {
+      "block_id": "B0176",
+      "old_hash": "5b33535c41d9",
+      "first_line_excerpt": "在论辩挖掘任务中，自注意力机制使模型能够捕捉论辩组件之间的长距离语义关联，为关系预测提供全局上下文信息[37]。例如，文章开头提出的主要主张与结尾的总结性前提…"
+    },
+    {
+      "block_id": "B0177",
+      "old_hash": "7d1bf5b83fa4",
+      "first_line_excerpt": "#### 2.2.2 自回归生成与JSON结构化输出"
+    },
+    {
+      "block_id": "B0178",
+      "old_hash": "8c30bee825cb",
+      "first_line_excerpt": "大语言模型采用自回归（Autoregressive）生成范式，逐token预测输出序列。给定输入序列$x = (x_1, \\dots, x_n)$和已生成的部…"
+    },
+    {
+      "block_id": "B0179",
+      "old_hash": "62a6e03b9c19",
+      "first_line_excerpt": "$$P(y_t | x, y_{<t}; \\theta) = \\text{softmax}(W_o h_t + b_o)$$"
+    },
+    {
+      "block_id": "B0180",
+      "old_hash": "36bbcf893c07",
+      "first_line_excerpt": "其中$h_t$为解码器在位置$t$的隐藏状态，$W_o \\in \\mathbb{R}^{|V| \\times d}$和$b_o \\in \\mathbb{R}^…"
+    },
+    {
+      "block_id": "B0181",
+      "old_hash": "de5a9e4b59e1",
+      "first_line_excerpt": "$$P(y | x; \\theta) = \\prod_{t=1}^{T} P(y_t | x, y_{<t}; \\theta)$$"
+    },
+    {
+      "block_id": "B0182",
+      "old_hash": "3a9bcd0f2580",
+      "first_line_excerpt": "训练时采用负对数似然损失："
+    },
+    {
+      "block_id": "B0183",
+      "old_hash": "5a909adecf30",
+      "first_line_excerpt": "在论辩挖掘的生成式方法中，模型输出被设计为JSON格式的结构化文本，包含组件和关系的索引表示。这种序列化方案将图结构展平为线性序列，使得标准的序列到序列模型能…"
+    },
+    {
+      "block_id": "B0184",
+      "old_hash": "760f16a85432",
+      "first_line_excerpt": "然而，自回归生成的固有特性——前文token一旦生成就无法修改——导致了错误传播问题。上游的组件识别错误会影响后续的关系预测，形成级联效应。例如，如果模型在生…"
+    },
+    {
+      "block_id": "B0185",
+      "old_hash": "4bfa5300dfee",
+      "first_line_excerpt": "**解码策略**对生成质量有重要影响。常用的解码策略包括："
+    },
+    {
+      "block_id": "B0186",
+      "old_hash": "76839b2fe348",
+      "first_line_excerpt": "- **贪心解码**：每步选择概率最高的token，计算效率高但可能陷入局部最优"
+    },
+    {
+      "block_id": "B0187",
+      "old_hash": "011b13131720",
+      "first_line_excerpt": "$$p'_i = \\frac{\\exp(\\log p_i / \\tau)}{\\sum_j \\exp(\\log p_j / \\tau)}$$"
+    },
+    {
+      "block_id": "B0188",
+      "old_hash": "fdd765ce6e41",
+      "first_line_excerpt": "当$\\tau > 1$时，概率分布趋于均匀，增加输出的多样性；当$\\tau < 1$时，概率分布趋于集中，增加输出的确定性。"
+    },
+    {
+      "block_id": "B0189",
+      "old_hash": "ab9d61b4a7d1",
+      "first_line_excerpt": "#### 2.2.3 约束解码技术"
+    },
+    {
+      "block_id": "B0190",
+      "old_hash": "39cb9baa4c7a",
+      "first_line_excerpt": "约束解码（Constrained Decoding）技术通过在解码阶段对token概率施加语法约束，确保模型输出符合预定义的结构化格式[25]。"
+    },
+    {
+      "block_id": "B0191",
+      "old_hash": "1a9c37a2d8de",
+      "first_line_excerpt": "**定义2.14（语法约束解码）**：给定目标语法$\\mathcal{G}$（如JSON语法），约束解码在每一步生成时，将不符合语法的token概率置零："
+    },
+    {
+      "block_id": "B0192",
+      "old_hash": "297048c3fe50",
+      "first_line_excerpt": "$$P'(y_t | x, y_{<t}) = \\begin{cases} P(y_t | x, y_{<t}) / Z & \\text{if } y_{<t…"
+    },
+    {
+      "block_id": "B0193",
+      "old_hash": "22b1a4310820",
+      "first_line_excerpt": "其中$\\text{Prefix}(\\mathcal{G})$为语法$\\mathcal{G}$的所有合法前缀集合，$Z = \\sum_{y_t: y_{<t} …"
+    },
+    {
+      "block_id": "B0194",
+      "old_hash": "c7626d0cd348",
+      "first_line_excerpt": "约束解码的实现通常基于有限状态自动机（FSA）或上下文无关文法（CFG）。对于JSON语法，可以构建一个解析器，在每一步解码时判断当前前缀是否为合法的JSON…"
+    },
+    {
+      "block_id": "B0195",
+      "old_hash": "2f18dfdce110",
+      "first_line_excerpt": "语法约束解码能够有效消除格式错误，如JSON语法错误、括号不匹配、引号缺失等。然而，约束解码无法保证输出内容的语义正确性，如组件跨度越界、关系引用不存在的组件…"
+    },
+    {
+      "block_id": "B0196",
+      "old_hash": "021b4ebf33ff",
+      "first_line_excerpt": "近期研究进一步提出了灵活高效的语法约束解码框架，通过增量式语法解析和高效的掩码计算，在保证输出格式正确性的同时最小化对生成效率的影响[26]。"
+    },
+    {
+      "block_id": "B0197",
+      "old_hash": "89cee03ed053",
+      "first_line_excerpt": "#### 2.2.4 LoRA微调与参数高效适配"
+    },
+    {
+      "block_id": "B0198",
+      "old_hash": "a8e850b02466",
+      "first_line_excerpt": "低秩适配（Low-Rank Adaptation, LoRA）是一种参数高效微调方法，通过在预训练权重旁注入可训练的低秩分解矩阵，实现高效的模型定制[27]。"
+    },
+    {
+      "block_id": "B0199",
+      "old_hash": "8ce3104fe5ea",
+      "first_line_excerpt": "**定义2.15（LoRA参数化）**：对于预训练权重矩阵$W_0 \\in \\mathbb{R}^{d \\times k}$，LoRA引入低秩增量："
+    },
+    {
+      "block_id": "B0200",
+      "old_hash": "135a9325b55a",
+      "first_line_excerpt": "$$W = W_0 + \\Delta W = W_0 + BA$$"
+    },
+    {
+      "block_id": "B0201",
+      "old_hash": "e49442601787",
+      "first_line_excerpt": "其中$B \\in \\mathbb{R}^{d \\times r}$，$A \\in \\mathbb{R}^{r \\times k}$，$r \\ll \\min(d…"
+    },
+    {
+      "block_id": "B0202",
+      "old_hash": "2f7ae1b99aae",
+      "first_line_excerpt": "LoRA的初始化策略通常为：$A$使用高斯随机初始化，$B$初始化为零矩阵，确保训练开始时$\\Delta W = 0$，即模型行为与预训练模型一致。训练过程中…"
+    },
+    {
+      "block_id": "B0203",
+      "old_hash": "7c73ed7e01b9",
+      "first_line_excerpt": "$$h = W_0 x + \\frac{\\alpha}{r} BAx$$"
+    },
+    {
+      "block_id": "B0204",
+      "old_hash": "6155accc4062",
+      "first_line_excerpt": "缩放因子$\\alpha$控制低秩更新的幅度，通常设为与秩$r$相当的值。"
+    },
+    {
+      "block_id": "B0205",
+      "old_hash": "042c415eebe5",
+      "first_line_excerpt": "LoRA的优势在于："
+    },
+    {
+      "block_id": "B0206",
+      "old_hash": "f03a0cd8bf31",
+      "first_line_excerpt": "1. **参数效率**：可训练参数量从$O(d \\times k)$降至$O((d + k) \\times r)$，当$r \\ll \\min(d, k)$时显…"
+    },
+    {
+      "block_id": "B0207",
+      "old_hash": "8eb39d6b1cdf",
+      "first_line_excerpt": "在本文的结论类组件优化方案中，Claim-specific Adapter采用LoRA架构，在注意力投影层注入并行的低秩模块："
+    },
+    {
+      "block_id": "B0208",
+      "old_hash": "feb891436daa",
+      "first_line_excerpt": "$$h' = W_0 h + \\alpha \\cdot B_{\\tau} A_{\\tau} h$$"
+    },
+    {
+      "block_id": "B0209",
+      "old_hash": "27d5330d4e18",
+      "first_line_excerpt": "其中$\\alpha$为缩放系数，$B_{\\tau}$和$A_{\\tau}$为针对组件类型$\\tau$的适配器参数。当模型解码到与结论类标签匹配的JSON键值时…"
+    },
+    {
+      "block_id": "B0210",
+      "old_hash": "cda5f71e30b1",
+      "first_line_excerpt": "#### 2.2.5 思维链推理"
+    },
+    {
+      "block_id": "B0211",
+      "old_hash": "2d93dfee5591",
+      "first_line_excerpt": "思维链（Chain-of-Thought, CoT）提示技术通过引导模型生成中间推理步骤，显著提升了大语言模型在复杂推理任务上的表现[23]。"
+    },
+    {
+      "block_id": "B0212",
+      "old_hash": "db9401325224",
+      "first_line_excerpt": "**定义2.16（思维链提示）**：给定输入问题$x$，思维链提示要求模型生成推理路径$r = (r_1, r_2, \\dots, r_k)$后再输出最终答案…"
+    },
+    {
+      "block_id": "B0213",
+      "old_hash": "acf389034689",
+      "first_line_excerpt": "$$P(y | x) = \\sum_r P(r | x) \\cdot P(y | x, r)$$"
+    },
+    {
+      "block_id": "B0214",
+      "old_hash": "021325caf4d4",
+      "first_line_excerpt": "通过在提示中提供包含推理步骤的示例（few-shot CoT）或简单添加\"Let's think step by step\"提示（zero-shot CoT）…"
+    },
+    {
+      "block_id": "B0215",
+      "old_hash": "c74ddd478421",
+      "first_line_excerpt": "思维链推理的效果依赖于几个关键因素："
+    },
+    {
+      "block_id": "B0216",
+      "old_hash": "d88603f9eb46",
+      "first_line_excerpt": "1. **模型能力与训练方式**：模型规模、指令微调和推理训练都会影响CoT收益，不能以固定参数量作为适用边界；"
+    },
+    {
+      "block_id": "B0217",
+      "old_hash": "8718514703ff",
+      "first_line_excerpt": "在论辩挖掘任务中，思维链推理可以引导模型按照以下步骤进行论辩结构分析[24]："
+    },
+    {
+      "block_id": "B0218",
+      "old_hash": "229e17bad900",
+      "first_line_excerpt": "1. 首先通读全文，识别文本的核心议题"
+    },
+    {
+      "block_id": "B0219",
+      "old_hash": "c2281c26271f",
+      "first_line_excerpt": "这种分步骤的生成策略有助于模型理清复杂论辩结构中的逻辑层次，降低一次性生成完整结构的难度。"
+    },
+    {
+      "block_id": "B0220",
+      "old_hash": "273f9a9cb0d8",
+      "first_line_excerpt": "|技术|核心机制|在论辩挖掘中的作用|"
+    },
+    {
+      "block_id": "B0221",
+      "old_hash": "3d21a0dd34ca",
+      "first_line_excerpt": "### 2.3 数据增强与推理自纠错理论"
+    },
+    {
+      "block_id": "B0222",
+      "old_hash": "2210648ae566",
+      "first_line_excerpt": "#### 2.3.1 基于LLM的数据增强策略"
+    },
+    {
+      "block_id": "B0223",
+      "old_hash": "11f463c1d690",
+      "first_line_excerpt": "数据增强（Data Augmentation）通过扩充训练数据的多样性来提升模型的泛化能力。在论辩挖掘任务中，基于大语言模型的数据增强策略能够生成保持论证结构…"
+    },
+    {
+      "block_id": "B0224",
+      "old_hash": "df9b4ae24a61",
+      "first_line_excerpt": "**条件生成增强**：给定原始样本$(D, G)$，其中$D$为文本，$G$为对应的论辩图，利用LLM生成语义等价但表述不同的变体$D'$，同时保持论辩结构$…"
+    },
+    {
+      "block_id": "B0225",
+      "old_hash": "ae0de1dc1659",
+      "first_line_excerpt": "$$D' = \\text{LLM}_{\\text{paraphrase}}(D | G)$$"
+    },
+    {
+      "block_id": "B0226",
+      "old_hash": "59425380080d",
+      "first_line_excerpt": "这种方法的关键在于确保改写后的文本保持原有的论证逻辑和组件边界对应关系。实现时，通过在提示中明确指定每个组件的文本位置和类型，要求模型在改写时保持这些约束[4…"
+    },
+    {
+      "block_id": "B0227",
+      "old_hash": "9b8704c3881d",
+      "first_line_excerpt": "**结构感知增强**：SegMix等方法通过在保持文本结构逻辑的前提下进行片段替换，增强模型对复杂结构的鲁棒性[51]。具体而言，将文本按论辩组件分割为片段，…"
+    },
+    {
+      "block_id": "B0228",
+      "old_hash": "39c2e5aa97cd",
+      "first_line_excerpt": "**标签感知生成**：针对特定类型的组件或关系，设计定向的生成提示，扩充稀有类别的训练样本。例如，为了增强攻击关系的样本，可以提示LLM：\"请基于以下主张，生…"
+    },
+    {
+      "block_id": "B0229",
+      "old_hash": "f9e41d039b3c",
+      "first_line_excerpt": "Coda框架提出了约束生成技术，在生成合成数据时施加标签一致性约束，确保生成的文本与指定的组件类型和关系结构相匹配[49]。通过在提示中明确指定目标结构，并在…"
+    },
+    {
+      "block_id": "B0230",
+      "old_hash": "8332c6aaa98a",
+      "first_line_excerpt": "#### 2.3.2 长尾分布处理方法"
+    },
+    {
+      "block_id": "B0231",
+      "old_hash": "2e148d8b45a2",
+      "first_line_excerpt": "论辩挖掘数据集中普遍存在类别不平衡问题：结论类组件（MajorClaim、Claim）的实例数少于Premise，攻击关系也通常少于支持关系[28]。本文将其…"
+    },
+    {
+      "block_id": "B0232",
+      "old_hash": "df5dbe9f08f5",
+      "first_line_excerpt": "**定义2.17（类别不平衡比）**：对于组件类型集合$\\mathcal{T}$，不平衡比定义为："
+    },
+    {
+      "block_id": "B0233",
+      "old_hash": "1b07043c8a00",
+      "first_line_excerpt": "$$\\text{IR} = \\frac{\\max_{\\tau \\in \\mathcal{T}} n_\\tau}{\\min_{\\tau \\in \\mathcal…"
+    },
+    {
+      "block_id": "B0234",
+      "old_hash": "6e8a29c765d8",
+      "first_line_excerpt": "其中$n_\\tau$为类型$\\tau$的组件实例数量。由于组件实例、token级BIO标签和句子级标签会产生不同的$\\text{IR}$，本文统一采用训练集组…"
+    },
+    {
+      "block_id": "B0235",
+      "old_hash": "75ab73a14401",
+      "first_line_excerpt": "针对长尾分布问题，主要的处理策略包括："
+    },
+    {
+      "block_id": "B0236",
+      "old_hash": "10fa6f3185b1",
+      "first_line_excerpt": "**重采样策略**：通过过采样（oversampling）稀有类别或欠采样（undersampling）高频类别来平衡训练数据分布。然而，简单的重复采样容易导…"
+    },
+    {
+      "block_id": "B0237",
+      "old_hash": "839e47be8c6f",
+      "first_line_excerpt": "**损失函数重加权**：在训练损失中对稀有类别赋予更高的权重，使模型更加关注这些类别的学习："
+    },
+    {
+      "block_id": "B0238",
+      "old_hash": "453d82006a6e",
+      "first_line_excerpt": "$$\\mathcal{L}_{\\text{weighted}} = \\sum_{\\tau \\in \\mathcal{T}} w_\\tau \\cdot \\mat…"
+    },
+    {
+      "block_id": "B0239",
+      "old_hash": "ab01940adabb",
+      "first_line_excerpt": "其中$w_\\tau$通常与类别频率的倒数相关。Focal Loss进一步引入了难易样本的动态权重调整："
+    },
+    {
+      "block_id": "B0240",
+      "old_hash": "48aa902d8485",
+      "first_line_excerpt": "$$\\text{FL}(p_t) = -\\alpha_t (1 - p_t)^\\gamma \\log(p_t)$$"
+    },
+    {
+      "block_id": "B0241",
+      "old_hash": "4c8f793d9b58",
+      "first_line_excerpt": "其中$(1 - p_t)^\\gamma$为调制因子，使模型聚焦于难分类样本。"
+    },
+    {
+      "block_id": "B0242",
+      "old_hash": "19fbf391faf9",
+      "first_line_excerpt": "**分布平衡损失**：Distribution-balanced Loss通过考虑类别间的重叠程度和样本难度，设计更精细的损失权重[50]。"
+    },
+    {
+      "block_id": "B0243",
+      "old_hash": "122e799ac642",
+      "first_line_excerpt": "**标签特定特征增强**：针对稀有类别进行定向的数据生成，通过过采样或合成样本来平衡类别分布[28]。DEALT框架利用LLM的多样性增强能力，专门为长尾类别…"
+    },
+    {
+      "block_id": "B0244",
+      "old_hash": "6dd480f6719c",
+      "first_line_excerpt": "**多目标训练**：在主任务损失之外引入辅助任务，专门强化对稀有类别的识别能力。本文采用的多目标训练策略即属于此类："
+    },
+    {
+      "block_id": "B0245",
+      "old_hash": "d2188017886d",
+      "first_line_excerpt": "$$\\mathcal{L}_{comp} = \\mathcal{L}_{gen} + \\lambda\\mathcal{L}_{sat}$$"
+    },
+    {
+      "block_id": "B0246",
+      "old_hash": "cd50103842a4",
+      "first_line_excerpt": "其中$\\mathcal{L}_{gen}$为标准的负对数似然生成损失，$\\mathcal{L}_{sat}$为辅助的二元交叉熵损失，用于预测句子是否包含结论类…"
+    },
+    {
+      "block_id": "B0247",
+      "old_hash": "f40306d7c36e",
+      "first_line_excerpt": "#### 2.3.3 Self-Refine迭代精炼框架"
+    },
+    {
+      "block_id": "B0248",
+      "old_hash": "d7a579b2ebdb",
+      "first_line_excerpt": "Self-Refine是一种推理时自我改进框架，通过\"生成-反馈-修正\"的迭代循环提升模型输出质量[30]。"
+    },
+    {
+      "block_id": "B0249",
+      "old_hash": "6febd2746df1",
+      "first_line_excerpt": "**定义2.18（Self-Refine迭代）**：给定初始输出$y_0 = \\text{LLM}(x)$，Self-Refine执行以下迭代："
+    },
+    {
+      "block_id": "B0250",
+      "old_hash": "afe77c9bd5fd",
+      "first_line_excerpt": "$$f_t = \\text{Feedback}(x, y_t)$$"
+    },
+    {
+      "block_id": "B0251",
+      "old_hash": "ad2122820896",
+      "first_line_excerpt": "其中$\\text{Feedback}$函数识别$y_t$中的问题，$\\text{Refine}$函数根据反馈进行修正。迭代直到满足终止条件（如反馈为空或达到最…"
+    },
+    {
+      "block_id": "B0252",
+      "old_hash": "bccc7cecf3dd",
+      "first_line_excerpt": "Self-Refine的核心假设是模型能够识别并纠正自身输出中的错误。具体实现中，反馈和修正通常由同一个LLM执行，通过不同的提示模板引导模型扮演\"评审者\"和…"
+    },
+    {
+      "block_id": "B0253",
+      "old_hash": "a79755bb872e",
+      "first_line_excerpt": "然而，研究表明，在缺乏外部验证信号的情况下，LLM难以有效进行推理自纠错[31]。Huang等人的研究发现，LLM往往无法准确判断自身输出的正确性，甚至可能将…"
+    },
+    {
+      "block_id": "B0254",
+      "old_hash": "c9c3f5764a45",
+      "first_line_excerpt": "在论辩挖掘任务中，纯粹依赖模型自身的反馈存在局限性：模型可能无法检测到微妙的逻辑不一致或结构违规[31]。因此，本文的MCR-BR框架引入了基于多维度一致性评…"
+    },
+    {
+      "block_id": "B0255",
+      "old_hash": "1b7ea70ff3fc",
+      "first_line_excerpt": "#### 2.3.4 自一致性解码"
+    },
+    {
+      "block_id": "B0256",
+      "old_hash": "d3bddd03acef",
+      "first_line_excerpt": "自一致性（Self-Consistency）是一种利用多样性采样来提升推理可靠性的解码策略[47]。"
+    },
+    {
+      "block_id": "B0257",
+      "old_hash": "95938cc2c809",
+      "first_line_excerpt": "**定义2.19（自一致性解码）**：给定输入$x$，自一致性解码首先采样$K$个独立的推理路径："
+    },
+    {
+      "block_id": "B0258",
+      "old_hash": "f499b66f8d55",
+      "first_line_excerpt": "$$\\{(r^{(1)}, y^{(1)}), (r^{(2)}, y^{(2)}), \\dots, (r^{(K)}, y^{(K)})\\} \\sim P(…"
+    },
+    {
+      "block_id": "B0259",
+      "old_hash": "38248a628a15",
+      "first_line_excerpt": "然后通过多数投票或加权聚合确定最终答案："
+    },
+    {
+      "block_id": "B0260",
+      "old_hash": "88b6ae2453e8",
+      "first_line_excerpt": "$$y^* = \\arg\\max_y \\sum_{k=1}^{K} \\mathbb{1}[y^{(k)} = y]$$"
+    },
+    {
+      "block_id": "B0261",
+      "old_hash": "f9984a81c5d4",
+      "first_line_excerpt": "自一致性的理论基础是：正确的推理路径更可能在多次独立采样中重复出现。通过边缘化掉推理路径的变化，自一致性能够识别出最稳定、最一致的答案。"
+    },
+    {
+      "block_id": "B0262",
+      "old_hash": "042a83afb715",
+      "first_line_excerpt": "在结构化任务中，直接应用多数投票面临挑战，因为生成的结构化输出（如论辩图）之间难以进行精确匹配。因此，自一致性原理被推广为结构级别的一致性评估[47]：不要求…"
+    },
+    {
+      "block_id": "B0263",
+      "old_hash": "82766ba8f706",
+      "first_line_excerpt": "#### 2.3.5 多候选生成与重排序机制"
+    },
+    {
+      "block_id": "B0264",
+      "old_hash": "4017bb155bc9",
+      "first_line_excerpt": "多候选生成与重排序（Multi-Candidate Generation and Reranking）是解决单次生成脆弱性的有效策略。该机制通过生成多个候选输…"
+    },
+    {
+      "block_id": "B0265",
+      "old_hash": "d810e5247692",
+      "first_line_excerpt": "**定义2.20（多候选重排序）**：给定输入$x$和评分函数$E: \\mathcal{Y} \\rightarrow \\mathbb{R}$，多候选重排序执行…"
+    },
+    {
+      "block_id": "B0266",
+      "old_hash": "17e87e4f9283",
+      "first_line_excerpt": "1. **候选生成**：采样$K$个候选输出$\\{y^{(1)}, y^{(2)}, \\dots, y^{(K)}\\}$"
+    },
+    {
+      "block_id": "B0267",
+      "old_hash": "bbb04c2da76b",
+      "first_line_excerpt": "多候选生成的多样性可以通过多种技术实现：温度采样、Top-p采样、提示改写、模型集成等。评分函数的设计是多候选重排序的核心，需要能够准确区分高质量和低质量的输…"
+    },
+    {
+      "block_id": "B0268",
+      "old_hash": "79fc504bb437",
+      "first_line_excerpt": "在本文的MCR框架中，评分函数$E(S_k)$整合三个互补的一致性信号："
+    },
+    {
+      "block_id": "B0269",
+      "old_hash": "a9693636fe85",
+      "first_line_excerpt": "$$E(S_k)=\\alpha E_{dens}(S_k)+\\beta E_{coh}(S_k)+\\gamma E_{val}(S_k).$$"
+    },
+    {
+      "block_id": "B0270",
+      "old_hash": "2b6b1dbcf94e",
+      "first_line_excerpt": "其中："
+    },
+    {
+      "block_id": "B0271",
+      "old_hash": "c97e9a0697e1",
+      "first_line_excerpt": "- $E_{dens}$（结构完整性）：按照数据集标注规范，计算需要局部支撑的结论节点达到期望入度的程度；AAEC文档级MajorClaim不被强制要求具有关…"
+    },
+    {
+      "block_id": "B0272",
+      "old_hash": "78dd6fc28e41",
+      "first_line_excerpt": "权重参数$\\alpha=0.4$、$\\beta=0.4$、$\\gamma=0.2$分别控制三个分量的贡献。使用Llama-3-8B-Instruct替换默认验…"
+    },
+    {
+      "block_id": "B0273",
+      "old_hash": "87e3c85ef955",
+      "first_line_excerpt": "|方法|核心思想|优势|局限性|"
+    },
+    {
+      "block_id": "B0274",
+      "old_hash": "b08305b68947",
+      "first_line_excerpt": "### 2.4 本章小结"
+    },
+    {
+      "block_id": "B0275",
+      "old_hash": "0bc5f1f2e7c4",
+      "first_line_excerpt": "本章系统介绍了论辩挖掘任务的理论基础与大语言模型结构化生成的关键技术，为后续章节的方法设计奠定了理论基础。主要内容总结如下："
+    },
+    {
+      "block_id": "B0276",
+      "old_hash": "50ce89a3e9f9",
+      "first_line_excerpt": "在论辩挖掘理论基础方面，本章阐述了Toulmin论辩模型及其在计算建模中的简化形式，给出论辩组件、数据集特定关系集合和论辩图的形式化定义，将端到端论辩挖掘建模…"
+    },
+    {
+      "block_id": "B0277",
+      "old_hash": "e20ea31580f5",
+      "first_line_excerpt": "在大语言模型结构化生成技术方面，本章深入介绍了Transformer架构的自注意力机制及其数学形式化，阐述了自回归生成的JSON结构化输出设计，详细讲解了约束…"
+    },
+    {
+      "block_id": "B0278",
+      "old_hash": "a41e1fc2f86c",
+      "first_line_excerpt": "在数据增强与推理自纠错理论方面，本章系统阐述了基于LLM的条件生成增强和结构感知增强策略，详细介绍了长尾分布的处理方法（重采样、重加权、多目标训练），深入分析…"
+    },
+    {
+      "block_id": "B0279",
+      "old_hash": "c888574ef570",
+      "first_line_excerpt": "本章的理论梳理揭示了现有方法的关键局限：单次生成的脆弱性、结论组件的类别不平衡与结构角色稀疏，以及缺乏可定位的结构化反馈信号。第三章将利用结构感知增强和多目标…"
+    },
+    {
+      "block_id": "B0280",
+      "old_hash": "74b316304c3e",
+      "first_line_excerpt": "## 第三章 融合大模型数据增强的结论性组件提取优化"
+    },
+    {
+      "block_id": "B0281",
+      "old_hash": "3fced3b08c6c",
+      "first_line_excerpt": "端到端论辩挖掘同时预测组件与关系，组件集合决定了后续关系搜索空间。若关键Claim未被识别，任何关系模块都无法在缺失节点上恢复正确边。为降低这一上游瓶颈，本章…"
+    },
+    {
+      "block_id": "B0282",
+      "old_hash": "026d6a93cf94",
+      "first_line_excerpt": "### 3.1 组件不平衡与结构影响"
+    },
+    {
+      "block_id": "B0283",
+      "old_hash": "21c8ab0f7829",
+      "first_line_excerpt": "#### 3.1.1 统计口径"
+    },
+    {
+      "block_id": "B0284",
+      "old_hash": "c5f51a736c8d",
+      "first_line_excerpt": "设训练集组件类型集合为$\\mathcal{T}$，类型$\\tau$的组件实例数为$N_\\tau$，则实例级类别不平衡比定义为："
+    },
+    {
+      "block_id": "B0285",
+      "old_hash": "004ab71b5f6c",
+      "first_line_excerpt": "$$\\operatorname{IR}=\\frac{\\max_{\\tau\\in\\mathcal{T}}N_\\tau}{\\min_{\\tau\\in\\mathca…"
+    },
+    {
+      "block_id": "B0286",
+      "old_hash": "241292076323",
+      "first_line_excerpt": "本文统一以完成训练集、验证集和测试集划分之后的**训练集组件实例**作为统计单位。该口径不同于token级BIO标签数和句子级标签数，因此文中不混用不同粒度的…"
+    },
+    {
+      "block_id": "B0287",
+      "old_hash": "5e5f3f3dc935",
+      "first_line_excerpt": "#### 3.1.2 错误传播路径"
+    },
+    {
+      "block_id": "B0288",
+      "old_hash": "5b10ddd77f09",
+      "first_line_excerpt": "给定金标准组件集合$C$和预测组件集合$\\hat C$，关系预测只能在$\\hat C\\times\\hat C$上进行。若结论节点$c_j\\in C$未被召回，…"
+    },
+    {
+      "block_id": "B0289",
+      "old_hash": "da18eefffbe1",
+      "first_line_excerpt": "本文据此将优化目标从一般类别平衡进一步收敛为两点：一是提高结论类组件的边界与类型识别能力；二是在不过度牺牲Premise性能的前提下，提高包含高连接度结论节点…"
+    },
+    {
+      "block_id": "B0290",
+      "old_hash": "6b6bdfefd5f9",
+      "first_line_excerpt": "### 3.2 基于大语言模型的结构感知数据增强"
+    },
+    {
+      "block_id": "B0291",
+      "old_hash": "9888cebdc4dd",
+      "first_line_excerpt": "#### 3.2.1 局部子图作为增强单位"
+    },
+    {
+      "block_id": "B0292",
+      "old_hash": "b236b1e5c794",
+      "first_line_excerpt": "普通文本改写只约束句子语义，容易在改写后破坏组件边界或关系方向。本文以局部论辩子图而非孤立句子作为增强单位。对训练文档图$G=(V,E)$中的结论类节点$v_…"
+    },
+    {
+      "block_id": "B0293",
+      "old_hash": "2c1147897efd",
+      "first_line_excerpt": "$$G_c=(V_c,E_c),\\qquad V_c=\\{v_c\\}\\cup\\{v_i\\mid(v_i,v_c,r)\\in E\\}.$$"
+    },
+    {
+      "block_id": "B0294",
+      "old_hash": "7eb9af277ee7",
+      "first_line_excerpt": "在AAEC中，局部子图按段落关系标注构造，不将未标注的Claim—MajorClaim立场直接转化为关系边。增强模型接收组件文本、组件类型、关系方向和目标结构…"
+    },
+    {
+      "block_id": "B0295",
+      "old_hash": "23a9652e9b33",
+      "first_line_excerpt": "#### 3.2.2 条件生成约束"
+    },
+    {
+      "block_id": "B0296",
+      "old_hash": "3a8a5fc78c64",
+      "first_line_excerpt": "对局部子图$G_c$，生成过程表示为："
+    },
+    {
+      "block_id": "B0297",
+      "old_hash": "7639fdad83cd",
+      "first_line_excerpt": "$$D_c'=\\operatorname{LLM}_{aug}(D_c\\mid \\mathcal{T}_c,E_c,\\Pi),$$"
+    },
+    {
+      "block_id": "B0298",
+      "old_hash": "49076bffca35",
+      "first_line_excerpt": "其中$D_c$为原始局部文本，$\\mathcal{T}_c$为目标组件类型，$E_c$为需要保持的关系集合，$\\Pi$为生成约束。约束包括：组件数量和类型保持…"
+    },
+    {
+      "block_id": "B0299",
+      "old_hash": "bb710d3b0b5b",
+      "first_line_excerpt": "为降低模板化生成造成的分布偏差，增强提示同时允许词汇替换、句法重组和论据表述变化，但不允许改变原有立场。生成仅基于训练集进行；原始文档的全部增强版本与原文保持…"
+    },
+    {
+      "block_id": "B0300",
+      "old_hash": "b911375adc3e",
+      "first_line_excerpt": "#### 3.2.3 三层质量筛选"
+    },
+    {
+      "block_id": "B0301",
+      "old_hash": "bcf73131ae03",
+      "first_line_excerpt": "对生成样本$(D_c',G_c')$依次执行三层筛选："
+    },
+    {
+      "block_id": "B0302",
+      "old_hash": "f235084ea7b8",
+      "first_line_excerpt": "1. **格式合法性**：JSON可解析、必需字段存在、组件编号唯一且跨度位于文本范围内；"
+    },
+    {
+      "block_id": "B0303",
+      "old_hash": "42340433c6c7",
+      "first_line_excerpt": "定义三个二值检查函数$q_{fmt}$、$q_{str}$和$q_{sem}$，样本接受条件为："
+    },
+    {
+      "block_id": "B0304",
+      "old_hash": "dfc8c772dafe",
+      "first_line_excerpt": "$$q(D_c',G_c')=q_{fmt}\\cdot q_{str}\\cdot q_{sem}=1.$$"
+    },
+    {
+      "block_id": "B0305",
+      "old_hash": "b6a8fb3f79ec",
+      "first_line_excerpt": "三层筛选把可解析性、图结构正确性和语义合理性分离，避免仅凭语言流畅度接收带有标签漂移的合成样本。"
+    },
+    {
+      "block_id": "B0306",
+      "old_hash": "52d3ec3dea96",
+      "first_line_excerpt": "### 3.3 面向结论组件的表示增强"
+    },
+    {
+      "block_id": "B0307",
+      "old_hash": "476e4e911cb4",
+      "first_line_excerpt": "#### 3.3.1 Claim-specific Adapter"
+    },
+    {
+      "block_id": "B0308",
+      "old_hash": "d62199436df8",
+      "first_line_excerpt": "本文在组件生成器的注意力投影层旁路注入低秩适配器。对基础权重$W_0$和隐藏状态$h_t$，结论分支的输出表示为："
+    },
+    {
+      "block_id": "B0309",
+      "old_hash": "b5aeba73a887",
+      "first_line_excerpt": "$$h_t'=W_0h_t+g_t\\frac{\\alpha}{r}BAh_t,$$"
+    },
+    {
+      "block_id": "B0310",
+      "old_hash": "461bafeac78b",
+      "first_line_excerpt": "其中$A\\in\\mathbb{R}^{r\\times d}$、$B\\in\\mathbb{R}^{d\\times r}$为可训练低秩矩阵，$r=16$，$\\al…"
+    },
+    {
+      "block_id": "B0311",
+      "old_hash": "3213e24563ed",
+      "first_line_excerpt": "该设计使有限的可训练参数集中学习结论类组件的判别特征。与对全部token统一施加LoRA相比，条件分支减少了高频Premise梯度对结论参数更新的覆盖。"
+    },
+    {
+      "block_id": "B0312",
+      "old_hash": "86553d84ef71",
+      "first_line_excerpt": "#### 3.3.2 Cue-aware Soft Prompting"
+    },
+    {
+      "block_id": "B0313",
+      "old_hash": "53e3049d65fe",
+      "first_line_excerpt": "显式篇章线索对结论识别有帮助，但线索词与组件类型并非一一对应。本文首先在输入中检测预定义线索，如“therefore”“thus”“in conclusion…"
+    },
+    {
+      "block_id": "B0314",
+      "old_hash": "329ff13862e6",
+      "first_line_excerpt": "$$X'=[P_1,P_2,\\dots,P_m;X],$$"
+    },
+    {
+      "block_id": "B0315",
+      "old_hash": "bb3dc2c07914",
+      "first_line_excerpt": "其中$P_i\\in\\mathbb{R}^{d}$为可训练提示向量。线索检测仅控制提示分支是否启用，最终组件边界与类型仍由上下文模型联合判断，从而避免把词典匹配…"
+    },
+    {
+      "block_id": "B0316",
+      "old_hash": "edbae79c684b",
+      "first_line_excerpt": "#### 3.3.3 多目标训练"
+    },
+    {
+      "block_id": "B0317",
+      "old_hash": "1128a5e3c06c",
+      "first_line_excerpt": "主任务采用结构化序列生成损失："
+    },
+    {
+      "block_id": "B0318",
+      "old_hash": "b733ebf9d35c",
+      "first_line_excerpt": "$$\\mathcal{L}_{gen}=-\\sum_{t=1}^{T_y}\\log P(y_t\\mid D,y_{<t}).$$"
+    },
+    {
+      "block_id": "B0319",
+      "old_hash": "c6da8a82ece1",
+      "first_line_excerpt": "为在编码阶段提供结论存在性监督，本文为每个句子增加二分类头。若句子包含MajorClaim或Claim，则标签$z_i=1$，否则为0："
+    },
+    {
+      "block_id": "B0320",
+      "old_hash": "2b639df4d999",
+      "first_line_excerpt": "$$\\mathcal{L}_{sat}=-\\sum_i[z_i\\log \\hat z_i+(1-z_i)\\log(1-\\hat z_i)].$$"
+    },
+    {
+      "block_id": "B0321",
+      "old_hash": "a69d701f6c92",
+      "first_line_excerpt": "联合目标为："
+    },
+    {
+      "block_id": "B0322",
+      "old_hash": "a83ed364e421",
+      "first_line_excerpt": "$$\\mathcal{L}_{comp}=\\mathcal{L}_{gen}+\\lambda\\mathcal{L}_{sat},\\qquad \\lambda=…"
+    },
+    {
+      "block_id": "B0323",
+      "old_hash": "c3a28cc1e480",
+      "first_line_excerpt": "辅助目标只参与训练，推理时不改变最终JSON结构，因此不会增加主解码流程的输出字段。"
+    },
+    {
+      "block_id": "B0324",
+      "old_hash": "9f4d69b5ecff",
+      "first_line_excerpt": "### 3.4 实验设置与结果分析"
+    },
+    {
+      "block_id": "B0325",
+      "old_hash": "3cc7010fe40f",
+      "first_line_excerpt": "#### 3.4.1 设置与评价指标"
+    },
+    {
+      "block_id": "B0326",
+      "old_hash": "8be7df3e2bae",
+      "first_line_excerpt": "实验采用Qwen2.5-7B-Instruct作为骨干模型，并使用LoRA进行参数高效微调。组件评价采用边界和类型同时精确匹配的F1；除整体Component…"
+    },
+    {
+      "block_id": "B0327",
+      "old_hash": "9d9b47ebdc2c",
+      "first_line_excerpt": "本章表格用于评价结论组件优化模块，与第四章包含候选重排序和修复的完整端到端比较表分开解释。“LLM Single-Pass”表示使用同一骨干模型和输出格式、但…"
+    },
+    {
+      "block_id": "B0328",
+      "old_hash": "f270bfefcbf5",
+      "first_line_excerpt": "#### 3.4.2 主要结果"
+    },
+    {
+      "block_id": "B0329",
+      "old_hash": "d9e4147c164f",
+      "first_line_excerpt": "|方法|MajorClaim-F1|Claim-F1|Comp-F1|"
+    },
+    {
+      "block_id": "B0330",
+      "old_hash": "488dfad0464b",
+      "first_line_excerpt": "相较同骨干的Single-Pass版本，完整方法的MajorClaim-F1、Claim-F1和Component-F1分别提高3.89、3.56和2.04个…"
+    },
+    {
+      "block_id": "B0331",
+      "old_hash": "47fd416b9cf9",
+      "first_line_excerpt": "#### 3.4.3 模块作用与解释边界"
+    },
+    {
+      "block_id": "B0332",
+      "old_hash": "40e48c5d5723",
+      "first_line_excerpt": "第四章的完整消融结果显示，移除Claim-specific Adapter后Component-F1下降1.75个点，移除Cue-aware Soft Pro…"
+    },
+    {
+      "block_id": "B0333",
+      "old_hash": "02cb0a8f6ea0",
+      "first_line_excerpt": "结构感知数据增强的独立效果还应同时结合合成样本通过率、人工抽检一致性和真实测试集性能判断。本文不以生成样本数量本身作为有效性证据，而以未参与增强的测试集表现作…"
+    },
+    {
+      "block_id": "B0334",
+      "old_hash": "13df11ab37c1",
+      "first_line_excerpt": "### 3.5 误差类型与讨论"
+    },
+    {
+      "block_id": "B0335",
+      "old_hash": "ee010b19b267",
+      "first_line_excerpt": "结论组件优化后仍存在三类典型错误。第一，隐式结论没有显式线索词，Cue-aware分支难以提供额外信息；第二，一个长句同时包含论据和结论时，模型容易扩大组件边…"
+    },
+    {
+      "block_id": "B0336",
+      "old_hash": "8b6d773a04b7",
+      "first_line_excerpt": "本章方法提高了候选组件质量，但不能保证每个文档的首个输出都正确。为避免上游遗漏直接固化为最终图，下一章进一步保留多个组件假设，并利用完整关系结构对候选进行重排…"
+    },
+    {
+      "block_id": "B0337",
+      "old_hash": "4b756b658bf4",
+      "first_line_excerpt": "### 3.6 本章小结"
+    },
+    {
+      "block_id": "B0338",
+      "old_hash": "787da3749607",
+      "first_line_excerpt": "本章围绕关键结论组件提出训练阶段优化方法。结构感知增强在保持局部图约束的条件下扩充训练样本，Claim-specific Adapter和Cue-aware …"
+    },
+    {
+      "block_id": "B0339",
+      "old_hash": "3591df37124e",
+      "first_line_excerpt": "## 第四章 基于多候选评估与有界修正的论辩图生成方法"
+    },
+    {
+      "block_id": "B0340",
+      "old_hash": "51619a48d385",
+      "first_line_excerpt": "本章提出MCR-BR推理时结构恢复框架。其核心思想不是用规则替代模型预测，而是保留多个由模型生成的结构假设，以确定性约束和独立语义验证信号选择初始图，再在有限…"
+    },
+    {
+      "block_id": "B0341",
+      "old_hash": "1e256adaa2f4",
+      "first_line_excerpt": "### 4.1 单次生成的错误传播与恢复目标"
+    },
+    {
+      "block_id": "B0342",
+      "old_hash": "490bbc83b348",
+      "first_line_excerpt": "单次生成系统直接输出一个组件列表和关系列表。一旦组件被遗漏、边界偏移或编号错误，后续关系便可能出现悬空引用、孤立节点和错误连接。简单后处理可以删除非法边，却不…"
+    },
+    {
+      "block_id": "B0343",
+      "old_hash": "7745955dc7f4",
+      "first_line_excerpt": "实验统计显示，修正机制在42.5%的AAEC测试文档上被触发。修正前，无效组件引用比例为18.5%，JSON格式错误比例为6.2%，验证器判定的不连贯边比例为…"
+    },
+    {
+      "block_id": "B0344",
+      "old_hash": "646bd020787a",
+      "first_line_excerpt": "### 4.2 多候选组件生成与完整图构建"
+    },
+    {
+      "block_id": "B0345",
+      "old_hash": "7754e1afe361",
+      "first_line_excerpt": "#### 4.2.1 候选组件集合"
+    },
+    {
+      "block_id": "B0346",
+      "old_hash": "509fdf016c91",
+      "first_line_excerpt": "给定文档$D$，模型不立即提交单一结果，而是通过温度采样和提示改写生成$K$个组件候选集："
+    },
+    {
+      "block_id": "B0347",
+      "old_hash": "13d52f16c36c",
+      "first_line_excerpt": "$$\\mathcal{C}=\\{C^{(1)},C^{(2)},\\dots,C^{(K)}\\}.$$"
+    },
+    {
+      "block_id": "B0348",
+      "old_hash": "51610aefa993",
+      "first_line_excerpt": "每个$C^{(k)}$包含组件跨度和类型。生成结果使用统一JSON Schema解析；重叠跨度按照模型置信度、跨度长度和文本位置执行确定性消解。候选的目的不是…"
+    },
+    {
+      "block_id": "B0349",
+      "old_hash": "82b7baac192c",
+      "first_line_excerpt": "#### 4.2.2 候选论辩图构建"
+    },
+    {
+      "block_id": "B0350",
+      "old_hash": "fddc9b7bcaac",
+      "first_line_excerpt": "对每个组件候选集$C^{(k)}$，关系模块在有效组件编号之间预测关系集合$R^{(k)}$，得到完整候选结构："
+    },
+    {
+      "block_id": "B0351",
+      "old_hash": "1943edecd1d2",
+      "first_line_excerpt": "$$S_k=(C^{(k)},R^{(k)},G^{(k)}),\\qquad G^{(k)}=(V^{(k)},E^{(k)}).$$"
+    },
+    {
+      "block_id": "B0352",
+      "old_hash": "26c020339d3e",
+      "first_line_excerpt": "关系预测仅允许引用$C^{(k)}$中存在的组件。AAEC关系标签为Support/Attack；CDCP域内实验保留Reason/Evidence标签；跨领…"
+    },
+    {
+      "block_id": "B0353",
+      "old_hash": "3fbb7f754a53",
+      "first_line_excerpt": "### 4.3 一致性引导的候选评分"
+    },
+    {
+      "block_id": "B0354",
+      "old_hash": "6039cb5db3f7",
+      "first_line_excerpt": "综合评分函数定义为："
+    },
+    {
+      "block_id": "B0355",
+      "old_hash": "5e77f393ef7a",
+      "first_line_excerpt": "$$E(S_k)=\\alpha E_{dens}(S_k)+\\beta E_{coh}(S_k)+\\gamma E_{val}(S_k),$$"
+    },
+    {
+      "block_id": "B0356",
+      "old_hash": "3deb0598cfa3",
+      "first_line_excerpt": "其中$\\alpha=0.4$、$\\beta=0.4$、$\\gamma=0.2$。三个分量均归一化到$[0,1]$，分别评价结构完整性、边语义连贯性和输出合法性。"
+    },
+    {
+      "block_id": "B0357",
+      "old_hash": "08865c316762",
+      "first_line_excerpt": "#### 4.3.1 结构完整性"
+    },
+    {
+      "block_id": "B0358",
+      "old_hash": "839d40c0149b",
+      "first_line_excerpt": "令$\\mathcal{Q}(S_k)$为按照数据集规范需要获得局部支撑的结论节点集合。在AAEC中，该集合按段落内部关系子图定义，不强制要求文档级MajorC…"
+    },
+    {
+      "block_id": "B0359",
+      "old_hash": "394962296eae",
+      "first_line_excerpt": "$$d_{coh}^{in}(v_j)=\\sum_{(i,j,r_{ij})\\in R^{(k)}}p_{ij}.$$"
+    },
+    {
+      "block_id": "B0360",
+      "old_hash": "110ab4b9525d",
+      "first_line_excerpt": "结构完整性得分为："
+    },
+    {
+      "block_id": "B0361",
+      "old_hash": "0b49a918e584",
+      "first_line_excerpt": "$$E_{dens}(S_k)="
+    },
+    {
+      "block_id": "B0362",
+      "old_hash": "698fcee126a2",
+      "first_line_excerpt": "其中$\\tau(t_j)$为按组件类型设置的期望最小支撑数。实验中顶层关系结论节点取$\\tau=2$，其他需要支撑的结论节点取$\\tau=1$。该分量是软偏好…"
+    },
+    {
+      "block_id": "B0363",
+      "old_hash": "f60161f2ef52",
+      "first_line_excerpt": "#### 4.3.2 语义连贯性"
+    },
+    {
+      "block_id": "B0364",
+      "old_hash": "1701286d3166",
+      "first_line_excerpt": "对每条预测边，验证器结合源组件、目标组件、关系类型和上下文判断关系是否成立。语义连贯性得分为："
+    },
+    {
+      "block_id": "B0365",
+      "old_hash": "86bd6e1e5118",
+      "first_line_excerpt": "$$E_{coh}(S_k)="
+    },
+    {
+      "block_id": "B0366",
+      "old_hash": "e48ad9bfbbe2",
+      "first_line_excerpt": "该得分与生成模型的序列概率不同：序列概率衡量输出在生成模型下是否常见，而$E_{coh}$专门判断边是否得到当前上下文支持。"
+    },
+    {
+      "block_id": "B0367",
+      "old_hash": "bf9039756182",
+      "first_line_excerpt": "#### 4.3.3 输出合法性"
+    },
+    {
+      "block_id": "B0368",
+      "old_hash": "ff2346df8f49",
+      "first_line_excerpt": "若候选通过全部确定性检查，则$E_{val}(S_k)=1$，否则为0。检查项目包括JSON可解析性、必需字段完整性、token跨度合法性、组件编号引用完整性…"
+    },
+    {
+      "block_id": "B0369",
+      "old_hash": "673d4ee6ca74",
+      "first_line_excerpt": "最终选择："
+    },
+    {
+      "block_id": "B0370",
+      "old_hash": "8a1b519c4e95",
+      "first_line_excerpt": "$$k^*=\\arg\\max_{1\\leq k\\leq K}E(S_k),\\qquad S^{(0)}=S_{k^*}.$$"
+    },
+    {
+      "block_id": "B0371",
+      "old_hash": "d1e979e4292e",
+      "first_line_excerpt": "### 4.4 图约束下的有界局部修正"
+    },
+    {
+      "block_id": "B0372",
+      "old_hash": "58ee9d1ae401",
+      "first_line_excerpt": "#### 4.4.1 异常表示与优先级"
+    },
+    {
+      "block_id": "B0373",
+      "old_hash": "9c2805f848ba",
+      "first_line_excerpt": "对当前图$S$，错误检测器返回异常集合："
+    },
+    {
+      "block_id": "B0374",
+      "old_hash": "2ca7ee143cd9",
+      "first_line_excerpt": "$$\\mathcal{E}(S)=\\{e=(\\nu,\\eta,\\sigma)\\},$$"
+    },
+    {
+      "block_id": "B0375",
+      "old_hash": "f830d789d0ad",
+      "first_line_excerpt": "其中$\\nu\\in\\{VAL,COH,DENS\\}$表示有效性、连贯性或完整性异常，$\\eta$表示受影响的节点或边，$\\sigma\\in[0,1]$表示严重…"
+    },
+    {
+      "block_id": "B0376",
+      "old_hash": "7c6f89118178",
+      "first_line_excerpt": "$$\\sigma(e)="
+    },
+    {
+      "block_id": "B0377",
+      "old_hash": "b1d6ad185ec2",
+      "first_line_excerpt": "异常按严重度降序排列，同分时采用$VAL\\succ COH\\succ DENS$。有效性错误和被验证器拒绝的边直接触发修复；完整性异常仅在低于阈值$\\delt…"
+    },
+    {
+      "block_id": "B0378",
+      "old_hash": "3a2ff2331adc",
+      "first_line_excerpt": "#### 4.4.2 修复动作"
+    },
+    {
+      "block_id": "B0379",
+      "old_hash": "d2bc261b23e7",
+      "first_line_excerpt": "BR定义四类局部动作："
+    },
+    {
+      "block_id": "B0380",
+      "old_hash": "8747f2d82023",
+      "first_line_excerpt": "1. **Promote/Demote**：在标注规范允许的结论类类型之间转换，例如MajorClaim与Claim；"
+    },
+    {
+      "block_id": "B0381",
+      "old_hash": "07d2385c1996",
+      "first_line_excerpt": "对候选动作$a$，记执行后的结构为$a(S)$。接受条件为："
+    },
+    {
+      "block_id": "B0382",
+      "old_hash": "75a675b78dd5",
+      "first_line_excerpt": "$$\\operatorname{Accept}(a,S)=\\mathbb{I}[a(S)\\in\\mathcal{G}_{\\mathcal{A}}]\\cdot"
+    },
+    {
+      "block_id": "B0383",
+      "old_hash": "62ea2bd9316e",
+      "first_line_excerpt": "因此，每次被接受的动作都保持结构合法且不降低当前综合评分；不满足条件的动作立即回退。"
+    },
+    {
+      "block_id": "B0384",
+      "old_hash": "4a92f0c27a45",
+      "first_line_excerpt": "#### 4.4.3 终止条件与计算预算"
+    },
+    {
+      "block_id": "B0385",
+      "old_hash": "3bef5e28ef68",
+      "first_line_excerpt": "算法最多执行$T=3$轮，每轮最多接受$M=2$个动作。伪代码如下："
+    },
+    {
+      "block_id": "B0386",
+      "old_hash": "a94c8eceab31",
+      "first_line_excerpt": "```text"
+    },
+    {
+      "block_id": "B0387",
+      "old_hash": "8b65fc6351f1",
+      "first_line_excerpt": "算法在三种情况下终止：不存在达到阈值的异常、当前动作空间中没有可接受修改、迭代预算耗尽。预算约束限制了最坏情况下的额外生成次数，也减少了无界自精炼反复修改正确…"
+    },
+    {
+      "block_id": "B0388",
+      "old_hash": "291738daa694",
+      "first_line_excerpt": "### 4.5 实验设置"
+    },
+    {
+      "block_id": "B0389",
+      "old_hash": "7acddc430f3c",
+      "first_line_excerpt": "#### 4.5.1 数据集与指标"
+    },
+    {
+      "block_id": "B0390",
+      "old_hash": "013500acd036",
+      "first_line_excerpt": "域内实验使用AAEC和CDCP。对任一预测对象集合，精确率、召回率和F1定义为："
+    },
+    {
+      "block_id": "B0391",
+      "old_hash": "afaaa13ccfe5",
+      "first_line_excerpt": "$$P=\\frac{TP}{TP+FP},\\qquad R=\\frac{TP}{TP+FN},\\qquad F_1=\\frac{2PR}{P+R}.$$"
+    },
+    {
+      "block_id": "B0392",
+      "old_hash": "594843123a96",
+      "first_line_excerpt": "组件只有在起止边界和类型均与金标准一致时计为$TP$。关系只有在源组件、目标组件、方向和关系标签均正确时计为$TP$。AAEC报告Component-F1以及…"
+    },
+    {
+      "block_id": "B0393",
+      "old_hash": "dac53e9eee44",
+      "first_line_excerpt": "#### 4.5.2 基线与实现"
+    },
+    {
+      "block_id": "B0394",
+      "old_hash": "1f19e71882d4",
+      "first_line_excerpt": "外部基线包括FLAN T5-XXL、GPT-4-turbo 20-shot和RoBERTa-large多任务模型。为控制骨干模型与推理预算，内部比较均采用Qw…"
+    },
+    {
+      "block_id": "B0395",
+      "old_hash": "8e1a62c6b93f",
+      "first_line_excerpt": "### 4.6 域内主要结果"
+    },
+    {
+      "block_id": "B0396",
+      "old_hash": "5c4989ad8397",
+      "first_line_excerpt": "#### 4.6.1 AAEC结果"
+    },
+    {
+      "block_id": "B0397",
+      "old_hash": "98867bce7ca1",
+      "first_line_excerpt": "|方法|Comp-F1|Support-F1|Attack-F1|Relation-F1|"
+    },
+    {
+      "block_id": "B0398",
+      "old_hash": "3563081c64cc",
+      "first_line_excerpt": "完整方法相较FLAN T5-XXL的Component-F1和Relation-F1分别提高3.56和3.64个点；相较同骨干Single-Pass版本分别提…"
+    },
+    {
+      "block_id": "B0399",
+      "old_hash": "5474f00c8729",
+      "first_line_excerpt": "#### 4.6.2 CDCP结果"
+    },
+    {
+      "block_id": "B0400",
+      "old_hash": "661a0c9b4fc2",
+      "first_line_excerpt": "|方法|Comp-F1|Reason-F1|Evidence-F1|Relation-F1|"
+    },
+    {
+      "block_id": "B0401",
+      "old_hash": "6530a57fe5f6",
+      "first_line_excerpt": "在允许多父节点且关系标签不同的CDCP上，完整方法的Relation-F1比FLAN T5-XXL提高4.21个点。这表明候选评估和局部修复并非只适用于AAE…"
+    },
+    {
+      "block_id": "B0402",
+      "old_hash": "bc7aaabe0c89",
+      "first_line_excerpt": "### 4.7 消融与机制分析"
+    },
+    {
+      "block_id": "B0403",
+      "old_hash": "e55c6b0360b1",
+      "first_line_excerpt": "#### 4.7.1 模块消融"
+    },
+    {
+      "block_id": "B0404",
+      "old_hash": "17ab5f7925b3",
+      "first_line_excerpt": "|配置|Comp-F1|Relation-F1|$\\Delta$Comp|$\\Delta$Rel|"
+    },
+    {
+      "block_id": "B0405",
+      "old_hash": "70743e2df8f9",
+      "first_line_excerpt": "从$K=1$无修正版本提升到Verifier-only Rerank，Relation-F1增加1.48个点，说明候选多样性和结构化选择能够保留更优假设；从V…"
+    },
+    {
+      "block_id": "B0406",
+      "old_hash": "712c246cc8a8",
+      "first_line_excerpt": "#### 4.7.2 独立验证器分析"
+    },
+    {
+      "block_id": "B0407",
+      "old_hash": "c5e49acb31f9",
+      "first_line_excerpt": "|验证器|Comp-F1|Relation-F1|Top-1一致率|修正触发率|"
+    },
+    {
+      "block_id": "B0408",
+      "old_hash": "bf5a959d732a",
+      "first_line_excerpt": "替换为Llama-3-8B-Instruct后，Relation-F1仅下降0.28个点，候选Top-1选择一致率为94.2%。该结果降低了“生成器只偏好自身…"
+    },
+    {
+      "block_id": "B0409",
+      "old_hash": "c0f2259eaff8",
+      "first_line_excerpt": "#### 4.7.3 Oracle上限"
+    },
+    {
+      "block_id": "B0410",
+      "old_hash": "af94727a336a",
+      "first_line_excerpt": "|条件|Comp-F1|Relation-F1|$\\Delta$Rel|"
+    },
+    {
+      "block_id": "B0411",
+      "old_hash": "dab539ae690c",
+      "first_line_excerpt": "Candidate Oracle表明候选池中仍存在未被评分器选中的更优结构，当前选择器与理论上限之间有2.41个Relation-F1点的差距。使用金标准组件…"
+    },
+    {
+      "block_id": "B0412",
+      "old_hash": "431944b5947f",
+      "first_line_excerpt": "#### 4.7.4 修正行为统计"
+    },
+    {
+      "block_id": "B0413",
+      "old_hash": "462909c1581f",
+      "first_line_excerpt": "|指标|结果|"
+    },
+    {
+      "block_id": "B0414",
+      "old_hash": "589d293db6cd",
+      "first_line_excerpt": "平均1.8轮、2.4个动作说明多数异常在严格预算内即可处理。LocalRerun使用频率最高，表明许多错误集中在局部关系而非整图；RemoveEdge能够快速…"
+    },
+    {
+      "block_id": "B0415",
+      "old_hash": "9259f01db5ce",
+      "first_line_excerpt": "### 4.8 误差分析与局限"
+    },
+    {
+      "block_id": "B0416",
+      "old_hash": "d7f0b7944b03",
+      "first_line_excerpt": "成功修复的典型情形包括：从候选池中找回被首选结果遗漏的Claim并重新连接其Premise；删除形成环或语义不成立的边；对引用无效目标编号的局部关系重新预测。…"
+    },
+    {
+      "block_id": "B0417",
+      "old_hash": "b71a32b6f732",
+      "first_line_excerpt": "MCR-BR还带来额外推理成本。$K=3$候选和逐边验证增加了并行计算量，局部修复则引入顺序解码。本文通过$T=3$和$M=2$限制最坏成本，但该方法本质上以…"
+    },
+    {
+      "block_id": "B0418",
+      "old_hash": "4b8969481521",
+      "first_line_excerpt": "### 4.9 本章小结"
+    },
+    {
+      "block_id": "B0419",
+      "old_hash": "ae16f4b06e05",
+      "first_line_excerpt": "本章提出完整的MCR-BR结构恢复流程。多候选生成避免过早提交单一组件集合，多维评分将结构和语义信号用于候选选择，有界修正则把检测到的异常转化为局部、可回退的…"
+    },
+    {
+      "block_id": "B0420",
+      "old_hash": "325c26e89ac7",
+      "first_line_excerpt": "## 第五章 端到端论辩挖掘的跨领域泛化性分析与适配"
+    },
+    {
+      "block_id": "B0421",
+      "old_hash": "13f3b6681e4e",
+      "first_line_excerpt": "本章检验第三、四章方法在训练域与测试域不一致时的表现。跨领域实验不作为独立算法创新，而作为对结构恢复框架适用范围的补充验证。为避免不同标签体系造成不可比较结果…"
+    },
+    {
+      "block_id": "B0422",
+      "old_hash": "60294e569994",
+      "first_line_excerpt": "### 5.1 跨领域异构性"
+    },
+    {
+      "block_id": "B0423",
+      "old_hash": "891c590c4185",
+      "first_line_excerpt": "AAEC与CDCP的差异至少包括三个层面。第一，AAEC由学生说服性作文构成，CDCP来自电子政务评论，文本长度、篇章组织和语言风格不同。第二，AAEC使用M…"
+    },
+    {
+      "block_id": "B0424",
+      "old_hash": "2327eb7dcec2",
+      "first_line_excerpt": "### 5.2 粗粒度标签与关系映射"
+    },
+    {
+      "block_id": "B0425",
+      "old_hash": "26c1822ac80c",
+      "first_line_excerpt": "组件映射函数$\\phi:\\mathcal{T}_{src}\\cup\\mathcal{T}_{tgt}\\rightarrow\\{Claim,Premise\\}$…"
+    },
+    {
+      "block_id": "B0426",
+      "old_hash": "f717a7f15245",
+      "first_line_excerpt": "|数据集原标签|粗粒度标签|映射依据|"
+    },
+    {
+      "block_id": "B0427",
+      "old_hash": "453515b1ef0a",
+      "first_line_excerpt": "关系映射函数$\\psi$将AAEC的Support/Attack和CDCP的Reason/Evidence统一为有向Link："
+    },
+    {
+      "block_id": "B0428",
+      "old_hash": "37da7f7a9a4b",
+      "first_line_excerpt": "$$\\psi(r)=Link,\\qquad r\\neq None.$$"
+    },
+    {
+      "block_id": "B0429",
+      "old_hash": "98bd4b46541f",
+      "first_line_excerpt": "该协议保留组件角色的粗粒度差异和关系方向，但主动舍弃支持/攻击、理由/证据等细粒度语义。因此，Unlabeled Link-F1只能说明模型能否迁移“哪些组件…"
+    },
+    {
+      "block_id": "B0430",
+      "old_hash": "923fecffc53b",
+      "first_line_excerpt": "### 5.3 零样本迁移协议"
+    },
+    {
+      "block_id": "B0431",
+      "old_hash": "6d653572e93d",
+      "first_line_excerpt": "模型在AAEC训练集上完成参数训练和超参数选择，迁移到CDCP时不使用CDCP训练标签更新模型参数。测试前仅提供目标域标签定义及上述映射规则，候选数、评分权重…"
+    },
+    {
+      "block_id": "B0432",
+      "old_hash": "7d63c01543a2",
+      "first_line_excerpt": "1. **Coarse Component-F1**：组件边界正确且映射后的Claim/Premise类型正确；"
+    },
+    {
+      "block_id": "B0433",
+      "old_hash": "c22a9f4df15c",
+      "first_line_excerpt": "该设置把目标域适配限制在Schema说明和确定性映射层面，避免使用目标测试集调节评分阈值。所有指标基于预测组件计算，从而保留真实端到端难度。"
+    },
+    {
+      "block_id": "B0434",
+      "old_hash": "c760907de445",
+      "first_line_excerpt": "### 5.4 跨领域迁移结果"
+    },
+    {
+      "block_id": "B0435",
+      "old_hash": "d4edcf9d6540",
+      "first_line_excerpt": "|方法|Coarse Component-F1|Unlabeled Link-F1|"
+    },
+    {
+      "block_id": "B0436",
+      "old_hash": "2012c111a7ed",
+      "first_line_excerpt": "完整方法相较FLAN T5-XXL的Coarse Component-F1提高8.44个点，Unlabeled Link-F1提高11.96个点；相较同骨干S…"
+    },
+    {
+      "block_id": "B0437",
+      "old_hash": "c63bd7e86230",
+      "first_line_excerpt": "但是，43.21的Link-F1仍明显低于AAEC域内Relation-F1，说明标签归约没有消除领域差异。该结果支持“在当前AAEC→CDCP协议下具有迁移…"
+    },
+    {
+      "block_id": "B0438",
+      "old_hash": "79767336216b",
+      "first_line_excerpt": "### 5.5 泛化来源与有效性威胁"
+    },
+    {
+      "block_id": "B0439",
+      "old_hash": "cbefaa5c13f2",
+      "first_line_excerpt": "框架可能从三个方面改善迁移。其一，多候选组件集合保留了目标域中不确定的边界和类型假设；其二，跨度、引用和无环性检查不依赖具体主题；其三，局部重预测比整图重新生…"
+    },
+    {
+      "block_id": "B0440",
+      "old_hash": "81f6977aeb51",
+      "first_line_excerpt": "1. 仅验证AAEC到CDCP单一迁移方向，尚不能覆盖医学、法律或多语言场景；"
+    },
+    {
+      "block_id": "B0441",
+      "old_hash": "a15f1a245f64",
+      "first_line_excerpt": "因此，本章将跨领域结果定位为适用性证据，而不是对通用领域泛化能力的最终证明。后续可通过增加AbstRCT等目标域、开展双向迁移和比较多种标签对齐策略，进一步检…"
+    },
+    {
+      "block_id": "B0442",
+      "old_hash": "63ef9babb984",
+      "first_line_excerpt": "### 5.6 本章小结"
+    },
+    {
+      "block_id": "B0443",
+      "old_hash": "117bb7e5a18a",
+      "first_line_excerpt": "本章在明确标签映射和无标签连接评价范围的基础上，完成AAEC到CDCP的零样本迁移验证。MCR-BR在组件和连接指标上均优于零样本基线，说明结构化候选选择和有…"
+    },
+    {
+      "block_id": "B0444",
+      "old_hash": "0d5488bd5ae2",
+      "first_line_excerpt": "## 第六章 总结与展望"
+    },
+    {
+      "block_id": "B0445",
+      "old_hash": "6a96bc644682",
+      "first_line_excerpt": "### 6.1 工作总结"
+    },
+    {
+      "block_id": "B0446",
+      "old_hash": "932f50815946",
+      "first_line_excerpt": "本文围绕大语言模型端到端论辩挖掘中的上游组件错误传播和单次生成缺乏恢复能力两个相互关联的问题，提出MCR-BR多候选重排序与有界修正框架。主要工作总结如下。"
+    },
+    {
+      "block_id": "B0447",
+      "old_hash": "aba6e82c5b22",
+      "first_line_excerpt": "**第一，提出结论类组件的结构感知增强方法。** 本文以局部论辩子图作为数据增强单位，通过格式、结构和语义三层检查控制合成样本质量，并结合Claim-spec…"
+    },
+    {
+      "block_id": "B0448",
+      "old_hash": "daa2750ac146",
+      "first_line_excerpt": "**第二，提出面向完整论辩图的MCR-BR结构恢复方法。** 该方法通过受控解码保留多个组件假设，为每个候选构建完整图，并基于结构完整性、边语义连贯性和输出合…"
+    },
+    {
+      "block_id": "B0449",
+      "old_hash": "e0f57a8c8822",
+      "first_line_excerpt": "**第三，完成跨语料适用性验证。** 本文在明确粗粒度组件映射和无标签连接评价范围的条件下开展AAEC到CDCP零样本迁移。完整方法获得60.78的Coars…"
+    },
+    {
+      "block_id": "B0450",
+      "old_hash": "fb2ac54144d5",
+      "first_line_excerpt": "总体而言，本文的主要贡献是把生成式端到端论辩挖掘中的结构约束从被动结果过滤转化为候选选择和局部修复信号，并通过结论组件专项优化提升结构恢复的候选基础。"
+    },
+    {
+      "block_id": "B0451",
+      "old_hash": "acca9e0730da",
+      "first_line_excerpt": "### 6.2 研究不足与未来展望"
+    },
+    {
+      "block_id": "B0452",
+      "old_hash": "023555d4852e",
+      "first_line_excerpt": "尽管本文取得了一定结果，仍存在以下局限。"
+    },
+    {
+      "block_id": "B0453",
+      "old_hash": "913eb74cef7b",
+      "first_line_excerpt": "**第一，计算成本较高。** 多候选生成、逐边验证和顺序修复均增加推理开销。当前通过$K=3$、$T=3$和$M=2$限制计算预算，但仍需进一步报告端到端时延…"
+    },
+    {
+      "block_id": "B0454",
+      "old_hash": "cf50b7e0c829",
+      "first_line_excerpt": "**第二，评分函数依赖人工设定。** 当前$\\alpha$、$\\beta$、$\\gamma$及完整性阈值在验证集上设定，不同数据集可能需要重新校准。未来可采用…"
+    },
+    {
+      "block_id": "B0455",
+      "old_hash": "276c5850f310",
+      "first_line_excerpt": "**第三，验证器仍可能产生系统性偏差。** 独立验证器实验降低了同模型自评偏差的可能，但无法排除多个模型共享预训练模式。未来需要增加人工边级评价，分别统计修正…"
+    },
+    {
+      "block_id": "B0456",
+      "old_hash": "ab26c168620e",
+      "first_line_excerpt": "**第四，候选池限制了修复上限。** 当全部候选都遗漏同一隐式组件时，Replace无法恢复该节点；当错误跨越多跳关系时，局部评分也可能无法发现。后续可引入边…"
+    },
+    {
+      "block_id": "B0457",
+      "old_hash": "fb5af907bb79",
+      "first_line_excerpt": "**第五，跨领域证据仍有限。** 当前仅完成AAEC到CDCP单向迁移，且粗粒度映射会损失细粒度标签语义。未来应增加AbstRCT等目标域、双向或留一域迁移，…"
+    },
+    {
+      "block_id": "B0458",
+      "old_hash": "4b09b13573fe",
+      "first_line_excerpt": "**第六，数据增强质量需要持续审计。** 合成文本可能出现标签漂移、模板化表达或与公开测试语料相似的问题。未来应报告人工抽检一致性、去重规则和污染检查，并验证…"
+    },
+    {
+      "block_id": "B0459",
+      "old_hash": "0a2bc6fdd77a",
+      "first_line_excerpt": "**第七，语言与长度覆盖有限。** 当前实验主要使用英文语料和篇章级文本，尚未验证中文、多语言及更长法律文书。后续可结合分层编码、检索增强和跨语言标签描述扩展…"
+    },
+    {
+      "block_id": "B0460",
+      "old_hash": "7d5d5b94be87",
+      "first_line_excerpt": "## 参考文献"
+    },
+    {
+      "block_id": "B0461",
+      "old_hash": "710ad0eb11d8",
+      "first_line_excerpt": "[1] Computational Linguistics, 2017. Parsing argumentation structures in persua…"
+    },
+    {
+      "block_id": "B0462",
+      "old_hash": "0fcc35469d40",
+      "first_line_excerpt": "[2] Aristotle. Rhetoric. Translated by W. Rhys Roberts, 1924."
+    },
+    {
+      "block_id": "B0463",
+      "old_hash": "7cb67a6f51c5",
+      "first_line_excerpt": "[3] Toulmin, S. E., 1958. The Uses of Argument. Cambridge University Press."
+    },
+    {
+      "block_id": "B0464",
+      "old_hash": "0324b437314a",
+      "first_line_excerpt": "[4] ACL Anthology, 2019. Argument mining: A survey. https://aclanthology.org/J1…"
+    },
+    {
+      "block_id": "B0465",
+      "old_hash": "2e4f46cebca1",
+      "first_line_excerpt": "[5] Dung, P. M., 1995. On the acceptability of arguments and its fundamental ro…"
+    },
+    {
+      "block_id": "B0466",
+      "old_hash": "16d98af20e80",
+      "first_line_excerpt": "[6] ACL Anthology, 2024. Discourse structure-aware prefix for generation-based …"
+    },
+    {
+      "block_id": "B0467",
+      "old_hash": "39a040123a64",
+      "first_line_excerpt": "[7] ACL Anthology, 2023. ORCHID: A Chinese debate corpus for target-independent…"
+    },
+    {
+      "block_id": "B0468",
+      "old_hash": "38d956cbfe58",
+      "first_line_excerpt": "[8] ACL Anthology, 2020. Towards better non-tree argument mining: Proposition-l…"
+    },
+    {
+      "block_id": "B0469",
+      "old_hash": "28e6e70fde28",
+      "first_line_excerpt": "[9] IEEE Xplore, 2022. Argument mining using BERT and self-attention based embe…"
+    },
+    {
+      "block_id": "B0470",
+      "old_hash": "e25411ecc1c2",
+      "first_line_excerpt": "[10] Computational Linguistics, 2017. Parsing Argumentative Structures in Persu…"
+    },
+    {
+      "block_id": "B0471",
+      "old_hash": "5d7119a7fc53",
+      "first_line_excerpt": "[11] ScienceDirect, 2021. Transformed: End-to-end transformers for evidence-bas…"
+    },
+    {
+      "block_id": "B0472",
+      "old_hash": "f8e4cf86d5b0",
+      "first_line_excerpt": "[12] ScienceDirect, 2021. AbstRCT: A dataset for argument mining in medical lit…"
+    },
+    {
+      "block_id": "B0473",
+      "old_hash": "7ba22645712e",
+      "first_line_excerpt": "[13] Nature, 2021. Project Debater: An AI system that can debate humans. https:…"
+    },
+    {
+      "block_id": "B0474",
+      "old_hash": "adbf2648564a",
+      "first_line_excerpt": "[14] ACL Anthology, 2017. Neural end-to-end learning for computational argument…"
+    },
+    {
+      "block_id": "B0475",
+      "old_hash": "e7fee68d2e81",
+      "first_line_excerpt": "[15] ACL Anthology, 2024. Argument mining as a text-to-text generation task. ht…"
+    },
+    {
+      "block_id": "B0476",
+      "old_hash": "3db33f75589a",
+      "first_line_excerpt": "[16] ACL Anthology, 2022. IAM: A comprehensive and large-scale dataset for inte…"
+    },
+    {
+      "block_id": "B0477",
+      "old_hash": "045314d92bcd",
+      "first_line_excerpt": "[17] ACL Anthology, 2018. A corpus of erulemaking user comments for measuring e…"
+    },
+    {
+      "block_id": "B0478",
+      "old_hash": "aaff1191d174",
+      "first_line_excerpt": "[18] arXiv, 2023. Large language models cannot self-correct reasoning yet. http…"
+    },
+    {
+      "block_id": "B0479",
+      "old_hash": "032200a2314d",
+      "first_line_excerpt": "[19] NeurIPS, 2022. Chain-of-Thought Prompting Elicits Reasoning in Large Langu…"
+    },
+    {
+      "block_id": "B0480",
+      "old_hash": "4e8b7fa5bf06",
+      "first_line_excerpt": "[20] ACL Anthology, 2024. Argument mining as a text-to-text generation task. ht…"
+    },
+    {
+      "block_id": "B0481",
+      "old_hash": "0098cc6b5f86",
+      "first_line_excerpt": "[21] arXiv, 2021. Finetuned language models are zero-shot learners. https://arx…"
+    },
+    {
+      "block_id": "B0482",
+      "old_hash": "bac929e65e2d",
+      "first_line_excerpt": "[22] NeurIPS, 2022. Training language models to follow instructions with human …"
+    },
+    {
+      "block_id": "B0483",
+      "old_hash": "cb81dd5b0b80",
+      "first_line_excerpt": "[23] NeurIPS, 2022. Chain-of-thought prompting elicits reasoning in large langu…"
+    },
+    {
+      "block_id": "B0484",
+      "old_hash": "caf4f84c17b3",
+      "first_line_excerpt": "[24] arXiv, 2024. The prompt report: A systematic survey of prompt engineering …"
+    },
+    {
+      "block_id": "B0485",
+      "old_hash": "8ea7fd4cce29",
+      "first_line_excerpt": "[25] ACL Anthology, 2023. Grammar-constrained decoding for structured NLP tasks…"
+    },
+    {
+      "block_id": "B0486",
+      "old_hash": "3cf3526323a9",
+      "first_line_excerpt": "[26] arXiv, 2025. Flexible and efficient grammar-constrained decoding. https://…"
+    },
+    {
+      "block_id": "B0487",
+      "old_hash": "93b1ce572ac3",
+      "first_line_excerpt": "[27] arXiv, 2021. LoRA: Low-Rank Adaptation of Large Language Models. https://a…"
+    },
+    {
+      "block_id": "B0488",
+      "old_hash": "2c59b898f6b6",
+      "first_line_excerpt": "[28] AAAI, 2023. Label-specific feature augmentation for long-tailed multi-labe…"
+    },
+    {
+      "block_id": "B0489",
+      "old_hash": "b2441fcaea01",
+      "first_line_excerpt": "[29] arXiv, 2023. Large language models cannot self-correct reasoning yet. http…"
+    },
+    {
+      "block_id": "B0490",
+      "old_hash": "5774b62b06f5",
+      "first_line_excerpt": "[30] NeurIPS, 2023. Self-refine: Iterative refinement with self-feedback. https…"
+    },
+    {
+      "block_id": "B0491",
+      "old_hash": "7fa29fe7cf64",
+      "first_line_excerpt": "[31] arXiv, 2023. Large language models cannot self-correct reasoning yet. http…"
+    },
+    {
+      "block_id": "B0492",
+      "old_hash": "5485955c0944",
+      "first_line_excerpt": "[32] Palau, R. M., & Moens, M. F., 2009. Argumentation mining: the detection, c…"
+    },
+    {
+      "block_id": "B0493",
+      "old_hash": "2baca896147c",
+      "first_line_excerpt": "[33] Rooney, N., Wang, H., & Browne, F., 2012. Applying kernel methods to argum…"
+    },
+    {
+      "block_id": "B0494",
+      "old_hash": "9169a99448eb",
+      "first_line_excerpt": "[34] Stab, C., & Gurevych, I., 2014. Identifying argumentative discourse struct…"
+    },
+    {
+      "block_id": "B0495",
+      "old_hash": "e6a02fed32de",
+      "first_line_excerpt": "[35] ACL Anthology, 2019. Argument mining: A survey. https://aclanthology.org/J…"
+    },
+    {
+      "block_id": "B0496",
+      "old_hash": "b681950fcb60",
+      "first_line_excerpt": "[36] arXiv, 2025. Large language models in argument mining: A survey. https://a…"
+    },
+    {
+      "block_id": "B0497",
+      "old_hash": "326252abb7db",
+      "first_line_excerpt": "[37] IEEE Xplore, 2022. Argument mining using BERT and self-attention based emb…"
+    },
+    {
+      "block_id": "B0498",
+      "old_hash": "c0714e3bac1e",
+      "first_line_excerpt": "[38] ACL Anthology, 2017. Neural end-to-end learning for computational argument…"
+    },
+    {
+      "block_id": "B0499",
+      "old_hash": "a23717967117",
+      "first_line_excerpt": "[39] ACL Anthology, 2020. Towards better non-tree argument mining. https://acla…"
+    },
+    {
+      "block_id": "B0500",
+      "old_hash": "7fe25a90f429",
+      "first_line_excerpt": "[40] ACL Anthology, 2024. Discourse structure-aware prefix for generation-based…"
+    },
+    {
+      "block_id": "B0501",
+      "old_hash": "f2dfc1591cd4",
+      "first_line_excerpt": "[41] ACL Anthology, 2018. A corpus of erulemaking user comments. https://aclant…"
+    },
+    {
+      "block_id": "B0502",
+      "old_hash": "f0c926f3ba51",
+      "first_line_excerpt": "[42] Springer, 2024. Overview of the NLPCC 2024 Shared Task 5: Argument Mining …"
+    },
+    {
+      "block_id": "B0503",
+      "old_hash": "25afd7b5c478",
+      "first_line_excerpt": "[43] ACL Anthology, 2023. ORCHID: A Chinese debate corpus. https://aclanthology…"
+    },
+    {
+      "block_id": "B0504",
+      "old_hash": "76986a7ae115",
+      "first_line_excerpt": "[44] ACL Anthology, 2022. IAM: A comprehensive and large-scale dataset for inte…"
+    },
+    {
+      "block_id": "B0505",
+      "old_hash": "c46f90ee830e",
+      "first_line_excerpt": "[45] Springer, 2024. Enhancing Chinese Argument Mining with Large Language Mode…"
+    },
+    {
+      "block_id": "B0506",
+      "old_hash": "8bc7e2022137",
+      "first_line_excerpt": "[46] ACL Anthology, 2024. Data augmentation using LLMs: Data perspectives and c…"
+    },
+    {
+      "block_id": "B0507",
+      "old_hash": "f4dd4e094f86",
+      "first_line_excerpt": "[47] arXiv, 2023. Universal self-consistency for large language model generatio…"
+    },
+    {
+      "block_id": "B0508",
+      "old_hash": "b17787ffce48",
+      "first_line_excerpt": "[48] ACL Anthology, 2024. Data augmentation using LLMs. https://aclanthology.or…"
+    },
+    {
+      "block_id": "B0509",
+      "old_hash": "294c605823d1",
+      "first_line_excerpt": "[49] ACL Anthology, 2024. Coda: Constrained generation based data augmentation.…"
+    },
+    {
+      "block_id": "B0510",
+      "old_hash": "7d1c7507a87d",
+      "first_line_excerpt": "[50] IEEE TPAMI, 2023. Deep long-tailed learning: A survey. https://ieeexplore.…"
+    },
+    {
+      "block_id": "B0511",
+      "old_hash": "e711bc96ff1c",
+      "first_line_excerpt": "[51] arXiv, 2023. Segmix: A simple structure-aware data augmentation method. ht…"
+    },
+    {
+      "block_id": "B0512",
+      "old_hash": "af88cde27e93",
+      "first_line_excerpt": "[52] AAAI, 2026. DEALT: LLM-driven Diversity-Enhanced Data Augmentation. https:…"
+    },
+    {
+      "block_id": "B0513",
+      "old_hash": "f0b106c71c34",
+      "first_line_excerpt": "[53] arXiv, 2024. Confidence matters: Revisiting intrinsic self-correction capa…"
+    },
+    {
+      "block_id": "B0514",
+      "old_hash": "ebfe01fdf372",
+      "first_line_excerpt": "[54] ICLR, 2023. Let's verify step by step. https://openreview.net/forum?id=v8L…"
+    },
+    {
+      "block_id": "B0515",
+      "old_hash": "9b465a592d85",
+      "first_line_excerpt": "[55] arXiv, 2025. LM4Opt-RA: A Multi-Candidate LLM Framework with Structured Ra…"
+    },
+    {
+      "block_id": "B0516",
+      "old_hash": "889dd7511475",
+      "first_line_excerpt": "[56] Vaswani, A., Shazeer, N., Parmar, N., et al. Attention Is All You Need. Ad…"
+    },
+    {
+      "block_id": "B0517",
+      "old_hash": "2cd069b7542f",
+      "first_line_excerpt": "[57] Tang, C., Peng, M., Tian, G. Improving End-to-End Argument Mining with LLM…"
+    }
+  ]
+}

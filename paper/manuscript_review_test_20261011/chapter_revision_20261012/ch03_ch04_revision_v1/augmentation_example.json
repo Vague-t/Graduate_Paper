@@ -1,0 +1,240 @@
+{
+  "evidence_type": "CONSTRUCTED_TEACHING_EXAMPLE",
+  "model_run": false,
+  "original_text": "Teamwork helps children learn social skills. Working together teaches children to communicate. Team tasks require children to listen to others. Competition can improve efficiency.",
+  "rewritten_text": "Cooperation helps children develop social skills. Children learn to communicate by working together. Team tasks require children to listen to others. Competition can improve efficiency.",
+  "A": [
+    "a",
+    "b"
+  ],
+  "old": {
+    "a": {
+      "key": [
+        "demo_aug",
+        0,
+        44,
+        "Claim"
+      ],
+      "text": "Teamwork helps children learn social skills."
+    },
+    "b": {
+      "key": [
+        "demo_aug",
+        45,
+        94,
+        "Premise"
+      ],
+      "text": "Working together teaches children to communicate."
+    },
+    "c": {
+      "key": [
+        "demo_aug",
+        95,
+        143,
+        "Premise"
+      ],
+      "text": "Team tasks require children to listen to others."
+    },
+    "d": {
+      "key": [
+        "demo_aug",
+        144,
+        179,
+        "Claim"
+      ],
+      "text": "Competition can improve efficiency."
+    }
+  },
+  "new": {
+    "a": {
+      "key": [
+        "demo_aug_v1",
+        0,
+        49,
+        "Claim"
+      ],
+      "text": "Cooperation helps children develop social skills."
+    },
+    "b": {
+      "key": [
+        "demo_aug_v1",
+        50,
+        100,
+        "Premise"
+      ],
+      "text": "Children learn to communicate by working together."
+    },
+    "c": {
+      "key": [
+        "demo_aug_v1",
+        101,
+        149,
+        "Premise"
+      ],
+      "text": "Team tasks require children to listen to others."
+    },
+    "d": {
+      "key": [
+        "demo_aug_v1",
+        150,
+        185,
+        "Claim"
+      ],
+      "text": "Competition can improve efficiency."
+    }
+  },
+  "phi": {
+    "a": [
+      [
+        "demo_aug",
+        0,
+        44,
+        "Claim"
+      ],
+      [
+        "demo_aug_v1",
+        0,
+        49,
+        "Claim"
+      ]
+    ],
+    "b": [
+      [
+        "demo_aug",
+        45,
+        94,
+        "Premise"
+      ],
+      [
+        "demo_aug_v1",
+        50,
+        100,
+        "Premise"
+      ]
+    ],
+    "c": [
+      [
+        "demo_aug",
+        95,
+        143,
+        "Premise"
+      ],
+      [
+        "demo_aug_v1",
+        101,
+        149,
+        "Premise"
+      ]
+    ],
+    "d": [
+      [
+        "demo_aug",
+        144,
+        179,
+        "Claim"
+      ],
+      [
+        "demo_aug_v1",
+        150,
+        185,
+        "Claim"
+      ]
+    ]
+  },
+  "relations_original": [
+    [
+      "b",
+      "a",
+      "supports"
+    ],
+    [
+      "c",
+      "b",
+      "supports"
+    ]
+  ],
+  "finite_teaching_factor_universe": [
+    [
+      "b",
+      "a",
+      "supports"
+    ],
+    [
+      "c",
+      "b",
+      "supports"
+    ],
+    [
+      "b",
+      "d",
+      "NONE"
+    ],
+    [
+      "c",
+      "d",
+      "NONE"
+    ]
+  ],
+  "not_full_AAEC_factor_enumeration": true,
+  "audited_factors": [
+    {
+      "ends": [
+        "b",
+        "a"
+      ],
+      "label": "supports",
+      "status": "stable",
+      "mR": 1
+    },
+    {
+      "ends": [
+        "c",
+        "b"
+      ],
+      "label": "supports",
+      "status": "undecided",
+      "mR": 0
+    },
+    {
+      "ends": [
+        "b",
+        "d"
+      ],
+      "label": "NONE",
+      "status": "stable",
+      "mR": 1
+    }
+  ],
+  "component_masks": {
+    "a": 1,
+    "b": 1,
+    "c": 1,
+    "d": 1
+  },
+  "component_alignment": [
+    "a",
+    "b",
+    "c"
+  ],
+  "accepted_views": 1,
+  "head_supervision_view_weight": "1/2",
+  "component_alignment_factor_weight_before_lambda": "1/3",
+  "relation_alignment_group_weights_before_lambda": {
+    "positive": "1/2",
+    "NONE": "1/2"
+  },
+  "full_generation_target": "original_only",
+  "rejected_attempt": {
+    "replacement_a": "Teamwork does not help children learn social skills.",
+    "reason": "negation changes meaning",
+    "enters_training": false,
+    "increments_accepted_views": false
+  },
+  "arithmetic_checks": {
+    "coordinate_roundtrip": true,
+    "alignment_membership": true,
+    "head_weights_sum_to_one": true,
+    "factor_and_group_weights_sum_to_one": true,
+    "rejected_view_excluded": true
+  }
+}

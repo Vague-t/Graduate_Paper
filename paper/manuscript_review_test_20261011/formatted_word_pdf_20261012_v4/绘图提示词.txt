@@ -1,0 +1,19 @@
+生成方式：ImageGen 内置图像工具。先生成，再做一次定向修改。
+
+初次生成要求：
+Create one publication-quality Chinese thesis Chapter 1 OVERVIEW illustration, a simplified companion to the detailed model architecture. Use document icons, small argument graphs, and a compact stacked neural-model icon, rather than an all-text organizational chart. References supply visual style and level of abstraction, not scientific content. Landscape canvas, about 1.56:1; pure white background; restrained blue training panel and muted orange inference panel; dark charcoal Chinese sans-serif labels; crisp vector-like lines; readable typography; generous whitespace. No performance numbers, formulas, matrices, LoRA, MLP, losses, ILP, detailed constraints or tiny annotations.
+
+Title: 端到端论辩挖掘的总体研究框架
+Upper panel: 研究一：关系感知的可靠成对学习
+Question: 研究问题：文本改写后，如何保持可靠的组件与关系监督？
+Three stages connected left to right: 原文与标注 → 关系保持增强 → 可靠成对学习
+Use a document and small labeled graph in stage 1; corresponding original and rewritten graphs in stage 2; two document streams entering one shared stacked model in stage 3. Under paired graphs: 审核组件与关系对应
+Lower panel: 研究二：依赖闭合的结构修正
+Question: 研究问题：组件变化后，如何协调修改相关关系？
+Four stages connected left to right: 新文档 → 生成候选图 → 组件与关系联合修正 → 输出论辩图
+Use a document, one model with two candidate graphs, a before/after node substitution with related edges, and a final graph. Under the input area: 原文保持不变
+Bottom line: 训练阶段学习可靠对应，推理阶段协调结构修正
+Do not suggest rewriting test documents, using test gold labels, or guaranteeing increased empirical accuracy.
+
+最终定向修改提示词：
+Make a very targeted correction to this already good Chinese thesis overview diagram. Preserve the entire layout, colors, dimensions, typography, all panel headings, all Chinese labels, illustrations and content, except these two small corrections. (1) Remove the downward vertical connector arrow from the TOP right neural-model icon to the BOTTOM panel border, and remove its old label 训练后的生成器. In the white horizontal gap BETWEEN the two large panels, place one clear centered small dark-blue text line exactly 训练后的生成器用于候选图生成. There must be no connecting arrow anywhere in that gap, and no line extending below the top neural-model icon. This states the inter-stage relationship without accidentally pointing toward the final output module. (2) In the far-right bottom output argument graph under 输出论辩图, change ONLY its top blue node to the same orange fill and outline as the top orange node in the corrected graph immediately to its left. Keep the other output nodes pink and green. Preserve all remaining Chinese words precisely. Do not add extra objects, text or formulas. Flat pure-white background and same 1.56:1 landscape composition.

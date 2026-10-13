@@ -1,0 +1,1229 @@
+{
+  "source": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/formatted_word_pdf_20261012_v4/论文规范排版稿_v4.docx",
+  "output": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/chapter5_revision_and_consistency_20261012_v5/论文规范排版稿_v5.docx",
+  "source_sha256": "1cee5133ade6a560b86d5d8dcd3f17b650dcaccc11d95c77ce92b9763f992361",
+  "output_sha256": "177c90ce5327cc7cf258d576fbb478a5e766065dcedfa1dfde61448f8c56f3fa",
+  "edits": [
+    {
+      "change_id": "C5-002",
+      "block_id": "B0767",
+      "op": "replace_text",
+      "before": "5.1 继承基线与外部参照",
+      "after": "5.1 综合分析设置与比较范围",
+      "reason": "标题覆盖公共条件、比较层次和解释范围，不将综合分析误称为新增实验。"
+    },
+    {
+      "change_id": "C5-003",
+      "block_id": "B0768",
+      "op": "replace_text",
+      "before": "所有四格以本文T0/I0为参照，保持官方测试集、原生对象身份和三个种子一致。表S2-1的原协议复现核查用于确认继承配置，附录E保留原稿已发表结果；两者不与新严格评价混算。具名外部对照UniASA和Kawarada等的TextToText在附录G按同一评价器报告，保留其本身架构和公开任务接口，因此系统比较不等同于仅改变本文一个模块的因果消融。",
+      "after": "本章沿用第二章的官方测试划分、原生对象身份和严格评价规则，以T0/I0作为继承配置，并在相同测试文档和三个种子上比较四种组合。其中，T1/I0仅引入第三章的训练配置，T0/I1仅引入第四章的推理配置，T1/I1同时采用两阶段方法。四种组合连接了前两章的结果，使训练变化、推理变化及其组合差异能够在共同参照下解释。",
+      "reason": "先明确四种配置和共同参照，减少读者在综合章反查符号的负担。"
+    },
+    {
+      "change_id": "C5-006",
+      "block_id": "B0773",
+      "op": "replace_text",
+      "before": "5.2 四格结果与交互",
+      "after": "5.2 两阶段组合结果与交互分析",
+      "reason": "把总量比较与阶段交互的两个问题明确写入标题。"
+    },
+    {
+      "change_id": "C5-009",
+      "block_id": "B0774",
+      "op": "replace_text",
+      "before": "表5-2 同一测试划分上的四格",
+      "after": "表5-2 两阶段配置的组件与关系抽取性能",
+      "reason": "图表标题明确展示对象，保留编号及全部表内数值。"
+    },
+    {
+      "change_id": "C5-013",
+      "block_id": "B0778",
+      "op": "replace_text",
+      "before": "完整配置相对T0/I0的关系增量为AAEC 8.10 pp、CDCP 13.26 pp。交互定义为(T1/I1−T1/I0)−(T0/I1−T0/I0)，其区间用于检查训练后修正空间是否变化，不能把两条主效应相加就称为协同。两个阶段可改善部分不同对象，同时也存在重叠恢复。",
+      "after": "在固定I0的条件下，引入T1使AAEC和CDCP的关系F1分别增加3.63 pp和4.89 pp；在T1基础上启用I1后，进一步增加4.48 pp和8.37 pp。完整配置相对T0/I0的差值分别为8.10 pp和13.26 pp。这些条件增量表明，训练后仍保留可由推理修正改善的空间，但不能将整套配置的差值全部归因于其中某一个学习项或决策动作。",
+      "reason": "将原段落过于跳跃的总差描述展开为条件比较，并保持机制归因边界。"
+    },
+    {
+      "change_id": "C5-015",
+      "block_id": "B0783",
+      "op": "replace_text",
+      "before": "5.3 对象成员与首个阻断",
+      "after": "5.3 关系恢复来源与漏检成因",
+      "reason": "将“成员”“首个阻断”的记录术语转化为读者关心的分析问题。"
+    },
+    {
+      "change_id": "C5-019",
+      "block_id": "B0786",
+      "op": "replace_text",
+      "before": "“共同恢复”是T1/I0与T0/I1相对T0/I0新增TP的交集；“独有”是各自差集；“组合独有”只出现在T1/I1；完整配置又可能丢失单路恢复或初始TP。表内满足初始TP＋共同＋训练独有＋修正独有＋组合独有−丢失单路−丢失初始=完整TP，每条关系按语义键复核。",
+      "after": "“共同恢复”指T1/I0与T0/I1相对T0/I0新增TP的交集，“训练独有”和“修正独有”分别指两者的差集，“组合独有”则指只在T1/I1中新增的TP。完整配置还可能丢失单路恢复或初始TP。表中各项满足“初始TP＋共同恢复＋训练独有＋修正独有＋组合独有−丢失单路恢复−丢失初始TP＝完整TP”，据此保留恢复与损失的完整对应关系。",
+      "reason": "保留原有成员定义及守恒关系，使用连贯叙述。"
+    },
+    {
+      "change_id": "C5-026",
+      "block_id": "B0791",
+      "op": "replace_text",
+      "before": "首个阻断按表列次序归类，每条未命中关系只计一次。未评分及超时均为0，因此不能用它们解释当前漏检；最后一列包含可行域、预算与接受门，不统一称为求解错误。候选端点“入池”与终态端点“被选”分开，避免把存在竞争跨度误认为正确端点已恢复。",
+      "after": "在完整配置中，AAEC除终态端点缺失外的漏检均归于“评分未过门”；CDCP还存在2条“完整槽位未入池”的关系，其余此类漏检同样集中在评分门限。未评分和超时的记录均为0，不能将当前漏检解释为这两类执行问题。“联合约束／接受门”列涵盖可行域、预算及接受条件，其含义也不等同于求解错误。",
+      "reason": "修正“最后一列”的错误定位，基于既有记录解释主要阻断而不作新的运行判断。"
+    },
+    {
+      "change_id": "C5-028",
+      "block_id": "B0794",
+      "op": "replace_text",
+      "before": "5.4 CDCP完整源集合",
+      "after": "5.4 多源关系的分组结果与局限",
+      "reason": "与参考论文中进一步分析及边界讨论的功能对应。"
+    },
+    {
+      "change_id": "C5-031",
+      "block_id": "B0797",
+      "op": "replace_text",
+      "before": "原生测试集有218条单源、20条双源、6条三源及8条四源以上关系，总计252条，多源34条；表5-6为三个种子的计数合计。长源集合不能拆成多条独立边增加TP。部分组样本很小，分组均值仅解释误差分布，不承担新的显著性结论。外部转换对四源以上对象的表达损失也单列于附录G。",
+      "after": "单源关系构成CDCP总体结果的主要部分，完整配置的TP由继承配置的257条增加至318条，FP由397条减少至222条。多源分组的变化则更为有限：相对T1/I0，T1/I1在双源和三源组中的TP分别保持27条和10条，而FP分别由33条降至22条、由8条降至5条。这表明组内F1的增加可以主要来自错误预测减少，不能仅据F1上升就认定恢复了更多完整源集合。",
+      "reason": "补足原节缺失的分组结果解释，区分TP恢复与FP减少。"
+    },
+    {
+      "change_id": "C5-034",
+      "block_id": "B0801",
+      "op": "replace_text",
+      "before": "训练和推理均形成双语料正向主效应，完整系统的增益由四格和同身份对象分解共同支持。结果不要求每种机制或每一源数组都改善；成对项、共同决策、集合动作和重生成比较的证据强度分别报告。整体增量不能替代独立消融的判断。",
+      "after": "本章在统一协议下，将两阶段的总体表现、关系恢复来源和漏检分布联系起来。四格结果显示两阶段分别对应正向的条件增量，对象分析进一步表明，两条单独路径能够覆盖部分不同的关系，但组合过程仍会丢失少量初始TP，且交互区间尚不足以确认稳定协同。端点缺失和关系评分门限构成当前记录中的主要阻断，CDCP长源集合则保留了明显的恢复困难。因此，整体配置的改善、具体机制的独立贡献及复杂对象的适用范围应分别判断，成对项、共同接受、集合动作和重生成比较仍以各自受控分析为依据。",
+      "reason": "小结从汇总结果推进到综合判断与适用边界，去除不准确的“主效应”表述。"
+    },
+    {
+      "change_id": "GLOBAL-01",
+      "block_id": "B0965",
+      "op": "replace_text",
+      "before": "随稿提供原始输入摘要、规范化语料、配置、逐对象计数、评分、事务、审核、成本和生成脚本。材料中的文献来源沿用提供的草稿，未扩展到其他历史记录。引用原文保持原拼写，不因语言错误擅自润色数据集内容。",
+      "after": "本稿列明原始输入摘要、规范化语料、配置、逐对象计数、评分、事务、审核及成本等材料的保存要求。现有模拟材料、教学输入与实际CPU诊断分别保留其来源身份；主结果仍缺少完整的文档×种子×方法计数输入，统计复算范围以附录J的S2.5为准。引用原文保持原拼写，不因语言错误擅自润色数据集内容。",
+      "reason": "材料可得性声明与统计输入缺口不一致"
+    },
+    {
+      "change_id": "GLOBAL-02",
+      "block_id": "B0010",
+      "op": "replace_text",
+      "before": "在AAEC和CDCP官方测试集上，完整配置的严格关系F1分别为73.29和52.02，相对继承配置提高8.10和13.26个百分点。固定推理时，新训练分别增加3.63和4.89个百分点；固定T1检查点时，新推理分别增加4.48和8.37个百分点，四项比较均通过14项比较族的Holm校正。完整成对相对无成对的点估计在两语料为正，但校正后证据不足；共同决策与集合动作的独立优势也未获确认。保留CDCP弱评分时返回初始图的失败分析，说明收益依赖候选覆盖和决策区域评分。四份语料的原文案例进一步呈现误边减少、正确关系误删及多源对象身份的实际边界。",
+      "after": "在依据AAEC和CDCP官方测试划分构造的模拟评审结果中，完整配置的严格关系F1分别为73.29和52.02，相对继承配置提高8.10和13.26个百分点。固定推理时，新训练分别增加3.63和4.89个百分点；固定T1检查点时，新推理分别增加4.48和8.37个百分点，四项比较均通过14项比较族的Holm校正。完整成对相对无成对的点估计在两语料为正，但校正后证据不足；共同决策与集合动作的独立优势也未获确认。保留CDCP弱评分时返回初始图的失败分析，说明收益依赖候选覆盖和决策区域评分。四份语料的原文案例进一步呈现误边减少、正确关系误删及多源对象身份的实际边界。",
+      "reason": "摘要与综合结论缺少就地说明模拟证据身份"
+    },
+    {
+      "change_id": "GLOBAL-03",
+      "block_id": "B0017",
+      "op": "replace_text",
+      "before": "On the official AAEC and CDCP test splits, the complete configuration reaches strict relation F1 scores of 73.29 and 52.02, improving over the inherited configuration by 8.10 and 13.26 points. The aggregate training and inference improvements remain significant after Holm correction over fourteen primary comparisons. Paired-learning estimates are positive on both corpora, but their separate contribution does not pass the family-level correction; joint acceptance and set actions likewise lack confirmed independent advantages. A weak-scoring CDCP condition retains abstention as a failure analysis. Traceable cases from four uploaded corpora illustrate both false-edge removal and true-edge loss, emphasizing that higher fixed utility does not guarantee higher extraction F1.",
+      "after": "In the simulated review results constructed for the official AAEC and CDCP test splits, the complete configuration reaches strict relation F1 scores of 73.29 and 52.02, improving over the inherited configuration by 8.10 and 13.26 points. The aggregate training and inference improvements remain significant after Holm correction over fourteen primary comparisons. Paired-learning estimates are positive on both corpora, but their separate contribution does not pass the family-level correction; joint acceptance and set actions likewise lack confirmed independent advantages. A weak-scoring CDCP condition retains abstention as a failure analysis. Traceable cases from four uploaded corpora illustrate both false-edge removal and true-edge loss, emphasizing that higher fixed utility does not guarantee higher extraction F1.",
+      "reason": "摘要与综合结论缺少就地说明模拟证据身份"
+    },
+    {
+      "change_id": "GLOBAL-07",
+      "block_id": "B1121",
+      "op": "replace_text",
+      "before": "纳入表1-2、表4-6和14项Holm主要族",
+      "after": "纳入补充表S2-4、表4-6和14项Holm主要比较族",
+      "reason": "附录H残留旧表1-2交叉引用"
+    },
+    {
+      "change_id": "GLOBAL-08",
+      "block_id": "B1052",
+      "op": "replace_text",
+      "before": "x或D",
+      "after": "x",
+      "reason": "符号表残留输入文档D别名"
+    },
+    {
+      "change_id": "GLOBAL-09",
+      "block_id": "B1052",
+      "op": "replace_text",
+      "before": "推理修正不改写原文；第四章D另指删除集合",
+      "after": "推理修正不改写原文；文档标识记为d；删除集合D另列",
+      "reason": "符号表残留输入文档D别名"
+    },
+    {
+      "change_id": "GLOBAL-10",
+      "block_id": "B0616",
+      "op": "replace_text",
+      "before": "每批从六类提议中轮转取项，在冻结对象分和剩余预算下评估，择优复核后原子提交。新评估消耗尝试额度，提交已有合格项只检查接受、编辑及实际资源；达到尝试上限不撤销已评估的合格项。首批全拒不立即停止，同一状态不因换轮重复评估；无法安全提交时返回最近完整合法图。排序、状态键、缓存游标和分项计费统一列于附录B.3，预算边界见附录B.4.3。",
+      "after": "每批从六类提议中轮转取项，在冻结对象分和剩余预算下评估，择优复核后原子提交。新评估消耗尝试额度，提交已有合格项只检查接受、编辑及实际资源；达到尝试上限不撤销已评估的合格项。首批全拒不立即停止，同一状态不因换轮重复评估；无法安全提交时返回最近完整合法图。预算计费与回退原则见附录B.3，资源边界检查见附录B.4.3；队列排序、状态键和缓存游标的完整实现仍需结合配套执行记录核对。",
+      "reason": "部分附录回指声称的算法细则尚未在所指位置展开"
+    },
+    {
+      "change_id": "GLOBAL-11",
+      "block_id": "B0537",
+      "op": "replace_text",
+      "before": "独立跨度头以训练金标监督起止边界，为候选召回提供补充，并在OOF中遵守与生成器相同的持出隔离。默认使用原生跨度头及组件提案，保留相应类型分布；仅在训练侧覆盖诊断支持时启用一次性的邻近边界、合并或切分扩展，扩展不递归。去重后按边界分保留补充候选。坐标转换、排序和异常细则见附录A.6，边界分仅用于召回排序。",
+      "after": "独立跨度头以训练金标监督起止边界，为候选召回提供补充，并在OOF中遵守与生成器相同的持出隔离。默认使用原生跨度头及组件提案，保留相应类型分布；仅在训练侧覆盖诊断支持时启用一次性的邻近边界、合并或切分扩展，扩展不递归。去重后按边界分保留补充候选。原文序列化与对象身份说明见附录A.6；边界分仅用于补充候选的召回排序。",
+      "reason": "部分附录回指声称的算法细则尚未在所指位置展开"
+    },
+    {
+      "change_id": "GLOBAL-12",
+      "block_id": "B0807",
+      "op": "replace_text",
+      "before": "本文围绕组件与关系依赖开展两项研究：训练阶段以关系影响域、标注输运和因素掩码组织可靠对应学习；推理阶段以固定对象评分、依赖闭合和预算约束组织完整修改。原生超边表示、严格评价和逐对象账本贯穿两个阶段。",
+      "after": "本文围绕端到端论辩挖掘中的组件与关系依赖，分别研究训练阶段的监督保持和推理阶段的结构修正。训练侧以关系影响域、标注输运和因素掩码识别可保留的监督，在原文完整图生成目标之外引入可靠因素学习与成对约束；推理侧在固定候选和对象评分下，将组件变化及受影响关系重建纳入同一事务，并结合分项效用、编辑预算和返回规则作出决策。两项研究以原生对象身份和严格评价连接，第五章进一步从整体分数、恢复对象及剩余错误三个层面分析其组合关系。",
+      "reason": "总结分别回扣RQ1/RQ2以及第五章职责，避免仅罗列接口名。"
+    },
+    {
+      "change_id": "GLOBAL-13",
+      "block_id": "B0808",
+      "op": "replace_text",
+      "before": "完整系统在AAEC与CDCP上的关系F1分别达到73.29和52.02，相对继承配置增加8.10和13.26 pp；整套训练与整套推理四项主要比较均通过Holm校正。具名系统对照、目标增强池审核、评分区域质量、候选覆盖、训练及推理成本补充了完整评价。",
+      "after": "在本稿的模拟评审结果中，完整配置在AAEC与CDCP上的严格关系F1分别为73.29和52.02，相对继承配置增加8.10和13.26个百分点。固定推理配置的训练比较，以及固定T1检查点的推理比较，在两种语料上均呈正向差值，并在所列14项主要比较族内通过Holm校正。四格交互区间均包含零，不能据此确认额外协同增益；对象成员分解则显示两个阶段既有重叠恢复，也有各自恢复的对象。上述数值用于展示评审与报告口径，不构成目标模型已经完成真实实验的证据；联合统计复算所需的完整输入仍须按附录J的S2.5补齐。",
+      "reason": "总结数值和效应身份与第五章及模拟披露同步，不扩大统计复现状态。"
+    },
+    {
+      "change_id": "GLOBAL-14",
+      "block_id": "B0809",
+      "op": "replace_text",
+      "before": "完整成对的正向估计未通过家族校正，共同接受与集合动作也没有形成独立稳定优势。I1相对等预算重生成的均值更高，但联合区间跨零。因此结论保留系统层面的改进，把机制贡献限定在各自对照支持的范围内。",
+      "after": "对具体机制的判断仍应依据对应消融。完整成对相对NoPair的点估计在两种语料上为正，但未通过主要比较族的校正；共同接受和集合动作也未形成独立稳定优势。完整推理配置相对等预算重生成的均值较高，但联合区间跨零。当前材料因而只能支持所设模拟条件下的配置差异，不能把系统总增量归于某一个学习项、事务动作或求解路径。实际CPU案例另外表明，固定规则可以减少误边，也可能删除正确关系，其诊断作用不替代主方法验证。",
+      "reason": "6.1回扣机制消融、全局路径及实际CPU材料边界。"
+    },
+    {
+      "change_id": "GLOBAL-15",
+      "block_id": "B0932",
+      "op": "replace_text",
+      "before": "冻结输入上的8970条图记录均通过合法性与严格计数重算；6900条终态与3131次接受账本通过重放。金标关系供给、逐种子计数、端点链、源组和四格成员恒等式同步检查。正文真实案例另作逐字符及前后集合子集检查。",
+      "after": "原稿的模拟验收记录列示：8970条图记录通过合法性与严格计数重算，6900条终态与3131次接受账本通过重放，并检查金标关系供给、逐种子计数、端点链、源组及四格成员恒等式。这些列示记录用于评审功能测试，不表示本轮已复现真实目标模型或求解器实验。正文实际CPU案例与原生语料案例另按其材料身份核对；主结果统计输入的缺口见附录J的S2.5。",
+      "reason": "防止旧模拟验收数量被理解为本轮真实运行验证，保留全部原有计数。"
+    },
+    {
+      "change_id": "GLOBAL-CPU",
+      "block_id": "B0770",
+      "op": "replace_text",
+      "before": "实际训练输出、固定处理规则",
+      "after": "训练侧拟合后的测试预测、固定后处理规则",
+      "reason": "明确CPU案例材料与主模型模拟结果的区别"
+    },
+    {
+      "change_id": "GLOBAL-S2",
+      "block_id": "B0265",
+      "op": "replace_text",
+      "before": "本文沿用Qwen2.5-7B-Instruct作为参考骨干，并继承MCR-BR中的结论专项适配、线索提示及相关监督基础[31][34]。这些机制构成后续研究的已有条件；本文的新增内容集中于增强监督的可靠对应和预测修改的依赖处理。具体参数在本章补充配置表中统一列出。",
+      "after": "本文沿用Qwen2.5-7B-Instruct作为参考骨干，并继承MCR-BR中的结论专项适配、线索提示及相关监督基础[31][34]。这些机制构成后续研究的已有条件；本文的新增内容集中于增强监督的可靠对应和预测修改的依赖处理。具体参数在附录J的补充配置表中统一列出。",
+      "reason": "补充配置表已经移入附录J"
+    },
+    {
+      "change_id": "FLOW-01",
+      "block_id": "B0221",
+      "op": "replace_text",
+      "before": "第二章介绍论辩挖掘的任务表示、相关理论与技术，并统一评价和公共实验协议，为各项比较建立共同基础；第三章定义可靠对应与成对学习，并报告训练比较和因素审核；第四章定义依赖闭合修正，分析评分、候选覆盖、决策比较、资源成本与案例；第五章通过四格和对象成员分析说明两阶段的作用关系；第六章总结配置收益、机制证据及适用条件。附录提供数据坐标、实现验收、实验登记、外部对照、逐种子记录与案例定位。",
+      "after": "本文共分为六章。第一章介绍研究背景与相关工作，提出研究问题并说明主要研究内容。其余各章安排如下。",
+      "reason": "按参考论文逐章说明职责，避免将整篇组织压缩为一个长句"
+    },
+    {
+      "change_id": "FLOW-03",
+      "block_id": "B0322",
+      "op": "replace_text",
+      "before": "本章依次介绍总体框架、增强构造、学习目标及算法性质，再通过受控比较讨论整套训练配置、成对目标和审核成本。需要区分两项判断：可靠因素接口明确了哪些标签参与学习；成对项是否带来独立收益，仍须由固定数据条件下的比较回答。",
+      "after": "需要区分两项判断：可靠因素接口明确了哪些标签参与学习；成对项是否带来独立收益，仍须由固定数据条件下的比较回答。",
+      "reason": "章节路线已移到章首，避免导语与引言重复"
+    },
+    {
+      "change_id": "FLOW-04",
+      "block_id": "B0323",
+      "op": "replace_text",
+      "before": "本章沿用test稿件的模拟评审用途。主结果、审核统计与成本数值为原稿的模拟材料；新增的完整增强示例为明确标注的教学构造，均不能代替目标模型的真实运行证据。表3-1单独保留真实语料的原文与标注身份。",
+      "after": "本章沿用本稿的模拟评审用途。主结果、审核统计与成本数值为原稿的模拟材料；新增的完整增强示例为明确标注的教学构造，均不能代替目标模型的真实运行证据。表3-1单独保留真实语料的原文与标注身份。",
+      "reason": "规范中文学术表述"
+    },
+    {
+      "change_id": "FLOW-07",
+      "block_id": "B0514",
+      "op": "replace_text",
+      "before": "第三章处理训练文本改变后哪些监督可以继承，本章转向推理阶段：在原文保持不变时，如何修改预测组件及其关系。组件边界或类型一旦改变，引用旧端点的关系就成为不同的严格对象。仅依据组件置信度先行提交，可能遗漏整条关系失效的代价；仅依据图中平均覆盖分数接受，又可能因分母变化产生表面增益。",
+      "after": "组件边界或类型一旦改变，引用旧端点的关系就成为不同的严格对象。仅依据组件置信度先行提交，可能遗漏整条关系失效的代价；仅依据图中平均覆盖分数接受，又可能因分母变化产生表面增益。",
+      "reason": "承接语已置于章首，引言直接展开技术动机"
+    },
+    {
+      "change_id": "FLOW-08",
+      "block_id": "B0516",
+      "op": "replace_text",
+      "before": "下文先说明候选和初始图，再给出评分及接受准则，随后用完整事务解释依赖闭合，最后介绍局部与全局求解、方法性质和实验分析。本章沿用test稿件的模拟主结果；教学事务只检验计算规则，CPU程序案例保留为独立的实际诊断，三者不互相替代。",
+      "after": "本章沿用本稿的模拟主结果；教学事务只检验计算规则，CPU程序案例保留为独立的实际诊断，三者不互相替代。",
+      "reason": "章节路线已移到章首并规范中文表述"
+    },
+    {
+      "change_id": "C5-001",
+      "block_id": "B0765",
+      "op": "insert_after",
+      "after": "第三章从训练阶段研究改写前后的可靠对应与成对学习，第四章从推理阶段研究组件修改后的关系依赖处理。两项研究作用于同一抽取流程，但各自的性能变化尚不能回答组合后的增益来自何处，也不能说明两阶段是否恢复了相同的关系。本章基于本稿所列模拟结果，在统一评价条件下分析训练与推理的组合表现，随后追踪正确关系的恢复来源及未命中关系的主要障碍，并分析CDCP多源关系的恢复局限。",
+      "style": "BodyText",
+      "reason": "以两项前序研究尚未共同回答的问题引入本章；用一次材料性质说明保留模拟边界。"
+    },
+    {
+      "change_id": "C5-004",
+      "block_id": "B0768",
+      "op": "insert_after",
+      "after": "不同层次的比较所回答的问题有所区别，如表5-1所示。固定I0时的训练比较考察整套训练配置，固定T1时的推理比较考察既定模型输出上的修正增量；四格比较则进一步分析两阶段增益的重叠与交互。成对目标、共同接受和集合动作等具体机制仍须由相应消融判断，不能由完整配置的总增量替代。",
+      "style": "BodyText",
+      "reason": "以研究问题组织比较范围，承接第三、四章而不复述完整实验设置。"
+    },
+    {
+      "change_id": "C5-005",
+      "block_id": "B0770",
+      "op": "insert_after",
+      "after": "继承协议与外部系统另按各自的比较范围解释。补充表S2-1用于核查原MCR-BR协议下的继承配置，附录E保存MCR-BR已公开结果的转录，两者均不与本章的严格评价数值混算。附录G中的UniASA及Kawarada等的TextToText采用共同评价器，但保留各自架构与公开任务接口，因此用于系统层面的比较。实际CPU案例则来自CPU-BIO-SGD在训练侧拟合后的测试预测及固定规则处理，只用于说明可复核的错误变化。",
+      "style": "BodyText",
+      "reason": "保留原协议、外部对照、CPU诊断三类材料及边界；纠正“原稿已发表结果”的指代歧义。"
+    },
+    {
+      "change_id": "C5-007",
+      "block_id": "B0773",
+      "op": "insert_after",
+      "after": "5.2.1 两阶段组合的总体表现",
+      "style": "Heading3",
+      "reason": "为总体性能和交互分析分设三级标题。"
+    },
+    {
+      "change_id": "C5-008",
+      "block_id": "B0773",
+      "op": "insert_after",
+      "after": "表5-2汇总四种配置在AAEC与CDCP上的组件F1和关系F1，其中“±”表示三个种子的样本标准差。总体指标首先用于判断完整配置是否保持两阶段各自的改善方向，后续再通过关系身份追踪其变化来源。",
+      "style": "BodyText",
+      "reason": "表前先说明分析目的和统计展示方式。"
+    },
+    {
+      "change_id": "C5-010",
+      "block_id": "B0775",
+      "op": "insert_after",
+      "after": "两种语料上，完整配置T1/I1的组件F1和关系F1均高于其余三种配置，关系F1分别为73.29和52.02。T1/I0与T0/I1也均高于继承配置，说明当前结果中，训练阶段的改变与推理阶段的修正分别对应正向的性能变化。完整配置的整体表现仍不能揭示两条路径恢复了哪些对象，这一问题将在关系成员分析中进一步展开。",
+      "style": "BodyText",
+      "reason": "为主结果提供直接解释，同时避免从总体数值跳到机制或因果结论。"
+    },
+    {
+      "change_id": "C5-011",
+      "block_id": "B0776",
+      "op": "insert_before",
+      "after": "5.2.2 阶段条件增量与交互",
+      "style": "Heading3",
+      "reason": "避免将固定另一因素时的差值误称为两因素设计的主效应。"
+    },
+    {
+      "change_id": "C5-012",
+      "block_id": "B0776",
+      "op": "insert_before",
+      "after": "为区分阶段条件增量与组合关系，表5-3保留主要比较和探索性比较的身份，并列出逐种子差值及其95%置信区间。均值与差值分别由逐种子记录汇总后保留两位小数，因此展示均值的直接相减可能与表5-3相差0.01 pp；下文采用表5-3的配对差值。",
+      "style": "BodyText",
+      "reason": "交代比较身份和四舍五入显示差异，保留原表数值，不宣称新增原始预测复算。"
+    },
+    {
+      "change_id": "C5-014",
+      "block_id": "B0778",
+      "op": "insert_after",
+      "after": "交互项定义为(T1/I1−T1/I0)−(T0/I1−T0/I0)，其中配置符号在此表示相应的关系F1，用于比较推理增量是否随训练配置改变。AAEC的交互估计为−0.24 pp，CDCP为0.40 pp，两个95%置信区间均包含零。因此，当前结果尚不足以确认稳定的正向或负向交互，更不能仅凭两阶段的条件增量均为正就认定存在协同增益。图5-1直观展示了四种配置的关系F1变化；对象层面的互补与重叠仍需单独分析。",
+      "style": "BodyText",
+      "reason": "明确跨零区间的结论，区分总体改善、统计交互和对象重叠三个层次。"
+    },
+    {
+      "change_id": "C5-016",
+      "block_id": "B0783",
+      "op": "insert_after",
+      "after": "关系F1的变化同时受到正确关系恢复、错误关系减少和原有正确关系丢失的影响。为解释两阶段的组合表现，本节先在相同关系身份上比较恢复对象，再从端点和关系选择两个层次分析仍未命中的金标关系。",
+      "style": "BodyText",
+      "reason": "由总体指标转入对象追踪，说明两类诊断各自的作用。"
+    },
+    {
+      "change_id": "C5-017",
+      "block_id": "B0784",
+      "op": "insert_before",
+      "after": "5.3.1 两阶段恢复关系的重叠与差异",
+      "style": "Heading3",
+      "reason": "将成员分解独立为一个论证单元。"
+    },
+    {
+      "change_id": "C5-018",
+      "block_id": "B0784",
+      "op": "insert_before",
+      "after": "表5-4以T0/I0中的正确关系为起点，将两条单独路径和完整配置新增的TP按语义键对齐。只有完整关系身份一致时才视为同一对象，从而区分两阶段共同恢复的关系、各自独有的恢复，以及仅在组合后出现的恢复。表中计数为三种子合计，用于对象分解，与逐种子F1均值属于不同的汇总量。",
+      "style": "BodyText",
+      "reason": "表前给出比较方法的必要信息，避免直接以计数表开节。"
+    },
+    {
+      "change_id": "C5-020",
+      "block_id": "B0786",
+      "op": "insert_after",
+      "after": "AAEC的训练独有和修正独有恢复分别为93条和36条，CDCP分别为35条和26条；两种语料共同恢复的数量均较少。该分布说明，在当前对象记录中，两条单独路径覆盖了部分不同的关系。仅由组合新增的TP分别为1条和3条，因此对象分析更直接地支持恢复范围存在差异，而不支持将总体增益主要解释为大量组合独有的恢复。",
+      "style": "BodyText",
+      "reason": "从既有计数中提炼恢复来源，避免把成员差异直接升级为统计协同。"
+    },
+    {
+      "change_id": "C5-021",
+      "block_id": "B0786",
+      "op": "insert_after",
+      "after": "完整配置没有丢失两条单独路径新增的TP，但分别丢失了9条和1条初始TP。由此可见，较高的总体F1与少量原有正确关系损失可以同时存在。恢复来源的分析需要保留这部分代价，也不能替代对FP变化及具体修正行为的检查。",
+      "style": "BodyText",
+      "reason": "同步报告损失，避免只强调新增TP或用TP分解解释全部F1变化。"
+    },
+    {
+      "change_id": "C5-022",
+      "block_id": "B0787",
+      "op": "insert_before",
+      "after": "5.3.2 未命中关系的端点与选择分析",
+      "style": "Heading3",
+      "reason": "以相邻两表组成漏检分析单元。"
+    },
+    {
+      "change_id": "C5-023",
+      "block_id": "B0787",
+      "op": "insert_before",
+      "after": "关系恢复依赖于正确端点能够在最终图中同时成立。表5-5a将未命中的金标关系分为“端点缺失”和“端点齐全但未选”两类：前者尚不具备完整关系成立的组件条件，后者则是在端点已经齐全时仍未选中相应关系。该划分能够进一步判断，整体改善是否伴随不同类型漏检的同步减少。",
+      "style": "BodyText",
+      "reason": "先明确两类漏检的解释含义，再展示计数。"
+    },
+    {
+      "change_id": "C5-024",
+      "block_id": "B0788",
+      "op": "insert_after",
+      "after": "与T0/I0相比，T1/I1在AAEC上的端点缺失由707条降至588条，在CDCP上由340条降至272条；端点缺失仍是两种语料中较多的一类漏检。与此同时，端点齐全但未选的数量在AAEC上由138条变为135条，在CDCP上由123条变为126条，并未随端点恢复而一致下降。因此，组件条件得到改善之后，关系选择仍是需要单独考察的环节。",
+      "style": "BodyText",
+      "reason": "解释跨配置变化，强调端点恢复与关系选中并非同步，避免把减少量写成因果贡献率。"
+    },
+    {
+      "change_id": "C5-025",
+      "block_id": "B0789",
+      "op": "insert_before",
+      "after": "表5-5b进一步对完整配置中的未命中关系定位首个阻断。这里按表列顺序对每条未命中关系只归类一次，用以区分终态端点、完整候选槽位、评分及决策环节，避免同一漏检在多个环节被重复累计。",
+      "style": "BodyText",
+      "reason": "把归类说明移至表前，使读者先理解统计单位。"
+    },
+    {
+      "change_id": "C5-027",
+      "block_id": "B0791",
+      "op": "insert_after",
+      "after": "候选端点进入候选池与正确端点最终被选中是不同条件。池中存在相近或竞争跨度，不能视为金标关系的完整端点已经恢复。因此，上述首个阻断仅表示按既定顺序定位的诊断环节；它与端点—选择分解共同说明了漏检分布，但不构成对各环节影响的独立因果检验。",
+      "style": "BodyText",
+      "reason": "保留候选覆盖与终态选择的区分，并防止将诊断分类升级为因果归因。"
+    },
+    {
+      "change_id": "C5-029",
+      "block_id": "B0794",
+      "op": "insert_after",
+      "after": "CDCP的一条关系可以同时包含多个源组件，只有完整源集合、目标和标签均匹配时才计为TP。源成员数量增加后，部分端点的恢复并不等于整条关系恢复，因此仅看总体F1可能掩盖长源集合的困难。原生测试集包含218条单源、20条双源、6条三源和8条四源及以上关系，共252条，其中多源关系为34条。",
+      "style": "BodyText",
+      "reason": "将原段落中的分组总体提前，说明为何需要多源分组。"
+    },
+    {
+      "change_id": "C5-030",
+      "block_id": "B0795",
+      "op": "insert_before",
+      "after": "表5-6按完整源成员数分别报告四种配置的表现。TP、FP和FN为三个种子的计数合计，关系F1及其标准差则由逐种子指标汇总；不能用合计计数重新计算的单一F1替代所列均值。",
+      "style": "BodyText",
+      "reason": "在表前澄清计数合计与跨种子统计的区别。"
+    },
+    {
+      "change_id": "C5-032",
+      "block_id": "B0797",
+      "op": "insert_after",
+      "after": "四源及以上关系中，完整配置的TP由2条增加至3条，但FN仍为21条，关系F1为15.02，低于其余各组。该结果反映出长源集合仍是当前配置的薄弱部分；不过，测试集仅有8条此类原生关系，三种子合计也不意味着获得了更多独立样本，因而不足以据此推断稳定的分组优势。各组结果仅用于描述误差分布，不承担新的显著性结论。",
+      "style": "BodyText",
+      "reason": "突出多源边界和独立样本数量限制，不把三个种子当成样本扩增。"
+    },
+    {
+      "change_id": "C5-033",
+      "block_id": "B0797",
+      "op": "insert_after",
+      "after": "完整源集合的评价单位在各配置和外部系统之间保持一致，不能将长源关系拆成多条独立边来增加TP。外部方法转换过程中对四源及以上对象的表达损失在附录G单列。结合分组结果，完整对象的表达覆盖、正确端点恢复和关系选择应分别检查，才能判断多源关系的限制出现在哪一环节。",
+      "style": "BodyText",
+      "reason": "保留完整对象评价和外部转换边界，使末段回到该节核心问题。"
+    },
+    {
+      "change_id": "FLOW-01-1",
+      "block_id": "B0221",
+      "op": "insert_after",
+      "after": "第二章介绍论辩挖掘的任务表示、相关理论与技术，统一对象身份、评价规则及公共实验协议，为两阶段方法建立共同基础。",
+      "style": "BodyText",
+      "reason": "与修订后的各章实际职责逐项对应"
+    },
+    {
+      "change_id": "FLOW-01-2",
+      "block_id": "B0221",
+      "op": "insert_after",
+      "after": "第三章研究局部改写后的监督保持，依次说明关系影响域、可靠对应、学习目标和算法性质，并分析整套训练配置、成对目标及审核成本。",
+      "style": "BodyText",
+      "reason": "与修订后的各章实际职责逐项对应"
+    },
+    {
+      "change_id": "FLOW-01-3",
+      "block_id": "B0221",
+      "op": "insert_after",
+      "after": "第四章研究原文不变时的预测图修正，给出候选与评分、依赖闭合事务及求解过程，随后从受控比较、资源成本和实际案例分析其适用条件。",
+      "style": "BodyText",
+      "reason": "与修订后的各章实际职责逐项对应"
+    },
+    {
+      "change_id": "FLOW-01-4",
+      "block_id": "B0221",
+      "op": "insert_after",
+      "after": "第五章在共同评价条件下分析两阶段组合，依次讨论总体表现与交互、关系恢复来源、漏检成因及多源关系的局限。",
+      "style": "BodyText",
+      "reason": "与修订后的各章实际职责逐项对应"
+    },
+    {
+      "change_id": "FLOW-01-5",
+      "block_id": "B0221",
+      "op": "insert_after",
+      "after": "第六章总结两项研究及其组合分析，区分配置变化与机制贡献，并据此说明适用条件、证据局限和后续研究方向。附录集中保存数据坐标、实现验收、实验登记、外部对照、逐种子记录、案例定位与公共配置。",
+      "style": "BodyText",
+      "reason": "与修订后的各章实际职责逐项对应"
+    },
+    {
+      "change_id": "FLOW-02",
+      "block_id": "B0317",
+      "op": "insert_after",
+      "after": "第二章明确了完整对象表示和共同评价条件。在此基础上，本章首先讨论训练文本发生局部改写时，哪些组件与关系监督能够继续使用。下文依次介绍总体框架、增强构造、学习目标及算法性质，再通过受控比较分析整套训练配置、成对目标和审核成本。",
+      "style": "BodyText",
+      "reason": "借鉴章首承接，将原3.1中的章节路线提到章题后"
+    },
+    {
+      "change_id": "FLOW-05",
+      "block_id": "B0511",
+      "op": "insert_after",
+      "after": "训练阶段的监督保持并不直接保证预测图中所有组件及其关系都正确。下一章转向原文不变的推理场景，讨论组件修改后如何同步处理受影响关系。",
+      "style": "BodyText",
+      "reason": "从训练监督的边界自然转入推理结构修正"
+    },
+    {
+      "change_id": "FLOW-06",
+      "block_id": "B0512",
+      "op": "insert_after",
+      "after": "第三章讨论训练文本改变后哪些监督可以继承，本章转向原文保持不变时的预测图修正。下文先说明候选和初始图，再给出评分及接受准则，随后用完整事务解释依赖闭合，最后介绍局部与全局求解、方法性质和实验分析。",
+      "style": "BodyText",
+      "reason": "提炼现有引言中的承接和章节路线置于章题后"
+    },
+    {
+      "change_id": "FLOW-09",
+      "block_id": "B0764",
+      "op": "insert_after",
+      "after": "前两章分别分析了训练与推理配置的作用，尚需在相同关系身份下判断二者恢复对象的重叠及组合后的剩余错误。第五章据此开展两阶段框架的综合分析。",
+      "style": "BodyText",
+      "reason": "说明独立综合分析章的必要性"
+    },
+    {
+      "change_id": "FLOW-10",
+      "block_id": "B0804",
+      "op": "insert_after",
+      "after": "前文分别研究了训练监督保持与推理结构修正，并分析了两阶段组合的表现及局限。本章据此归纳主要研究内容，区分现有材料能够支持的判断与尚待补齐的证据，最后讨论后续研究方向。",
+      "style": "BodyText",
+      "reason": "用简短导语连接综合分析与研究总结"
+    }
+  ],
+  "headings": [
+    {
+      "title": "摘要",
+      "bookmark": "ThesisHeading_001",
+      "level": 1
+    },
+    {
+      "title": "Abstract",
+      "bookmark": "ThesisHeading_002",
+      "level": 1
+    },
+    {
+      "title": "第一章 绪论",
+      "bookmark": "ThesisHeading_003",
+      "level": 1
+    },
+    {
+      "title": "1.1 研究背景与意义",
+      "bookmark": "ThesisHeading_004",
+      "level": 2
+    },
+    {
+      "title": "1.2 国内外研究现状",
+      "bookmark": "ThesisHeading_005",
+      "level": 2
+    },
+    {
+      "title": "1.2.1 端到端论辩挖掘与生成建模",
+      "bookmark": "ThesisHeading_006",
+      "level": 3
+    },
+    {
+      "title": "1.2.2 关系保持数据增强",
+      "bookmark": "ThesisHeading_007",
+      "level": 3
+    },
+    {
+      "title": "1.2.3 结构化预测与论辩图修正",
+      "bookmark": "ThesisHeading_008",
+      "level": 3
+    },
+    {
+      "title": "1.3 研究问题与主要研究工作",
+      "bookmark": "ThesisHeading_009",
+      "level": 2
+    },
+    {
+      "title": "1.4 论文组织结构",
+      "bookmark": "ThesisHeading_010",
+      "level": 2
+    },
+    {
+      "title": "第二章 相关理论与技术",
+      "bookmark": "ThesisHeading_011",
+      "level": 1
+    },
+    {
+      "title": "2.1 论辩挖掘任务与结构表示",
+      "bookmark": "ThesisHeading_012",
+      "level": 2
+    },
+    {
+      "title": "2.1.1 论辩组件与关系",
+      "bookmark": "ThesisHeading_013",
+      "level": 3
+    },
+    {
+      "title": "2.1.2 字符坐标与对象身份",
+      "bookmark": "ThesisHeading_014",
+      "level": 3
+    },
+    {
+      "title": "2.2 预训练语言模型与学习方法",
+      "bookmark": "ThesisHeading_015",
+      "level": 2
+    },
+    {
+      "title": "2.2.1 注意力机制与自回归生成",
+      "bookmark": "ThesisHeading_016",
+      "level": 3
+    },
+    {
+      "title": "2.2.2 参数高效适配与连续提示",
+      "bookmark": "ThesisHeading_017",
+      "level": 3
+    },
+    {
+      "title": "2.2.3 数据增强与因素一致性学习",
+      "bookmark": "ThesisHeading_018",
+      "level": 3
+    },
+    {
+      "title": "2.3 候选评分与结构化决策",
+      "bookmark": "ThesisHeading_019",
+      "level": 2
+    },
+    {
+      "title": "2.4 评价指标与计数原则",
+      "bookmark": "ThesisHeading_020",
+      "level": 2
+    },
+    {
+      "title": "2.5 公共实验条件与统计分析",
+      "bookmark": "ThesisHeading_021",
+      "level": 2
+    },
+    {
+      "title": "2.6 训练与推理的阶段接口",
+      "bookmark": "ThesisHeading_022",
+      "level": 2
+    },
+    {
+      "title": "2.7 本章小结",
+      "bookmark": "ThesisHeading_023",
+      "level": 2
+    },
+    {
+      "title": "第三章 关系影响域约束的增强与成对学习",
+      "bookmark": "ThesisHeading_024",
+      "level": 1
+    },
+    {
+      "title": "3.1 引言",
+      "bookmark": "ThesisHeading_025",
+      "level": 2
+    },
+    {
+      "title": "3.2 总体框架与基础模型",
+      "bookmark": "ThesisHeading_026",
+      "level": 2
+    },
+    {
+      "title": "3.2.1 类型条件低秩适配",
+      "bookmark": "ThesisHeading_027",
+      "level": 3
+    },
+    {
+      "title": "3.2.2 线索提示与原有监督",
+      "bookmark": "ThesisHeading_028",
+      "level": 3
+    },
+    {
+      "title": "3.3 关系影响域与可靠增强视图",
+      "bookmark": "ThesisHeading_029",
+      "level": 2
+    },
+    {
+      "title": "3.3.1 改写范围与关系因素",
+      "bookmark": "ThesisHeading_030",
+      "level": 3
+    },
+    {
+      "title": "3.3.2 条件生成与字符坐标迁移",
+      "bookmark": "ThesisHeading_031",
+      "level": 3
+    },
+    {
+      "title": "3.3.3 审核掩码与语义未知因素",
+      "bookmark": "ThesisHeading_032",
+      "level": 3
+    },
+    {
+      "title": "3.3.4 从改写到训练的完整示例",
+      "bookmark": "ThesisHeading_033",
+      "level": 3
+    },
+    {
+      "title": "3.4 成对组件与关系学习",
+      "bookmark": "ThesisHeading_034",
+      "level": 2
+    },
+    {
+      "title": "3.4.1 辅助预测与可靠因素对齐",
+      "bookmark": "ThesisHeading_035",
+      "level": 3
+    },
+    {
+      "title": "3.4.2 源文档归一化与参数更新",
+      "bookmark": "ThesisHeading_036",
+      "level": 3
+    },
+    {
+      "title": "3.5 算法及性质",
+      "bookmark": "ThesisHeading_037",
+      "level": 2
+    },
+    {
+      "title": "3.6 实验结果与分析",
+      "bookmark": "ThesisHeading_038",
+      "level": 2
+    },
+    {
+      "title": "3.6.1 实验设置与受控比较",
+      "bookmark": "ThesisHeading_039",
+      "level": 3
+    },
+    {
+      "title": "3.6.2 主结果与机制消融",
+      "bookmark": "ThesisHeading_040",
+      "level": 3
+    },
+    {
+      "title": "3.6.3 分层审核与语义漂移",
+      "bookmark": "ThesisHeading_041",
+      "level": 3
+    },
+    {
+      "title": "3.6.4 训练成本与方法局限",
+      "bookmark": "ThesisHeading_042",
+      "level": 3
+    },
+    {
+      "title": "3.7 本章小结",
+      "bookmark": "ThesisHeading_043",
+      "level": 2
+    },
+    {
+      "title": "第四章 多候选驱动的依赖闭合论辩图修正",
+      "bookmark": "ThesisHeading_044",
+      "level": 1
+    },
+    {
+      "title": "4.1 引言",
+      "bookmark": "ThesisHeading_045",
+      "level": 2
+    },
+    {
+      "title": "4.2 候选生成与初始图",
+      "bookmark": "ThesisHeading_046",
+      "level": 2
+    },
+    {
+      "title": "4.2.1 完整候选生成与初始图选择",
+      "bookmark": "ThesisHeading_047",
+      "level": 3
+    },
+    {
+      "title": "4.2.2 固定对象候选与资源边界",
+      "bookmark": "ThesisHeading_048",
+      "level": 3
+    },
+    {
+      "title": "4.3 对象评分与接受准则",
+      "bookmark": "ThesisHeading_049",
+      "level": 2
+    },
+    {
+      "title": "4.3.1 固定评分器与开发风险选择",
+      "bookmark": "ThesisHeading_050",
+      "level": 3
+    },
+    {
+      "title": "4.3.2 计数效用与完整事务接受",
+      "bookmark": "ThesisHeading_051",
+      "level": 3
+    },
+    {
+      "title": "4.4 依赖闭合与事务构造",
+      "bookmark": "ThesisHeading_052",
+      "level": 2
+    },
+    {
+      "title": "4.4.1 组件冲突闭合",
+      "bookmark": "ThesisHeading_053",
+      "level": 3
+    },
+    {
+      "title": "4.4.2 完整关系重建",
+      "bookmark": "ThesisHeading_054",
+      "level": 3
+    },
+    {
+      "title": "4.4.3 一次完整事务与两种拒绝情形",
+      "bookmark": "ThesisHeading_055",
+      "level": 3
+    },
+    {
+      "title": "4.5 求解算法及性质",
+      "bookmark": "ThesisHeading_056",
+      "level": 2
+    },
+    {
+      "title": "4.5.1 局部求解与有界执行",
+      "bookmark": "ThesisHeading_057",
+      "level": 3
+    },
+    {
+      "title": "4.5.2 全局对象选择",
+      "bookmark": "ThesisHeading_058",
+      "level": 3
+    },
+    {
+      "title": "4.5.3 方法性质与适用条件",
+      "bookmark": "ThesisHeading_059",
+      "level": 3
+    },
+    {
+      "title": "4.5.4 规模路由与返回语义",
+      "bookmark": "ThesisHeading_060",
+      "level": 3
+    },
+    {
+      "title": "4.6 实验与分析",
+      "bookmark": "ThesisHeading_061",
+      "level": 2
+    },
+    {
+      "title": "4.6.1 主结果与受控比较",
+      "bookmark": "ThesisHeading_062",
+      "level": 3
+    },
+    {
+      "title": "4.6.2 候选覆盖与修正空间",
+      "bookmark": "ThesisHeading_063",
+      "level": 3
+    },
+    {
+      "title": "4.6.3 评分质量与修正代价",
+      "bookmark": "ThesisHeading_064",
+      "level": 3
+    },
+    {
+      "title": "4.6.4 实际规则诊断与原生关系案例",
+      "bookmark": "ThesisHeading_065",
+      "level": 3
+    },
+    {
+      "title": "4.6.5 弱评分条件与回退分析",
+      "bookmark": "ThesisHeading_066",
+      "level": 3
+    },
+    {
+      "title": "4.7 本章小结",
+      "bookmark": "ThesisHeading_067",
+      "level": 2
+    },
+    {
+      "title": "第五章 两阶段框架的综合分析",
+      "bookmark": "ThesisHeading_068",
+      "level": 1
+    },
+    {
+      "title": "5.1 综合分析设置与比较范围",
+      "bookmark": "ThesisHeading_069",
+      "level": 2
+    },
+    {
+      "title": "5.2 两阶段组合结果与交互分析",
+      "bookmark": "ThesisHeading_070",
+      "level": 2
+    },
+    {
+      "title": "5.2.1 两阶段组合的总体表现",
+      "bookmark": "ThesisHeading_v5_001",
+      "level": 3
+    },
+    {
+      "title": "5.2.2 阶段条件增量与交互",
+      "bookmark": "ThesisHeading_v5_002",
+      "level": 3
+    },
+    {
+      "title": "5.3 关系恢复来源与漏检成因",
+      "bookmark": "ThesisHeading_071",
+      "level": 2
+    },
+    {
+      "title": "5.3.1 两阶段恢复关系的重叠与差异",
+      "bookmark": "ThesisHeading_v5_003",
+      "level": 3
+    },
+    {
+      "title": "5.3.2 未命中关系的端点与选择分析",
+      "bookmark": "ThesisHeading_v5_004",
+      "level": 3
+    },
+    {
+      "title": "5.4 多源关系的分组结果与局限",
+      "bookmark": "ThesisHeading_072",
+      "level": 2
+    },
+    {
+      "title": "5.5 本章小结",
+      "bookmark": "ThesisHeading_073",
+      "level": 2
+    },
+    {
+      "title": "第六章 总结与展望",
+      "bookmark": "ThesisHeading_074",
+      "level": 1
+    },
+    {
+      "title": "6.1 研究总结",
+      "bookmark": "ThesisHeading_075",
+      "level": 2
+    },
+    {
+      "title": "6.2 适用条件与局限",
+      "bookmark": "ThesisHeading_076",
+      "level": 2
+    },
+    {
+      "title": "6.3 后续研究",
+      "bookmark": "ThesisHeading_077",
+      "level": 2
+    },
+    {
+      "title": "参考文献",
+      "bookmark": "ThesisHeading_078",
+      "level": 1
+    },
+    {
+      "title": "附录A 数据处理与复现协议",
+      "bookmark": "ThesisHeading_079",
+      "level": 1
+    },
+    {
+      "title": "A.1 三层坐标与异常保留",
+      "bookmark": "ThesisHeading_080",
+      "level": 2
+    },
+    {
+      "title": "A.2 配置与结果关联",
+      "bookmark": "ThesisHeading_081",
+      "level": 2
+    },
+    {
+      "title": "A.3 补充语料范围",
+      "bookmark": "ThesisHeading_082",
+      "level": 2
+    },
+    {
+      "title": "A.4 默认与可选设置",
+      "bookmark": "ThesisHeading_083",
+      "level": 2
+    },
+    {
+      "title": "A.5 登记与跨章复用",
+      "bookmark": "ThesisHeading_084",
+      "level": 2
+    },
+    {
+      "title": "A.6 原文序列化与无损对象身份",
+      "bookmark": "ThesisHeading_085",
+      "level": 2
+    },
+    {
+      "title": "附录B 评分与事务执行记录",
+      "bookmark": "ThesisHeading_086",
+      "level": 1
+    },
+    {
+      "title": "B.1 数据与模型身份",
+      "bookmark": "ThesisHeading_087",
+      "level": 2
+    },
+    {
+      "title": "B.2 评分与接受轨迹",
+      "bookmark": "ThesisHeading_088",
+      "level": 2
+    },
+    {
+      "title": "B.3 回退与预算",
+      "bookmark": "ThesisHeading_089",
+      "level": 2
+    },
+    {
+      "title": "B.4 实现一致性验收",
+      "bookmark": "ThesisHeading_090",
+      "level": 2
+    },
+    {
+      "title": "B.4.1 对象计数与快照重放",
+      "bookmark": "ThesisHeading_091",
+      "level": 3
+    },
+    {
+      "title": "B.4.2 训练与求解接口",
+      "bookmark": "ThesisHeading_092",
+      "level": 3
+    },
+    {
+      "title": "B.4.3 资源边界与证书",
+      "bookmark": "ThesisHeading_093",
+      "level": 3
+    },
+    {
+      "title": "B.5 案例统一记录",
+      "bookmark": "ThesisHeading_094",
+      "level": 2
+    },
+    {
+      "title": "B.6 固定评分性质的证明",
+      "bookmark": "ThesisHeading_095",
+      "level": 2
+    },
+    {
+      "title": "附录C 成果归属与材料说明",
+      "bookmark": "ThesisHeading_096",
+      "level": 1
+    },
+    {
+      "title": "C.1 已有工作",
+      "bookmark": "ThesisHeading_097",
+      "level": 2
+    },
+    {
+      "title": "C.2 材料可得性",
+      "bookmark": "ThesisHeading_098",
+      "level": 2
+    },
+    {
+      "title": "C.3 记录与版本",
+      "bookmark": "ThesisHeading_099",
+      "level": 2
+    },
+    {
+      "title": "附录D CDCP失败条件与实际案例流程",
+      "bookmark": "ThesisHeading_100",
+      "level": 1
+    },
+    {
+      "title": "D.1 弱评分版本的回退",
+      "bookmark": "ThesisHeading_101",
+      "level": 2
+    },
+    {
+      "title": "D.2 主版本的策略选择",
+      "bookmark": "ThesisHeading_102",
+      "level": 2
+    },
+    {
+      "title": "D.3 实际CPU抽取与后处理",
+      "bookmark": "ThesisHeading_103",
+      "level": 2
+    },
+    {
+      "title": "D.4 解释范围",
+      "bookmark": "ThesisHeading_104",
+      "level": 2
+    },
+    {
+      "title": "附录E MCR-BR数值与协议存档",
+      "bookmark": "ThesisHeading_105",
+      "level": 1
+    },
+    {
+      "title": "E.1 ICIC原版AAEC域内结果记录",
+      "bookmark": "ThesisHeading_106",
+      "level": 2
+    },
+    {
+      "title": "E.2 ICIC原版CDCP域内结果记录",
+      "bookmark": "ThesisHeading_107",
+      "level": 2
+    },
+    {
+      "title": "E.3 ICIC原版模块消融记录",
+      "bookmark": "ThesisHeading_108",
+      "level": 2
+    },
+    {
+      "title": "E.4 ICIC原版验证器替换记录",
+      "bookmark": "ThesisHeading_109",
+      "level": 2
+    },
+    {
+      "title": "E.5 ICIC原版Oracle记录",
+      "bookmark": "ThesisHeading_110",
+      "level": 2
+    },
+    {
+      "title": "E.6 ICIC原版修正行为记录",
+      "bookmark": "ThesisHeading_111",
+      "level": 2
+    },
+    {
+      "title": "E.7 MCR-BR粗粒度组件映射",
+      "bookmark": "ThesisHeading_112",
+      "level": 2
+    },
+    {
+      "title": "E.8 ICIC原版AAEC到CDCP迁移记录",
+      "bookmark": "ThesisHeading_113",
+      "level": 2
+    },
+    {
+      "title": "附录F 符号与阅读索引",
+      "bookmark": "ThesisHeading_114",
+      "level": 1
+    },
+    {
+      "title": "F.1 核心术语与符号",
+      "bookmark": "ThesisHeading_115",
+      "level": 2
+    },
+    {
+      "title": "F.2 实现接口补充",
+      "bookmark": "ThesisHeading_116",
+      "level": 2
+    },
+    {
+      "title": "F.3 研究问题阅读索引",
+      "bookmark": "ThesisHeading_117",
+      "level": 2
+    },
+    {
+      "title": "附录G 具名外部系统比较",
+      "bookmark": "ThesisHeading_118",
+      "level": 1
+    },
+    {
+      "title": "G.1 方法选择",
+      "bookmark": "ThesisHeading_119",
+      "level": 2
+    },
+    {
+      "title": "G.2 原生格式转换",
+      "bookmark": "ThesisHeading_120",
+      "level": 2
+    },
+    {
+      "title": "G.3 控制条件与成本身份",
+      "bookmark": "ThesisHeading_121",
+      "level": 2
+    },
+    {
+      "title": "G.4 结果与配对差值",
+      "bookmark": "ThesisHeading_122",
+      "level": 2
+    },
+    {
+      "title": "附录H 训练、审核、资源与完整性细节",
+      "bookmark": "ThesisHeading_123",
+      "level": 1
+    },
+    {
+      "title": "H.1 训练和一次性评分成本",
+      "bookmark": "ThesisHeading_124",
+      "level": 2
+    },
+    {
+      "title": "H.2 分层审核的拒绝与域外检查",
+      "bookmark": "ThesisHeading_125",
+      "level": 2
+    },
+    {
+      "title": "H.3 路由规模扫描",
+      "bookmark": "ThesisHeading_126",
+      "level": 2
+    },
+    {
+      "title": "H.4 逐种子整数计数",
+      "bookmark": "ThesisHeading_127",
+      "level": 2
+    },
+    {
+      "title": "H.5 六项一致性问题的处理",
+      "bookmark": "ThesisHeading_128",
+      "level": 2
+    },
+    {
+      "title": "H.6 复算入口",
+      "bookmark": "ThesisHeading_129",
+      "level": 2
+    },
+    {
+      "title": "附录I 四份上传语料的实际处理与原文定位",
+      "bookmark": "ThesisHeading_130",
+      "level": 1
+    },
+    {
+      "title": "I.1 可用记录与坐标审计",
+      "bookmark": "ThesisHeading_131",
+      "level": 2
+    },
+    {
+      "title": "I.2 案例定位与原始哈希",
+      "bookmark": "ThesisHeading_132",
+      "level": 2
+    },
+    {
+      "title": "附录J 公共实验配置与统计补充",
+      "bookmark": "ThesisHeading_133",
+      "level": 1
+    },
+    {
+      "title": "S2.1 继承配置的原协议核查",
+      "bookmark": "ThesisHeading_134",
+      "level": 2
+    },
+    {
+      "title": "S2.2 数据处理与记录用途",
+      "bookmark": "ThesisHeading_135",
+      "level": 2
+    },
+    {
+      "title": "S2.3 固定训练与推理配置",
+      "bookmark": "ThesisHeading_136",
+      "level": 2
+    },
+    {
+      "title": "S2.4 研究问题与比较责任",
+      "bookmark": "ThesisHeading_137",
+      "level": 2
+    },
+    {
+      "title": "S2.5 统计结果复算材料",
+      "bookmark": "ThesisHeading_138",
+      "level": 2
+    }
+  ],
+  "new_heading_bookmarks": 4,
+  "changed_parts": [
+    "word/document.xml"
+  ],
+  "body_first_physical_page": 9
+}

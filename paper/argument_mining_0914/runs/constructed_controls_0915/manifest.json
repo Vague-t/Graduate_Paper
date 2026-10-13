@@ -1,0 +1,221 @@
+{
+  "implementation": "0914-reference-v1",
+  "historical_reproduction": false,
+  "created_at": "2026-09-15T01:02:25.438622+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "config": {
+    "original": {
+      "schema_version": "0914-reference-v1",
+      "corpus": "aaec",
+      "seed": 17,
+      "model": {
+        "path": "models/Qwen2.5-7B-Instruct",
+        "device": "cpu",
+        "dtype": "float32",
+        "max_context": 8192,
+        "local_files_only": true
+      },
+      "modules": {
+        "global_lora": true,
+        "claim_lora": false,
+        "cue_prompt": false,
+        "auxiliary": false,
+        "rank": 16,
+        "alpha": 32,
+        "dropout": 0.05,
+        "targets": [
+          "q_proj",
+          "v_proj"
+        ],
+        "prompt_length": 4,
+        "lambda_aux": 0.5,
+        "cues": [
+          "therefore",
+          "thus",
+          "in conclusion",
+          "consequently",
+          "hence",
+          "to conclude"
+        ]
+      },
+      "training": {
+        "epochs": 3,
+        "learning_rate": 0.0002,
+        "weight_decay": 0.01,
+        "gradient_accumulation": 8,
+        "max_grad_norm": 1.0,
+        "patience": 2,
+        "loss_reduction": "per_example_token_mean",
+        "gradient_checkpointing": true,
+        "max_optimizer_steps": null,
+        "early_stopping": true,
+        "tasks": [
+          "components",
+          "relations",
+          "joint"
+        ],
+        "eval_every_steps": null
+      },
+      "generation": {
+        "max_new_tokens": 1024,
+        "temperature": 0.7,
+        "top_p": 0.9
+      },
+      "inference": {
+        "strategy": "rerank_br",
+        "candidates": 3,
+        "require_acyclic": true,
+        "selection": "weighted",
+        "weights": [
+          0.4,
+          0.4,
+          0.2
+        ],
+        "root_threshold": 2,
+        "other_threshold": 1,
+        "rounds": 3,
+        "accepted_per_round": 2,
+        "max_attempts": 24,
+        "actions_per_error": 4,
+        "max_calls": 128,
+        "max_total_output_tokens": 32768,
+        "fix_components": false,
+        "freeze_coverage": false,
+        "strict_improvement": false,
+        "require_new_edge_support": false
+      },
+      "evaluation": {
+        "endpoint_types": true,
+        "coarse": false
+      },
+      "augmentation": {
+        "variants_per_unit": 1,
+        "attempts_per_unit": 2,
+        "max_units_per_document": 4,
+        "max_calls": 128,
+        "max_total_output_tokens": 32768,
+        "strategy": "structure",
+        "center_policy": "conclusion"
+      }
+    },
+    "conservative": {
+      "schema_version": "0914-reference-v1",
+      "corpus": "aaec",
+      "seed": 17,
+      "model": {
+        "path": "models/Qwen2.5-7B-Instruct",
+        "device": "cpu",
+        "dtype": "float32",
+        "max_context": 8192,
+        "local_files_only": true
+      },
+      "modules": {
+        "global_lora": true,
+        "claim_lora": false,
+        "cue_prompt": false,
+        "auxiliary": false,
+        "rank": 16,
+        "alpha": 32,
+        "dropout": 0.05,
+        "targets": [
+          "q_proj",
+          "v_proj"
+        ],
+        "prompt_length": 4,
+        "lambda_aux": 0.5,
+        "cues": [
+          "therefore",
+          "thus",
+          "in conclusion",
+          "consequently",
+          "hence",
+          "to conclude"
+        ]
+      },
+      "training": {
+        "epochs": 3,
+        "learning_rate": 0.0002,
+        "weight_decay": 0.01,
+        "gradient_accumulation": 8,
+        "max_grad_norm": 1.0,
+        "patience": 2,
+        "loss_reduction": "per_example_token_mean",
+        "gradient_checkpointing": true,
+        "max_optimizer_steps": null,
+        "early_stopping": true,
+        "tasks": [
+          "components",
+          "relations",
+          "joint"
+        ],
+        "eval_every_steps": null
+      },
+      "generation": {
+        "max_new_tokens": 1024,
+        "temperature": 0.7,
+        "top_p": 0.9
+      },
+      "inference": {
+        "strategy": "rerank_br",
+        "candidates": 3,
+        "require_acyclic": true,
+        "selection": "weighted",
+        "weights": [
+          0.4,
+          0.4,
+          0.2
+        ],
+        "root_threshold": 2,
+        "other_threshold": 1,
+        "rounds": 3,
+        "accepted_per_round": 2,
+        "max_attempts": 24,
+        "actions_per_error": 4,
+        "max_calls": 128,
+        "max_total_output_tokens": 32768,
+        "fix_components": true,
+        "freeze_coverage": true,
+        "strict_improvement": true,
+        "require_new_edge_support": true
+      },
+      "evaluation": {
+        "endpoint_types": true,
+        "coarse": false
+      },
+      "augmentation": {
+        "variants_per_unit": 1,
+        "attempts_per_unit": 2,
+        "max_units_per_document": 4,
+        "max_calls": 128,
+        "max_total_output_tokens": 32768,
+        "strategy": "structure",
+        "center_policy": "conclusion"
+      }
+    }
+  },
+  "config_sha256": "36aaf014d7b3bbd86d6590b82e279b1ac6d3eea18e860d920fa59873a8e14196",
+  "source_sha256": {
+    "__init__.py": "4a25ad8d220e086693dc38bc4305c89ebfab1cfb97fda1b77aa7be8856fa749c",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "augment.py": "06c4d7ac0b2720c3cc04152ef8858525b45ce340593cef400f4b03b84c6a08be",
+    "backend.py": "041e57b3fcff5f628b780cee350b598044f0298d9aaacbf79267e652a6a2ce6f",
+    "cli.py": "153170b02df1b6fe1ec47df1fdcfbcbfd364ca126a591ffe12889a4a4dedda4a",
+    "config.py": "e961ea0b7fe56d8ddb936f30e53519409d10e2c10479f4b05fc86c12b4d4d364",
+    "controls.py": "5d45302c5bede914fc601f57b002e09dabac8c7f863e785edd6ece2df7cdc3ac",
+    "data.py": "d57b09a0eb998d0a36e638e1c316687c3a1b5929affe21d37663939f51a6b681",
+    "demo.py": "99447f4ffd0c07da35559a00ffd65ef23f9869f1652209eef9181fba360ee432",
+    "io.py": "454f53ba5a6f706bc4e30e5eca4cee6b9af01e6f255c9fe6fb750cd4cefbe012",
+    "metrics.py": "9fb68866f0d2dd87c2c6502ef4a9654f06be188953e27b4c134010753b80aa5c",
+    "model.py": "73431162e57fbb5b028b7acff874977a7e57e9fb42d856ecce4d1fbb2e0647d8",
+    "pipeline.py": "897258a44e26d6ad046000f24aae0474ead6a4048821931837bb6bd16478ea19",
+    "prompts.py": "82d74b6481e6007827b6938970a031bd6445006757ade977f55b9de7e145778e",
+    "repair.py": "dad1398652160549d1cee938072316e72aa7b53a4d599a6870129f64af18df55",
+    "repair_audit.py": "e1177be5778be9aaff138b42267307192a21e056c1967f97420f8e117ed5ed13",
+    "schema.py": "705f643fe9d590752387838045e1da7f2278e6d2710be3b5587c469e1ea1302c",
+    "train.py": "2ac6a50e0161a1348a57d9bbfa30fb377e6a18189ef63137e9715d94e9b495cd"
+  },
+  "input_sha256": {},
+  "status": "completed",
+  "fixture_only": true
+}

@@ -1,0 +1,214 @@
+{
+  "source_sha256": "062bbead8abab651311807fe44ec35b67d58bb876a33f8e218b9cca0870aa62e",
+  "output_sha256": "fa62ca6cfd5d59c37c520b03197a2db5d0cb07958d4c5e934acefa04fb01e44d",
+  "operations": [
+    {
+      "anchor": "1011-v12 内容迭代预览　2026年10月11日\n\n稿件说明：主结果为“在ICIC基础上获得增益”的正向模拟情景，按人工对象身份及整数计数重新生成；它展示研究目标成立时的报告方式，不是模型实测成绩或经校准的效果预测",
+      "old_chars": 255,
+      "new_chars": 270
+    },
+    {
+      "anchor": "## 摘要\n\n端到端论辩挖掘需要从原始文本中同时识别组件、论辩角色及有向关系。组件与关系之间的依赖使局部改写和预测修正都可能产生连锁变化：训练侧需要确定哪些原有监督可以可靠继承，推理侧需要在端点改变后重新评价相关关系。本",
+      "old_chars": 761,
+      "new_chars": 712
+    },
+    {
+      "anchor": "## Abstract\n\nEnd-to-end argument mining identifies components, argumentative roles, and directed relations fro",
+      "old_chars": 2352,
+      "new_chars": 2214
+    },
+    {
+      "anchor": "#### 2.5.1 与ICIC的双协议比较\n\nICIC公开表为历史来源值，不视为本次复现。继承关系需要两条评价轨：其一核对原始划分、跨度、类型、stance及CDCP关系转换后，按原协议复跑ICIC与新系统；其二将双方",
+      "old_chars": 297,
+      "new_chars": 696
+    },
+    {
+      "anchor": "表2-2的320篇与580篇均为训练侧源文档总数，包含开发用途；独立评价文档分别为80篇与148篇。生成超参数和固定训练轮数在OOF候选生成前冻结。三折交叉拟合在训练侧进行，每折生成器与跨度头均排除持出源文档及其全部变体",
+      "old_chars": 171,
+      "new_chars": 148
+    },
+    {
+      "anchor": "AAEC三部分为256、32、32篇，CDCP为464、58、58篇，组间没有共享原文或变体。",
+      "old_chars": 47,
+      "new_chars": 71
+    },
+    {
+      "anchor": "|材料规模|AAEC训练侧320、独立评价80；CDCP训练侧580、独立评价148|训练侧含拟合、校准与策略用途；按源文档分组|",
+      "old_chars": 65,
+      "new_chars": 52
+    },
+    {
+      "anchor": "配套v12 preview_config.json保存更新后的设计参数",
+      "old_chars": 35,
+      "new_chars": 35
+    },
+    {
+      "anchor": "![关系影响域中的内部与跨边界组合](_revision_1010_v7/figures/augmentation.png)\n\n图3-1 可改写组件及关系状态的检查范围示意\n\n图3-1中的位置分类与标签状态相互独立。内部",
+      "old_chars": 219,
+      "new_chars": 508
+    },
+    {
+      "anchor": "每文档尝试上限 B_try、接受上限 B_accept，训练更新上限 U。",
+      "old_chars": 37,
+      "new_chars": 81
+    },
+    {
+      "anchor": "16        按固定 J_A 复核原／新状态，建立可靠因素掩码 m_R",
+      "old_chars": 38,
+      "new_chars": 153
+    },
+    {
+      "anchor": "### 3.4 成对组件与关系学习",
+      "old_chars": 17,
+      "new_chars": 594
+    },
+    {
+      "anchor": "原文辅助监督 $S(x,G)$ 使用全部原生组件及声明因素；",
+      "old_chars": 30,
+      "new_chars": 61
+    },
+    {
+      "anchor": "原文全部头监督及变体掩码内的头监督",
+      "old_chars": 17,
+      "new_chars": 21
+    },
+    {
+      "anchor": "本节因素掩码为v12待验证设计",
+      "old_chars": 15,
+      "new_chars": 13
+    },
+    {
+      "anchor": "### 3.6 实验结果与分析\n\n#### 3.6.1 比较口径与贡献拆分\n\n本节使用v12严格原生对象模拟，全部数值从同批人工对象和整数TP、FP、FN计算。T0保留ICIC训练配置，T1增加本章方法；本节所有行均采用",
+      "old_chars": 2151,
+      "new_chars": 2050
+    },
+    {
+      "anchor": "### 3.7 本章小结",
+      "old_chars": 12,
+      "new_chars": 3384
+    },
+    {
+      "anchor": "同一T1生成检查点提供MCR初始图，所有受控动作比较使用相同候选、完整对象分及合法化规则。",
+      "old_chars": 45,
+      "new_chars": 74
+    },
+    {
+      "anchor": "受控求解表使用共同快照，避免把前端差异归给动作或搜索。",
+      "old_chars": 27,
+      "new_chars": 52
+    },
+    {
+      "anchor": "#### 4.6.2 正向情景下的质量比较\n\n表4-2 严格原生对象下的推理结果（全部模拟）\n\n|方法|AAEC组件|AAEC关系|CDCP组件|CDCP关系|\n|:---|:---|:---|:---|:---|\n|T",
+      "old_chars": 1524,
+      "new_chars": 1490
+    },
+    {
+      "anchor": "#### 4.6.4 误改与资源的联合报告",
+      "old_chars": 21,
+      "new_chars": 157
+    },
+    {
+      "anchor": "#### 4.6.4 误改与资源的联合报告\n\n表4-5 相对T1的MCR初始图的关系变化（三个模拟种子累计）\n\n|语料|方法|恢复TP|损失TP|移除FP|新增FP|原TP保留%|\n|:---|:---|:---|:--",
+      "old_chars": 1242,
+      "new_chars": 1464
+    },
+    {
+      "anchor": "### 4.7 本章小结",
+      "old_chars": 12,
+      "new_chars": 6854
+    },
+    {
+      "anchor": "## 第五章 两阶段框架的综合分析\n\n### 5.1 ICIC继承基线与两类协议\n\n本章的T0表示ICIC训练配置，I0表示ICIC原有多候选重排序及有界修正，故T0/I0为完整继承系统；T1仅替换训练方法，I1仅替换推",
+      "old_chars": 2638,
+      "new_chars": 4683
+    },
+    {
+      "anchor": "## 第六章 总结与展望\n\n### 6.1 研究总结\n\n本文围绕组件与关系依赖研究两个阶段的问题。训练侧以影响域确定待核查范围，以标注输运维护身份，以因素掩码限定增强侧监督，在可靠对应上加入组件和关系成对学习。原文继续承",
+      "old_chars": 1132,
+      "new_chars": 1030
+    },
+    {
+      "anchor": "Oracle遵循4.6.3的松弛集合，不能调用预测效用ILP替代金标目标优化。",
+      "old_chars": 39,
+      "new_chars": 57
+    },
+    {
+      "anchor": "|NONE|合法端点组合无标注或未选正关系|训练保持金标状态；推理允许纠正漏检|",
+      "old_chars": 40,
+      "new_chars": 52
+    },
+    {
+      "anchor": "### A.4 v12参考配置",
+      "old_chars": 15,
+      "new_chars": 15
+    },
+    {
+      "anchor": "配置身份为1011-v12-content。",
+      "old_chars": 22,
+      "new_chars": 22
+    },
+    {
+      "anchor": "|模块|v12预览配置|说明|",
+      "old_chars": 15,
+      "new_chars": 15
+    },
+    {
+      "anchor": "历史代码和输出继续保持原版本身份，不因论文修改而宣称已经实现v12全部设计。",
+      "old_chars": 38,
+      "new_chars": 47
+    },
+    {
+      "anchor": "v12模拟结果键为协议、语料、文档、种子、配置和对象层次。严格原生主表共用_revision_1011_v12/simulation/document_counts.csv；results.json计算种子均值、样本标准",
+      "old_chars": 237,
+      "new_chars": 230
+    },
+    {
+      "anchor": "（v12默认关闭）",
+      "old_chars": 9,
+      "new_chars": 8
+    },
+    {
+      "anchor": "v12默认补充跨度",
+      "old_chars": 9,
+      "new_chars": 8
+    },
+    {
+      "anchor": "表G-2 匿名外部系统的数值预览（全部模拟）\n\n|语料|系统职责|组件F1|关系F1|\n|:---|:---|:---|:---|\n|AAEC|匿名编码式对照|83.49±0.35|64.18±0.30|\n|AAEC|匿",
+      "old_chars": 297,
+      "new_chars": 293
+    },
+    {
+      "anchor": "因素标签 $y_\\omega$ 为协议规定的关系状态，无标注关系时记作 NONE。",
+      "old_chars": 41,
+      "new_chars": 89
+    },
+    {
+      "anchor": "\\mathcal D_A=\\{\\omega\\in\\Omega(C):V(\\omega)\\cap A\\ne\\varnothing\\}.",
+      "old_chars": 66,
+      "new_chars": 72
+    },
+    {
+      "anchor": "二元情形即 $\\{(u,v):u\\in A\\lor v\\in A,(u,v)\\in\\Omega(C)\\}$。",
+      "old_chars": 54,
+      "new_chars": 144
+    },
+    {
+      "anchor": "条件可采用“全部合法端点目录、显式正关系表、其余因素为 NONE”的无损编码",
+      "old_chars": 38,
+      "new_chars": 49
+    },
+    {
+      "anchor": "05    建立因素宇宙 Ω(C_d)，构造改写集合 A",
+      "old_chars": 28,
+      "new_chars": 42
+    },
+    {
+      "anchor": "当前方法中的v12可靠因素学习、原生监督头及规模路由仍是目标配置；本轮真正执行的是固定Casi候选上的显式Luna评分和声明的轻量初始化／修正。",
+      "old_chars": 72,
+      "new_chars": 92
+    }
+  ],
+  "operation_count": 41,
+  "preserved_ICIC_appendix": true,
+  "new_word_pdf_files": 0
+}

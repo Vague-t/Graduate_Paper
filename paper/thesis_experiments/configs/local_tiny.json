@@ -1,0 +1,147 @@
+{
+  "augmentation": {
+    "attempts": 4,
+    "accepted": 2
+  },
+  "generation": {
+    "candidates": 3,
+    "temperature": 0.7,
+    "max_new_tokens": 512
+  },
+  "head": {
+    "hidden": 64,
+    "dropout": 0.1
+  },
+  "span_training": {
+    "epochs": 1,
+    "lr": 0.001,
+    "seed": 17,
+    "batch_size": 64
+  },
+  "score_training": {
+    "epochs": 1,
+    "lr": 0.001,
+    "seed": 17,
+    "batch_size": 64
+  },
+  "candidates": {
+    "supplement_spans": 64,
+    "supplement_types_per_span": 2,
+    "supplement_slots": 4096,
+    "preflight_slot_limit": 50000,
+    "cdcp_model_group_proposals": 64,
+    "cdcp_total_group_proposals": 256,
+    "max_new_sources": 3,
+    "max_span_tokens": 64,
+    "acyclic": false,
+    "one_outgoing": false
+  },
+  "legacy": {
+    "density_weight": 0.4,
+    "coherence_weight": 0.4,
+    "validity_weight": 0.2,
+    "root_threshold": 2.0,
+    "other_threshold": 1.0,
+    "rounds": 3,
+    "accepted_per_round": 2,
+    "actions_per_error": 4,
+    "max_attempts": 24,
+    "acyclic": false
+  },
+  "repair": {
+    "kappa_c": 1.0,
+    "kappa_r": 1.0,
+    "weight_c": 1.0,
+    "weight_r": 1.0,
+    "delta": 0.01,
+    "numeric_tol": 1e-09,
+    "component_budget": 24,
+    "relation_budget": 96,
+    "max_transaction_components": 3,
+    "attempts": 128,
+    "accepts": 12,
+    "rounds": 4,
+    "round_attempts": 32,
+    "round_accepts": 3,
+    "batch_size": 8,
+    "global_variable_limit": 2500,
+    "time_limit": 5.0,
+    "total_time_limit": 90.0,
+    "lex_call_limit": 64,
+    "global_tie_break": "initial_state",
+    "local_tie_break": "graph_key",
+    "queue_limit": 10000,
+    "acyclic": false,
+    "one_outgoing": false,
+    "allow_set_actions": false,
+    "presolve": true
+  },
+  "profile": {
+    "name": "local_random_tiny_cpu",
+    "purpose": "synthetic_and_unit_debug_only",
+    "not_pretrained": true,
+    "note": "CLI augment/rank/groups still use the explicitly configured local Qwen chat backend; pure tiny smoke itself is offline."
+  },
+  "model": {
+    "backend": "tiny",
+    "model_name": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": null,
+    "hidden_size": 32,
+    "layers": 1,
+    "attention_heads": 4,
+    "head_hidden": 64,
+    "lora_rank": 4,
+    "lora_alpha": 8,
+    "lora_dropout": 0,
+    "head_dropout": 0,
+    "four_bit": false,
+    "gradient_checkpointing": false,
+    "device": "cpu",
+    "dtype": "float32",
+    "max_input_tokens": 1024,
+    "max_output_tokens": 512,
+    "max_context": 2048,
+    "seed": 17,
+    "local_files_only": true
+  },
+  "training": {
+    "variant": "T1",
+    "epochs": 1,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.03,
+    "microbatch_sources": 1,
+    "accumulation": 1,
+    "gradient_clip": 1.0,
+    "lambda_sentence": 0.5,
+    "lambda_supervision": 1.0,
+    "lambda_component": 0.5,
+    "lambda_relation": 0.5,
+    "seed": 17,
+    "max_steps": 1,
+    "max_factors": 50000
+  },
+  "chat": {
+    "model_id": "models/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "device": "cpu",
+    "dtype": "float32",
+    "load_in_4bit": false,
+    "max_context": 2048,
+    "max_new_tokens": 512,
+    "max_calls": 10000,
+    "max_total_output_tokens": 1000000,
+    "local_files_only": true,
+    "seed": 17
+  },
+  "encoder": {
+    "backend": "tiny",
+    "hidden_size": 32,
+    "seed": 17,
+    "vocab_size": 4096
+  },
+  "regeneration": {
+    "enabled": false,
+    "reference_budget_manifest": null
+  }
+}

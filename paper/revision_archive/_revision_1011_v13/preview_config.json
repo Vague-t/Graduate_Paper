@@ -1,0 +1,162 @@
+{
+  "status": "DESIGN_PARAMETERS_NOT_TRAINED_OR_FULL_IMPLEMENTATION_VERIFIED",
+  "config_id": "AM-V13-CONTENT-PREVIEW-20261011",
+  "models": {
+    "generator": "Qwen/Qwen2.5-7B-Instruct",
+    "augmenter": "Qwen/Qwen2.5-7B-Instruct",
+    "semantic_verifier": "Qwen/Qwen2.5-7B-Instruct",
+    "encoder": "Qwen/Qwen2.5-7B-Instruct",
+    "span_head": "linear_start_end_bce_on_frozen_Qwen_hidden",
+    "score_head": "MLP_2layers_1024_hidden_dropout0.1_sigmoid",
+    "tokenizer": "Qwen/Qwen2.5-7B-Instruct",
+    "artifact_revisions": "resolve and hash at real-run startup; no checkpoint was fabricated"
+  },
+  "training": {
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "optimizer": "AdamW",
+    "lr": 0.0002,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "epochs": 5,
+    "warmup_ratio": 0.03,
+    "gradient_clip": 1,
+    "microbatch_sources": 4,
+    "accumulation": 8,
+    "precision": "bfloat16",
+    "max_input_tokens": 4096,
+    "max_output_tokens": 2048,
+    "context": 8192,
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "lambda_sup": 1.0,
+    "lambda_C": 0.5,
+    "lambda_R": 0.5,
+    "coefficient_selection": "fixed preview assumptions; train-side alternative grid 0.25/0.5/1.0, selected once before held-out evaluation",
+    "span_head_lr": 0.001,
+    "score_head_lr": 0.001,
+    "score_head_epochs": 10,
+    "paired_auxiliary_heads": {
+      "layers": 2,
+      "hidden": 1024,
+      "activation": "GELU",
+      "dropout": 0.1,
+      "lr": 0.0002,
+      "component_classes": "native 3 or 5",
+      "relation_classes": "native 2 plus NONE",
+      "input": "shared input-side hidden states; no gold answer tokens",
+      "stop_gradient": false,
+      "updated_parameters": "shared LoRA and both auxiliary heads; base weights frozen; type-gated branch trained by generation loss"
+    },
+    "lora_target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "full_generation_loss_original_only": true,
+    "augmented_head_supervision": "reliable factor masks only",
+    "paired_losses": "reliable C/R correspondences only",
+    "factor_review": {
+      "affected_positives": "all, else relation mask empty",
+      "none_internal": 4,
+      "none_boundary": 4,
+      "unreviewed_or_uncertain": "masked, not negative",
+      "original_gold": "never relabeled",
+      "semantic_unknown": "exclude gold joint-source unannotated proper subsets in BOTH original and augmented semantic-head supervision; retain full original graph generation",
+      "full_filter_audit": "J_A equals complete D_A in declared auditable universe; reject view when resources cannot cover it"
+    }
+  },
+  "generation": {
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "max_variants": 2,
+    "attempts": 4,
+    "seed": 17,
+    "eval_temperature": 0,
+    "eval_graphs": 2,
+    "evaluation_prompt_variants": 2
+  },
+  "calibration": {
+    "method": "Platt logistic by object family",
+    "fit_train_fraction": 0.8,
+    "calibration_fraction": 0.1,
+    "policy_fraction": 0.1,
+    "crossfit_folds": 3
+  },
+  "hardware_assumption": {
+    "GPU": "one NVIDIA A100 80GB",
+    "CPU_threads": 4,
+    "RAM_GiB": 64,
+    "actual_allocated": false
+  },
+  "solver": {
+    "library": "SciPy 1.13.1 HiGHS milp",
+    "presolve": true,
+    "mip_rel_gap": 0,
+    "aaec_seconds": 3,
+    "cdcp_seconds": 5,
+    "large_seconds": [
+      60,
+      90
+    ],
+    "component_cumulative_edits": 24,
+    "relation_cumulative_edits": 96,
+    "attempts": 128,
+    "accepts": 12,
+    "delta": 0.01,
+    "numeric_tol": 1e-09,
+    "component_and_relation_kappa": 1,
+    "global_edits": "net, not cumulative",
+    "small_pool_global_variable_limit": 2500,
+    "local_default": "SingleObject dependency closed",
+    "set_actions": "optional, only after train-side evidence",
+    "delta_grid": [
+      0.01,
+      0.05,
+      0.1,
+      0.2
+    ],
+    "development_tp_loss_limit": 0.05,
+    "policy_insufficient_data": "no repair",
+    "routing_parameters": "preview assumptions; freeze on train-side resource probe before real evaluation"
+  },
+  "candidates": {
+    "supplement_spans": 64,
+    "max_tokens": 64,
+    "max_new_sources": 3,
+    "supplement_slots": 4096,
+    "preflight_slot_limit": 50000,
+    "score_object_batch": 4096,
+    "estimated_object_bytes": 512,
+    "protected_overflow": "fail document with explicit status; retain denominator",
+    "supplement_types_per_span": 2,
+    "boundary_expansion_default": false,
+    "cdcp_model_group_proposals": 64,
+    "cdcp_total_group_proposals": 256
+  },
+  "ICIC_provenance": "Qwen backbone, LoRA and AdamW writing convention; additional concrete settings are preview assumptions, not claims about ICIC hardware or exact training setup",
+  "real_luna_protocol": "separate protocol.json, gpt-5.6-luna low; decoding temperature, snapshot and token usage unavailable",
+  "main_datasets": [
+    "AAEC",
+    "CDCP"
+  ],
+  "optional_diagnostic": "CasiMedicos-Arg English",
+  "version": "1011-v13-content",
+  "v13_identity": {
+    "main_graphs": "GOLD_INFORMED_NATIVE_GRAPH_AUTHORING_SCENARIO",
+    "native_character_keys": true,
+    "new_target_training_runs": 0,
+    "semantic_unknown": "mask both original/augmented semantic heads; retain strict object mismatch scoring",
+    "full_filter_audit": "J_A=D_A on declared semantically auditable universe",
+    "acceptance": "PASS_SIMULATED"
+  }
+}

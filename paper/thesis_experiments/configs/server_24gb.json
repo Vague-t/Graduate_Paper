@@ -1,0 +1,153 @@
+{
+  "augmentation": {
+    "attempts": 4,
+    "accepted": 2
+  },
+  "generation": {
+    "candidates": 3,
+    "temperature": 0.7,
+    "max_new_tokens": 2048
+  },
+  "head": {
+    "hidden": 1024,
+    "dropout": 0.1
+  },
+  "span_training": {
+    "epochs": 10,
+    "lr": 0.001,
+    "seed": 17,
+    "batch_size": 256
+  },
+  "score_training": {
+    "epochs": 10,
+    "lr": 0.001,
+    "seed": 17,
+    "batch_size": 256
+  },
+  "candidates": {
+    "supplement_spans": 64,
+    "supplement_types_per_span": 2,
+    "supplement_slots": 4096,
+    "preflight_slot_limit": 50000,
+    "cdcp_model_group_proposals": 64,
+    "cdcp_total_group_proposals": 256,
+    "max_new_sources": 3,
+    "max_span_tokens": 64,
+    "acyclic": false,
+    "one_outgoing": false
+  },
+  "legacy": {
+    "density_weight": 0.4,
+    "coherence_weight": 0.4,
+    "validity_weight": 0.2,
+    "root_threshold": 2.0,
+    "other_threshold": 1.0,
+    "rounds": 3,
+    "accepted_per_round": 2,
+    "actions_per_error": 4,
+    "max_attempts": 24,
+    "acyclic": false
+  },
+  "repair": {
+    "kappa_c": 1.0,
+    "kappa_r": 1.0,
+    "weight_c": 1.0,
+    "weight_r": 1.0,
+    "delta": 0.01,
+    "numeric_tol": 1e-09,
+    "component_budget": 24,
+    "relation_budget": 96,
+    "max_transaction_components": 3,
+    "attempts": 128,
+    "accepts": 12,
+    "rounds": 4,
+    "round_attempts": 32,
+    "round_accepts": 3,
+    "batch_size": 8,
+    "global_variable_limit": 2500,
+    "time_limit": 5.0,
+    "total_time_limit": 90.0,
+    "lex_call_limit": 64,
+    "global_tie_break": "initial_state",
+    "local_tie_break": "graph_key",
+    "queue_limit": 10000,
+    "acyclic": false,
+    "one_outgoing": false,
+    "allow_set_actions": false,
+    "presolve": true
+  },
+  "profile": {
+    "name": "single_cuda_24gb_paper_context",
+    "purpose": "server_experiment",
+    "gpu_capacity_gib": 24,
+    "hardware_status": "CONFIGURATION_NOT_YET_GPU_VALIDATED",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "revision_source": "models/Qwen2.5-7B-Instruct/download_manifest.json"
+  },
+  "model": {
+    "backend": "hf",
+    "model_name": "models/Qwen2.5-7B-Instruct",
+    "revision": null,
+    "hidden_size": 48,
+    "layers": 2,
+    "attention_heads": 4,
+    "head_hidden": 1024,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "head_dropout": 0.1,
+    "four_bit": true,
+    "gradient_checkpointing": true,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "max_input_tokens": 4096,
+    "max_output_tokens": 2048,
+    "max_context": 8192,
+    "seed": 17,
+    "local_files_only": true
+  },
+  "training": {
+    "variant": "T1",
+    "epochs": 5,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.03,
+    "microbatch_sources": 1,
+    "accumulation": 32,
+    "gradient_clip": 1.0,
+    "lambda_sentence": 0.5,
+    "lambda_supervision": 1.0,
+    "lambda_component": 0.5,
+    "lambda_relation": 0.5,
+    "seed": 17,
+    "max_steps": null,
+    "max_factors": 50000
+  },
+  "chat": {
+    "model_id": "models/Qwen2.5-7B-Instruct",
+    "revision": null,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "load_in_4bit": true,
+    "max_context": 8192,
+    "max_new_tokens": 1024,
+    "max_calls": 1000000,
+    "max_total_output_tokens": 100000000,
+    "local_files_only": true,
+    "seed": 17
+  },
+  "encoder": {
+    "backend": "hf",
+    "model_id": "models/Qwen2.5-7B-Instruct",
+    "revision": null,
+    "max_tokens": 4096,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "four_bit": true,
+    "local_files_only": true
+  },
+  "regeneration": {
+    "enabled": false,
+    "reference_budget_manifest": null
+  }
+}

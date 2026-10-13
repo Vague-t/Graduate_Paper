@@ -1,0 +1,529 @@
+{
+  "workflow": "versioned content revision, deterministic replacements; no ARS full-pipeline certification",
+  "base_sha256": "9f1d706af3cdeee375e24223b5bf3ad657e4cef00d5a84f08c8d7db428f90d64",
+  "output_sha256": "062bbead8abab651311807fe44ec35b67d58bb876a33f8e218b9cca0870aa62e",
+  "operations": [
+    {
+      "kind": "replace",
+      "old_sha256": "d4b51437d692ecca7755f304e6fb857e4b07ffb642886aec9b68c598380e8ea1",
+      "new_sha256": "918f96dc49c92b64581de2c0586d2359dbca3b12ad8d0cf1681a152c9ee5b82e",
+      "old_chars": 270,
+      "new_chars": 255,
+      "anchor": "1011-v11 估算演示版　2026年10月11日\n\n稿件说明：本稿为完整数字预览，主表及新增训练、OOF、外部对照和四格对象数据均为明确假设下的模拟材料，不代表真实实验记录或经验证的效果预测。真实材料包括既存CPU诊"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "11dcbb0893292dc5c6041b8151c6daa192d97a8adfd144ad9b88da52a4353ad8",
+      "new_sha256": "f32d2921d0c8873909c31346a6ec2886910c1c67e83ab04820c7d2c214a9eace",
+      "old_chars": 854,
+      "new_chars": 761,
+      "anchor": "## 摘要\n\n端到端论辩挖掘从原始文本中识别论辩组件及其关系，为分析观点与理由之间的组织方式提供结构化表示。组件与关系之间的依赖贯穿训练和推理过程：训练文本的局部改写可能改变原有论证作用，使继承标注失真；预测组件的跨度或"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "afc3bfb99155b647a17e98ce5a75beadec0475b251c860abce01e15a1c3ab66c",
+      "new_sha256": "be5ac3fc1ba1146deadcd6cbff4d9fc405705c5d36c7a9a69db087bf005e6851",
+      "old_chars": 2950,
+      "new_chars": 2352,
+      "anchor": "## Abstract\n\nEnd-to-end argument mining identifies argumentative components and their relations directly from "
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "1b993e134124765b887f38caa887034763ce3a82a9c5981a224dc50c72419731",
+      "new_sha256": "f5e6026d13edfb6ce58565a8df30acffb03dac1655cf7443288f4b3bd4b7e9b3",
+      "old_chars": 739,
+      "new_chars": 632,
+      "anchor": "#### 1.3.1 研究问题\n\nRQ1：按关系影响域检查局部改写中的正关系与NONE，并建立可靠的标注对应，能否在保留足够表达变化和源覆盖的条件下改善监督质量？在相同增强数据和训练预算上，成对因素学习能否进一步改善严格"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "a9d30680b1dc753c1e66a545120ee18bad3a74fc8f1f65632a2a343f5b75df84",
+      "new_sha256": "395cb22c8d5bebf2fdffbacaace92b8b87fa9e14f380c08e71f2a355d32a1d76",
+      "old_chars": 44,
+      "new_chars": 69,
+      "anchor": "原方法已经能够修改组件类型和候选跨度，本文的增量集中在集合级修改、依赖完整性及决策依据。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "386191fbce273817abce7ce73259a86779904bf671ad32a66b57c09bba4d1bb7",
+      "new_sha256": "6cd91aa8a105d54332fd1d7712ce9afb01a55c0715dd779448882597b306980b",
+      "old_chars": 409,
+      "new_chars": 206,
+      "anchor": "### 1.4 论文组织结构\n\n第一章从监督漂移与结构恢复两个问题出发，比较近邻方法并明确成果归属。第二章统一原生任务、完整对象评价与公共协议。第三章研究关系影响域和可靠对应，分别比较数据构造整体及固定数据上的学习目标。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "3219531c1043fac6d96592b2f7a43b31811889d10c1c1a9759fe97dbeb0cad69",
+      "new_sha256": "99140fbb4190833976ed25c8254dc8d2ca4df2551bda4578b501e17ffc7aac1e",
+      "old_chars": 14,
+      "new_chars": 311,
+      "anchor": "### 2.6 公共实验协议"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "ccfe9275cb5456c7348c324699eec01ef5229b832b92ce2c96b43f66c4ffa565",
+      "new_sha256": "4667092a517019b59bd6cd12a6e4a01cf49454d79f879ce904bb08cde970c406",
+      "old_chars": 54,
+      "new_chars": 58,
+      "anchor": "|评分评价对象|每语料组件2400、关系4800个完整对象|用于表4-6的固定提案评价，不是全部训练对象数|"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "93d4a2189c68bc681c2d1b25b4c6428cca567704987cf011ed6f599a6f319429",
+      "new_sha256": "2eb198286c2e156d2d1ab358604ecfc3d2cf55144e57d66e74b42b76897ff507",
+      "old_chars": 54,
+      "new_chars": 49,
+      "anchor": "|损失权重|增强1，头监督1，组件／关系对齐各0.5|预览固定；正式备选0.25／0.5／1仅在训练侧选择|"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "dcf4089ed178a9dc04f18d411ee9a20f08c85faf4e105dd3cbd0b443551d4aff",
+      "new_sha256": "a0781409899e4860fea42188ce3221d2f19bbf4af262d3ca81e3af1b341b9525",
+      "old_chars": 64,
+      "new_chars": 68,
+      "anchor": "|硬件与资源|假设1张A100 80GB、64GiB RAM、4 CPU线程|未实际分配；预检槽位上限500万，评分批4096|"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "c50a5143695d224002734193a13d9adf1b2a3423e726dedad453ba91dd757d57",
+      "new_sha256": "1e7cd22d904abe87ae82f7fe11776d9cc407024ba2962fd4aa081cb86816de5b",
+      "old_chars": 122,
+      "new_chars": 114,
+      "anchor": "预览中生成、增强、验证与编码统一指定Qwen2.5-7B-Instruct，跨度与评分头结构见表2-3；$\\rho$、$\\lambda_{sup}$、$\\lambda_C$、$\\lambda_R$分别设为1、1、0.5、"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "58d937bd8c19146ab747078f26238d0fd1750f0d9c9f425ad605584c584e5350",
+      "new_sha256": "f6e3ed9b1d81724af8872b533848a41cc9bc7a8a58031944c519a8ebd30727d0",
+      "old_chars": 80,
+      "new_chars": 76,
+      "anchor": "配套preview_config.json及config_validation.json分别保存参数与静态校验；没有执行Qwen训练或宣称配置已在目标设备生效。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "31f518f738911d458add9e3afbe50503d239c74b0ea9446b6834abe25eecd3b4",
+      "new_sha256": "54a26513ce257e77381e9c654673350aa509be3aa5083227c1de44ac30b51a06",
+      "old_chars": 531,
+      "new_chars": 375,
+      "anchor": "### 3.1 引言\n\n训练数据增强的关键问题，是文字发生变化后，组件角色与关系监督还能否被可靠继承。只看流畅度或组件含义，可能漏掉跨出改写区域的关系；只检查已有正关系，也可能遗漏原NONE组合被改写成支持关系的情况。关"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "e9b460f135eb37d1cbf312830e5b4628709c75f85d139315e963fa24605b7599",
+      "new_sha256": "a730a1fb8857ec145ab69f99e736de1deb3d5b8b197f59c5c6a370d2f1e7e704",
+      "old_chars": 69,
+      "new_chars": 96,
+      "anchor": "若槽位重叠、完整输入超过冻结上下文上限，或影响域无法在单次审核资源内完整处理，则跳过该文档增强并记录具体原因，不删除源成员或改选其他中心。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "27ced38bf6a7cb0d18e8160923bafab64cade46191c12b9d349540667e42103b",
+      "new_sha256": "8a9733cb1f1c91629f68246ec82d6a186b5d06e4c5ca15633aaaad8bfc546918",
+      "old_chars": 731,
+      "new_chars": 837,
+      "anchor": "#### 3.3.3 接受规则与来源控制\n\n筛选首先检查格式、槽位身份、坐标往返和全部端点引用；随后在全文上下文中检查论辩角色、指代、否定、模态和立场，并逐项核对影响域中的关系方向、标签及 NONE 状态；最后检查重复程"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "2d785e563e3cdb5d158fefb6ecd4165891575dca22b35f4c57f23bd05b872744",
+      "new_sha256": "c4889a293942d508e114e4d19437e8097c9341a43e8ce6e7576ab01955b32edd",
+      "old_chars": 22,
+      "new_chars": 60,
+      "anchor": "对于一个通过筛选的视图 $x'$，组件对齐为"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "6d34a697188f95d73676fb78747923a4f5993f74af9a1749925d6c8b3997a73d",
+      "new_sha256": "7745c93327c1a3cddd14ebaf68c242f5f9cc5c244b2d6ccf685fc6ab96054981",
+      "old_chars": 33,
+      "new_chars": 72,
+      "anchor": "将影响域划分为正关系组 $D_+$ 和 NONE 组 $D_0$，"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "40a48bd46ac421c3cf5810da484f2c63fc3b45354c4a78ea9ef8fc766d29e22b",
+      "new_sha256": "194428ba48c39b50197a49fb8e11b1ab1fbc757878d6cd68f7f7165ff764012b",
+      "old_chars": 68,
+      "new_chars": 39,
+      "anchor": "当 $\\mathcal D_A=\\varnothing$ 时，该项置零并跳过空域关系检查，不人为添加关系；全文其他关系的生成监督仍保留。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "c32efb172a4ded95cbd7898e6e1e9886328adbb0b045545381bd4ddaa588b3a2",
+      "new_sha256": "49196a42dfb2da74140620b8a9d4fe685ce24f08c1107409bff46c937de3f4fb",
+      "old_chars": 148,
+      "new_chars": 163,
+      "anchor": "低 JS 可能来自两个视图一起预测错误，故每个视图同时接受金标监督。组件头交叉熵在该视图全部组件上取平均，关系头交叉熵在声明因素宇宙的正关系与 NONE 非空组之间分别归一化；二者相加记作 $S(x,G)$。空组件或空因"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "054bd5c60362a0e4ca6c051ca0dab4e2ff71a28f2b86ed68c7cf0cfeb3297587",
+      "new_sha256": "51346853600ef8fde9f3a59e25dfaf2dc0d3e6a9172183a65a9fac35fcccb82f",
+      "old_chars": 1274,
+      "new_chars": 715,
+      "anchor": "#### 3.4.3 按源文档归一化及梯度接口\n\n设文档 $d$ 接受 $m_d$ 个变体，同源头监督定义为\n\n$$\nL_{heads,d}^{sup}=\\frac{S(x_d,G_d)+\\sum_{j=1}^{m_d}"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "4a021b3553f85d26f337919e557d13f3dcc244bf45ba3c725eae7915af9b6743",
+      "new_sha256": "ab6c175e19d6f1aa5a8cdee58f49e0731700d763c79f79504bb4ce7c4393883f",
+      "old_chars": 24,
+      "new_chars": 38,
+      "anchor": "16        检查 D_A 中全部关系状态"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "565d2d41a6640fdff0e1008d7f63787885fa6f62337194d40c404ed06bcae134",
+      "new_sha256": "6922dacca4d22dc41e4c60b95e8464191dfbbbd0bec87d8e837a735a4cda93b9",
+      "old_chars": 33,
+      "new_chars": 44,
+      "anchor": "18      if 任一受检标签漂移或其他筛选条件失败 then"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "af4a4bf2cba18c60a15012588dfd7b94ef59fc95085007410c05129c1d732d12",
+      "new_sha256": "df04a5de9a38a85f478fadcf88f6bc2b573a70ef1e6ce55b543902e2d7b61add",
+      "old_chars": 39,
+      "new_chars": 42,
+      "anchor": "22      将通过的全文视图、φ(G_d)、φ 和来源加入 Views_d"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "ea15e3ee006f874c14bcae45cf450d22e0ec444a0b4c9406b06b7746713f6501",
+      "new_sha256": "0fef28cb3a39fcb3638b9e4080df45b12de135aa44e96a4d0cae9798210b0fe6",
+      "old_chars": 31,
+      "new_chars": 32,
+      "anchor": "28    依可见前缀门控，计算各视图的生成损失和句子辅助损失"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "5f7fafc6196068bc277638631e4f9a9c89be748443d3708ae66bc599ea67c3c5",
+      "new_sha256": "b1de2170b2e7cd155e392c0fd0d91701adc6a6ef2a0167437d1a5eefe0280ec7",
+      "old_chars": 30,
+      "new_chars": 30,
+      "anchor": "29    从回答开始前的输入表示计算组件头与关系状态头监督"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "fe818a8908d9907d02093d214357c0099722d0e701d0c328b8f51e3e9b5c06fc",
+      "new_sha256": "f9a6e313e1c34e3d5b52af3f2953c0b929de106adfe9216111b85d7e835a4af0",
+      "old_chars": 32,
+      "new_chars": 34,
+      "anchor": "30    依 φ 计算非空域成对损失；无变体或空域的对齐项置零"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "2d5e1a2f099178aee1347869bed51e844ec284d68f32eb9a159e91c9dcbfd459",
+      "new_sha256": "1d5a290f370374030c4c7f9cc76109c8c9f5a6deea33c93e00a17c058b78e438",
+      "old_chars": 74,
+      "new_chars": 206,
+      "anchor": "![关系感知增强学习的共享表示与梯度接口](_revision_1010_v7/figures/training_architecture.png)"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "abcf147cc5782a3c0b16bcf280ba9cc1470cfe84629749c49f7ee4c4fd5672e7",
+      "new_sha256": "c743f1bc411e6856cb7ad1f272005b0329322c8def644cffcd020b4a157c253f",
+      "old_chars": 106,
+      "new_chars": 69,
+      "anchor": "图3-2区分继承的专项适配、线索提示和句子监督，以及新增的组件头、关系头与成对损失。实线表示文本和隐藏状态的数据流，虚线表示监督或控制连接；冻结参数与可训练模块分别标示，各类参数的梯度来源在3.4.3节统一说明。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "2866f6266b71fcca2de099ba30aa0b1d8753ab034647188dd0a125463cd01f60",
+      "new_sha256": "f1f194dd1e4d6373522dc7384f41e656095699416b10e563181d39608e1afa49",
+      "old_chars": 6817,
+      "new_chars": 3353,
+      "anchor": "### 3.6 实验结果与分析\n\n本节数值、审计判断和成本为估算情景，用于展示比较与分析；正式结果须由对应原始文本和运行记录整体替换。\n\n本章以监督可靠性诊断为前提，按2.6.3预定的T-B、T-E分别评价数据构造整体及"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "f8556d41ceef11206ed73335884f09e16ffe797dbcbf5a81e79a04558fbbd092",
+      "new_sha256": "96dba57a6c9a0f2d0183071cc897e673812188de5881d369c7192ff25fea7b27",
+      "old_chars": 23,
+      "new_chars": 51,
+      "anchor": "无法解析的输出记为失败，失败调用仍计入总成本。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "99cd9e72390f1355a00078ef4b9abdf4c91c9e7f4561578152ba478240323ca7",
+      "new_sha256": "1c802e0c252f9e2d57fb1a2607e7abf3ccfd33c0600ef62aa338a59c5ec41c3b",
+      "old_chars": 33,
+      "new_chars": 35,
+      "anchor": "受保护部分包含合法化后初始图及全部成功解析候选图中的合法组件跨度；"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "ad12e9d70a5a0e37f8deaf22414d671bda2f7b161274f6eabdb0725683f9d1e1",
+      "new_sha256": "ac2ec0d10ebdc8121ea7e5824579dccfbeb2ad2c616ae9e1efbe258f01155d6c",
+      "old_chars": 19,
+      "new_chars": 47,
+      "anchor": "独立跨度头和有限规则扩展提供补充部分。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "9a51dc5c0cbeed8baf87ab92a3acd1a358131f9f9ffc16e63c54717aff48f263",
+      "new_sha256": "e4d9bd25588c3f7ec9d5263258aa28d322142247732aa842d7a593bd47b4bbdc",
+      "old_chars": 52,
+      "new_chars": 75,
+      "anchor": "参考解码与一次性有限扩展覆盖邻近边界、相邻跨度合并和内部切分；扩展不递归，去重后才按边界分保留补充候选。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "9ed6649d95a03e947dddeee046f173927e930849307ac37be9f064f73a08d7e6",
+      "new_sha256": "0c31b7bc661919aa4920549757d663fbadab1475dd455372f849a44e1602b1b6",
+      "old_chars": 85,
+      "new_chars": 148,
+      "anchor": "对$u\\in U$保留协议合法的全部类型，构成$\\mathcal V=\\{(u,t):t\\in\\mathcal T(u)\\}$。NULL表示不选择，同一跨度至多一个类型。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "2d8b47629dfd5172af21304fe0f22582157379bbe7661c389e3f9a7dd84ce4d3",
+      "new_sha256": "37b947431917ce00cfabea7d1c2d89b072d2d80731dcc26e3b5c6ac6002140ea",
+      "old_chars": 115,
+      "new_chars": 177,
+      "anchor": "关系候选池$P$以完整端点槽位为单位构建。AAEC枚举可共存组件的有向对；CDCP枚举可共存、最多三个源成员的有序源集合与目标。除端点互斥等必然冲突外，不按整个候选宇宙中间是否存在其他跨度预删源组合，因为中间跨度可能最终"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "e2451b8e7f0985255da9d624c761edaa85a33b6194d092aa2826b5e68c901078",
+      "new_sha256": "598d8f68b57f98e0d021fe3c2c06f8ecb1bd6f79a422460f3e30ac35a0b1affc",
+      "old_chars": 47,
+      "new_chars": 39,
+      "anchor": "不同语料的原生约束分别登记。ArgUNSC与CasiMedicos-Arg只允许单源二元关系；"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "b408fa45a732f94c0b77cd48ace460dbce0da9e68a755f91935fa7e225d38972",
+      "new_sha256": "2f44cc70098f19b3fe6f425e73ad0c657e2db71cc75e326d999cdbc4d1ab8ebf",
+      "old_chars": 565,
+      "new_chars": 516,
+      "anchor": "#### 4.2.5 裁剪前规模与资源预检\n\n保留4096个补充槽位，只约束最终进入搜索的数量。设候选宇宙含$m$个可区分跨度、每跨度至多$q$类，在忽略冲突和标签掩码的宽松计数下，AAEC有至多$m(m-1)q^2$个"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "324bbeffbc007bd2df6715e352b84ed9e53a7c598eace08184678aa10d8101e5",
+      "new_sha256": "321f0f0b9ebe324ac03c9cd91159ca9c56127082c92b5f2cf071b4b35895d012",
+      "old_chars": 17,
+      "new_chars": 313,
+      "anchor": "#### 4.4.3 固定计数效用"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "0607412eb32336a5e81fb810ec787dc599e22be4e4038438ad897096035f4f69",
+      "new_sha256": "48b20745c44ca43eb565976a468ab355e1ad6f3d4637c235bd43e9da74e6afb2",
+      "old_chars": 13,
+      "new_chars": 448,
+      "anchor": "### 4.6 实验与分析"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "22c506e8400b7e3dcec95abd14e5476b3ec426c7b4db234e40555219531fee6d",
+      "new_sha256": "d11d7b342f8c710ca9f922c779e0e525edd70012f1f38461d11bca7d7cb0f471",
+      "old_chars": 14705,
+      "new_chars": 6274,
+      "anchor": "### 4.6 实验与分析\n\n4.6.1—4.6.6保留估算情景的主比较；4.6.7—4.6.8单列Luna预测、候选与求解诊断。各批材料具有独立的运行身份、分母与成本口径。正式目标模型的完整比较仍按附录H完成。\n\n本章"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "5f2009f83f0cc847329b3b5847c8f7e56170169c1dbc3c6da82096a84b348065",
+      "new_sha256": "906790fee80f179d8ede9b387ed339ce51d2f1c099b994a304ce25f7b86562dd",
+      "old_chars": 4209,
+      "new_chars": 2638,
+      "anchor": "## 第五章 两阶段框架的综合分析\n\n本章复用同一批四格人工计数，依次讨论组合增量、对象作用的可识别性，以及训练完成后各配置的在线质量与时间取舍。统计口径的变化不另计为研究发现；5.4节补齐与主表一致的人工成员分析，附录"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "11874c57a9b6b6ff9ecbdf362b3b8df942d7178f40f51ec5b39a958f972c3383",
+      "new_sha256": "671ac1b45ca3c32b61da90a7a4963c1a3e305c558aea621998b32613e52c9eb1",
+      "old_chars": 1547,
+      "new_chars": 1132,
+      "anchor": "## 第六章 总结与展望\n\n### 6.1 研究总结\n\n本文围绕组件与关系依赖开展两项研究。训练阶段的局部文字改写可能破坏继承监督，推理阶段的组件修改可能使关联关系失效；两者共享严格对象表示，分别作用于监督保持和结构恢复"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "c1464c2c6a0fcf5302141cec5c441230ba5adbecb3f195b1d3dec913b9846102",
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "old_chars": 308,
+      "new_chars": 0,
+      "anchor": "[50] POIAGANOVA M, STEDE M. From debates to diplomacy: Argument mining across political registers[C]//Proceedi"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "1062b19c8cf19f7f8aecba740953c023e9bbd970e08e391fffb487b188612550",
+      "new_sha256": "be5da8dd817a2dd51d133e423ac2262954579321673bfe1362a34d545ca648c5",
+      "old_chars": 2126,
+      "new_chars": 1227,
+      "anchor": "### A.3 其他语料与语言的范围\n\n本文主比较范围仍为英文AAEC和CDCP。补充试验纳入ArgUNSC的安理会发言[50]及CasiMedicos-Arg的英文病例解释[50]，分别保留原生跨度、类型与二元关系。前"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "9ed0c300972cc0f3d851259e2fc13cd08d5334632573e0dfdca7b8f1a5a5347a",
+      "new_sha256": "53ce4d8aa53a1ff4068eb27b07afd06526e3453ce61d09fa935211ba35bbf89f",
+      "old_chars": 36,
+      "new_chars": 45,
+      "anchor": "参考有限扩展对受保护跨度及跨度头前$N_{head}$个输出只执行一次："
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "c084954a327163ae39e64c157d4047e8ac31be1f3d7b5f23379253b4bd97579f",
+      "new_sha256": "72dfca9e9382a77b1417e2fda7361190f5fea92d1c376262979770a89b806ee1",
+      "old_chars": 77,
+      "new_chars": 55,
+      "anchor": "对$u\\in U$保留协议合法的全部类型，构成$\\mathcal V=\\{(u,t):t\\in\\mathcal T(u)\\}$。NULL表示不选择该跨度。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "9ce1f0e7622e4ff72e73e20109321bb7af240e46f71c4891368761357c8d35ff",
+      "new_sha256": "950573c65d5994b229ce951feb8f420fadc2a81e0e47ca51c435a247649993f9",
+      "old_chars": 146,
+      "new_chars": 97,
+      "anchor": "ArgUNSC所用作者仓库含MIT许可，CasiMedicos-Arg数据卡标注CC-BY 4.0；本地清单同时保存许可文本、发布版本和文件哈希[50][50]。许可记录用于追踪本次获取条件，正式公开材料仍须保留作者引用"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "0ac52ad0ed3ebd573d27fb043631f02f1b95bf7e66f07854825c62dfd772c149",
+      "new_sha256": "948d2ff116356d320acb1d47aee860daf2cf36410597834dad06391f971d0cf2",
+      "old_chars": 16580,
+      "new_chars": 1629,
+      "anchor": "## 附录D 前期实验基础与轻量诊断\n\n### D.1 前期结果的使用范围\n\nICIC公开论文报告原版Full在AAEC上的组件F1为83.71、关系F1为64.83，在CDCP上分别为76.45和38.17[34]<!"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "922cac0df415616a9f35a0384bf246943c8b82b66633f602320f3162a75d3cf4",
+      "new_sha256": "fa0d6ee5ad6df8431e2569a3126c072790f49c1f94f1b0dcd81965386cb9301f",
+      "old_chars": 1162,
+      "new_chars": 434,
+      "anchor": "### G.3 QOS式适配与本方法的差异\n\n表G-2 当前数据构造对照的适配范围\n\n|维度|QOS式适配|完整增强＋基础损失|\n|:---|:---|:---|\n|输入|共同标注文档与槽位接口|相同文档及关系影响域条件"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "4dae760c834e4cc74daa56409aed3051f35a9b4c413e22af2f926d83dadb8b79",
+      "new_sha256": "2a1063da4cac891ae0ca311d674c114bb102070766a87e98347d44ccff325047",
+      "old_chars": 11150,
+      "new_chars": 1838,
+      "anchor": "## 附录H 关键诊断与综合证据记录\n\n### H.1 训练侧问题规模与初始错误的诊断设计\n\n增强诊断按语料在训练侧持出组固定抽取40篇源文档，按文档长度与金标关系数的中位数交叉分层，层内随机抽取；不足的层取全量并记录实"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "3b40659e6c85dc332dddef650f8dc2185d1f4866685b4eb230e9f93719269154",
+      "new_sha256": "db1c6d738af426ba283a8fb2e1415a5dedcff7826d8153523d1e0b13120724d3",
+      "old_chars": 35,
+      "new_chars": 44,
+      "anchor": "本节保留原文和增强文各自的金标训练，同时比较对应组件与关系的预测分布。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "3ee565590eea5890bd4344008aa3dcdc960c1398f39b8dc5ea8f41a5bcbe929c",
+      "new_sha256": "d6f1ee4fbafbf512dfb415c48f2ca4ac7a37877ad19a5d0019dc52503f5ec63e",
+      "old_chars": 24,
+      "new_chars": 28,
+      "anchor": "上述条件仍需由3.6.2节的标签可靠性审计检验。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "3478dc17f9887cacf481da7d16a3beb975c9b025b8cf55fe5ca74165a75dac9a",
+      "new_sha256": "0ee2b4c42e15bf0720672625c15589c0060c3f5de95c86eca3a02c5fc61f3b82",
+      "old_chars": 232,
+      "new_chars": 172,
+      "anchor": "集合修正的必要性取决于端点相关错误相对于纯关系错误的规模，以及候选中是否已有可恢复对象。组件类型、边界、遗漏与多检采用固定顺序诊断，候选缺失另作交叉维度；这些维度不能相加为互斥因果比例。附录D.3已补充既存CPU诊断的初"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "9edd74c4ac0ba685a7382adb66c8e825e68e49726fa5a4159e1b949c62e6e4ab",
+      "new_sha256": "8ff0ad759cc75169245a57dab852f429b3928e049a5760a2a433fcf3e6485d9f",
+      "old_chars": 170,
+      "new_chars": 133,
+      "anchor": "本章以MCR-BR-J表示依赖闭合的联合修正，保留候选图生成与初始重排序，将修改单位扩展为冲突闭合的组件集合及全部受影响关系。框架规定对象身份、目标、约束和接受条件；局部整数规划是本稿待检验的求解策略，同目标全局求解是主"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "5b7c5b01ba88b8cef6d3af308926ef9acc3a9b96f5bd00ade41c8121d5206946",
+      "new_sha256": "dcc54c75579740b0b76998761b364a6734c8cbe4ac45361ce0c949d39fa1dfa8",
+      "old_chars": 37,
+      "new_chars": 80,
+      "anchor": "组件同样保存 $m_C(c)$；关系掩码为1还要求全部端点的组件掩码为1。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "e7c324f8762afd0a04cd3c6fec68dd8f496bd74db8acd32131ab26348c77f2fe",
+      "new_sha256": "f38817961f43b02b5d0d18483e9e18513c933c0312804ddf2682311b4af49c3e",
+      "old_chars": 17,
+      "new_chars": 157,
+      "anchor": "两条正确关系都来自318_140；"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "8ec77974de7eadb3cc3b98d6d64cd975d91ef4005ea652d55fdc04cabb2d3b22",
+      "new_sha256": "0a36e36526373048a3412768a97867de7c7569ce40caf088bcf602ba48ae3924",
+      "old_chars": 14,
+      "new_chars": 18,
+      "anchor": "带坐标的正反例见附录D.6。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "f0f414397f1d45b38c8e1391b96db14b089c461c7f0fcae8068ad47120e0c1c6",
+      "new_sha256": "f01668c0f5e66eb8087ea4eb06dd00a2ae5d87c3930e66691c3564775826d286",
+      "old_chars": 22,
+      "new_chars": 26,
+      "anchor": "输入、断言、结果及范围见附录D.4和D.6。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "47249a000d7b9ba7c35fcf88ce2f13c0cf50cb2896a9d1d5c750af9097821678",
+      "new_sha256": "d841b3b4b4154e3eff0536ff9cc56bfbe00b4f58f5e53efcaa01999a86e2edd6",
+      "old_chars": 21,
+      "new_chars": 21,
+      "anchor": "图4-2 多候选驱动的依赖闭合修正执行流程"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "fca227145360bc3a46ee38ac38aebdbb2bcf83334457ebd7f324f0da9735dc5a",
+      "new_sha256": "ddfaaaab34561a02611e1dc437b858d2dd99715b9a451d76107bbdcae8c2c585",
+      "old_chars": 508,
+      "new_chars": 340,
+      "anchor": "### F.3 研究问题阅读索引\n\n表F-2将概念、方法和验证位置对应起来，便于连续阅读和交叉回查。索引同时关联方法入口、实验结果和接口说明。\n\n表F-2 方法与实验的阅读索引\n\n|阅读问题|方法入口|实验与记录入口|\n"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "ff13665f671984743df567adecb6ee0527dfe4a76616fd3387c6b2ccff9cc04e",
+      "new_sha256": "a03e5817e83a48694d699371d14aeac36b4292d2799d484c6ba0cc7f1abc753e",
+      "old_chars": 57,
+      "new_chars": 212,
+      "anchor": "![训练和推理的数据及模型接口](_revision_1010_v7/figures/framework.png)"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "2afd3afb1fb731c3d616c8f26267154ec2aa7554377d3d9c21443d6f2748b769",
+      "new_sha256": "aa4778fdb2c986bb54eac2d93e657faae9e91a4b34aa2f02dfc888d9a6e8d0d2",
+      "old_chars": 68,
+      "new_chars": 170,
+      "anchor": "![两项研究的共同问题与分工](_revision_1010_v7/figures/research_relationship.png)"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "786ee3e8a75b7b7aa012467d31c1b4036607816895b6629c6273f8f8de471f77",
+      "new_sha256": "dc052053210a46ae28412e220ab576592f926f3be6e10d7d4a1a88e6cd5b47c2",
+      "old_chars": 6,
+      "new_chars": 303,
+      "anchor": "## 附录H"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "6fb0019e612cfd67ff99fdb5a26549567f6b2c67ad46ec48fe8e3ea0e5e9611b",
+      "new_sha256": "41c996805a9afd69aabd7cdaecd334b4073ff8479bf7c4b3e970783295f609c3",
+      "old_chars": 46,
+      "new_chars": 42,
+      "anchor": "旧v11匿名外部模拟只用于说明比较表的写法，继续保留历史身份，不与v12继承基线或主表拼接。"
+    },
+    {
+      "kind": "replace",
+      "old_sha256": "7ef35d1160313ea2297f4ff235b3fb4894f546daec7d8a8cacdc1d912ad334d6",
+      "new_sha256": "fbb77808f75c0112f0e972a78d49ddab66ae130fd9c2ed5415656ac4451c9350",
+      "old_chars": 17,
+      "new_chars": 247,
+      "anchor": "### H.4 同批成员与风险核查"
+    }
+  ],
+  "unchanged_ICIC_tables": true,
+  "rendering": false
+}

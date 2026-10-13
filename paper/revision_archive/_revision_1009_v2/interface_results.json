@@ -1,0 +1,1386 @@
+{
+  "evidence_type": "CONSTRUCTED_INTERFACE_EXECUTION_NOT_PRODUCTION",
+  "configuration_id": "1009-v2-selfmatch-conditional-reverse-outer-proposal",
+  "code_sha256": "45df5718f7b664606c407e6c8c5261e4bd926f7be65bce3a902d5c0e95f1638c",
+  "config_sha256": "ae8d79d8eab7357a789e307ce30007ee472202f66e455b56eaef85bc3984ae14",
+  "passed": 40,
+  "checks": [
+    {
+      "id": "R01_all_conclusion",
+      "passed": true,
+      "evidence": {
+        "status": "matched",
+        "reference": [
+          6,
+          11,
+          "Claim"
+        ],
+        "control": [
+          6,
+          11,
+          "Claim"
+        ],
+        "reference_region": [
+          [
+            6,
+            11,
+            "Claim"
+          ]
+        ],
+        "control_region": [
+          [
+            6,
+            11,
+            "Claim"
+          ]
+        ],
+        "self_match": true,
+        "eligible": [
+          [
+            0,
+            5,
+            "Claim"
+          ],
+          [
+            6,
+            11,
+            "Claim"
+          ]
+        ],
+        "denominator_chars": 5,
+        "control_relative_difference": 0.0
+      }
+    },
+    {
+      "id": "R01_only_one",
+      "passed": true,
+      "evidence": {
+        "status": "matched",
+        "reference": [
+          0,
+          5,
+          "Claim"
+        ],
+        "control": [
+          0,
+          5,
+          "Claim"
+        ],
+        "reference_region": [
+          [
+            0,
+            5,
+            "Claim"
+          ]
+        ],
+        "control_region": [
+          [
+            0,
+            5,
+            "Claim"
+          ]
+        ],
+        "self_match": true,
+        "eligible": [
+          [
+            0,
+            5,
+            "Claim"
+          ]
+        ],
+        "denominator_chars": 5,
+        "control_relative_difference": 0.0
+      }
+    },
+    {
+      "id": "R01_nonconclusion_eligible",
+      "passed": true,
+      "evidence": {
+        "status": "matched",
+        "reference": [
+          0,
+          5,
+          "Claim"
+        ],
+        "control": [
+          12,
+          17,
+          "Premise"
+        ],
+        "reference_region": [
+          [
+            0,
+            5,
+            "Claim"
+          ]
+        ],
+        "control_region": [
+          [
+            12,
+            17,
+            "Premise"
+          ]
+        ],
+        "self_match": false,
+        "eligible": [
+          [
+            0,
+            5,
+            "Claim"
+          ],
+          [
+            12,
+            17,
+            "Premise"
+          ]
+        ],
+        "denominator_chars": 5,
+        "control_relative_difference": 0.0
+      }
+    },
+    {
+      "id": "R01_region_budget",
+      "passed": true,
+      "evidence": {
+        "status": "region_budget",
+        "reference": [
+          0,
+          5,
+          "Claim"
+        ]
+      }
+    },
+    {
+      "id": "R01_no_components",
+      "passed": true,
+      "evidence": {
+        "status": "no_components",
+        "reference": null
+      }
+    },
+    {
+      "id": "R01_reference_denominator",
+      "passed": true,
+      "evidence": {
+        "status": "matched",
+        "reference": [
+          0,
+          10,
+          "Claim"
+        ],
+        "control": [
+          0,
+          10,
+          "Claim"
+        ],
+        "reference_region": [
+          [
+            0,
+            10,
+            "Claim"
+          ]
+        ],
+        "control_region": [
+          [
+            0,
+            10,
+            "Claim"
+          ]
+        ],
+        "self_match": true,
+        "eligible": [
+          [
+            0,
+            10,
+            "Claim"
+          ],
+          [
+            11,
+            23,
+            "Premise"
+          ]
+        ],
+        "denominator_chars": 10,
+        "control_relative_difference": 0.0
+      }
+    },
+    {
+      "id": "R01_statistics",
+      "passed": true,
+      "evidence": {
+        "all_documents": 21,
+        "valid_reference_documents": 20,
+        "self_match_count": 7,
+        "heterocenter_count": 13,
+        "self_match_rate": 0.35
+      }
+    },
+    {
+      "id": "R02_both_slots",
+      "passed": true,
+      "evidence": {
+        "status": "queued",
+        "queue": true,
+        "objects": [
+          [
+            [
+              [
+                0,
+                5,
+                "Claim"
+              ]
+            ],
+            [
+              12,
+              17,
+              "Premise"
+            ],
+            "attack"
+          ],
+          [
+            [
+              [
+                0,
+                5,
+                "Claim"
+              ]
+            ],
+            [
+              12,
+              17,
+              "Premise"
+            ],
+            "support"
+          ],
+          [
+            [
+              [
+                12,
+                17,
+                "Premise"
+              ]
+            ],
+            [
+              0,
+              5,
+              "Claim"
+            ],
+            "attack"
+          ],
+          [
+            [
+              [
+                12,
+                17,
+                "Premise"
+              ]
+            ],
+            [
+              0,
+              5,
+              "Claim"
+            ],
+            "support"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "R02_protected_forward_only",
+      "passed": true,
+      "evidence": {
+        "status": "missing_frozen_slot",
+        "queue": false
+      }
+    },
+    {
+      "id": "R02_inverse_clipped",
+      "passed": true,
+      "evidence": {
+        "reverse": {
+          "status": "missing_frozen_slot",
+          "queue": false
+        },
+        "pure_delete_result": []
+      }
+    },
+    {
+      "id": "R02_illegal_direction",
+      "passed": true,
+      "evidence": {
+        "status": "current_direction_illegal",
+        "queue": false
+      }
+    },
+    {
+      "id": "R02_type_replaced",
+      "passed": true,
+      "evidence": {
+        "status": "current_direction_illegal",
+        "queue": false
+      }
+    },
+    {
+      "id": "R02_multi_source_undefined",
+      "passed": true,
+      "evidence": {
+        "status": "unsupported_multi_source",
+        "queue": false
+      }
+    },
+    {
+      "id": "R03_both_success",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 1,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 1,
+          "relation_commits": 1,
+          "component_edits": 2,
+          "relation_edits": 2,
+          "resource_units": 2
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": [
+            "new"
+          ]
+        },
+        "stop": "completed",
+        "events": [
+          "stage1_committed",
+          "stage2_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_stage1_failure",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 0,
+          "component_attempts": 1,
+          "relation_attempts": 0,
+          "solver_calls": 0,
+          "component_commits": 0,
+          "relation_commits": 0,
+          "component_edits": 0,
+          "relation_edits": 0,
+          "resource_units": 1
+        },
+        "state": {
+          "C": [
+            "a"
+          ],
+          "R": [
+            "old"
+          ]
+        },
+        "stop": "stage1_rejected",
+        "events": []
+      }
+    },
+    {
+      "id": "R03_stage2_no_solution",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 1,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 1,
+          "relation_commits": 0,
+          "component_edits": 2,
+          "relation_edits": 1,
+          "resource_units": 2
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": []
+        },
+        "stop": "infeasible",
+        "events": [
+          "stage1_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_stage2_resource_exhausted",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 1,
+          "relation_attempts": 0,
+          "solver_calls": 0,
+          "component_commits": 1,
+          "relation_commits": 0,
+          "component_edits": 2,
+          "relation_edits": 1,
+          "resource_units": 1
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": []
+        },
+        "stop": "resource_before_stage2",
+        "events": [
+          "stage1_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_pure_relation",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 0,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 0,
+          "relation_commits": 1,
+          "component_edits": 0,
+          "relation_edits": 1,
+          "resource_units": 1
+        },
+        "state": {
+          "C": [
+            "a"
+          ],
+          "R": [
+            "extra",
+            "old"
+          ]
+        },
+        "stop": "completed",
+        "events": [
+          "stage2_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_stage2_edit_exhausted",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 1,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 1,
+          "relation_commits": 0,
+          "component_edits": 2,
+          "relation_edits": 1,
+          "resource_units": 2
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": []
+        },
+        "stop": "stage2_relation_budget",
+        "events": [
+          "stage1_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_companion_at_accept_cap",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 3,
+          "component_attempts": 1,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 1,
+          "relation_commits": 1,
+          "component_edits": 2,
+          "relation_edits": 2,
+          "resource_units": 2
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": [
+            "new"
+          ]
+        },
+        "stop": "completed",
+        "events": [
+          "stage1_committed",
+          "stage2_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_stage2_timeout",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 1,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 1,
+          "relation_commits": 0,
+          "component_edits": 2,
+          "relation_edits": 1,
+          "resource_units": 2
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": []
+        },
+        "stop": "timeout_no_incumbent",
+        "events": [
+          "stage1_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_failure_state_not_rolled_back",
+      "passed": true,
+      "evidence": {
+        "ledger": {
+          "outer_attempts": 1,
+          "outer_accepts": 1,
+          "component_attempts": 1,
+          "relation_attempts": 1,
+          "solver_calls": 1,
+          "component_commits": 1,
+          "relation_commits": 0,
+          "component_edits": 2,
+          "relation_edits": 1,
+          "resource_units": 2
+        },
+        "state": {
+          "C": [
+            "b"
+          ],
+          "R": []
+        },
+        "stop": "infeasible",
+        "events": [
+          "stage1_committed"
+        ]
+      }
+    },
+    {
+      "id": "R03_delete_readd_charged",
+      "passed": true,
+      "evidence": {
+        "cumulative": 2,
+        "net": 0
+      }
+    },
+    {
+      "id": "R03_batch_first_stage_only",
+      "passed": true,
+      "evidence": {
+        "candidates": [
+          {
+            "key": "A",
+            "utility": 0.6,
+            "edits": 2,
+            "future_relation_gain": 0.1
+          },
+          {
+            "key": "B",
+            "utility": 0.5,
+            "edits": 2,
+            "future_relation_gain": 10
+          }
+        ],
+        "winner": "A"
+      }
+    },
+    {
+      "id": "R04_split_legal",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            1,
+            2
+          ],
+          "component_cost": 3,
+          "status": "eligible",
+          "current": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "R04_split_outside",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              11,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              11,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            1,
+            2
+          ],
+          "component_cost": 3,
+          "status": "outside_envelope"
+        }
+      }
+    },
+    {
+      "id": "R04_split_overlap",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              6,
+              "Claim"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "status": "new_internal_conflict"
+        }
+      }
+    },
+    {
+      "id": "R04_split_incomplete",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              9,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              9,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            1,
+            2
+          ],
+          "component_cost": 3,
+          "status": "incomplete_envelope"
+        }
+      }
+    },
+    {
+      "id": "R04_merge_inverse",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            2,
+            1
+          ],
+          "component_cost": 3,
+          "status": "eligible",
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "R04_external_conflict",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ],
+            [
+              12,
+              15,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              15,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ],
+            [
+              12,
+              15,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              15,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            2,
+            2
+          ],
+          "component_cost": 4,
+          "status": "unsupported_shape"
+        }
+      }
+    },
+    {
+      "id": "R04_nominal_insert_two_delete",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              4,
+              "Claim"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [],
+          "added": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              4,
+              "Claim"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            2,
+            1
+          ],
+          "component_cost": 3,
+          "status": "single_object_reject"
+        }
+      }
+    },
+    {
+      "id": "R04_split_edit_budget",
+      "passed": true,
+      "evidence": {
+        "input": {
+          "current": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ]
+        },
+        "result": {
+          "deleted": [
+            [
+              0,
+              10,
+              "Claim"
+            ]
+          ],
+          "added": [
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            [
+              5,
+              10,
+              "Claim"
+            ]
+          ],
+          "shape": [
+            1,
+            2
+          ],
+          "component_cost": 3,
+          "status": "component_budget"
+        }
+      }
+    },
+    {
+      "id": "R04_complete_relation_replacement",
+      "passed": true,
+      "evidence": {
+        "deleted_relations": [
+          [
+            [
+              [
+                -5,
+                -1,
+                "Premise"
+              ]
+            ],
+            [
+              0,
+              10,
+              "Claim"
+            ],
+            "support"
+          ],
+          [
+            [
+              [
+                0,
+                10,
+                "Claim"
+              ]
+            ],
+            [
+              12,
+              16,
+              "Claim"
+            ],
+            "support"
+          ],
+          [
+            [
+              [
+                0,
+                10,
+                "Claim"
+              ],
+              [
+                -5,
+                -1,
+                "Premise"
+              ]
+            ],
+            [
+              12,
+              16,
+              "Claim"
+            ],
+            "support"
+          ]
+        ],
+        "added_relations": [
+          [
+            [
+              [
+                -5,
+                -1,
+                "Premise"
+              ]
+            ],
+            [
+              0,
+              4,
+              "Premise"
+            ],
+            "support"
+          ],
+          [
+            [
+              [
+                -5,
+                -1,
+                "Premise"
+              ],
+              [
+                0,
+                4,
+                "Premise"
+              ]
+            ],
+            [
+              12,
+              16,
+              "Claim"
+            ],
+            "support"
+          ],
+          [
+            [
+              [
+                5,
+                10,
+                "Claim"
+              ]
+            ],
+            [
+              12,
+              16,
+              "Claim"
+            ],
+            "support"
+          ]
+        ],
+        "actual_relation_edits": 6
+      }
+    },
+    {
+      "id": "R04_external_hyperedge_legality",
+      "passed": true,
+      "evidence": {
+        "insert": [
+          3,
+          5,
+          "Premise"
+        ],
+        "removed_nonincident_old_relation": [
+          [
+            [
+              0,
+              2,
+              "Premise"
+            ],
+            [
+              6,
+              8,
+              "Premise"
+            ]
+          ],
+          [
+            10,
+            12,
+            "Claim"
+          ],
+          "support"
+        ]
+      }
+    },
+    {
+      "id": "R06_later_batch_after_reject",
+      "passed": true,
+      "evidence": {
+        "rejected_batch": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "later_batch": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "acceptable_fixture_item": 7
+      }
+    },
+    {
+      "id": "R06_cursor_across_rounds",
+      "passed": true,
+      "evidence": {
+        "round1": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "round2": [
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39
+        ]
+      }
+    },
+    {
+      "id": "R06_state_change_reenumerates",
+      "passed": true,
+      "evidence": {
+        "new_state_batch": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "R06_return_state_preserves_cache",
+      "passed": true,
+      "evidence": {
+        "restored_state": "s0",
+        "remaining": []
+      }
+    },
+    {
+      "id": "R06_reference_tie_order",
+      "passed": true,
+      "evidence": {
+        "candidates": [
+          {
+            "utility": 1,
+            "edits": 2,
+            "key": "b"
+          },
+          {
+            "utility": 1,
+            "edits": 1,
+            "key": "c"
+          },
+          {
+            "utility": 1,
+            "edits": 1,
+            "key": "a"
+          }
+        ],
+        "chosen": "a",
+        "actual_ILP_test": false
+      }
+    },
+    {
+      "id": "R06_nonfinite_rejected",
+      "passed": true,
+      "evidence": {
+        "status": "nonfinite_score"
+      }
+    }
+  ],
+  "not_executed": [
+    "real_tokenizer",
+    "autograd",
+    "LoRA",
+    "candidate_production_path",
+    "actual_ILP",
+    "atomic_persistence",
+    "corpus_experiments"
+  ]
+}

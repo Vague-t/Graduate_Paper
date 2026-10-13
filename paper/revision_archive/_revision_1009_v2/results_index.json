@@ -1,0 +1,245 @@
+{
+  "configuration_id": "1009-v2-selfmatch-conditional-reverse-outer-proposal",
+  "evidence_type": "CONSTRUCTED_REFERENCE_ONLY",
+  "source_sha256": "f126a794598174db47b5ce45c7d32991816200c95c7b22fa3e7fe17de844f4cc",
+  "baseline_mechanism_exact_copy": true,
+  "baseline_results_equal": true,
+  "artifacts": [
+    {
+      "file": "reference_config.json",
+      "sha256": "ae8d79d8eab7357a789e307ce30007ee472202f66e455b56eaef85bc3984ae14"
+    },
+    {
+      "file": "validate_mechanisms.py",
+      "sha256": "ba685ae1d43c3c3a02299bc5d36b180ddfe7281c867acc49568b755239dcb5d5"
+    },
+    {
+      "file": "mechanism_results.json",
+      "sha256": "11cf1f0cb51db6d57ac1f27915110032d26c51982e9a22b73a30962dfaa2edc9"
+    },
+    {
+      "file": "validate_interfaces.py",
+      "sha256": "45df5718f7b664606c407e6c8c5261e4bd926f7be65bce3a902d5c0e95f1638c"
+    },
+    {
+      "file": "interface_results.json",
+      "sha256": "d907a69e3202a43139813d49b696c232b584f8d1bc08628873b8f40da8326e65"
+    }
+  ],
+  "checks": {
+    "original_mechanisms": 19,
+    "new_interfaces": 40,
+    "scope": "断言数量不是覆盖率或研究贡献指标"
+  },
+  "revision_status": [
+    {
+      "id": "R01",
+      "locations": "3.6.4、A.4、D.6",
+      "definition_or_text": "revised",
+      "change": "允许自匹配；以有效参考文档统计；长度差分母固定",
+      "production_implementation": "not_integrated",
+      "constructed_tests": [
+        "R01_all_conclusion",
+        "R01_only_one",
+        "R01_nonconclusion_eligible",
+        "R01_region_budget",
+        "R01_no_components",
+        "R01_reference_denominator",
+        "R01_statistics"
+      ],
+      "effect_evaluation": "not_run",
+      "scope": "参考接口已运行"
+    },
+    {
+      "id": "R02",
+      "locations": "4.2.4、4.3.2、4.5.2、A.4",
+      "definition_or_text": "revised",
+      "change": "冻结正逆完整槽位与当前合法性共同决定反向入队",
+      "production_implementation": "not_integrated",
+      "constructed_tests": [
+        "R02_both_slots",
+        "R02_protected_forward_only",
+        "R02_inverse_clipped",
+        "R02_illegal_direction",
+        "R02_type_replaced",
+        "R02_multi_source_undefined"
+      ],
+      "effect_evaluation": "not_run",
+      "scope": "参考接口已运行"
+    },
+    {
+      "id": "R03",
+      "locations": "4.5.2、4.6.1、B.3、D.6",
+      "definition_or_text": "revised",
+      "change": "外层提议和阶段提交分别计数；首阶段择优后真实提交语义",
+      "production_implementation": "not_integrated",
+      "constructed_tests": [
+        "R03_both_success",
+        "R03_stage1_failure",
+        "R03_stage2_no_solution",
+        "R03_stage2_resource_exhausted",
+        "R03_pure_relation",
+        "R03_stage2_edit_exhausted",
+        "R03_companion_at_accept_cap",
+        "R03_stage2_timeout",
+        "R03_failure_state_not_rolled_back",
+        "R03_delete_readd_charged",
+        "R03_batch_first_stage_only"
+      ],
+      "effect_evaluation": "not_run",
+      "scope": "预设阶段结果的参考账本已运行"
+    },
+    {
+      "id": "R04",
+      "locations": "4.5.2、4.6.3、D.4、D.6",
+      "definition_or_text": "revised",
+      "change": "带类型和坐标的拆合、冲突闭合及关系重建计费",
+      "production_implementation": "not_integrated",
+      "constructed_tests": [
+        "R04_split_legal",
+        "R04_split_outside",
+        "R04_split_overlap",
+        "R04_split_incomplete",
+        "R04_merge_inverse",
+        "R04_external_conflict",
+        "R04_nominal_insert_two_delete",
+        "R04_split_edit_budget",
+        "R04_complete_relation_replacement",
+        "R04_external_hyperedge_legality"
+      ],
+      "effect_evaluation": "not_run",
+      "scope": "坐标fixture已运行"
+    },
+    {
+      "id": "R05",
+      "locations": "B.4.1、B.4.2、F.2",
+      "definition_or_text": "revised",
+      "change": "执行材料与待验收规范拆开",
+      "production_implementation": "not_claimed",
+      "constructed_tests": [],
+      "effect_evaluation": "not_run",
+      "scope": "状态与输入输出可追溯"
+    },
+    {
+      "id": "R06",
+      "locations": "2.6、4.5、A.4、B.4.2",
+      "definition_or_text": "revised",
+      "change": "跨轮状态游标、拒绝缓存、多目标破同分与真实模块验收",
+      "production_implementation": "not_integrated",
+      "constructed_tests": [
+        "R06_later_batch_after_reject",
+        "R06_cursor_across_rounds",
+        "R06_state_change_reenumerates",
+        "R06_return_state_preserves_cache",
+        "R06_reference_tie_order",
+        "R06_nonfinite_rejected"
+      ],
+      "effect_evaluation": "not_run",
+      "scope": "仅参考队列和有限排序运行"
+    },
+    {
+      "id": "R07",
+      "locations": "3.6、3.7",
+      "definition_or_text": "revised",
+      "change": "细化审计抽样、生成与过滤归因、同数据学习比较",
+      "production_implementation": "not_claimed",
+      "constructed_tests": [],
+      "effect_evaluation": "not_run",
+      "scope": "真实增强、审计及训练未运行"
+    },
+    {
+      "id": "R08",
+      "locations": "4.6、4.7",
+      "definition_or_text": "revised",
+      "change": "区分冻结候选、OOF、误改、真实资源与全局强对照",
+      "production_implementation": "not_claimed",
+      "constructed_tests": [],
+      "effect_evaluation": "not_run",
+      "scope": "正式推理、实际ILP与成本未运行"
+    },
+    {
+      "id": "R09",
+      "locations": "第五章",
+      "definition_or_text": "revised",
+      "change": "四格复用、错误变化和交互差；缩减重复构造讨论",
+      "production_implementation": "not_claimed",
+      "constructed_tests": [],
+      "effect_evaluation": "not_run",
+      "scope": "四格无可绑定的新运行"
+    },
+    {
+      "id": "R10",
+      "locations": "摘要、Abstract、1.1、6.1",
+      "definition_or_text": "revised",
+      "change": "删除摘要中的检查数量焦点，结论按方法与效果分层",
+      "production_implementation": "not_claimed",
+      "constructed_tests": [],
+      "effect_evaluation": "not_run",
+      "scope": "无新增效果结论"
+    },
+    {
+      "id": "R11",
+      "locations": "2.1.2、图4-2、附录E、全稿",
+      "definition_or_text": "revised",
+      "change": "CDCP触发用途修正，历史记录不变，目录与版面核验",
+      "production_implementation": "not_claimed",
+      "constructed_tests": [],
+      "effect_evaluation": "not_run",
+      "scope": "文档QA另见final_audit与visual_review"
+    }
+  ],
+  "production_acceptance": [
+    {
+      "module": "真实分词三层坐标",
+      "status": "not_run"
+    },
+    {
+      "module": "训练输入隔离",
+      "status": "not_run"
+    },
+    {
+      "module": "自动求导与LoRA",
+      "status": "not_run"
+    },
+    {
+      "module": "连续提示与门控",
+      "status": "not_run"
+    },
+    {
+      "module": "实际损失及末批归一化",
+      "status": "not_run"
+    },
+    {
+      "module": "生产候选构建",
+      "status": "not_run"
+    },
+    {
+      "module": "生产队列调度",
+      "status": "not_run"
+    },
+    {
+      "module": "真实ILP",
+      "status": "not_run"
+    },
+    {
+      "module": "持久化事务与失败恢复",
+      "status": "not_run"
+    },
+    {
+      "module": "正式严格评价器",
+      "status": "not_run"
+    }
+  ],
+  "corpus_experiments": {
+    "AAEC": "not_run",
+    "CDCP": "not_run",
+    "four_cell": "not_run"
+  },
+  "docx_sha256": "16364fcc76403f7863dc84c4524224b2e4f78442a528a5cefb9f1927eef9cde6",
+  "document_qa": {
+    "pages": 90,
+    "mechanical": "PASS",
+    "visual": "PASS",
+    "formal_experiments": "not_run"
+  }
+}

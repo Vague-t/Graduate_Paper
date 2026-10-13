@@ -1,0 +1,263 @@
+{
+  "evidence_type": "CONSTRUCTED_EXECUTION_NOT_CORPUS_EXPERIMENT",
+  "checks": [
+    {
+      "id": "center_determinism",
+      "status": "PASS",
+      "evidence": {
+        "center": [
+          10,
+          11,
+          "Claim"
+        ]
+      }
+    },
+    {
+      "id": "empty_and_fallback",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "long_gold_hyperedge",
+      "status": "PASS",
+      "evidence": {
+        "source_members": 4,
+        "region_components": 5
+      }
+    },
+    {
+      "id": "region_budget_no_truncation",
+      "status": "PASS",
+      "evidence": {
+        "original_gold_preserved": true
+      }
+    },
+    {
+      "id": "coordinate_transport",
+      "status": "PASS",
+      "evidence": {
+        "text": "aaaa b cc",
+        "mapping": [
+          [
+            [
+              0,
+              2,
+              "Claim"
+            ],
+            [
+              0,
+              4,
+              "Claim"
+            ]
+          ],
+          [
+            [
+              3,
+              5,
+              "Premise"
+            ],
+            [
+              5,
+              6,
+              "Premise"
+            ]
+          ],
+          [
+            [
+              6,
+              8,
+              "Claim"
+            ],
+            [
+              7,
+              9,
+              "Claim"
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "four_factor_classes",
+      "status": "PASS",
+      "evidence": {
+        "('internal', 'NONE')": 1,
+        "('boundary', 'NONE')": 3,
+        "('internal', 'positive')": 1,
+        "('boundary', 'positive')": 1
+      }
+    },
+    {
+      "id": "source_weights",
+      "status": "PASS",
+      "evidence": {
+        "0": [
+          1
+        ],
+        "1": [
+          1,
+          1.0
+        ],
+        "2": [
+          1,
+          0.5,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "protected_candidates",
+      "status": "PASS",
+      "evidence": {
+        "retained": [
+          "high",
+          "protected"
+        ]
+      }
+    },
+    {
+      "id": "queue_category_coverage",
+      "status": "PASS",
+      "evidence": {
+        "queue": [
+          "0-0",
+          "1-0",
+          "2-0",
+          "3-0",
+          "4-0",
+          "5-0"
+        ]
+      }
+    },
+    {
+      "id": "pairwise_conflict",
+      "status": "PASS",
+      "evidence": {
+        "compatible_endpoints": [
+          "a",
+          "c"
+        ]
+      }
+    },
+    {
+      "id": "nonincident_new_slot",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "invalid_old_hyperedge_expansion",
+      "status": "PASS",
+      "evidence": {
+        "removed_hyperedge": [
+          [
+            "a",
+            "c"
+          ],
+          "t",
+          "Reason"
+        ]
+      }
+    },
+    {
+      "id": "sequential_vs_joint",
+      "status": "PASS",
+      "evidence": {
+        "delta_component": 0.6,
+        "delta_relation": -0.7,
+        "delta_total": -0.1,
+        "joint_accept": false,
+        "stage1_accept": true,
+        "stage2_accept": true,
+        "sequential_cost_C": 2,
+        "sequential_cost_R": 2
+      }
+    },
+    {
+      "id": "stage2_failure_keeps_intermediate",
+      "status": "PASS",
+      "evidence": {
+        "relation_count_on_timeout": 0,
+        "deleted_old_relation_cost": 1
+      }
+    },
+    {
+      "id": "oracle_set_inclusions",
+      "status": "PASS",
+      "evidence": {
+        "all_legal": 30,
+        "one": 7,
+        "multi": 29,
+        "global": 29
+      }
+    },
+    {
+      "id": "oracle_exact_values",
+      "status": "PASS",
+      "evidence": {
+        "initial": 66.66666666666666,
+        "one": 66.66666666666666,
+        "multi": 100.0,
+        "global": 100.0
+      }
+    },
+    {
+      "id": "cumulative_vs_net",
+      "status": "PASS",
+      "evidence": {
+        "cumulative": [
+          2,
+          0
+        ],
+        "net": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "duplicate_and_empty_evaluation",
+      "status": "PASS",
+      "evidence": {}
+    },
+    {
+      "id": "micro_oracle_counterexample",
+      "status": "PASS",
+      "evidence": {
+        "per_document_choice": [
+          [
+            1,
+            0,
+            999
+          ],
+          [
+            1,
+            0,
+            9
+          ]
+        ],
+        "per_document_micro": 0.3952569169960474,
+        "corpus_choice": [
+          [
+            1,
+            0,
+            999
+          ],
+          [
+            9,
+            81,
+            1
+          ]
+        ],
+        "corpus_micro": 1.8165304268846505
+      }
+    }
+  ],
+  "passed": 19,
+  "oracle": {
+    "initial": 66.66666666666666,
+    "one": 66.66666666666666,
+    "multi": 100.0,
+    "global": 100.0
+  },
+  "code_sha256": "ba685ae1d43c3c3a02299bc5d36b180ddfe7281c867acc49568b755239dcb5d5"
+}

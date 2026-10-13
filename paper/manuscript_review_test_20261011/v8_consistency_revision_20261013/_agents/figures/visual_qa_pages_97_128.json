@@ -1,0 +1,535 @@
+{
+  "reviewed_at": "2026-10-13T09:17:03.869792+08:00",
+  "render_version": "_render_02",
+  "scope": "物理页97–128；只读视觉QA，不验证实验真实性或全文事实。",
+  "method": "逐张实际调用tools.view_image打开全部32张原始页面PNG，分8批每批4页；未用缩略拼图替代逐页检查。页脚敏感位置另以原PNG裁切4倍放大确认。",
+  "overall_status": "PASS_WITH_NONBLOCKING_STYLE_OBSERVATION",
+  "actually_opened_pages": [
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "page_count": 32,
+  "blocking_issue_count": 0,
+  "findings": [
+    {
+      "id": "STYLE-01",
+      "severity": "low",
+      "blocking": false,
+      "physical_pages": [
+        116,
+        126,
+        127,
+        128
+      ],
+      "description": "表H-1及S2-5至S2-9使用黑实线、白表头，前面的多数表使用灰细线、灰表头；左边界也略偏左。所有内容仍在正文边界内且清晰可读。",
+      "suggestion": "可在统一表格外观时归一，当前不构成交付阻塞；本次未改DOCX。"
+    }
+  ],
+  "resolved_checks": [
+    {
+      "id": "FOOTER-01",
+      "physical_pages": [
+        119,
+        120,
+        122,
+        123,
+        125,
+        126
+      ],
+      "initial_observation": "整页缩放显示下前导11不清晰，曾怀疑页码缺位。",
+      "verification": "对原PNG页脚局部4倍放大，并核对PDF文字对象，确认111/112/114/115/117/118全部完整；属于整页显示下的视觉误读。",
+      "status": "CLOSED_NO_DEFECT",
+      "requires_document_change": false
+    }
+  ],
+  "focus_checks": {
+    "table_F_added_symbol_rows": "PASS: G0/Grank/Gpre/I0/R_DC/I1均完整，跨页表头正常。",
+    "long_table_continuations": "PASS: A-3 98→99、E-2 107→108、F-1 111→112、H-5 117→118、S2-3 123→124、S2-4 124→125、S2-6 126→127。",
+    "font_glyphs": "未见中文方框、缺失符号或乱码。",
+    "overlap_clipping": "未发现文字相互重叠、表格越界或正文/页脚碰撞。",
+    "whitespace": "119等章末短页存在自然留白，未发现意外全空页或孤立空白页。",
+    "headers_footers": "已查看页眉和页码，没有正文覆盖；页码连续89–120。",
+    "footnotes": "本段未见需单独验收的页底脚注。"
+  },
+  "pages": [
+    {
+      "physical_page": 97,
+      "printed_page": 89,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-97.png",
+      "sha256": "640f7ece2412dd9274ca641888f20f92ff89139258b78facbd0195bbb35412bb",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "附录A标题、表A-1哈希换行及后文均完整。"
+    },
+    {
+      "physical_page": 98,
+      "printed_page": 90,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-98.png",
+      "sha256": "b6ea846f5ffcde05b58ed10dbee21a36cda4d5470f47c4d4241cfe9929092418",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表A-2完整；表A-3开始并自然延续下一页，页脚留距正常。"
+    },
+    {
+      "physical_page": 99,
+      "printed_page": 91,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-99.png",
+      "sha256": "9b68d6527384c67667aab6024a2f57efc8ab3fe26112345f52de1dcc5b55c360",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表A-3续页重复表头正常；A.5及表A-4完整。"
+    },
+    {
+      "physical_page": 100,
+      "printed_page": 92,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-100.png",
+      "sha256": "b0edb1c1638ad722421a6ef78a02f95d2c2487f98e9579a216fe0d5a0daa5089",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表A-5长哈希换行正常；A.6原文JSON和中文段落完整。"
+    },
+    {
+      "physical_page": 101,
+      "printed_page": 93,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-101.png",
+      "sha256": "af57d4050bfaf055abe655e8db15141a502c39c1a76704ad20b51f1fdcebbe67",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "附录B各小节清晰，末段跨页正常。"
+    },
+    {
+      "physical_page": 102,
+      "printed_page": 94,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-102.png",
+      "sha256": "33a37479e9c5c5f6c96c632a912825842f35c11a40f1c6130cd530c4ba19e518",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表B-1英文检查项自动换行，列边界完整；B.4.3无裁切。"
+    },
+    {
+      "physical_page": 103,
+      "printed_page": 95,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-103.png",
+      "sha256": "df9b5469e63c10afc1d2b1c536372275a52323c874b219528e827e89f6522601",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "B.5/B.6中文、公式及希腊符号完整；附录末页留白正常。"
+    },
+    {
+      "physical_page": 104,
+      "printed_page": 96,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-104.png",
+      "sha256": "1a28effb10d3521c1ca431cc87b2a5445856483f6ab2a3cead40fd3a375f76ee",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "附录C短章，标题与段落清晰，下部留白正常。"
+    },
+    {
+      "physical_page": 105,
+      "printed_page": 97,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-105.png",
+      "sha256": "fb9f5fc1e1a2d2206f13c07b39953ed909449d639602c4822ab9b8576c7fec33",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表D-1完整，表后解释正常换行且未触碰页脚。"
+    },
+    {
+      "physical_page": 106,
+      "printed_page": 98,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-106.png",
+      "sha256": "48774877c6bf69f6b264228cec4ee4685647f6e02bdc2424fa7715039001be1f",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "D.3/D.4公式上标与段落清晰，下部为正常章末留白。"
+    },
+    {
+      "physical_page": 107,
+      "printed_page": 99,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-107.png",
+      "sha256": "7e0668c13040f86c8fc36083788a7c05fa15217bb50a3fd2a5d3c22c078b370a",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表E-1完整；表E-2自然续页，方法名可读。"
+    },
+    {
+      "physical_page": 108,
+      "printed_page": 100,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-108.png",
+      "sha256": "53fb530411825f94bf06b69a9b4fb79556412382f3930e811ad103fa390b2c12",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表E-2续页表头正常；E-3/E-4表格均无越界。"
+    },
+    {
+      "physical_page": 109,
+      "printed_page": 101,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-109.png",
+      "sha256": "60a7fe96951ae14e0d71cda0c1cbeea87853daeded5ee7fc459aa210532f5379",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表E-5/E-6完整，子脚标、百分数及箭头可读。"
+    },
+    {
+      "physical_page": 110,
+      "printed_page": 102,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-110.png",
+      "sha256": "c489b8ad4676ab1b826ce53e55ec87a61a215bd6a1c5d58fef04fb72910247bb",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表E-7/E-8完整，方法名和长英文均在边界内。"
+    },
+    {
+      "physical_page": 111,
+      "printed_page": 103,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-111.png",
+      "sha256": "14d19bb4a050d83f7300ce3ffc1e64cbc095a05a3d372e48c80ec1ffdd9ab104",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表F-1第一页，G0与Grank等符号正常显示，底部行及边界完整。"
+    },
+    {
+      "physical_page": 112,
+      "printed_page": 104,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-112.png",
+      "sha256": "95b372697b0a1f65a2d2a66db5bf59a7ac50b09a2aedcbd0c42a3ed7990320fc",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表F-1续页重复表头；Gpre、I0、R_DC、I1新增行完整，边界及下标无裁切。"
+    },
+    {
+      "physical_page": 113,
+      "printed_page": 105,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-113.png",
+      "sha256": "28fd8bcd5f6be598cc54391c324d9e52003d7e9deb05c03bb06018dbacb25ef7",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "F.2续段、F.3及表F-2完整，接口名换行正常。"
+    },
+    {
+      "physical_page": 114,
+      "printed_page": 106,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-114.png",
+      "sha256": "807e40cbedd7655db992cc9ae12a8ec3c3f8470d90f88fbd7e8ace786d93b43a",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "附录G标题、G.1/G.2与表G-1正常；表后正文不碰页脚。"
+    },
+    {
+      "physical_page": 115,
+      "printed_page": 107,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-115.png",
+      "sha256": "b1675e630ccf033ca6b0fa06cc7f2457d3723692ea30a205206334817bbc00f9",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表G-2/G-3完整；章末留白正常。"
+    },
+    {
+      "physical_page": 116,
+      "printed_page": 108,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-116.png",
+      "sha256": "dec9e29a0f8ca5e2bd5425a42d5760b58fd4ed58b6a09028f548070a7e927d06",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表H-1/H-2/H-3均完整；H-1样式与相邻表不同，列为非阻塞观察。"
+    },
+    {
+      "physical_page": 117,
+      "printed_page": 109,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-117.png",
+      "sha256": "1685d8401fc6e2996fab360c6bc6cd3cb325a41e2747cc80af891f685039fc5a",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表H-4完整；表H-5自然续页，未见行裁断。"
+    },
+    {
+      "physical_page": 118,
+      "printed_page": 110,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-118.png",
+      "sha256": "250f79cbfe772de045c9175d4227f727efa1767438552c6b5ae71a7076798459",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表H-5重复表头正常；表H-6完整。"
+    },
+    {
+      "physical_page": 119,
+      "printed_page": 111,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-119.png",
+      "sha256": "78b62b6e648964722e20605bd87e9bf0b9af9d5fe09f119ce23bbc1dcf3d72ba",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "H.6短段落完整；追加放大原PNG页脚确认111完整。"
+    },
+    {
+      "physical_page": 120,
+      "printed_page": 112,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-120.png",
+      "sha256": "31bdaefb0509b7e9834d3b7c794cdc4020a117372b7078231a64e34a6f03adba",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "附录I与表I-1完整；追加放大原PNG页脚确认112完整。"
+    },
+    {
+      "physical_page": 121,
+      "printed_page": 113,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-121.png",
+      "sha256": "e791304d4f872225982131b4a6e22928f5885d9462d43ed312abe2190939447e",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表I-2长ID/哈希正常换行；页脚113完整。"
+    },
+    {
+      "physical_page": 122,
+      "printed_page": 114,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-122.png",
+      "sha256": "6bfb45a997fb111ff01bacab2b84f39f98c4af9968e0a06ed61390b71df2b173",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "附录J与S2.1/S2.2完整；追加放大原PNG页脚确认114完整。"
+    },
+    {
+      "physical_page": 123,
+      "printed_page": 115,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-123.png",
+      "sha256": "9fac4e605ab4edaab4f5f750a048be265ca38339afb8e2470bcf6c68d272fb9d",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表S2-2与S2-3第一部分完整；LoRA、公式上标及64槽位可读；页脚115完整。"
+    },
+    {
+      "physical_page": 124,
+      "printed_page": 116,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-124.png",
+      "sha256": "b09ae2e643a11e7fd494abec1c01998ecfc119db61a00da6d21449d0bf31d053",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表S2-3续页和S2-4第一部分正常，重复表头与预算路由行完整；页脚116正常。"
+    },
+    {
+      "physical_page": 125,
+      "printed_page": 117,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-125.png",
+      "sha256": "d3a660e593ce4f0198a08bbaa5bae50b583dd15cede97ffaab08d17fa6f12ca5",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表S2-4续页正常；S2.5末段延续下一页，未见裁切；页脚117完整。"
+    },
+    {
+      "physical_page": 126,
+      "printed_page": 118,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-126.png",
+      "sha256": "4745c5e2ed6f35c503187ef838515faad837e0c2b4bdcde331c216f422f56bc4",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表S2-5完整，表S2-6开始并续页，均无溢出；黑边白头样式列为观察；页脚118完整。"
+    },
+    {
+      "physical_page": 127,
+      "printed_page": 119,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-127.png",
+      "sha256": "3a02695af9f1d67da4e43dcf879d1d35b00d463ac141f76238caa3834b125b88",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表S2-6重复表头正常；S2.7公式和表S2-7完整；页脚119正常。"
+    },
+    {
+      "physical_page": 128,
+      "printed_page": 120,
+      "png_path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v8_consistency_revision_20261013/_render_02/page-128.png",
+      "sha256": "82f5cb8d7af033deabcb514e69f4e4e6c02d3ed5f3ede2c6c9dff628331122d2",
+      "dimensions_px": [
+        827,
+        1170
+      ],
+      "actual_opened_with": "tools.view_image",
+      "individual_full_page_review": true,
+      "status": "PASS",
+      "notes": "表S2-8、S2.8及表S2-9完整，末段未裁切；页脚120正常。"
+    }
+  ],
+  "document_mutated": false
+}

@@ -1,0 +1,266 @@
+[B0906] p | heading 1 | math=0
+附录A 数据处理与复现协议
+
+[B0907] p | heading 2 | math=0
+A.1 三层坐标与异常保留
+
+[B0908] p | Body Text | math=0
+原始字符坐标采用半开区间[start,end)，Python字符串按Unicode码点切片。评价token采用固定正则分词，模型子词保留offset mapping；词内边界另存字符残差，坐标往返转换不得隐式扩展边界。原生AAEC／CDCP共10,986个组件，其中AAEC训练3个、测试2个，CDCP训练19个、测试0个不与整词边界完全对齐；全部24个保持原字符身份。坐标和关系引用审计均无越界或悬空端点。
+
+[B0909] p | heading 2 | math=0
+A.2 配置与结果关联
+
+[B0910] p | caption | math=0
+表A-1 输入与核心记录SHA-256
+
+[B0911] tbl |  | math=0
+文件 | SHA-256
+data/corpus.jsonl | 7dff0832622e39125fa52fa18cb9dfda169af5b2e33b71d8c03f9410af167a5d
+results/split_manifest.json | e6b1b675e0e58754cd0aa561c484cb3138ee076f85f30b0950967f11d6e947b0
+results/training_roles.json | 17bb1997a7a8fae47cd0c39143ca7fb27f9b155cf958887af0f7b068ddb4afb5
+results/registration_complete.json | 58cb1867ac0114c9e394c29a69d86e1e9c9f12221fdd0b2842d6aa9adae8902f
+results/training_counts.jsonl | 0e5d82b7e425464682f333c4d75f8d67a505e4d1a481701b5ec8d4987676da45
+results/frozen_snapshots.jsonl | e7e5c57b19169f501fcd5a0786259432f5ab1dc3e2524ad8f13ba9b6c5df31b4
+results/prediction_graphs.jsonl | 799f2a58ea58fde68ee8f94906130088eb0abba22b817927d5551afbae42896c
+
+[B0912] p | Body Text | math=0
+主结果以dataset／document／seed／method连接预测、候选、评分、事务和成本。主实验各模块的基础权重统一为Qwen/Qwen3.5-9B，固定revision见附录J；抽取检查点采用rt-q35-9b-语料-方法-s种子-e5，OOF、S评分头、P提案头采用独立前缀。原始上传及划分摘要保存在相应manifest，不以检查点名称代替执行状态。
+
+[B0913] p | heading 2 | math=0
+A.3 补充语料范围
+
+[B0914] p | Body Text | math=0
+CasiMedicos和ArgUNSC使用提供的转换文件的正文、类型、标签与split，不添加不存在的官方划分。CasiMedicos的69条空正文记录原样保留，不计为模型成功解析；ArgUNSC的144条均为unsplit_author_release。补充案例只分析标注结构，主效果仍基于AAEC与CDCP。
+
+[B0915] p | heading 2 | math=0
+A.4 默认与可选设置
+
+[B0916] p | caption | math=0
+表A-2 固定配置及可选策略
+
+[B0917] tbl |  | math=0
+状态／项目 | 设置
+默认 | 原文完整生成＋可靠因素监督＋组件及关系对齐
+默认κ／δ | κC=1；κR AAEC=1、CDCP=0.5；δ=0.20
+开发选择顺序 | 开发风险过滤后按F1选择κR与δ；不依据测试结果调参
+默认推理 | 完整I0后追加R_DC：分项效用门＋追加净／累计编辑预算；n≤2500全局，否则单对象局部
+保护 | I0终态G0对象不裁剪；缺分保持未知；追加初始化失败返回G0，局部中断保留最近完整合法图
+可选 | 完整影响域整例筛选、匹配随机中心、集合动作、无环硬约束
+关闭 | 跨域训练、跨语言共享标签、测试侧校准、用金标补回外部系统端点
+主要比较 | 7组×2语料；关系micro-F1；2000次联合重采样；Holm α=0.05
+
+[B0918] p | Body Text | math=0
+组件与关系头分开校准，q=sigmoid(a·logit(rawq)+b)。开发κ按上述固定顺序判断，不按测试结果选取；同一文档的全部对象共用其语料、种子和对象族的校准参数。
+
+[B0919] p | caption | math=0
+表A-3 Platt参数
+
+[B0920] tbl |  | math=0
+语料 | 种子 | 对象族 | 样本n | a | b
+AAEC | 17 | C | 1075 | 1.272058 | 1.147282
+AAEC | 17 | R | 4592 | 1.110773 | 0.484872
+AAEC | 29 | C | 1097 | 1.143471 | 1.054432
+AAEC | 29 | R | 4704 | 1.028630 | 0.215347
+AAEC | 43 | C | 1091 | 1.146826 | 1.070331
+AAEC | 43 | R | 4994 | 1.012369 | 0.186127
+CDCP | 17 | C | 1021 | 1.039028 | 0.771104
+CDCP | 17 | R | 2338 | 0.791639 | -0.577507
+CDCP | 29 | C | 1014 | 1.035800 | 0.768269
+CDCP | 29 | R | 2320 | 0.963999 | -0.188451
+CDCP | 43 | C | 988 | 1.033701 | 0.815388
+CDCP | 43 | R | 2236 | 0.884451 | -0.359669
+
+[B0921] p | heading 2 | math=0
+A.5 登记与跨章复用
+
+[B0922] p | Body Text | math=0
+登记标识RT-PREREG-01，版本rt-v1.0-frozen。事件时钟以D0为原点，保存配置冻结、训练、OOF与校准、策略选择、测试评价及追加敏感性的顺序；敏感性明确置于主要比较之后，不作为追加主要假设。各事件绑定同一登记JSON与文件摘要。
+
+[B0923] p | caption | math=0
+表A-4 登记事件序列
+
+[B0924] tbl |  | math=0
+事件 | 相对时刻
+protocol_and_source_hash_freeze | D0 + 0秒
+training_and_augmentation | D0 + 3600秒
+OOF_and_calibration | D0 + 172800秒
+strategy_selection | D0 + 259200秒
+test_labels_unsealed | D0 + 388800秒
+CDCP_failure_condition_sensitivity_registered | D0 + 432000秒
+
+[B0925] p | Body Text | math=0
+在三个种子下，NoPair、CompPair和T1I0使用相同的增强视图与掩码，文件摘要见表A-5。
+
+[B0926] p | caption | math=0
+表A-5 同数据成对比较输入摘要
+
+[B0927] tbl |  | math=0
+语料 | 配置 | 视图身份SHA-256 | 掩码身份SHA-256
+AAEC | NoPair | 38a7254c9fd0c301d887328973566a9f0c51f6e81f89ceb42677fbcba38b6ee8 | eeab9726b1bd0a6e792f90ece16702b9f79aba3732627fea37750d6c73afd800
+AAEC | CompPair | 38a7254c9fd0c301d887328973566a9f0c51f6e81f89ceb42677fbcba38b6ee8 | eeab9726b1bd0a6e792f90ece16702b9f79aba3732627fea37750d6c73afd800
+AAEC | T1I0 | 38a7254c9fd0c301d887328973566a9f0c51f6e81f89ceb42677fbcba38b6ee8 | eeab9726b1bd0a6e792f90ece16702b9f79aba3732627fea37750d6c73afd800
+CDCP | NoPair | 64c85c779e1766a0d133ffebe9b8866ed2c33bc2bbc570edda850d3f31ae253f | 31f11653481964213dc74d921abad0fd263484354279963a483a60d220861341
+CDCP | CompPair | 64c85c779e1766a0d133ffebe9b8866ed2c33bc2bbc570edda850d3f31ae253f | 31f11653481964213dc74d921abad0fd263484354279963a483a60d220861341
+CDCP | T1I0 | 64c85c779e1766a0d133ffebe9b8866ed2c33bc2bbc570edda850d3f31ae253f | 31f11653481964213dc74d921abad0fd263484354279963a483a60d220861341
+
+[B0928] p | heading 2 | math=0
+A.6 原文序列化与无损对象身份
+
+[B0929] p | Body Text | math=0
+以AAEC essay001的真实原生关系为例，核心序列化为：
+
+[B0930] p | Source Code | math=0
+{"document":"essay001","components":[{"id":"T3","start":591,"end":714,"type":"Claim"},{"id":"T4","start":716,"end":851,"type":"Premise"}],"relations":[{"sources":["T4"],"target":"T3","type":"supports"}]}
+
+[B0931] p | Body Text | math=0
+字符片段逐字等于表3-1。显示编号可变，规范键固定为文档、字符跨度和类型；关系键进一步含规范排序的完整源集合、目标和标签。转换仅做显式大小写映射与坐标输运，不恢复缺失端点。AAEC stance保留为属性，不补造supports／attacks边。
+
+[B0932] p | heading 1 | math=0
+附录B 评分与事务执行记录
+
+[B0933] p | heading 2 | math=0
+B.1 数据与模型身份
+
+[B0934] p | Body Text | math=0
+追加修正快照保存I0终态G0、完整候选V/P、固定q及未校准分数、κ、种子和语料身份。inherited_stages_v9.jsonl以同一文档、种子及训练配置连接Grank、Gpre和BR-O返回的G0；继承图与追加事务的来源与执行状态按附录J的S2.3和S2.6登记。模型、分词器、OOF、校准与状态分别登记。
+
+[B0935] p | heading 2 | math=0
+B.2 评分与接受轨迹
+
+[B0936] p | Body Text | math=0
+追加事务记录至少含步骤、组件新增／删除、关系新增／删除、提交前后分项效用、评分版本及停止原因。终态净变化相对I0终态G0计算；局部累计编辑对追加阶段的全部提交逐次求和，BR-O编辑另行登记。每次提交后检查关系端点存在、跨度兼容、标签互斥和CDCP完整源连续性。事务拒绝不改变当前图，计算成本仍计入。
+
+[B0937] p | heading 2 | math=0
+B.3 回退与预算
+
+[B0938] p | Body Text | math=0
+追加修正从I0终态G0开始计数：全局路径净编辑≤24／96，局部路径累计编辑≤24／96，均不包含BR-O已有编辑。局部每轮最多32次尝试、3次接受，最多4轮；提交已有合格项不额外要求新的尝试额度。全局超时有incumbent时复核全部门与约束，无有效改进则返回G0。局部事务拒绝保留当前图，提交失败回滚到本次提交前的完整合法图，中断仅返回最近完整状态；尚无追加提交时，该状态即G0。继承与追加阶段已使用的时间、模型调用和token均不因回退退还。
+
+[B0939] p | heading 2 | math=0
+B.4 实现一致性验收
+
+[B0940] p | heading 3 | math=0
+B.4.1 对象计数与快照重放
+
+[B0941] p | Body Text | math=0
+CPU参考程序逐项核对8970个输出图及严格计数、重放6900个终态和2838次已接受事务，并验证金标供给、端点链与四种配置的关系成员计数恒等式。reference_validation.json记录执行结果；相关配置与执行状态见附录J的S2.3和S2.6。
+
+[B0942] p | heading 3 | math=0
+B.4.2 训练与求解接口
+
+[B0943] p | caption | math=0
+表B-1 接口验收与故障注入
+
+[B0944] tbl |  | math=0
+检查 | 输入数 | 通过 | 失败 | 输出与判定
+coordinates | 10986 | 10986 | 0 | 24 partial-token spans retain residual character offsets
+answer_mask | 288 | 288 | 0 | max hidden difference under answer replacement=0
+gradient_path | 36 | 36 | 0 | shared adapter norm C=.0118 R=.0064; base delta=0; specialized branch align gradient=0
+normalization | 48 | 48 | 0 | empty group=0; duplicate-view normalization max error=1.1e-7; last batch correct
+candidate_protection | 720 | 720 | 0 | protected objects lost=0; 12 resource overflow cases return G0
+MILP_feasibility | 240 | 240 | 0 | small-graph exhaustive objective max error=1.2e-8
+timeout | 60 | 60 | 0 | timeout with incumbent=38; without incumbent=22; legal output=60
+commit_rollback | 40 | 40 | 0 | injected commit failure restores full graph/hash; compute cost retained
+interrupt_resume | 24 | 24 | 0 | resume terminal semantic hash matches uninterrupted run
+native_object_counts | 320 | 320 | 0 | full source-set identity; proper subset not a hit
+score_missing | 60 | 60 | 0 | NaN/absent scored as missing; no default low score
+tie_break | 240 | 240 | 0 | fixed lexicographic tie order completed
+
+[B0945] p | Body Text | math=0
+表B-1各项的输入／输出身份与配置共同保存；坐标、原生计数及CPU事务另有可执行参考复算记录。故障注入“通过”指满足预期返回，而非未发生故障。
+
+[B0946] p | heading 3 | math=0
+B.4.3 资源边界与证书
+
+[B0947] p | Body Text | math=0
+接口检查覆盖候选溢出、超时、有／无可行解、提交失败、中断恢复、缺分和破同分的全部返回分支。主参考求解的正常输入无超时，最优目标gap为0；参考实现不执行三级词典序破同分，因此只声明最优目标值，不声明多解时唯一语义输出。正常输入与故障挑战记录分别汇总，不混用时限比例。
+
+[B0948] p | heading 2 | math=0
+B.5 案例统一记录
+
+[B0949] p | Body Text | math=0
+案例保留语料、文档ID、split、全文SHA-256、原文、组件跨度类型、完整关系、预测前后集合和TP/FP/FN。实际CPU规则仅使用训练侧类型签名及预测跨度距离；案例选择为事后解释，原始输出与失败均保留。原生标注案例不附加模型行为。
+
+[B0950] p | heading 2 | math=0
+B.6 固定评分性质的证明
+
+[B0951] p | Body Text | math=0
+固定对象权重aX(o)=2qX(o)−κX时，两个图的共同对象抵消，故效用差严格等于新增权重之和减去删除权重之和。类型或边界变化产生新键，全部依赖关系参与差集，不能通过沿用显示ID隐藏代价。
+
+[B0952] p | Body Text | math=0
+取两个兼容旧组件c1=[0,4)、c2=[4,8)，以及与二者均冲突的新组件b=[0,8)。三者类型相同，当前与候选关系集合均为空。令κC=1、wC=wR=1、δ=0.20，qC(c1)=qC(c2)=0.65、qC(b)=0.95。旧效用为0.30+0.30=0.60，新效用为0.90，故ΔΦC=0.30、ΔΦR=0，总增量严格大于δ。组件预算至少为3时，2→1集合事务可以接受。
+
+[B0953] p | Normal | math=0
+单独删除任一旧组件的效用增量为−0.30，不能通过严格改进门。插入b或仅声明替换一个旧组件，都必须经冲突闭合删除另一个旧组件，其实际形态仍是2→1，因而不属于单对象邻域。该构造说明集合动作的可达性，不证明真实F1改善。
+
+[B0954] p | Body Text | math=0
+有限候选形成有限状态空间。若每次接受严格增加同一固定效用，则任何状态都不能再访，因此接受序列有限终止。实际预算可以更早停止；缺分、动态重评分或改变κ会破坏该命题的前提，必须重新定义运行身份。真实F1仍取决于未知TP与预测总量，固定效用单调不构成F1单调保证。
+
+[B0955] p | heading 1 | math=0
+附录C 成果归属与材料说明
+
+[B0956] p | heading 2 | math=0
+C.1 已有工作
+
+[B0957] p | Body Text | math=0
+MCR-BR[34]的专项适配、线索提示、多候选整图重排序及有界修改作为已有基础。LoRA、MLP、JS散度和整数规划是实现工具。本文深化可靠监督对应及修改后的完整依赖决策，两阶段组合比较用于区分条件增量与交互，不作为独立算法创新。
+
+[B0958] p | heading 2 | math=0
+C.2 材料可得性
+
+[B0959] p | Body Text | math=0
+配套材料包括规范化语料、共同配置、主模型及外部适配逐文档计数、候选、评分、事务、审核、成本与共同抽样索引。表3-6、表4-6和表5-3已从完整联合计数重新生成；引用原文保持原拼写，案例以全文SHA-256、字符区间和原生身份定位。记录类型与复算入口见附录J。
+
+[B0960] p | heading 2 | math=0
+C.3 记录与版本
+
+[B0961] p | Body Text | math=0
+主实验、失败分析、MCR-BR已发表结果与CPU诊断案例分别保留来源标识。完整文件清单及SHA-256记录于final_manifest，可用于核对正文表格、记录文件与复算脚本的对应关系。
+
+[B0962] p | heading 1 | math=0
+附录D CDCP失败条件与实际案例流程
+
+[B0963] p | heading 2 | math=0
+D.1 弱评分版本的回退
+
+[B0964] p | Body Text | math=0
+v0的初始关系F1为39.81。所有测试过的κ与校准条件均不满足开发TP保留，部署返回初始图；强制输出仅用于表4-18。该记录与主实验v1不共享检查点或候选快照，不能将v0→v1差值称为单一阈值消融。
+
+[B0965] p | heading 2 | math=0
+D.2 主版本的策略选择
+
+[B0966] p | caption | math=0
+表D-1 主评分条件下的开发选择
+
+[B0967] tbl |  | math=0
+语料 | κR / δ | 原TP | 误删TP | 损失率 | 汇总关系F1 | 合格
+AAEC | 1.00 / 0.01 | 598 | 3 | 0.50% | 73.25 | 是
+AAEC | 1.00 / 0.05 | 598 | 3 | 0.50% | 73.25 | 是
+AAEC | 1.00 / 0.10 | 598 | 3 | 0.50% | 73.25 | 是
+AAEC | 1.00 / 0.20 | 598 | 3 | 0.50% | 73.25 | 是
+CDCP | 1.00 / 0.01 | 130 | 41 | 31.54% | 46.42 | 否
+CDCP | 1.00 / 0.05 | 130 | 35 | 26.92% | 48.31 | 否
+CDCP | 1.00 / 0.10 | 130 | 29 | 22.31% | 50.24 | 否
+CDCP | 1.00 / 0.20 | 130 | 25 | 19.23% | 50.57 | 否
+CDCP | 0.50 / 0.01 | 130 | 0 | 0.00% | 53.47 | 是
+CDCP | 0.50 / 0.05 | 130 | 0 | 0.00% | 53.47 | 是
+CDCP | 0.50 / 0.10 | 130 | 0 | 0.00% | 53.47 | 是
+CDCP | 0.50 / 0.20 | 130 | 0 | 0.00% | 53.47 | 是
+
+[B0968] p | Body Text | math=0
+表D-1中，CDCP的κR=1在全部δ条件下均未满足5%的原TP损失限制，κR=0.5则全部合格；AAEC的κR=1亦全部合格。参数选择保持相同的5%限制，先在合格条件中最大化汇总关系F1，再按4.3.1节的平局规则选择δ=0.20。开发F1由三个种子的计数汇总后计算，主测试分数则为逐种子F1均值。此处原TP以相应I0终态G0为参照，须在相同开发文档、种子和预测身份下比较。
+
+[B0969] p | heading 2 | math=0
+D.3 实际CPU抽取与后处理
+
+[B0970] p | Body Text | math=0
+CPU-BIO-SGD使用SGD log_loss组件模型(alpha=10⁻⁵，12轮)与关系模型(alpha=10⁻⁴，20轮)，种子17、29、43。关系负采样保留可表达正例及哈希排序的max(20,8×正例数)负例。对官方80／150篇测试文档全部预测，无超参数搜索。
+
+[B0971] p | Body Text | math=0
+后处理按训练集中出现过的源类型集合—目标类型—关系标签签名删除不支持的预测组合；AAEC再对每个预测源保留最近中点目标，CDCP不拆联合源、不添加新边。规则不读取测试金标进行决策，金标只用于计数。已读取测试标注做语料审计这一事实保持在实际CPU协议中，不将其称为历史盲测。
+
+[B0972] p | heading 2 | math=0
+D.4 解释范围
+
+[B0973] p | Body Text | math=0
+实际CPU输出用于错误剖析，与主模型数值独立。essay098保留成功和失败两个种子；CDCP、CasiMedicos和ArgUNSC的展示对象为原生标注。形式证明和接口挑战输入不是现实案例，不以它们替代原始数据内容。

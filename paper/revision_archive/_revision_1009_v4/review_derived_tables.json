@@ -1,0 +1,185 @@
+{
+  "evidence_type": "DERIVED_FROM_EXISTING_SIMULATED_DATA",
+  "source_hashes": {
+    "audit_judgements.json": "0b6b3a9a0f4f1ad117bf0c59db2461a5674201aaaa45954bb65817ae8cac39b2",
+    "scenario_results.json": "75c4fbbc6235c12a994da6d18b9ad2d4bb8ae20305a104e906b21b2d754cfb26",
+    "document_counts.csv": "1f8e1dd4043f765d9185828f0d771c54a7dee5c784067078ab2758b47a9ebf85"
+  },
+  "audit_rows": [
+    {
+      "dataset": "AAEC",
+      "method": "plain",
+      "accepted": {
+        "n": 800,
+        "drift": 118,
+        "stable": 682,
+        "rate": 14.75
+      },
+      "rejected": {
+        "n": 800,
+        "drift": 372,
+        "stable": 428,
+        "rate": 46.5
+      }
+    },
+    {
+      "dataset": "AAEC",
+      "method": "qos",
+      "accepted": {
+        "n": 800,
+        "drift": 72,
+        "stable": 728,
+        "rate": 9.0
+      },
+      "rejected": {
+        "n": 800,
+        "drift": 309,
+        "stable": 491,
+        "rate": 38.625
+      }
+    },
+    {
+      "dataset": "AAEC",
+      "method": "full",
+      "accepted": {
+        "n": 800,
+        "drift": 29,
+        "stable": 771,
+        "rate": 3.625
+      },
+      "rejected": {
+        "n": 800,
+        "drift": 241,
+        "stable": 559,
+        "rate": 30.125
+      }
+    },
+    {
+      "dataset": "CDCP",
+      "method": "plain",
+      "accepted": {
+        "n": 800,
+        "drift": 151,
+        "stable": 649,
+        "rate": 18.875
+      },
+      "rejected": {
+        "n": 800,
+        "drift": 378,
+        "stable": 422,
+        "rate": 47.25
+      }
+    },
+    {
+      "dataset": "CDCP",
+      "method": "qos",
+      "accepted": {
+        "n": 800,
+        "drift": 92,
+        "stable": 708,
+        "rate": 11.5
+      },
+      "rejected": {
+        "n": 800,
+        "drift": 316,
+        "stable": 484,
+        "rate": 39.5
+      }
+    },
+    {
+      "dataset": "CDCP",
+      "method": "full",
+      "accepted": {
+        "n": 800,
+        "drift": 46,
+        "stable": 754,
+        "rate": 5.75
+      },
+      "rejected": {
+        "n": 800,
+        "drift": 264,
+        "stable": 536,
+        "rate": 33.0
+      }
+    }
+  ],
+  "net_error_rows": [
+    {
+      "dataset": "AAEC",
+      "object": "component",
+      "training": {
+        "tp": 211,
+        "fp": -202,
+        "fn": -211
+      },
+      "repair_t0": {
+        "tp": 130,
+        "fp": -126,
+        "fn": -130
+      },
+      "repair_t1": {
+        "tp": 90,
+        "fp": -89,
+        "fn": -90
+      }
+    },
+    {
+      "dataset": "AAEC",
+      "object": "relation",
+      "training": {
+        "tp": 274,
+        "fp": -250,
+        "fn": -274
+      },
+      "repair_t0": {
+        "tp": 248,
+        "fp": -225,
+        "fn": -248
+      },
+      "repair_t1": {
+        "tp": 224,
+        "fp": -208,
+        "fn": -224
+      }
+    },
+    {
+      "dataset": "CDCP",
+      "object": "component",
+      "training": {
+        "tp": 203,
+        "fp": -193,
+        "fn": -203
+      },
+      "repair_t0": {
+        "tp": 115,
+        "fp": -110,
+        "fn": -115
+      },
+      "repair_t1": {
+        "tp": 93,
+        "fp": -88,
+        "fn": -93
+      }
+    },
+    {
+      "dataset": "CDCP",
+      "object": "relation",
+      "training": {
+        "tp": 201,
+        "fp": -179,
+        "fn": -201
+      },
+      "repair_t0": {
+        "tp": 176,
+        "fp": -156,
+        "fn": -176
+      },
+      "repair_t1": {
+        "tp": 187,
+        "fp": -171,
+        "fn": -187
+      }
+    }
+  ],
+  "new_empirical_experiments": 0
+}

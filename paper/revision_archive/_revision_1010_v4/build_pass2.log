@@ -1,0 +1,531 @@
+{
+  "output": "/Users/channtang/Downloads/paper/report_1010_v4_full.docx",
+  "source_sha256": "5446ed3ea7cfc7838458d90003f98bdf369d37b8e1a14d0268e84d9ebc9c586c",
+  "retained_template_sha256": "95d171715339b4702ad4e2baac7ac32d070721f58cffb94d320c0b8934849c76",
+  "native_equations": 407,
+  "algorithms": [
+    {
+      "caption": "算法3-1 关系影响域增强与成对学习",
+      "lines": 37,
+      "total_lines": 40,
+      "split_before_steps": [
+        18
+      ],
+      "max_depth": 3,
+      "source_lines": [
+        {
+          "number": null,
+          "depth": 0,
+          "text": "输入：训练文档及金标图 D_train，数据协议，固定增强与语义验证模型，",
+          "io": true
+        },
+        {
+          "number": null,
+          "depth": 3,
+          "text": "每文档尝试上限 B_try、接受上限 B_accept，训练更新上限 U。",
+          "io": true
+        },
+        {
+          "number": null,
+          "depth": 0,
+          "text": "输出：训练后的端到端生成器 θ，以及增强样本、组件映射和来源记录。",
+          "io": true
+        },
+        {
+          "number": 1,
+          "depth": 0,
+          "text": "检查训练划分、全文哈希分组、坐标和标签协议",
+          "io": false
+        },
+        {
+          "number": 2,
+          "depth": 0,
+          "text": "for 每篇源文档 d ∈ D_train do",
+          "io": false
+        },
+        {
+          "number": 3,
+          "depth": 1,
+          "text": "保留原文 x_d 和完整金标图 G_d；令 Views_d = ∅",
+          "io": false
+        },
+        {
+          "number": 4,
+          "depth": 1,
+          "text": "按3.3.1固定中心及完整入源；不可处理则记原因并继续下一文档",
+          "io": false
+        },
+        {
+          "number": 5,
+          "depth": 1,
+          "text": "建立因素宇宙 Ω(C_d)，构造改写集合 A",
+          "io": false
+        },
+        {
+          "number": 6,
+          "depth": 1,
+          "text": "构造完整影响域 D_A；令 attempts = 0",
+          "io": false
+        },
+        {
+          "number": 7,
+          "depth": 1,
+          "text": "while attempts < B_try 且 |Views_d| < B_accept do",
+          "io": false
+        },
+        {
+          "number": 8,
+          "depth": 2,
+          "text": "attempts ← attempts + 1；生成组件槽位的替换文本",
+          "io": false
+        },
+        {
+          "number": 9,
+          "depth": 2,
+          "text": "回填全文、重新分词，建立全部组件的双射 φ",
+          "io": false
+        },
+        {
+          "number": 10,
+          "depth": 2,
+          "text": "if 格式、槽位、坐标或端点检查失败 then",
+          "io": false
+        },
+        {
+          "number": 11,
+          "depth": 3,
+          "text": "拒绝整个变体，记录原因及成本",
+          "io": false
+        },
+        {
+          "number": 12,
+          "depth": 3,
+          "text": "continue",
+          "io": false
+        },
+        {
+          "number": 13,
+          "depth": 2,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 14,
+          "depth": 2,
+          "text": "检查全文角色与表达退化",
+          "io": false
+        },
+        {
+          "number": 15,
+          "depth": 2,
+          "text": "if D_A ≠ ∅ then",
+          "io": false
+        },
+        {
+          "number": 16,
+          "depth": 3,
+          "text": "检查 D_A 中全部关系状态",
+          "io": false
+        },
+        {
+          "number": 17,
+          "depth": 2,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 18,
+          "depth": 2,
+          "text": "if 任一受检标签漂移或其他筛选条件失败 then",
+          "io": false
+        },
+        {
+          "number": 19,
+          "depth": 3,
+          "text": "拒绝整个变体，记录原因及成本",
+          "io": false
+        },
+        {
+          "number": 20,
+          "depth": 3,
+          "text": "continue",
+          "io": false
+        },
+        {
+          "number": 21,
+          "depth": 2,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 22,
+          "depth": 2,
+          "text": "将通过的全文视图、φ(G_d)、φ 和来源加入 Views_d",
+          "io": false
+        },
+        {
+          "number": 23,
+          "depth": 1,
+          "text": "end while",
+          "io": false
+        },
+        {
+          "number": 24,
+          "depth": 1,
+          "text": "保存 Views_d；集合为空时仍保留原文",
+          "io": false
+        },
+        {
+          "number": 25,
+          "depth": 0,
+          "text": "end for",
+          "io": false
+        },
+        {
+          "number": 26,
+          "depth": 0,
+          "text": "for step = 1, …, U do",
+          "io": false
+        },
+        {
+          "number": 27,
+          "depth": 1,
+          "text": "按源文档等权取训练批次；读取原文及其已接受视图",
+          "io": false
+        },
+        {
+          "number": 28,
+          "depth": 1,
+          "text": "依可见前缀门控，计算各视图的生成损失和句子辅助损失",
+          "io": false
+        },
+        {
+          "number": 29,
+          "depth": 1,
+          "text": "从回答开始前的输入表示计算组件头与关系状态头监督",
+          "io": false
+        },
+        {
+          "number": 30,
+          "depth": 1,
+          "text": "依 φ 计算非空域成对损失；无变体或空域的对齐项置零",
+          "io": false
+        },
+        {
+          "number": 31,
+          "depth": 1,
+          "text": "保留两个视图的梯度，按同源变体及源文档两级归一化",
+          "io": false
+        },
+        {
+          "number": 32,
+          "depth": 1,
+          "text": "按3.4.3节的梯度路径执行一次反向传播；基础模型权重冻结",
+          "io": false
+        },
+        {
+          "number": 33,
+          "depth": 1,
+          "text": "if 达到2.6节预先确定的停止条件 then",
+          "io": false
+        },
+        {
+          "number": 34,
+          "depth": 2,
+          "text": "break",
+          "io": false
+        },
+        {
+          "number": 35,
+          "depth": 1,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 36,
+          "depth": 0,
+          "text": "end for",
+          "io": false
+        },
+        {
+          "number": 37,
+          "depth": 0,
+          "text": "返回生成器及来源记录；开发评价和测试时移除训练辅助头",
+          "io": false
+        }
+      ]
+    },
+    {
+      "caption": "算法4-1 多候选驱动的依赖闭合修正",
+      "lines": 25,
+      "total_lines": 27,
+      "split_before_steps": [],
+      "max_depth": 3,
+      "source_lines": [
+        {
+          "number": null,
+          "depth": 0,
+          "text": "输入：原文、生成候选、冻结配置和有限资源清单。",
+          "io": true
+        },
+        {
+          "number": null,
+          "depth": 0,
+          "text": "输出：最后完整合法图或明确初始化失败，以及轨迹。",
+          "io": true
+        },
+        {
+          "number": 1,
+          "depth": 0,
+          "text": "初始化预算；执行MCR选择及共用合法化，计入全部成本",
+          "io": false
+        },
+        {
+          "number": 2,
+          "depth": 0,
+          "text": "if 初始化失败 then",
+          "io": false
+        },
+        {
+          "number": 3,
+          "depth": 1,
+          "text": "return 明确失败状态",
+          "io": false
+        },
+        {
+          "number": 4,
+          "depth": 0,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 5,
+          "depth": 0,
+          "text": "冻结候选、对象分与效用系数；G ← G0",
+          "io": false
+        },
+        {
+          "number": 6,
+          "depth": 0,
+          "text": "for 每一轮，在轮数及全程预算内 do",
+          "io": false
+        },
+        {
+          "number": 7,
+          "depth": 1,
+          "text": "重置本轮计数；首次进入状态才建队列，否则续用游标与缓存",
+          "io": false
+        },
+        {
+          "number": 8,
+          "depth": 1,
+          "text": "while 本轮与全程尚有尝试及接受名额，且评估资源允许 do",
+          "io": false
+        },
+        {
+          "number": 9,
+          "depth": 2,
+          "text": "按剩余尝试名额取至多批长个提议Q；Gnoop ← G；H ← ∅",
+          "io": false
+        },
+        {
+          "number": 10,
+          "depth": 2,
+          "text": "for Q中每个未评估提议，在评估资源内 do",
+          "io": false
+        },
+        {
+          "number": 11,
+          "depth": 3,
+          "text": "外层尝试加1；调用算法4-2，登记求解、失败及实际开销",
+          "io": false
+        },
+        {
+          "number": 12,
+          "depth": 3,
+          "text": "将通过复核的完整状态加入H",
+          "io": false
+        },
+        {
+          "number": 13,
+          "depth": 2,
+          "text": "end for",
+          "io": false
+        },
+        {
+          "number": 14,
+          "depth": 2,
+          "text": "if H非空 then",
+          "io": false
+        },
+        {
+          "number": 15,
+          "depth": 3,
+          "text": "按总效用、较少编辑、语义键择优",
+          "io": false
+        },
+        {
+          "number": 16,
+          "depth": 3,
+          "text": "复核接受名额、编辑及提交资源；不再要求剩余尝试名额",
+          "io": false
+        },
+        {
+          "number": 17,
+          "depth": 3,
+          "text": "提交条件不足则保留Gnoop，记录原因并停止",
+          "io": false
+        },
+        {
+          "number": 18,
+          "depth": 3,
+          "text": "原子提交；失败则完整恢复Gnoop并停止",
+          "io": false
+        },
+        {
+          "number": 19,
+          "depth": 3,
+          "text": "更新实际编辑；外层接受加1；未见状态建队列，已见则续用",
+          "io": false
+        },
+        {
+          "number": 20,
+          "depth": 2,
+          "text": "else",
+          "io": false
+        },
+        {
+          "number": 21,
+          "depth": 3,
+          "text": "保留Gnoop；已遍历声明队列则停止，否则继续下一批",
+          "io": false
+        },
+        {
+          "number": 22,
+          "depth": 2,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 23,
+          "depth": 1,
+          "text": "end while",
+          "io": false
+        },
+        {
+          "number": 24,
+          "depth": 0,
+          "text": "end for",
+          "io": false
+        },
+        {
+          "number": 25,
+          "depth": 0,
+          "text": "return G及实际停止原因；中断只返回最后完整合法状态",
+          "io": false
+        }
+      ]
+    },
+    {
+      "caption": "算法4-2 单提议的闭合评估",
+      "lines": 12,
+      "total_lines": 14,
+      "split_before_steps": [],
+      "max_depth": 1,
+      "source_lines": [
+        {
+          "number": null,
+          "depth": 0,
+          "text": "输入：当前合法图G、提议、冻结候选分和剩余预算。",
+          "io": true
+        },
+        {
+          "number": null,
+          "depth": 0,
+          "text": "输出：经复核的完整候选状态，或拒绝状态。",
+          "io": true
+        },
+        {
+          "number": 1,
+          "depth": 0,
+          "text": "复制G；抵消相同对象；完成冲突闭合",
+          "io": false
+        },
+        {
+          "number": 2,
+          "depth": 0,
+          "text": "if 内部冲突、动作形态或组件成本不合规 then",
+          "io": false
+        },
+        {
+          "number": 3,
+          "depth": 1,
+          "text": "return 拒绝，原图不变",
+          "io": false
+        },
+        {
+          "number": 4,
+          "depth": 0,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 5,
+          "depth": 0,
+          "text": "构造端点依赖域；最小扩域处理失效的已选外部槽位",
+          "io": false
+        },
+        {
+          "number": 6,
+          "depth": 0,
+          "text": "固定域外关系，将整图约束、效用门及剩余编辑预算加入ILP",
+          "io": false
+        },
+        {
+          "number": 7,
+          "depth": 0,
+          "text": "求解并登记状态；超时有incumbent时保留非最优身份",
+          "io": false
+        },
+        {
+          "number": 8,
+          "depth": 0,
+          "text": "if 无可行解或评分失败 then",
+          "io": false
+        },
+        {
+          "number": 9,
+          "depth": 1,
+          "text": "return 区分原因的拒绝状态",
+          "io": false
+        },
+        {
+          "number": 10,
+          "depth": 0,
+          "text": "end if",
+          "io": false
+        },
+        {
+          "number": 11,
+          "depth": 0,
+          "text": "复核整图合法、完整删增成本、两个分项门及严格总增益",
+          "io": false
+        },
+        {
+          "number": 12,
+          "depth": 0,
+          "text": "return 复核通过的完整状态；否则丢弃副本并返回拒绝",
+          "io": false
+        }
+      ]
+    }
+  ],
+  "images": 12,
+  "page_cache_loaded": true,
+  "rendered_or_visually_verified": false,
+  "counts": {
+    "display_equations": 32,
+    "inline_equations": 375,
+    "tables": 50
+  }
+}

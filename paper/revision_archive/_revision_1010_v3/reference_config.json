@@ -1,0 +1,202 @@
+{
+  "status": "SIMULATION_EDITION_REFERENCE_RULES",
+  "center": {
+    "seed": 17,
+    "centers_per_document": 1,
+    "attempts": 4,
+    "accepted": 2,
+    "selection": "canonical_json_sha256",
+    "full_gold_sources": true
+  },
+  "matching": {
+    "same_region_component_count": true,
+    "same_in_degree": true,
+    "max_relative_char_difference": 0.2,
+    "random_can_be_conclusion": true,
+    "allow_self_match": true,
+    "length_difference_denominator": "reference_region_chars",
+    "valid_reference_unmatched": false,
+    "self_match_rate_denominator": "valid_reference_documents",
+    "report_heterocenter_subset": true
+  },
+  "candidates": {
+    "head_top_n": 64,
+    "max_supplementary_span_tokens": 64,
+    "supplementary_span_cap": 64,
+    "boundary_radius": 1,
+    "expansion_depth": 1,
+    "new_hyperedge_max_sources": 3,
+    "supplementary_slot_cap": 4096,
+    "protect_initial": true,
+    "protect_parsed_candidates": true,
+    "reverse_policy": "binary_both_frozen_slots_and_current_legal_endpoints"
+  },
+  "queue": {
+    "order": [
+      "relation",
+      "insert",
+      "delete",
+      "replace",
+      "split",
+      "merge"
+    ],
+    "schedule": "round_robin",
+    "batch": 6,
+    "attempts_per_round": 32,
+    "accepts_per_round": 3,
+    "rounds": 4,
+    "total_attempts": 128,
+    "total_accepts": 12,
+    "state_sensitive_dedup": true,
+    "attempt_unit": "outer_proposal",
+    "accept_unit": "outer_proposal_with_at_least_one_committed_stage",
+    "cursor_scope": "state_across_rounds",
+    "rejected_cache_scope": "state_across_rounds",
+    "evaluated_candidate_commit_after_attempt_limit": true,
+    "commit_requires": [
+      "accept_capacity",
+      "component_edit_budget",
+      "relation_edit_budget",
+      "validation_resources",
+      "safe_commit_resources"
+    ],
+    "commit_does_not_require": "remaining_outer_attempts"
+  },
+  "edits": {
+    "per_transaction_components": 3,
+    "cumulative_components": 24,
+    "cumulative_relations": 96,
+    "legality_expansion": "invalid_selected_outside_slots_only"
+  },
+  "acceptance": {
+    "delta": 0.01,
+    "tolerance": 1e-09,
+    "component_non_decrease": true,
+    "relation_non_decrease": true
+  },
+  "sequential": {
+    "stage1_component_delta": 0.01,
+    "stage2_relation_delta": 0.01,
+    "keep_stage1_on_stage2_failure": true,
+    "companion_after_accept_cap": true,
+    "max_stage_commits_per_outer": 2,
+    "batch_rank": "weighted_first_stage_gain_then_actual_edits_then_key",
+    "stage2_only_for_committed_winner": true,
+    "resource_and_edit_cost_refund": false,
+    "attribution": "whole_strategy_comparison_not_execution_order_causal_effect"
+  },
+  "constructed_fixture": {
+    "kappa_component": 1,
+    "kappa_relation": 1,
+    "weight_component": 1,
+    "weight_relation": 1,
+    "oracle_max_transactions": 3,
+    "oracle_component_budget": 3,
+    "oracle_relation_budget": 3
+  },
+  "production_required_unbound": [
+    "dataset_revision",
+    "split_manifest",
+    "tokenizer_revision",
+    "generator_checkpoint",
+    "span_head_checkpoint",
+    "scorer_checkpoint",
+    "calibration",
+    "optimizer",
+    "seeds",
+    "hardware",
+    "solver_version",
+    "context_limit",
+    "candidate_preflight_limit",
+    "max_scored_objects",
+    "calls",
+    "tokens",
+    "total_solver_seconds",
+    "per_call_solver_seconds"
+  ],
+  "configuration_id": "1010-v1-global-review",
+  "solver_tie_policy": {
+    "optimal": "max_utility_then_min_actual_edits_then_lexicographic_state_key",
+    "implementation": "successive_objectives_not_arbitrary_epsilon",
+    "timeout": "revalidate_incumbent_record_tie_status_no_unique_optimum_claim"
+  },
+  "simulation_runtime_assumptions": {
+    "backbone": "Qwen2.5-7B-Instruct",
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "epochs": 5,
+    "effective_source_batch": 32,
+    "context_tokens": 8192,
+    "input_tokens": 4096,
+    "output_tokens": 2048,
+    "gpu": "single_80GB_device_scenario",
+    "cpu_threads": 4,
+    "solver_document_seconds": {
+      "AAEC": 3,
+      "CDCP": 5
+    },
+    "large_global_document_seconds": {
+      "AAEC": 60,
+      "CDCP": 90
+    },
+    "measurements": false,
+    "training_side_roles": {
+      "AAEC": {
+        "source_documents": 320,
+        "scorer_fit": 256,
+        "calibration": 32,
+        "policy_selection": 32,
+        "independent_evaluation": 80
+      },
+      "CDCP": {
+        "source_documents": 580,
+        "scorer_fit": 464,
+        "calibration": 58,
+        "policy_selection": 58,
+        "independent_evaluation": 148
+      },
+      "assignment": "fixed source-document groups; proportions specify the authoring protocol, not an executed manifest",
+      "oof_folds": 3,
+      "oof_excludes": "held-out document and all its variants from generator and span-head fitting",
+      "scorer_evaluation_objects_per_dataset": {
+        "component": 2400,
+        "relation": 4800
+      }
+    }
+  },
+  "authoring_revision": {
+    "evidence_type": "SIMULATED_COUNTS_PLUS_UNEXECUTED_DIAGNOSTIC_PROTOCOLS",
+    "matched_training_main_tables": [
+      "3-5",
+      "3-6",
+      "3-8"
+    ],
+    "construction_cost_table": "3-9",
+    "archived_fixed_attempt_training_cost_table": "H-1",
+    "external_methods_checked_at": "2026-10-10",
+    "new_diagnostics_executed": false,
+    "new_solver_budget_multipliers": [
+      0.5,
+      1,
+      2
+    ],
+    "prepruning_thresholds": "derive from training-side resource probe before freeze; not yet measured",
+    "long_hyperedge_group_sizes": [
+      1,
+      2,
+      3,
+      ">3"
+    ],
+    "genuine_model_runs": 0,
+    "metadata_note": "Manuscript/figure revision only; method configuration identity and all simulated observations unchanged."
+  },
+  "manuscript_version": "1010-v3"
+}

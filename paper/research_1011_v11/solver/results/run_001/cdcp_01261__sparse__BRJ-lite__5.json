@@ -1,0 +1,3975 @@
+{
+  "id": "cdcp_01261",
+  "corpus": "cdcp",
+  "mode": "BRJ-lite",
+  "status": "completed",
+  "started_at_utc": "2026-10-11T07:08:32.177565+00:00",
+  "ended_at_utc": "2026-10-11T07:08:32.187232+00:00",
+  "wall_seconds": 0.009667499999999052,
+  "initial_candidate": "g0",
+  "ranks": [
+    {
+      "candidate_id": "g0",
+      "slot": 0,
+      "density": 0.0,
+      "coherence": 0.0,
+      "validity": 1,
+      "rank": 0.2
+    },
+    {
+      "candidate_id": "g1",
+      "slot": 1,
+      "density": 0.0,
+      "coherence": 0.0,
+      "validity": 1,
+      "rank": 0.2
+    }
+  ],
+  "initial": {
+    "C": [
+      "c001",
+      "c002",
+      "c004",
+      "c006"
+    ],
+    "R": [
+      "r0043",
+      "r0047"
+    ]
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c002",
+      "c004",
+      "c006"
+    ],
+    "R": [
+      "r0015",
+      "r0019",
+      "r0081"
+    ]
+  },
+  "phi_initial": [
+    2.92,
+    -1.8
+  ],
+  "phi_final": [
+    2.92,
+    0.78
+  ],
+  "component_edits_total": 0,
+  "relation_edits_total": 5,
+  "attempts": [
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0010",
+          "r0011",
+          "r0022",
+          "r0023"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        0
+      ],
+      "evaluation_seconds": 0.00022674999999949819,
+      "attempt": 0,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c001"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8799999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.415999999451969e-06,
+      "attempt": 1,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c001"
+        ],
+        "B": [
+          "c000"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.3329999986619896e-06,
+      "attempt": 2,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0014",
+          "r0015",
+          "r0060",
+          "r0061"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": true,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "primary_optimal": true,
+      "total_phi_upper_bound": 1.44,
+      "tie_status": "unique_optimum_and_min_edits",
+      "relation_edits": 1,
+      "delta_phi_R": 0.32000000000000006,
+      "delta_phi": 0.32000000000000006,
+      "phi_before": [
+        2.92,
+        -1.8
+      ],
+      "phi_after": [
+        2.92,
+        -1.48
+      ],
+      "issues": [],
+      "reason": "eligible",
+      "solver_calls": [
+        1,
+        2,
+        3
+      ],
+      "evaluation_seconds": 0.0005875839999998078,
+      "after": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "attempt": 3,
+      "round": 1,
+      "committed": true
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c002"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.43999999999999995,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.8750000008747065e-06,
+      "attempt": 4,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c004"
+        ],
+        "B": [
+          "c003"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c003",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.40000000000000036,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.792000001112683e-06,
+      "attempt": 5,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0010",
+          "r0011",
+          "r0022",
+          "r0023"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        4
+      ],
+      "evaluation_seconds": 0.00020520900000065012,
+      "attempt": 6,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c001"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8799999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.084000000403876e-06,
+      "attempt": 7,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c001"
+        ],
+        "B": [
+          "c000"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.208000000753941e-06,
+      "attempt": 8,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0014",
+          "r0015",
+          "r0060",
+          "r0061"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        5
+      ],
+      "evaluation_seconds": 0.00020091699999902346,
+      "attempt": 9,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c002"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.43999999999999995,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.249999999179522e-06,
+      "attempt": 10,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c004"
+        ],
+        "B": [
+          "c003"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c003",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.40000000000000036,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.41600000020037e-06,
+      "attempt": 11,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0018",
+          "r0019",
+          "r0080",
+          "r0081"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": true,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "primary_optimal": true,
+      "total_phi_upper_bound": 1.9,
+      "tie_status": "unique_optimum_and_min_edits",
+      "relation_edits": 2,
+      "delta_phi_R": 0.45999999999999996,
+      "delta_phi": 0.45999999999999996,
+      "phi_before": [
+        2.92,
+        -1.48
+      ],
+      "phi_after": [
+        2.92,
+        -1.02
+      ],
+      "issues": [],
+      "reason": "eligible",
+      "solver_calls": [
+        6,
+        7,
+        8
+      ],
+      "evaluation_seconds": 0.0006187090000011608,
+      "after": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "attempt": 12,
+      "round": 1,
+      "committed": true
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c004"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.167000000165899e-06,
+      "attempt": 13,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c006"
+        ],
+        "B": [
+          "c005"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.7079999994915624e-06,
+      "attempt": 14,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0026",
+          "r0027",
+          "r0062",
+          "r0063"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        9
+      ],
+      "evaluation_seconds": 0.00021670799999995438,
+      "attempt": 15,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c006"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.415999999451969e-06,
+      "attempt": 16,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0030",
+          "r0031",
+          "r0082",
+          "r0083"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0043",
+          "r0047"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        10
+      ],
+      "evaluation_seconds": 0.00021954099999987875,
+      "attempt": 17,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0010",
+          "r0011",
+          "r0022",
+          "r0023"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0047",
+        "r0081"
+      ],
+      "variables": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        11
+      ],
+      "evaluation_seconds": 0.00021441700000046637,
+      "attempt": 18,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c001"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8799999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.2919999998503044e-06,
+      "attempt": 19,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c001"
+        ],
+        "B": [
+          "c000"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.41600000020037e-06,
+      "attempt": 20,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0014",
+          "r0015",
+          "r0060",
+          "r0061"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0019",
+        "r0043",
+        "r0047",
+        "r0081"
+      ],
+      "variables": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        12
+      ],
+      "evaluation_seconds": 0.00020908400000152483,
+      "attempt": 21,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c002"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.43999999999999995,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.166999998389542e-06,
+      "attempt": 22,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c004"
+        ],
+        "B": [
+          "c003"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c003",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.40000000000000036,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.4170000002831102e-06,
+      "attempt": 23,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0018",
+          "r0019",
+          "r0080",
+          "r0081"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0043",
+        "r0047"
+      ],
+      "variables": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        13
+      ],
+      "evaluation_seconds": 0.00020345799999965664,
+      "attempt": 24,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c004"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.167000000165899e-06,
+      "attempt": 25,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c006"
+        ],
+        "B": [
+          "c005"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.4170000002831102e-06,
+      "attempt": 26,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0026",
+          "r0027",
+          "r0062",
+          "r0063"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0047",
+        "r0081"
+      ],
+      "variables": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        14
+      ],
+      "evaluation_seconds": 0.00021150000000069724,
+      "attempt": 27,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c006"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.083000000321135e-06,
+      "attempt": 28,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0030",
+          "r0031",
+          "r0082",
+          "r0083"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0047",
+        "r0081"
+      ],
+      "variables": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        15
+      ],
+      "evaluation_seconds": 0.0002107499999990381,
+      "attempt": 29,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0042",
+          "r0043"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": true,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0042",
+        "r0043"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0047",
+        "r0081"
+      ],
+      "variables": [
+        "r0042",
+        "r0043"
+      ],
+      "primary_optimal": true,
+      "total_phi_upper_bound": 2.8,
+      "tie_status": "unique_optimum_and_min_edits",
+      "relation_edits": 1,
+      "delta_phi_R": 0.9,
+      "delta_phi": 0.9,
+      "phi_before": [
+        2.92,
+        -1.02
+      ],
+      "phi_after": [
+        2.92,
+        -0.12
+      ],
+      "issues": [],
+      "reason": "eligible",
+      "solver_calls": [
+        16,
+        17,
+        18
+      ],
+      "evaluation_seconds": 0.0005315000000010173,
+      "after": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "attempt": 30,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0046",
+          "r0047"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0047",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": true,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0046",
+        "r0047"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0046",
+        "r0047"
+      ],
+      "primary_optimal": true,
+      "total_phi_upper_bound": 2.8,
+      "tie_status": "unique_optimum_and_min_edits",
+      "relation_edits": 1,
+      "delta_phi_R": 0.9,
+      "delta_phi": 0.9,
+      "phi_before": [
+        2.92,
+        -1.02
+      ],
+      "phi_after": [
+        2.92,
+        -0.12
+      ],
+      "issues": [],
+      "reason": "eligible",
+      "solver_calls": [
+        19,
+        20,
+        21
+      ],
+      "evaluation_seconds": 0.0005459999999999354,
+      "after": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "attempt": 31,
+      "round": 1,
+      "committed": true
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0010",
+          "r0011",
+          "r0022",
+          "r0023"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        22
+      ],
+      "evaluation_seconds": 0.00021650000000050795,
+      "attempt": 32,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c001"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8799999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.2919999998503044e-06,
+      "attempt": 33,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c001"
+        ],
+        "B": [
+          "c000"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.3750000003607283e-06,
+      "attempt": 34,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0014",
+          "r0015",
+          "r0060",
+          "r0061"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        23
+      ],
+      "evaluation_seconds": 0.00021312500000014722,
+      "attempt": 35,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c002"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.43999999999999995,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.166000000083159e-06,
+      "attempt": 36,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c004"
+        ],
+        "B": [
+          "c003"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c003",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.40000000000000036,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.5419999999675156e-06,
+      "attempt": 37,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0018",
+          "r0019",
+          "r0080",
+          "r0081"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0043"
+      ],
+      "variables": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        24
+      ],
+      "evaluation_seconds": 0.00019962500000048067,
+      "attempt": 38,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c004"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.999999998782755e-06,
+      "attempt": 39,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c006"
+        ],
+        "B": [
+          "c005"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.3749999985843715e-06,
+      "attempt": 40,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0026",
+          "r0027",
+          "r0062",
+          "r0063"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        25
+      ],
+      "evaluation_seconds": 0.000206290999999581,
+      "attempt": 41,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c006"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.000000000559112e-06,
+      "attempt": 42,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0030",
+          "r0031",
+          "r0082",
+          "r0083"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        26
+      ],
+      "evaluation_seconds": 0.00020604200000029493,
+      "attempt": 43,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0042",
+          "r0043"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": true,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0042",
+        "r0043"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0042",
+        "r0043"
+      ],
+      "primary_optimal": true,
+      "total_phi_upper_bound": 3.7,
+      "tie_status": "unique_optimum_and_min_edits",
+      "relation_edits": 1,
+      "delta_phi_R": 0.9,
+      "delta_phi": 0.9,
+      "phi_before": [
+        2.92,
+        -0.12
+      ],
+      "phi_after": [
+        2.92,
+        0.78
+      ],
+      "issues": [],
+      "reason": "eligible",
+      "solver_calls": [
+        27,
+        28,
+        29
+      ],
+      "evaluation_seconds": 0.0005234590000000594,
+      "after": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "attempt": 44,
+      "round": 2,
+      "committed": true
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0046",
+          "r0047"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0046",
+        "r0047"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0046",
+        "r0047"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        30
+      ],
+      "evaluation_seconds": 0.0002006659999995719,
+      "attempt": 45,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0066",
+          "r0067",
+          "r0086",
+          "r0087"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0043",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0066",
+        "r0067",
+        "r0086",
+        "r0087"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0043",
+        "r0081"
+      ],
+      "variables": [
+        "r0066",
+        "r0067",
+        "r0086",
+        "r0087"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        31
+      ],
+      "evaluation_seconds": 0.00020662500000057094,
+      "attempt": 46,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0010",
+          "r0011",
+          "r0022",
+          "r0023"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0010",
+        "r0011",
+        "r0022",
+        "r0023"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        32
+      ],
+      "evaluation_seconds": 0.0002442500000015002,
+      "attempt": 47,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c001"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8799999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.000000000559112e-06,
+      "attempt": 48,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c001"
+        ],
+        "B": [
+          "c000"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.250000000676323e-06,
+      "attempt": 49,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0014",
+          "r0015",
+          "r0060",
+          "r0061"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0014",
+        "r0015",
+        "r0060",
+        "r0061"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        33
+      ],
+      "evaluation_seconds": 0.00019958300000055829,
+      "attempt": 50,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c002"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.43999999999999995,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.916999999020732e-06,
+      "attempt": 51,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c004"
+        ],
+        "B": [
+          "c003"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c003",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.40000000000000036,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.3749999985843715e-06,
+      "attempt": 52,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0018",
+          "r0019",
+          "r0080",
+          "r0081"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015"
+      ],
+      "variables": [
+        "r0018",
+        "r0019",
+        "r0080",
+        "r0081"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        34
+      ],
+      "evaluation_seconds": 0.0002035830000011174,
+      "attempt": 53,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c004"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 1.720899999924086e-05,
+      "attempt": 54,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c006"
+        ],
+        "B": [
+          "c005"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.3599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.874999999377906e-06,
+      "attempt": 55,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0026",
+          "r0027",
+          "r0062",
+          "r0063"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0026",
+        "r0027",
+        "r0062",
+        "r0063"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        35
+      ],
+      "evaluation_seconds": 0.00020250000000032742,
+      "attempt": 56,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c006"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.7999999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.916999999020732e-06,
+      "attempt": 57,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0030",
+          "r0031",
+          "r0082",
+          "r0083"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0030",
+        "r0031",
+        "r0082",
+        "r0083"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        36
+      ],
+      "evaluation_seconds": 0.00020808300000041413,
+      "attempt": 58,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0042",
+          "r0043"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0042",
+        "r0043"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0042",
+        "r0043"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        37
+      ],
+      "evaluation_seconds": 0.00020016699999914067,
+      "attempt": 59,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0046",
+          "r0047"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0046",
+        "r0047"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0046",
+        "r0047"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        38
+      ],
+      "evaluation_seconds": 0.00022708300000040538,
+      "attempt": 60,
+      "round": 2,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0066",
+          "r0067",
+          "r0086",
+          "r0087"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c002",
+          "c004",
+          "c006"
+        ],
+        "R": [
+          "r0015",
+          "r0019",
+          "r0081"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c002",
+        "c004",
+        "c006"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0066",
+        "r0067",
+        "r0086",
+        "r0087"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "r0015",
+        "r0019",
+        "r0081"
+      ],
+      "variables": [
+        "r0066",
+        "r0067",
+        "r0086",
+        "r0087"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        39
+      ],
+      "evaluation_seconds": 0.00020862499999907413,
+      "attempt": 61,
+      "round": 2,
+      "committed": false
+    }
+  ],
+  "accepted_attempts": [
+    3,
+    12,
+    31,
+    44
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "attempts": 32,
+      "accepts": 3
+    },
+    {
+      "round": 2,
+      "attempts": 30,
+      "accepts": 1
+    }
+  ],
+  "solver_seconds": 0.005461965000002067,
+  "solver_limit_seconds": 5.0,
+  "solver_calls": [
+    {
+      "index": 0,
+      "stage": "maximize_phi",
+      "seconds": 0.00014858400000150596,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 1,
+      "stage": "maximize_phi",
+      "seconds": 0.00015204199999985235,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": -0.32000000000000006,
+      "minimization_dual_bound": -0.32000000000000006,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 2,
+      "stage": "minimize_edits",
+      "seconds": 0.00014658399999945004,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 1.0,
+      "minimization_dual_bound": 1.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 3,
+      "stage": "test_uniqueness",
+      "seconds": 0.00014741699999909486,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 4,
+      "stage": "maximize_phi",
+      "seconds": 0.0001310829999994212,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 5,
+      "stage": "maximize_phi",
+      "seconds": 0.00013150000000017315,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 6,
+      "stage": "maximize_phi",
+      "seconds": 0.00015750000000025466,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": -0.45999999999999996,
+      "minimization_dual_bound": -0.45999999999999996,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 7,
+      "stage": "minimize_edits",
+      "seconds": 0.0001535839999995403,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 2.0,
+      "minimization_dual_bound": 2.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 8,
+      "stage": "test_uniqueness",
+      "seconds": 0.0001467079999990517,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 9,
+      "stage": "maximize_phi",
+      "seconds": 0.00013445900000164102,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 10,
+      "stage": "maximize_phi",
+      "seconds": 0.00014395799999888936,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 11,
+      "stage": "maximize_phi",
+      "seconds": 0.00013091699999989714,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 12,
+      "stage": "maximize_phi",
+      "seconds": 0.00013079200000021274,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 13,
+      "stage": "maximize_phi",
+      "seconds": 0.00012954199999981597,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 14,
+      "stage": "maximize_phi",
+      "seconds": 0.00012883400000163192,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 15,
+      "stage": "maximize_phi",
+      "seconds": 0.00012912500000084037,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 16,
+      "stage": "maximize_phi",
+      "seconds": 0.00013595800000132385,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 17,
+      "stage": "minimize_edits",
+      "seconds": 0.00013387499999950592,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 18,
+      "stage": "test_uniqueness",
+      "seconds": 0.00012720900000040558,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 19,
+      "stage": "maximize_phi",
+      "seconds": 0.00013591699999970785,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 20,
+      "stage": "minimize_edits",
+      "seconds": 0.00013566700000033904,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 21,
+      "stage": "test_uniqueness",
+      "seconds": 0.00012933400000036954,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 22,
+      "stage": "maximize_phi",
+      "seconds": 0.00013716700000010462,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 23,
+      "stage": "maximize_phi",
+      "seconds": 0.000137792000000303,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 24,
+      "stage": "maximize_phi",
+      "seconds": 0.000129624999999578,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 25,
+      "stage": "maximize_phi",
+      "seconds": 0.00012924999999874842,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 26,
+      "stage": "maximize_phi",
+      "seconds": 0.00012912500000084037,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 27,
+      "stage": "maximize_phi",
+      "seconds": 0.0001365409999998235,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 28,
+      "stage": "minimize_edits",
+      "seconds": 0.00013245800000127872,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 29,
+      "stage": "test_uniqueness",
+      "seconds": 0.00012733400000008999,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 30,
+      "stage": "maximize_phi",
+      "seconds": 0.0001294999999998936,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 31,
+      "stage": "maximize_phi",
+      "seconds": 0.00012845900000080235,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 32,
+      "stage": "maximize_phi",
+      "seconds": 0.0001715000000004352,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 33,
+      "stage": "maximize_phi",
+      "seconds": 0.00013066700000052833,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 34,
+      "stage": "maximize_phi",
+      "seconds": 0.00013341600000060794,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 35,
+      "stage": "maximize_phi",
+      "seconds": 0.00012979199999918478,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 36,
+      "stage": "maximize_phi",
+      "seconds": 0.0001349169999986799,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 37,
+      "stage": "maximize_phi",
+      "seconds": 0.00013099999999965917,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 38,
+      "stage": "maximize_phi",
+      "seconds": 0.00014449999999932572,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 39,
+      "stage": "maximize_phi",
+      "seconds": 0.00012833299999925885,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    }
+  ],
+  "stop_reason": "queue_exhausted",
+  "score_condition": "sparse",
+  "budget_seconds": 5.0,
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.009712125000000071
+}

@@ -1,0 +1,3920 @@
+{
+  "dataset": "aaec",
+  "split_counts": {
+    "fit": 191,
+    "calibration": 65,
+    "audit": 66
+  },
+  "oof_span_class_counts": {
+    "NULL": 26868,
+    "MajorClaim": 327,
+    "Premise": 1727,
+    "Claim": 690
+  },
+  "scorer_classes": [
+    "Claim",
+    "MajorClaim",
+    "NULL",
+    "Premise"
+  ],
+  "span_temperature": 1.0,
+  "calibration_temperature_losses": {
+    "0.5": 0.2691923449221101,
+    "1.0": 0.21357610782922104,
+    "2.0": 0.3368259405422298,
+    "4.0": 0.6393844846590706
+  },
+  "calibration_thresholds": [
+    {
+      "threshold": 0.0,
+      "infinite": false,
+      "micro_f1": 0.2436472346786248,
+      "accepted": 65
+    },
+    {
+      "threshold": 0.25,
+      "infinite": false,
+      "micro_f1": 0.2436472346786248,
+      "accepted": 65
+    },
+    {
+      "threshold": 0.5,
+      "infinite": false,
+      "micro_f1": 0.2436472346786248,
+      "accepted": 65
+    },
+    {
+      "threshold": 1.0,
+      "infinite": false,
+      "micro_f1": 0.2436472346786248,
+      "accepted": 65
+    },
+    {
+      "threshold": 2.0,
+      "infinite": false,
+      "micro_f1": 0.2436472346786248,
+      "accepted": 65
+    },
+    {
+      "threshold": 4.0,
+      "infinite": false,
+      "micro_f1": 0.2436472346786248,
+      "accepted": 65
+    },
+    {
+      "threshold": null,
+      "infinite": true,
+      "micro_f1": 0.237869390733309,
+      "accepted": 0
+    }
+  ],
+  "recoverability": [
+    {
+      "extra_budget": 0,
+      "gold_components": 986,
+      "covered_components": 419,
+      "exact_span_recall": 0.4249492900608519,
+      "mean_candidates": 25.59090909090909,
+      "p95_candidates": 35.75,
+      "native_relations": 627,
+      "native_relation_endpoint_covered": 159,
+      "native_endpoint_recall": 0.2535885167464115,
+      "initial_missing": 567,
+      "recovered_missing": 0,
+      "missing_recovery_rate": 0.0,
+      "by_type": {
+        "MajorClaim": {
+          "hit": 7,
+          "gold": 121,
+          "recall": 0.05785123966942149
+        },
+        "Claim": {
+          "hit": 77,
+          "gold": 238,
+          "recall": 0.3235294117647059
+        },
+        "Premise": {
+          "hit": 335,
+          "gold": 627,
+          "recall": 0.5342902711323764
+        }
+      }
+    },
+    {
+      "extra_budget": 64,
+      "gold_components": 986,
+      "covered_components": 889,
+      "exact_span_recall": 0.9016227180527383,
+      "mean_candidates": 89.5909090909091,
+      "p95_candidates": 99.75,
+      "native_relations": 627,
+      "native_relation_endpoint_covered": 550,
+      "native_endpoint_recall": 0.8771929824561403,
+      "initial_missing": 567,
+      "recovered_missing": 470,
+      "missing_recovery_rate": 0.8289241622574955,
+      "by_type": {
+        "MajorClaim": {
+          "hit": 97,
+          "gold": 121,
+          "recall": 0.8016528925619835
+        },
+        "Claim": {
+          "hit": 220,
+          "gold": 238,
+          "recall": 0.9243697478991597
+        },
+        "Premise": {
+          "hit": 572,
+          "gold": 627,
+          "recall": 0.9122807017543859
+        }
+      }
+    },
+    {
+      "extra_budget": 128,
+      "gold_components": 986,
+      "covered_components": 945,
+      "exact_span_recall": 0.9584178498985801,
+      "mean_candidates": 153.5909090909091,
+      "p95_candidates": 163.75,
+      "native_relations": 627,
+      "native_relation_endpoint_covered": 597,
+      "native_endpoint_recall": 0.9521531100478469,
+      "initial_missing": 567,
+      "recovered_missing": 526,
+      "missing_recovery_rate": 0.927689594356261,
+      "by_type": {
+        "MajorClaim": {
+          "hit": 108,
+          "gold": 121,
+          "recall": 0.8925619834710744
+        },
+        "Claim": {
+          "hit": 227,
+          "gold": 238,
+          "recall": 0.9537815126050421
+        },
+        "Premise": {
+          "hit": 610,
+          "gold": 627,
+          "recall": 0.9728867623604466
+        }
+      }
+    },
+    {
+      "extra_budget": 256,
+      "gold_components": 986,
+      "covered_components": 962,
+      "exact_span_recall": 0.9756592292089249,
+      "mean_candidates": 281.59090909090907,
+      "p95_candidates": 291.75,
+      "native_relations": 627,
+      "native_relation_endpoint_covered": 611,
+      "native_endpoint_recall": 0.9744816586921851,
+      "initial_missing": 567,
+      "recovered_missing": 543,
+      "missing_recovery_rate": 0.9576719576719577,
+      "by_type": {
+        "MajorClaim": {
+          "hit": 114,
+          "gold": 121,
+          "recall": 0.9421487603305785
+        },
+        "Claim": {
+          "hit": 232,
+          "gold": 238,
+          "recall": 0.9747899159663865
+        },
+        "Premise": {
+          "hit": 616,
+          "gold": 627,
+          "recall": 0.9824561403508771
+        }
+      }
+    },
+    {
+      "extra_budget": 512,
+      "gold_components": 986,
+      "covered_components": 973,
+      "exact_span_recall": 0.986815415821501,
+      "mean_candidates": 537.5909090909091,
+      "p95_candidates": 547.75,
+      "native_relations": 627,
+      "native_relation_endpoint_covered": 621,
+      "native_endpoint_recall": 0.9904306220095693,
+      "initial_missing": 567,
+      "recovered_missing": 554,
+      "missing_recovery_rate": 0.9770723104056437,
+      "by_type": {
+        "MajorClaim": {
+          "hit": 116,
+          "gold": 121,
+          "recall": 0.9586776859504132
+        },
+        "Claim": {
+          "hit": 234,
+          "gold": 238,
+          "recall": 0.9831932773109243
+        },
+        "Premise": {
+          "hit": 623,
+          "gold": 627,
+          "recall": 0.9936204146730463
+        }
+      }
+    }
+  ],
+  "edit_discrimination": {
+    "all": {
+      "n": 14148,
+      "truth_counts": {
+        "good": 1665,
+        "neutral": 7327,
+        "bad": 5156
+      },
+      "good_base_rate": 0.11768447837150127,
+      "good_vs_bad_auc_excludes_neutral": 0.979126915899608,
+      "good_vs_rest_average_precision": 0.7737542124662661
+    },
+    "insert": {
+      "n": 1224,
+      "truth_counts": {
+        "bad": 1187,
+        "good": 28,
+        "neutral": 9
+      },
+      "good_base_rate": 0.02287581699346405,
+      "good_vs_bad_auc_excludes_neutral": 0.8704116018774822,
+      "good_vs_rest_average_precision": 0.20118527882627676
+    },
+    "delete": {
+      "n": 1689,
+      "truth_counts": {
+        "good": 1328,
+        "bad": 340,
+        "neutral": 21
+      },
+      "good_base_rate": 0.7862640615748964,
+      "good_vs_bad_auc_excludes_neutral": 0.955835843373494,
+      "good_vs_rest_average_precision": 0.9744611855229877
+    },
+    "retype": {
+      "n": 3378,
+      "truth_counts": {
+        "neutral": 2619,
+        "good": 79,
+        "bad": 680
+      },
+      "good_base_rate": 0.023386619301361752,
+      "good_vs_bad_auc_excludes_neutral": 0.8732315711094565,
+      "good_vs_rest_average_precision": 0.029339115920931226
+    },
+    "respan": {
+      "n": 7857,
+      "truth_counts": {
+        "neutral": 4678,
+        "good": 230,
+        "bad": 2949
+      },
+      "good_base_rate": 0.02927325951380934,
+      "good_vs_bad_auc_excludes_neutral": 0.9595647750895662,
+      "good_vs_rest_average_precision": 0.10248925850559937
+    }
+  },
+  "calibrated_policy": {
+    "threshold": 4.0,
+    "threshold_is_infinite": false,
+    "allow_delete": true,
+    "documents": 66,
+    "accepted": 66,
+    "accepted_truth": {
+      "good": 65,
+      "neutral": 1
+    },
+    "accepted_actions": {
+      "delete": 66
+    },
+    "before_counts": [
+      340,
+      1349,
+      646
+    ],
+    "after_counts": [
+      340,
+      1283,
+      646
+    ],
+    "before_micro_f1": 0.2542056074766355,
+    "after_micro_f1": 0.2606362591031046,
+    "delta_micro_f1": 0.006430651626469108,
+    "paired_document_bootstrap95": [
+      0.005760927783323425,
+      0.007061414542289464
+    ],
+    "selected_edits": [
+      {
+        "doc": "essay035",
+        "op": "delete",
+        "remove": [
+          [
+            42,
+            43,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 7.0355264099770105,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          14,
+          11
+        ]
+      },
+      {
+        "doc": "essay008",
+        "op": "delete",
+        "remove": [
+          [
+            89,
+            90,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.668391584442964,
+        "delta_f1": 0.0038461538461538602,
+        "truth": "good",
+        "counts": [
+          3,
+          23,
+          10
+        ]
+      },
+      {
+        "doc": "essay381",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            68,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.557307883130171,
+        "delta_f1": 0.008602150537634412,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          7
+        ]
+      },
+      {
+        "doc": "essay137",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            68,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.857099157216584,
+        "delta_f1": 0.007575757575757569,
+        "truth": "good",
+        "counts": [
+          4,
+          16,
+          8
+        ]
+      },
+      {
+        "doc": "essay315",
+        "op": "delete",
+        "remove": [
+          [
+            366,
+            367,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.4791089435154365,
+        "delta_f1": 0.0015873015873015886,
+        "truth": "good",
+        "counts": [
+          1,
+          23,
+          10
+        ]
+      },
+      {
+        "doc": "essay313",
+        "op": "delete",
+        "remove": [
+          [
+            370,
+            371,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.093888883538314,
+        "delta_f1": 0.00647548566142464,
+        "truth": "good",
+        "counts": [
+          7,
+          17,
+          15
+        ]
+      },
+      {
+        "doc": "essay095",
+        "op": "delete",
+        "remove": [
+          [
+            66,
+            69,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.72206538945348,
+        "delta_f1": 0.0080971659919028,
+        "truth": "good",
+        "counts": [
+          6,
+          16,
+          10
+        ]
+      },
+      {
+        "doc": "essay217",
+        "op": "delete",
+        "remove": [
+          [
+            53,
+            55,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 10.37513971383213,
+        "delta_f1": 0.006763285024154575,
+        "truth": "good",
+        "counts": [
+          7,
+          24,
+          7
+        ]
+      },
+      {
+        "doc": "essay090",
+        "op": "delete",
+        "remove": [
+          [
+            341,
+            343,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.476871318161214,
+        "delta_f1": 0.006006006006005982,
+        "truth": "good",
+        "counts": [
+          4,
+          20,
+          8
+        ]
+      },
+      {
+        "doc": "essay011",
+        "op": "delete",
+        "remove": [
+          [
+            323,
+            324,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.922873239115214,
+        "delta_f1": 0.002262443438914019,
+        "truth": "good",
+        "counts": [
+          3,
+          29,
+          16
+        ]
+      },
+      {
+        "doc": "essay391",
+        "op": "delete",
+        "remove": [
+          [
+            343,
+            344,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.429775648580737,
+        "delta_f1": 0.004228329809725151,
+        "truth": "good",
+        "counts": [
+          4,
+          25,
+          10
+        ]
+      },
+      {
+        "doc": "essay038",
+        "op": "delete",
+        "remove": [
+          [
+            89,
+            93,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.03377545824694,
+        "delta_f1": 0.005537098560354364,
+        "truth": "good",
+        "counts": [
+          5,
+          22,
+          10
+        ]
+      },
+      {
+        "doc": "essay115",
+        "op": "delete",
+        "remove": [
+          [
+            296,
+            297,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.938135801877159,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          16,
+          9
+        ]
+      },
+      {
+        "doc": "essay085",
+        "op": "delete",
+        "remove": [
+          [
+            205,
+            217,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.702413507296839,
+        "delta_f1": 0.005102040816326536,
+        "truth": "good",
+        "counts": [
+          6,
+          23,
+          13
+        ]
+      },
+      {
+        "doc": "essay384",
+        "op": "delete",
+        "remove": [
+          [
+            307,
+            308,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.50490238640947,
+        "delta_f1": 0.0035650623885918054,
+        "truth": "good",
+        "counts": [
+          2,
+          20,
+          9
+        ]
+      },
+      {
+        "doc": "essay338",
+        "op": "delete",
+        "remove": [
+          [
+            235,
+            239,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.990539217680358,
+        "delta_f1": 0.005681818181818177,
+        "truth": "good",
+        "counts": [
+          3,
+          18,
+          8
+        ]
+      },
+      {
+        "doc": "essay088",
+        "op": "delete",
+        "remove": [
+          [
+            160,
+            170,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.865262316497539,
+        "delta_f1": 0.007246376811594207,
+        "truth": "good",
+        "counts": [
+          2,
+          14,
+          5
+        ]
+      },
+      {
+        "doc": "essay070",
+        "op": "delete",
+        "remove": [
+          [
+            322,
+            325,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.155539739953175,
+        "delta_f1": 0.0040485829959514,
+        "truth": "good",
+        "counts": [
+          3,
+          22,
+          10
+        ]
+      },
+      {
+        "doc": "essay105",
+        "op": "delete",
+        "remove": [
+          [
+            318,
+            319,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.524737519975851,
+        "delta_f1": 0.008534850640113834,
+        "truth": "good",
+        "counts": [
+          6,
+          17,
+          8
+        ]
+      },
+      {
+        "doc": "essay051",
+        "op": "delete",
+        "remove": [
+          [
+            236,
+            237,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.303015746927676,
+        "delta_f1": 0.006531204644412203,
+        "truth": "good",
+        "counts": [
+          9,
+          21,
+          13
+        ]
+      },
+      {
+        "doc": "essay366",
+        "op": "delete",
+        "remove": [
+          [
+            54,
+            55,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 10.500255826454199,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          18,
+          7
+        ]
+      },
+      {
+        "doc": "essay375",
+        "op": "delete",
+        "remove": [
+          [
+            243,
+            244,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.396876701262576,
+        "delta_f1": 0.001568627450980395,
+        "truth": "good",
+        "counts": [
+          2,
+          33,
+          13
+        ]
+      },
+      {
+        "doc": "essay273",
+        "op": "delete",
+        "remove": [
+          [
+            74,
+            76,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.755397189320325,
+        "delta_f1": 0.004267425320056917,
+        "truth": "good",
+        "counts": [
+          3,
+          18,
+          13
+        ]
+      },
+      {
+        "doc": "essay041",
+        "op": "delete",
+        "remove": [
+          [
+            270,
+            273,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 6.513092374865864,
+        "delta_f1": 0.014492753623188415,
+        "truth": "good",
+        "counts": [
+          4,
+          10,
+          5
+        ]
+      },
+      {
+        "doc": "essay327",
+        "op": "delete",
+        "remove": [
+          [
+            34,
+            35,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.273992533474319,
+        "delta_f1": 0.008534850640113834,
+        "truth": "good",
+        "counts": [
+          6,
+          17,
+          8
+        ]
+      },
+      {
+        "doc": "essay257",
+        "op": "delete",
+        "remove": [
+          [
+            138,
+            139,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.245353321227709,
+        "delta_f1": 0.006654567453115545,
+        "truth": "good",
+        "counts": [
+          11,
+          23,
+          12
+        ]
+      },
+      {
+        "doc": "essay152",
+        "op": "delete",
+        "remove": [
+          [
+            425,
+            426,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.682016256988994,
+        "delta_f1": 0.0021141649048625755,
+        "truth": "good",
+        "counts": [
+          2,
+          27,
+          12
+        ]
+      },
+      {
+        "doc": "essay019",
+        "op": "delete",
+        "remove": [
+          [
+            341,
+            345,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.525473912329698,
+        "delta_f1": 0.008859357696566983,
+        "truth": "good",
+        "counts": [
+          8,
+          17,
+          9
+        ]
+      },
+      {
+        "doc": "essay116",
+        "op": "delete",
+        "remove": [
+          [
+            162,
+            163,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.743353010675333,
+        "delta_f1": 0.010510510510510496,
+        "truth": "good",
+        "counts": [
+          7,
+          16,
+          6
+        ]
+      },
+      {
+        "doc": "essay100",
+        "op": "delete",
+        "remove": [
+          [
+            433,
+            435,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.4428719624862,
+        "delta_f1": 0.0062893081761006275,
+        "truth": "good",
+        "counts": [
+          9,
+          25,
+          10
+        ]
+      },
+      {
+        "doc": "essay251",
+        "op": "delete",
+        "remove": [
+          [
+            406,
+            407,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.032098893508287,
+        "delta_f1": 0.005844155844155818,
+        "truth": "good",
+        "counts": [
+          9,
+          24,
+          13
+        ]
+      },
+      {
+        "doc": "essay186",
+        "op": "delete",
+        "remove": [
+          [
+            95,
+            98,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.868406064329159,
+        "delta_f1": 0.0018501387604070302,
+        "truth": "good",
+        "counts": [
+          2,
+          26,
+          16
+        ]
+      },
+      {
+        "doc": "essay044",
+        "op": "delete",
+        "remove": [
+          [
+            42,
+            43,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.93896824774987,
+        "delta_f1": 0.009195402298850575,
+        "truth": "good",
+        "counts": [
+          4,
+          14,
+          7
+        ]
+      },
+      {
+        "doc": "essay357",
+        "op": "delete",
+        "remove": [
+          [
+            309,
+            310,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.033800740696677,
+        "delta_f1": 0.004830917874396129,
+        "truth": "good",
+        "counts": [
+          5,
+          23,
+          12
+        ]
+      },
+      {
+        "doc": "essay312",
+        "op": "delete",
+        "remove": [
+          [
+            407,
+            409,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.739896059579766,
+        "delta_f1": 0.005456349206349187,
+        "truth": "good",
+        "counts": [
+          11,
+          27,
+          14
+        ]
+      },
+      {
+        "doc": "essay237",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            70,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.813952519779438,
+        "delta_f1": 0.007399577167019056,
+        "truth": "good",
+        "counts": [
+          7,
+          19,
+          10
+        ]
+      },
+      {
+        "doc": "essay102",
+        "op": "delete",
+        "remove": [
+          [
+            287,
+            289,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.279507203202739,
+        "delta_f1": 0.006747638326585703,
+        "truth": "good",
+        "counts": [
+          5,
+          12,
+          16
+        ]
+      },
+      {
+        "doc": "essay370",
+        "op": "delete",
+        "remove": [
+          [
+            299,
+            300,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 7.016485198721775,
+        "delta_f1": 0.0017825311942959027,
+        "truth": "good",
+        "counts": [
+          1,
+          21,
+          10
+        ]
+      },
+      {
+        "doc": "essay127",
+        "op": "delete",
+        "remove": [
+          [
+            192,
+            195,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 6.627143819479974,
+        "delta_f1": 0.008695652173913049,
+        "truth": "good",
+        "counts": [
+          9,
+          16,
+          11
+        ]
+      },
+      {
+        "doc": "essay293",
+        "op": "delete",
+        "remove": [
+          [
+            366,
+            367,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.885547986649534,
+        "delta_f1": 0.003921568627450994,
+        "truth": "good",
+        "counts": [
+          5,
+          24,
+          16
+        ]
+      },
+      {
+        "doc": "essay135",
+        "op": "delete",
+        "remove": [
+          [
+            79,
+            81,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.049190457482336,
+        "delta_f1": 0.0024390243902439046,
+        "truth": "good",
+        "counts": [
+          2,
+          25,
+          11
+        ]
+      },
+      {
+        "doc": "essay279",
+        "op": "delete",
+        "remove": [
+          [
+            238,
+            239,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.254250296466518,
+        "delta_f1": 0.010510510510510496,
+        "truth": "good",
+        "counts": [
+          7,
+          13,
+          9
+        ]
+      },
+      {
+        "doc": "essay001",
+        "op": "delete",
+        "remove": [
+          [
+            371,
+            372,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 10.348144376064715,
+        "delta_f1": 0.010695187165775388,
+        "truth": "good",
+        "counts": [
+          6,
+          16,
+          5
+        ]
+      },
+      {
+        "doc": "essay093",
+        "op": "delete",
+        "remove": [
+          [
+            63,
+            64,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.52739293431025,
+        "delta_f1": 0.005681818181818177,
+        "truth": "good",
+        "counts": [
+          3,
+          17,
+          9
+        ]
+      },
+      {
+        "doc": "essay376",
+        "op": "delete",
+        "remove": [
+          [
+            60,
+            64,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.859900812226383,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          20,
+          10
+        ]
+      },
+      {
+        "doc": "essay032",
+        "op": "delete",
+        "remove": [
+          [
+            111,
+            113,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 6.895597710193615,
+        "delta_f1": 0.004830917874396129,
+        "truth": "good",
+        "counts": [
+          5,
+          24,
+          11
+        ]
+      },
+      {
+        "doc": "essay078",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            52,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 6.148895838590206,
+        "delta_f1": 0.009009009009008973,
+        "truth": "good",
+        "counts": [
+          6,
+          15,
+          9
+        ]
+      },
+      {
+        "doc": "essay244",
+        "op": "delete",
+        "remove": [
+          [
+            346,
+            348,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.214877004328656,
+        "delta_f1": 0.002902757619738766,
+        "truth": "good",
+        "counts": [
+          4,
+          31,
+          13
+        ]
+      },
+      {
+        "doc": "essay208",
+        "op": "delete",
+        "remove": [
+          [
+            74,
+            79,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.337747672071547,
+        "delta_f1": 0.004504504504504486,
+        "truth": "good",
+        "counts": [
+          3,
+          19,
+          11
+        ]
+      },
+      {
+        "doc": "essay171",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.533812918748323,
+        "delta_f1": 0.007936507936507936,
+        "truth": "good",
+        "counts": [
+          3,
+          16,
+          5
+        ]
+      },
+      {
+        "doc": "essay210",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.533812918748323,
+        "delta_f1": 0.009852216748768461,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          5
+        ]
+      },
+      {
+        "doc": "essay400",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.533812918748323,
+        "delta_f1": 0.009195402298850575,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          6
+        ]
+      },
+      {
+        "doc": "essay016",
+        "op": "delete",
+        "remove": [
+          [
+            304,
+            305,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.5937553299856395,
+        "delta_f1": 0.007936507936507908,
+        "truth": "good",
+        "counts": [
+          5,
+          17,
+          8
+        ]
+      },
+      {
+        "doc": "essay317",
+        "op": "delete",
+        "remove": [
+          [
+            387,
+            388,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.4541993364287364,
+        "delta_f1": 0.007751937984496082,
+        "truth": "good",
+        "counts": [
+          7,
+          17,
+          11
+        ]
+      },
+      {
+        "doc": "essay326",
+        "op": "delete",
+        "remove": [
+          [
+            335,
+            336,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 6.5436768967962475,
+        "delta_f1": 0.008325624421831657,
+        "truth": "good",
+        "counts": [
+          9,
+          17,
+          11
+        ]
+      },
+      {
+        "doc": "essay099",
+        "op": "delete",
+        "remove": [
+          [
+            36,
+            37,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.530606052790458,
+        "delta_f1": 0.01025641025641022,
+        "truth": "good",
+        "counts": [
+          8,
+          17,
+          6
+        ]
+      },
+      {
+        "doc": "essay298",
+        "op": "delete",
+        "remove": [
+          [
+            77,
+            78,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.939089534604214,
+        "delta_f1": 0.00626566416040103,
+        "truth": "good",
+        "counts": [
+          10,
+          27,
+          9
+        ]
+      },
+      {
+        "doc": "essay215",
+        "op": "delete",
+        "remove": [
+          [
+            59,
+            60,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.339834964851403,
+        "delta_f1": 0.007541478129713397,
+        "truth": "good",
+        "counts": [
+          10,
+          20,
+          11
+        ]
+      },
+      {
+        "doc": "essay037",
+        "op": "delete",
+        "remove": [
+          [
+            71,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.645944814290917,
+        "delta_f1": 0.0062893081761006275,
+        "truth": "good",
+        "counts": [
+          9,
+          23,
+          12
+        ]
+      },
+      {
+        "doc": "essay128",
+        "op": "delete",
+        "remove": [
+          [
+            68,
+            70,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.777435990278114,
+        "delta_f1": 0.0080971659919028,
+        "truth": "good",
+        "counts": [
+          6,
+          19,
+          7
+        ]
+      },
+      {
+        "doc": "essay264",
+        "op": "delete",
+        "remove": [
+          [
+            303,
+            305,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.986568757885734,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          10
+        ]
+      },
+      {
+        "doc": "essay238",
+        "op": "delete",
+        "remove": [
+          [
+            225,
+            228,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 6.562175714838951,
+        "delta_f1": 0.007246376811594207,
+        "truth": "good",
+        "counts": [
+          2,
+          11,
+          8
+        ]
+      },
+      {
+        "doc": "essay394",
+        "op": "delete",
+        "remove": [
+          [
+            80,
+            81,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 8.228373694366432,
+        "delta_f1": 0.0117647058823529,
+        "truth": "good",
+        "counts": [
+          7,
+          15,
+          5
+        ]
+      },
+      {
+        "doc": "essay107",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            66,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 6.771661993933297,
+        "delta_f1": 0.008602150537634412,
+        "truth": "good",
+        "counts": [
+          4,
+          14,
+          8
+        ]
+      },
+      {
+        "doc": "essay224",
+        "op": "delete",
+        "remove": [
+          [
+            440,
+            442,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 6.724757411812625,
+        "delta_f1": 0.0065306122448979265,
+        "truth": "good",
+        "counts": [
+          8,
+          20,
+          13
+        ]
+      },
+      {
+        "doc": "essay153",
+        "op": "delete",
+        "remove": [
+          [
+            89,
+            90,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 7.369144087854823,
+        "delta_f1": 0.005681818181818177,
+        "truth": "good",
+        "counts": [
+          3,
+          20,
+          6
+        ]
+      }
+    ]
+  },
+  "same_threshold_without_deletion": {
+    "threshold": 4.0,
+    "threshold_is_infinite": false,
+    "allow_delete": false,
+    "documents": 66,
+    "accepted": 33,
+    "accepted_truth": {
+      "good": 3,
+      "neutral": 30
+    },
+    "accepted_actions": {
+      "respan": 32,
+      "retype": 1
+    },
+    "before_counts": [
+      340,
+      1349,
+      646
+    ],
+    "after_counts": [
+      343,
+      1346,
+      643
+    ],
+    "before_micro_f1": 0.2542056074766355,
+    "after_micro_f1": 0.25644859813084114,
+    "delta_micro_f1": 0.0022429906542056344,
+    "paired_document_bootstrap95": [
+      0.0,
+      0.0051606728328114845
+    ],
+    "selected_edits": [
+      {
+        "doc": "essay035",
+        "op": "respan",
+        "remove": [
+          [
+            42,
+            43,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            32,
+            49,
+            "MajorClaim"
+          ]
+        ],
+        "score": 6.244570841317001,
+        "delta_f1": 0.05882352941176472,
+        "truth": "good",
+        "counts": [
+          5,
+          14,
+          10
+        ]
+      },
+      {
+        "doc": "essay381",
+        "op": "respan",
+        "remove": [
+          [
+            34,
+            35,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            33,
+            44,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.405404736182932,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          4,
+          16,
+          7
+        ]
+      },
+      {
+        "doc": "essay217",
+        "op": "respan",
+        "remove": [
+          [
+            127,
+            158,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            138,
+            158,
+            "Premise"
+          ]
+        ],
+        "score": 4.027561355899019,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          7,
+          25,
+          7
+        ]
+      },
+      {
+        "doc": "essay038",
+        "op": "respan",
+        "remove": [
+          [
+            79,
+            80,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            63,
+            82,
+            "MajorClaim"
+          ]
+        ],
+        "score": 5.2400151065430665,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          5,
+          23,
+          10
+        ]
+      },
+      {
+        "doc": "essay085",
+        "op": "respan",
+        "remove": [
+          [
+            484,
+            487,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            483,
+            493,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.890105607643573,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          6,
+          24,
+          13
+        ]
+      },
+      {
+        "doc": "essay338",
+        "op": "respan",
+        "remove": [
+          [
+            32,
+            33,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            11,
+            38,
+            "Claim"
+          ]
+        ],
+        "score": 4.921877556718886,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          3,
+          19,
+          8
+        ]
+      },
+      {
+        "doc": "essay051",
+        "op": "respan",
+        "remove": [
+          [
+            55,
+            56,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            49,
+            59,
+            "MajorClaim"
+          ]
+        ],
+        "score": 5.3975653442305855,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          9,
+          22,
+          13
+        ]
+      },
+      {
+        "doc": "essay366",
+        "op": "retype",
+        "remove": [
+          [
+            54,
+            55,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            54,
+            55,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.039382943180938,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          4,
+          19,
+          7
+        ]
+      },
+      {
+        "doc": "essay375",
+        "op": "respan",
+        "remove": [
+          [
+            62,
+            63,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            61,
+            70,
+            "MajorClaim"
+          ]
+        ],
+        "score": 5.212615330009723,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          2,
+          34,
+          13
+        ]
+      },
+      {
+        "doc": "essay273",
+        "op": "respan",
+        "remove": [
+          [
+            74,
+            76,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            65,
+            76,
+            "Claim"
+          ]
+        ],
+        "score": 5.62455506958073,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          3,
+          19,
+          13
+        ]
+      },
+      {
+        "doc": "essay327",
+        "op": "respan",
+        "remove": [
+          [
+            34,
+            35,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            24,
+            42,
+            "MajorClaim"
+          ]
+        ],
+        "score": 6.655822752185147,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          6,
+          18,
+          8
+        ]
+      },
+      {
+        "doc": "essay116",
+        "op": "respan",
+        "remove": [
+          [
+            243,
+            260,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            249,
+            260,
+            "Premise"
+          ]
+        ],
+        "score": 4.556361257395223,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          7,
+          17,
+          6
+        ]
+      },
+      {
+        "doc": "essay251",
+        "op": "respan",
+        "remove": [
+          [
+            62,
+            63,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            56,
+            77,
+            "Claim"
+          ]
+        ],
+        "score": 5.6263012182520065,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          9,
+          25,
+          13
+        ]
+      },
+      {
+        "doc": "essay044",
+        "op": "respan",
+        "remove": [
+          [
+            42,
+            43,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            30,
+            48,
+            "MajorClaim"
+          ]
+        ],
+        "score": 8.619200436292484,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          4,
+          15,
+          7
+        ]
+      },
+      {
+        "doc": "essay357",
+        "op": "respan",
+        "remove": [
+          [
+            56,
+            58,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            50,
+            64,
+            "Premise"
+          ]
+        ],
+        "score": 5.787231590383107,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          5,
+          24,
+          12
+        ]
+      },
+      {
+        "doc": "essay312",
+        "op": "respan",
+        "remove": [
+          [
+            96,
+            97,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            92,
+            97,
+            "Premise"
+          ]
+        ],
+        "score": 4.409532724173816,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          11,
+          28,
+          14
+        ]
+      },
+      {
+        "doc": "essay237",
+        "op": "respan",
+        "remove": [
+          [
+            67,
+            70,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            55,
+            80,
+            "Premise"
+          ]
+        ],
+        "score": 8.152943523982868,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          7,
+          20,
+          10
+        ]
+      },
+      {
+        "doc": "essay370",
+        "op": "respan",
+        "remove": [
+          [
+            42,
+            43,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            37,
+            48,
+            "Claim"
+          ]
+        ],
+        "score": 5.623262173285612,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          1,
+          22,
+          10
+        ]
+      },
+      {
+        "doc": "essay279",
+        "op": "respan",
+        "remove": [
+          [
+            71,
+            83,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            66,
+            83,
+            "Premise"
+          ]
+        ],
+        "score": 4.587411508757692,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          7,
+          14,
+          9
+        ]
+      },
+      {
+        "doc": "essay001",
+        "op": "respan",
+        "remove": [
+          [
+            371,
+            372,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            369,
+            372,
+            "Claim"
+          ]
+        ],
+        "score": 4.566800047328789,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          6,
+          17,
+          5
+        ]
+      },
+      {
+        "doc": "essay093",
+        "op": "respan",
+        "remove": [
+          [
+            63,
+            64,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            60,
+            64,
+            "Claim"
+          ]
+        ],
+        "score": 4.196306942985344,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          3,
+          18,
+          9
+        ]
+      },
+      {
+        "doc": "essay376",
+        "op": "respan",
+        "remove": [
+          [
+            60,
+            64,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            56,
+            69,
+            "MajorClaim"
+          ]
+        ],
+        "score": 6.148306701446515,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          21,
+          10
+        ]
+      },
+      {
+        "doc": "essay032",
+        "op": "respan",
+        "remove": [
+          [
+            65,
+            66,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            53,
+            74,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.671655116416995,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          5,
+          25,
+          11
+        ]
+      },
+      {
+        "doc": "essay078",
+        "op": "respan",
+        "remove": [
+          [
+            68,
+            69,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            63,
+            79,
+            "Claim"
+          ]
+        ],
+        "score": 4.902113936160554,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          6,
+          16,
+          9
+        ]
+      },
+      {
+        "doc": "essay244",
+        "op": "respan",
+        "remove": [
+          [
+            54,
+            55,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            53,
+            60,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.543495127798332,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          4,
+          32,
+          13
+        ]
+      },
+      {
+        "doc": "essay171",
+        "op": "respan",
+        "remove": [
+          [
+            33,
+            36,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            20,
+            38,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.770504364845369,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          3,
+          17,
+          5
+        ]
+      },
+      {
+        "doc": "essay210",
+        "op": "respan",
+        "remove": [
+          [
+            33,
+            36,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            20,
+            38,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.770504364845369,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          4,
+          16,
+          5
+        ]
+      },
+      {
+        "doc": "essay400",
+        "op": "respan",
+        "remove": [
+          [
+            33,
+            36,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            20,
+            38,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.770504364845369,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          4,
+          16,
+          6
+        ]
+      },
+      {
+        "doc": "essay317",
+        "op": "respan",
+        "remove": [
+          [
+            55,
+            56,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            45,
+            64,
+            "MajorClaim"
+          ]
+        ],
+        "score": 5.000168836191584,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          7,
+          18,
+          11
+        ]
+      },
+      {
+        "doc": "essay326",
+        "op": "respan",
+        "remove": [
+          [
+            57,
+            58,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            55,
+            72,
+            "MajorClaim"
+          ]
+        ],
+        "score": 4.472456622703368,
+        "delta_f1": 0.04255319148936171,
+        "truth": "good",
+        "counts": [
+          10,
+          17,
+          10
+        ]
+      },
+      {
+        "doc": "essay099",
+        "op": "respan",
+        "remove": [
+          [
+            36,
+            37,
+            "Claim"
+          ]
+        ],
+        "add": [
+          [
+            28,
+            43,
+            "Claim"
+          ]
+        ],
+        "score": 5.805438974981531,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          8,
+          18,
+          6
+        ]
+      },
+      {
+        "doc": "essay298",
+        "op": "respan",
+        "remove": [
+          [
+            57,
+            59,
+            "MajorClaim"
+          ]
+        ],
+        "add": [
+          [
+            48,
+            61,
+            "Premise"
+          ]
+        ],
+        "score": 4.08460114965409,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          10,
+          28,
+          9
+        ]
+      },
+      {
+        "doc": "essay224",
+        "op": "respan",
+        "remove": [
+          [
+            312,
+            327,
+            "Premise"
+          ]
+        ],
+        "add": [
+          [
+            314,
+            327,
+            "Premise"
+          ]
+        ],
+        "score": 4.876912124897632,
+        "delta_f1": 0.03999999999999998,
+        "truth": "good",
+        "counts": [
+          9,
+          20,
+          12
+        ]
+      }
+    ]
+  },
+  "prespecified_zero_threshold_policy": {
+    "threshold": 0.0,
+    "threshold_is_infinite": false,
+    "allow_delete": true,
+    "documents": 66,
+    "accepted": 66,
+    "accepted_truth": {
+      "good": 65,
+      "neutral": 1
+    },
+    "accepted_actions": {
+      "delete": 66
+    },
+    "before_counts": [
+      340,
+      1349,
+      646
+    ],
+    "after_counts": [
+      340,
+      1283,
+      646
+    ],
+    "before_micro_f1": 0.2542056074766355,
+    "after_micro_f1": 0.2606362591031046,
+    "delta_micro_f1": 0.006430651626469108,
+    "paired_document_bootstrap95": [
+      0.005760927783323425,
+      0.007061414542289464
+    ],
+    "selected_edits": [
+      {
+        "doc": "essay035",
+        "op": "delete",
+        "remove": [
+          [
+            42,
+            43,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 7.0355264099770105,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          14,
+          11
+        ]
+      },
+      {
+        "doc": "essay008",
+        "op": "delete",
+        "remove": [
+          [
+            89,
+            90,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.668391584442964,
+        "delta_f1": 0.0038461538461538602,
+        "truth": "good",
+        "counts": [
+          3,
+          23,
+          10
+        ]
+      },
+      {
+        "doc": "essay381",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            68,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.557307883130171,
+        "delta_f1": 0.008602150537634412,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          7
+        ]
+      },
+      {
+        "doc": "essay137",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            68,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.857099157216584,
+        "delta_f1": 0.007575757575757569,
+        "truth": "good",
+        "counts": [
+          4,
+          16,
+          8
+        ]
+      },
+      {
+        "doc": "essay315",
+        "op": "delete",
+        "remove": [
+          [
+            366,
+            367,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.4791089435154365,
+        "delta_f1": 0.0015873015873015886,
+        "truth": "good",
+        "counts": [
+          1,
+          23,
+          10
+        ]
+      },
+      {
+        "doc": "essay313",
+        "op": "delete",
+        "remove": [
+          [
+            370,
+            371,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.093888883538314,
+        "delta_f1": 0.00647548566142464,
+        "truth": "good",
+        "counts": [
+          7,
+          17,
+          15
+        ]
+      },
+      {
+        "doc": "essay095",
+        "op": "delete",
+        "remove": [
+          [
+            66,
+            69,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.72206538945348,
+        "delta_f1": 0.0080971659919028,
+        "truth": "good",
+        "counts": [
+          6,
+          16,
+          10
+        ]
+      },
+      {
+        "doc": "essay217",
+        "op": "delete",
+        "remove": [
+          [
+            53,
+            55,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 10.37513971383213,
+        "delta_f1": 0.006763285024154575,
+        "truth": "good",
+        "counts": [
+          7,
+          24,
+          7
+        ]
+      },
+      {
+        "doc": "essay090",
+        "op": "delete",
+        "remove": [
+          [
+            341,
+            343,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.476871318161214,
+        "delta_f1": 0.006006006006005982,
+        "truth": "good",
+        "counts": [
+          4,
+          20,
+          8
+        ]
+      },
+      {
+        "doc": "essay011",
+        "op": "delete",
+        "remove": [
+          [
+            323,
+            324,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.922873239115214,
+        "delta_f1": 0.002262443438914019,
+        "truth": "good",
+        "counts": [
+          3,
+          29,
+          16
+        ]
+      },
+      {
+        "doc": "essay391",
+        "op": "delete",
+        "remove": [
+          [
+            343,
+            344,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.429775648580737,
+        "delta_f1": 0.004228329809725151,
+        "truth": "good",
+        "counts": [
+          4,
+          25,
+          10
+        ]
+      },
+      {
+        "doc": "essay038",
+        "op": "delete",
+        "remove": [
+          [
+            89,
+            93,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.03377545824694,
+        "delta_f1": 0.005537098560354364,
+        "truth": "good",
+        "counts": [
+          5,
+          22,
+          10
+        ]
+      },
+      {
+        "doc": "essay115",
+        "op": "delete",
+        "remove": [
+          [
+            296,
+            297,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.938135801877159,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          16,
+          9
+        ]
+      },
+      {
+        "doc": "essay085",
+        "op": "delete",
+        "remove": [
+          [
+            205,
+            217,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.702413507296839,
+        "delta_f1": 0.005102040816326536,
+        "truth": "good",
+        "counts": [
+          6,
+          23,
+          13
+        ]
+      },
+      {
+        "doc": "essay384",
+        "op": "delete",
+        "remove": [
+          [
+            307,
+            308,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.50490238640947,
+        "delta_f1": 0.0035650623885918054,
+        "truth": "good",
+        "counts": [
+          2,
+          20,
+          9
+        ]
+      },
+      {
+        "doc": "essay338",
+        "op": "delete",
+        "remove": [
+          [
+            235,
+            239,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.990539217680358,
+        "delta_f1": 0.005681818181818177,
+        "truth": "good",
+        "counts": [
+          3,
+          18,
+          8
+        ]
+      },
+      {
+        "doc": "essay088",
+        "op": "delete",
+        "remove": [
+          [
+            160,
+            170,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.865262316497539,
+        "delta_f1": 0.007246376811594207,
+        "truth": "good",
+        "counts": [
+          2,
+          14,
+          5
+        ]
+      },
+      {
+        "doc": "essay070",
+        "op": "delete",
+        "remove": [
+          [
+            322,
+            325,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.155539739953175,
+        "delta_f1": 0.0040485829959514,
+        "truth": "good",
+        "counts": [
+          3,
+          22,
+          10
+        ]
+      },
+      {
+        "doc": "essay105",
+        "op": "delete",
+        "remove": [
+          [
+            318,
+            319,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.524737519975851,
+        "delta_f1": 0.008534850640113834,
+        "truth": "good",
+        "counts": [
+          6,
+          17,
+          8
+        ]
+      },
+      {
+        "doc": "essay051",
+        "op": "delete",
+        "remove": [
+          [
+            236,
+            237,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.303015746927676,
+        "delta_f1": 0.006531204644412203,
+        "truth": "good",
+        "counts": [
+          9,
+          21,
+          13
+        ]
+      },
+      {
+        "doc": "essay366",
+        "op": "delete",
+        "remove": [
+          [
+            54,
+            55,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 10.500255826454199,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          18,
+          7
+        ]
+      },
+      {
+        "doc": "essay375",
+        "op": "delete",
+        "remove": [
+          [
+            243,
+            244,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.396876701262576,
+        "delta_f1": 0.001568627450980395,
+        "truth": "good",
+        "counts": [
+          2,
+          33,
+          13
+        ]
+      },
+      {
+        "doc": "essay273",
+        "op": "delete",
+        "remove": [
+          [
+            74,
+            76,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.755397189320325,
+        "delta_f1": 0.004267425320056917,
+        "truth": "good",
+        "counts": [
+          3,
+          18,
+          13
+        ]
+      },
+      {
+        "doc": "essay041",
+        "op": "delete",
+        "remove": [
+          [
+            270,
+            273,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 6.513092374865864,
+        "delta_f1": 0.014492753623188415,
+        "truth": "good",
+        "counts": [
+          4,
+          10,
+          5
+        ]
+      },
+      {
+        "doc": "essay327",
+        "op": "delete",
+        "remove": [
+          [
+            34,
+            35,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.273992533474319,
+        "delta_f1": 0.008534850640113834,
+        "truth": "good",
+        "counts": [
+          6,
+          17,
+          8
+        ]
+      },
+      {
+        "doc": "essay257",
+        "op": "delete",
+        "remove": [
+          [
+            138,
+            139,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.245353321227709,
+        "delta_f1": 0.006654567453115545,
+        "truth": "good",
+        "counts": [
+          11,
+          23,
+          12
+        ]
+      },
+      {
+        "doc": "essay152",
+        "op": "delete",
+        "remove": [
+          [
+            425,
+            426,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.682016256988994,
+        "delta_f1": 0.0021141649048625755,
+        "truth": "good",
+        "counts": [
+          2,
+          27,
+          12
+        ]
+      },
+      {
+        "doc": "essay019",
+        "op": "delete",
+        "remove": [
+          [
+            341,
+            345,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.525473912329698,
+        "delta_f1": 0.008859357696566983,
+        "truth": "good",
+        "counts": [
+          8,
+          17,
+          9
+        ]
+      },
+      {
+        "doc": "essay116",
+        "op": "delete",
+        "remove": [
+          [
+            162,
+            163,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.743353010675333,
+        "delta_f1": 0.010510510510510496,
+        "truth": "good",
+        "counts": [
+          7,
+          16,
+          6
+        ]
+      },
+      {
+        "doc": "essay100",
+        "op": "delete",
+        "remove": [
+          [
+            433,
+            435,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.4428719624862,
+        "delta_f1": 0.0062893081761006275,
+        "truth": "good",
+        "counts": [
+          9,
+          25,
+          10
+        ]
+      },
+      {
+        "doc": "essay251",
+        "op": "delete",
+        "remove": [
+          [
+            406,
+            407,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.032098893508287,
+        "delta_f1": 0.005844155844155818,
+        "truth": "good",
+        "counts": [
+          9,
+          24,
+          13
+        ]
+      },
+      {
+        "doc": "essay186",
+        "op": "delete",
+        "remove": [
+          [
+            95,
+            98,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.868406064329159,
+        "delta_f1": 0.0018501387604070302,
+        "truth": "good",
+        "counts": [
+          2,
+          26,
+          16
+        ]
+      },
+      {
+        "doc": "essay044",
+        "op": "delete",
+        "remove": [
+          [
+            42,
+            43,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.93896824774987,
+        "delta_f1": 0.009195402298850575,
+        "truth": "good",
+        "counts": [
+          4,
+          14,
+          7
+        ]
+      },
+      {
+        "doc": "essay357",
+        "op": "delete",
+        "remove": [
+          [
+            309,
+            310,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.033800740696677,
+        "delta_f1": 0.004830917874396129,
+        "truth": "good",
+        "counts": [
+          5,
+          23,
+          12
+        ]
+      },
+      {
+        "doc": "essay312",
+        "op": "delete",
+        "remove": [
+          [
+            407,
+            409,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.739896059579766,
+        "delta_f1": 0.005456349206349187,
+        "truth": "good",
+        "counts": [
+          11,
+          27,
+          14
+        ]
+      },
+      {
+        "doc": "essay237",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            70,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.813952519779438,
+        "delta_f1": 0.007399577167019056,
+        "truth": "good",
+        "counts": [
+          7,
+          19,
+          10
+        ]
+      },
+      {
+        "doc": "essay102",
+        "op": "delete",
+        "remove": [
+          [
+            287,
+            289,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.279507203202739,
+        "delta_f1": 0.006747638326585703,
+        "truth": "good",
+        "counts": [
+          5,
+          12,
+          16
+        ]
+      },
+      {
+        "doc": "essay370",
+        "op": "delete",
+        "remove": [
+          [
+            299,
+            300,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 7.016485198721775,
+        "delta_f1": 0.0017825311942959027,
+        "truth": "good",
+        "counts": [
+          1,
+          21,
+          10
+        ]
+      },
+      {
+        "doc": "essay127",
+        "op": "delete",
+        "remove": [
+          [
+            192,
+            195,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 6.627143819479974,
+        "delta_f1": 0.008695652173913049,
+        "truth": "good",
+        "counts": [
+          9,
+          16,
+          11
+        ]
+      },
+      {
+        "doc": "essay293",
+        "op": "delete",
+        "remove": [
+          [
+            366,
+            367,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.885547986649534,
+        "delta_f1": 0.003921568627450994,
+        "truth": "good",
+        "counts": [
+          5,
+          24,
+          16
+        ]
+      },
+      {
+        "doc": "essay135",
+        "op": "delete",
+        "remove": [
+          [
+            79,
+            81,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.049190457482336,
+        "delta_f1": 0.0024390243902439046,
+        "truth": "good",
+        "counts": [
+          2,
+          25,
+          11
+        ]
+      },
+      {
+        "doc": "essay279",
+        "op": "delete",
+        "remove": [
+          [
+            238,
+            239,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.254250296466518,
+        "delta_f1": 0.010510510510510496,
+        "truth": "good",
+        "counts": [
+          7,
+          13,
+          9
+        ]
+      },
+      {
+        "doc": "essay001",
+        "op": "delete",
+        "remove": [
+          [
+            371,
+            372,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 10.348144376064715,
+        "delta_f1": 0.010695187165775388,
+        "truth": "good",
+        "counts": [
+          6,
+          16,
+          5
+        ]
+      },
+      {
+        "doc": "essay093",
+        "op": "delete",
+        "remove": [
+          [
+            63,
+            64,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 9.52739293431025,
+        "delta_f1": 0.005681818181818177,
+        "truth": "good",
+        "counts": [
+          3,
+          17,
+          9
+        ]
+      },
+      {
+        "doc": "essay376",
+        "op": "delete",
+        "remove": [
+          [
+            60,
+            64,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.859900812226383,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          20,
+          10
+        ]
+      },
+      {
+        "doc": "essay032",
+        "op": "delete",
+        "remove": [
+          [
+            111,
+            113,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 6.895597710193615,
+        "delta_f1": 0.004830917874396129,
+        "truth": "good",
+        "counts": [
+          5,
+          24,
+          11
+        ]
+      },
+      {
+        "doc": "essay078",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            52,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 6.148895838590206,
+        "delta_f1": 0.009009009009008973,
+        "truth": "good",
+        "counts": [
+          6,
+          15,
+          9
+        ]
+      },
+      {
+        "doc": "essay244",
+        "op": "delete",
+        "remove": [
+          [
+            346,
+            348,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.214877004328656,
+        "delta_f1": 0.002902757619738766,
+        "truth": "good",
+        "counts": [
+          4,
+          31,
+          13
+        ]
+      },
+      {
+        "doc": "essay208",
+        "op": "delete",
+        "remove": [
+          [
+            74,
+            79,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.337747672071547,
+        "delta_f1": 0.004504504504504486,
+        "truth": "good",
+        "counts": [
+          3,
+          19,
+          11
+        ]
+      },
+      {
+        "doc": "essay171",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.533812918748323,
+        "delta_f1": 0.007936507936507936,
+        "truth": "good",
+        "counts": [
+          3,
+          16,
+          5
+        ]
+      },
+      {
+        "doc": "essay210",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.533812918748323,
+        "delta_f1": 0.009852216748768461,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          5
+        ]
+      },
+      {
+        "doc": "essay400",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.533812918748323,
+        "delta_f1": 0.009195402298850575,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          6
+        ]
+      },
+      {
+        "doc": "essay016",
+        "op": "delete",
+        "remove": [
+          [
+            304,
+            305,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.5937553299856395,
+        "delta_f1": 0.007936507936507908,
+        "truth": "good",
+        "counts": [
+          5,
+          17,
+          8
+        ]
+      },
+      {
+        "doc": "essay317",
+        "op": "delete",
+        "remove": [
+          [
+            387,
+            388,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.4541993364287364,
+        "delta_f1": 0.007751937984496082,
+        "truth": "good",
+        "counts": [
+          7,
+          17,
+          11
+        ]
+      },
+      {
+        "doc": "essay326",
+        "op": "delete",
+        "remove": [
+          [
+            335,
+            336,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 6.5436768967962475,
+        "delta_f1": 0.008325624421831657,
+        "truth": "good",
+        "counts": [
+          9,
+          17,
+          11
+        ]
+      },
+      {
+        "doc": "essay099",
+        "op": "delete",
+        "remove": [
+          [
+            36,
+            37,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.530606052790458,
+        "delta_f1": 0.01025641025641022,
+        "truth": "good",
+        "counts": [
+          8,
+          17,
+          6
+        ]
+      },
+      {
+        "doc": "essay298",
+        "op": "delete",
+        "remove": [
+          [
+            77,
+            78,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.939089534604214,
+        "delta_f1": 0.00626566416040103,
+        "truth": "good",
+        "counts": [
+          10,
+          27,
+          9
+        ]
+      },
+      {
+        "doc": "essay215",
+        "op": "delete",
+        "remove": [
+          [
+            59,
+            60,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 7.339834964851403,
+        "delta_f1": 0.007541478129713397,
+        "truth": "good",
+        "counts": [
+          10,
+          20,
+          11
+        ]
+      },
+      {
+        "doc": "essay037",
+        "op": "delete",
+        "remove": [
+          [
+            71,
+            72,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 8.645944814290917,
+        "delta_f1": 0.0062893081761006275,
+        "truth": "good",
+        "counts": [
+          9,
+          23,
+          12
+        ]
+      },
+      {
+        "doc": "essay128",
+        "op": "delete",
+        "remove": [
+          [
+            68,
+            70,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.777435990278114,
+        "delta_f1": 0.0080971659919028,
+        "truth": "good",
+        "counts": [
+          6,
+          19,
+          7
+        ]
+      },
+      {
+        "doc": "essay264",
+        "op": "delete",
+        "remove": [
+          [
+            303,
+            305,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 7.986568757885734,
+        "delta_f1": 0.007130124777183611,
+        "truth": "good",
+        "counts": [
+          4,
+          15,
+          10
+        ]
+      },
+      {
+        "doc": "essay238",
+        "op": "delete",
+        "remove": [
+          [
+            225,
+            228,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 6.562175714838951,
+        "delta_f1": 0.007246376811594207,
+        "truth": "good",
+        "counts": [
+          2,
+          11,
+          8
+        ]
+      },
+      {
+        "doc": "essay394",
+        "op": "delete",
+        "remove": [
+          [
+            80,
+            81,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 8.228373694366432,
+        "delta_f1": 0.0117647058823529,
+        "truth": "good",
+        "counts": [
+          7,
+          15,
+          5
+        ]
+      },
+      {
+        "doc": "essay107",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            66,
+            "Premise"
+          ]
+        ],
+        "add": [],
+        "score": 6.771661993933297,
+        "delta_f1": 0.008602150537634412,
+        "truth": "good",
+        "counts": [
+          4,
+          14,
+          8
+        ]
+      },
+      {
+        "doc": "essay224",
+        "op": "delete",
+        "remove": [
+          [
+            440,
+            442,
+            "Claim"
+          ]
+        ],
+        "add": [],
+        "score": 6.724757411812625,
+        "delta_f1": 0.0065306122448979265,
+        "truth": "good",
+        "counts": [
+          8,
+          20,
+          13
+        ]
+      },
+      {
+        "doc": "essay153",
+        "op": "delete",
+        "remove": [
+          [
+            89,
+            90,
+            "MajorClaim"
+          ]
+        ],
+        "add": [],
+        "score": 7.369144087854823,
+        "delta_f1": 0.005681818181818177,
+        "truth": "good",
+        "counts": [
+          3,
+          20,
+          6
+        ]
+      }
+    ]
+  },
+  "conditional_relation_scoring": {
+    "setting": "gold span + gold type, single-premise native relations only; not end-to-end",
+    "train_pairs": 31968,
+    "calibration_pairs": 12098,
+    "audit_pairs": 11602,
+    "positive_base_rate": 0.054042406481641096,
+    "positive_count": 627,
+    "link_average_precision": 0.6093800081784654,
+    "link_auc": 0.948880048537164,
+    "argmax_positive_typed_micro_f1": 0.4369565217391304,
+    "counts": [
+      201,
+      92,
+      426
+    ],
+    "temperature": 1.0,
+    "classes": [
+      "NONE",
+      "attacks",
+      "supports"
+    ],
+    "unseen_audit_labels": {}
+  },
+  "training_class_incidence": {
+    "MajorClaim": {
+      "components": 357,
+      "incident_native_relations": 0
+    },
+    "Claim": {
+      "components": 722,
+      "incident_native_relations": 1455
+    },
+    "Premise": {
+      "components": 1759,
+      "incident_native_relations": 2063
+    }
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "aggregate": {
+    "cdcp": {
+      "documents": 16,
+      "metrics": {
+        "g0": {
+          "C": {
+            "TP": 30,
+            "FP": 54,
+            "FN": 92,
+            "precision": 0.35714285714285715,
+            "recall": 0.2459016393442623,
+            "F1": 0.2912621359223301
+          },
+          "R": {
+            "TP": 0,
+            "FP": 31,
+            "FN": 42,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 30,
+            "FP": 54,
+            "FN": 92,
+            "precision": 0.35714285714285715,
+            "recall": 0.2459016393442623,
+            "F1": 0.2912621359223301
+          },
+          "R": {
+            "TP": 0,
+            "FP": 31,
+            "FN": 42,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "MCR-only": {
+          "C": {
+            "TP": 30,
+            "FP": 54,
+            "FN": 92,
+            "precision": 0.35714285714285715,
+            "recall": 0.2459016393442623,
+            "F1": 0.2912621359223301
+          },
+          "R": {
+            "TP": 0,
+            "FP": 31,
+            "FN": 42,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 17,
+            "FP": 39,
+            "FN": 105,
+            "precision": 0.30357142857142855,
+            "recall": 0.13934426229508196,
+            "F1": 0.19101123595505617
+          },
+          "R": {
+            "TP": 0,
+            "FP": 68,
+            "FN": 42,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 10,
+            "FP": 46,
+            "FN": 112,
+            "precision": 0.17857142857142858,
+            "recall": 0.08196721311475409,
+            "F1": 0.11235955056179775
+          },
+          "R": {
+            "TP": 0,
+            "FP": 63,
+            "FN": 42,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 13,
+            "FP_removed": 15,
+            "FP_added": 0,
+            "initial_TP": 30,
+            "initial_TP_retained": 17
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 28,
+            "FP_added": 65,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 20,
+            "FP_removed": 22,
+            "FP_added": 14,
+            "initial_TP": 30,
+            "initial_TP_retained": 10
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 27,
+            "FP_added": 59,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 30,
+        "C_gold": 122,
+        "R_hits": 5,
+        "R_gold": 42,
+        "R_all_endpoints_present": 5,
+        "R_multisource_gold": 4,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 149,
+        "R_candidates": 2688
+      },
+      "document_relation_outcomes": {
+        "unchanged": 12,
+        "failure": 4
+      }
+    }
+  },
+  "case_selection": {
+    "cdcp": {
+      "improvement": null,
+      "harm": null,
+      "unchanged": "cdcp_00230"
+    }
+  },
+  "costs": {
+    "cdcp__BRJ-lite": {
+      "documents": 16,
+      "completed_documents": 12,
+      "failed_documents": 4,
+      "wall_seconds": 0.21236012499999968,
+      "solver_seconds": 0.10674227899999833,
+      "attempts": 835,
+      "accepts": 52,
+      "calls": 723,
+      "component_edits": 28,
+      "relation_edits": 106,
+      "timing_scope": "completed repair-stage runs only; initial failure durations not recorded"
+    },
+    "cdcp__RelationOnly": {
+      "documents": 16,
+      "completed_documents": 12,
+      "failed_documents": 4,
+      "wall_seconds": 0.27345187400000015,
+      "solver_seconds": 0.152383998999999,
+      "attempts": 748,
+      "accepts": 74,
+      "calls": 1108,
+      "component_edits": 0,
+      "relation_edits": 85,
+      "timing_scope": "completed repair-stage runs only; initial failure durations not recorded"
+    }
+  },
+  "solver_status_counts": {
+    "0": 608,
+    "2": 1223
+  },
+  "committed_shape_counts": {
+    "BRJ-lite:relation": 38,
+    "BRJ-lite:replace": 14,
+    "RelationOnly:relation": 74
+  }
+}

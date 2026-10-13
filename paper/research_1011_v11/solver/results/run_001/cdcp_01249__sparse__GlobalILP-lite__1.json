@@ -1,0 +1,81 @@
+{
+  "id": "cdcp_01249",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "c001",
+      "c003",
+      "c005"
+    ],
+    "R": []
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c003",
+      "c005"
+    ],
+    "R": [
+      "r0011",
+      "r0015",
+      "r0031"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00022983300000056772,
+      "time_limit": 1.0,
+      "objective": -3.5999999999999996,
+      "minimization_dual_bound": -3.5999999999999996,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0006202499999989897,
+      "time_limit": 0.9997701669999994,
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.00010420899999985522,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 3.5999999999999996,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0008500829999995574,
+  "wall_seconds": 0.0013611669999988862,
+  "component_edits_net": 0,
+  "relation_edits_net": 3,
+  "phi_initial": [
+    2.6399999999999997,
+    0
+  ],
+  "phi_final": [
+    2.6399999999999997,
+    0.96
+  ],
+  "score_condition": "sparse",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.0013797079999999795
+}

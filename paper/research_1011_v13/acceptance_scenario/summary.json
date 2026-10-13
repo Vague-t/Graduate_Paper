@@ -1,0 +1,391 @@
+{
+  "identity": "ASSUMED_ALL_REQUIREMENTS_PASS_SCENARIO",
+  "criteria_origin": "authoring assumptions, not external mandatory thresholds",
+  "all_scenario_requirements_pass": true,
+  "acceptance": [
+    {
+      "id": "E1",
+      "requirement": "two core increments positive under common simulated native protocol",
+      "scenario_values": {
+        "AAEC": {
+          "training": {
+            "delta": 2.199776026943354,
+            "ci95": [
+              1.830813747107971,
+              2.5678469329414924
+            ]
+          },
+          "repair": {
+            "delta": 1.2003911839874206,
+            "ci95": [
+              0.9377162297302256,
+              1.4806984838218678
+            ]
+          }
+        },
+        "CDCP": {
+          "training": {
+            "delta": 1.5952310971219603,
+            "ci95": [
+              1.0259265595216596,
+              2.20989654403787
+            ]
+          },
+          "repair": {
+            "delta": 1.4053471016906087,
+            "ci95": [
+              0.8895826616941633,
+              1.922324452846199
+            ]
+          }
+        }
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "constructed output effects; target training not executed",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E2",
+      "requirement": "full-system relation gain >=2pp over the complete ICIC reference scenario",
+      "scenario_values": {
+        "AAEC": {
+          "delta": 3.400167210930775,
+          "ci95": [
+            3.0330924804893025,
+            3.7901547761161387
+          ]
+        },
+        "CDCP": {
+          "delta": 3.000578198812569,
+          "ci95": [
+            2.358511251381998,
+            3.6900765217223563
+          ]
+        }
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "same native texts; baseline is a scenario, not a reproduced checkpoint",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E3",
+      "requirement": "simulated review agreement>=95%, kappa>=0.8, accepted-unsafe<=5%",
+      "scenario_values": {
+        "n": 128,
+        "agreement": 0.9765625,
+        "kappa": 0.9201995012468828,
+        "accepted": 110,
+        "accepted_unsafe": 2,
+        "unsafe_rate": 0.01818181818181818,
+        "actual_human_reviewers": 0,
+        "reference_origin": "author-generated scenario labels, not new gold",
+        "source_original_model_judgments_reused_as_human_answers": false
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "zero actual human reviewers; both judgment streams and reference assumed",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E4",
+      "requirement": "ten implementation acceptance conditions assumed satisfied",
+      "scenario_values": {
+        "assumed_pass": 10,
+        "assumed_total": 10
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "expected implementation state, distinct from actual finite-graph checks",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E5",
+      "requirement": "assumed target mean<=60/80s and P95<=120/180s for AAEC/CDCP",
+      "scenario_values": [
+        {
+          "corpus": "AAEC",
+          "method": "t1_i1",
+          "records": 957,
+          "mean": 31.902394434050095,
+          "p50": 31.671208723927204,
+          "p95": 38.87629297879101,
+          "generation": 17.865340883068054,
+          "proposal": 0.7975598608512523,
+          "scoring": 12.282421857109286,
+          "solver": 0.9570718330215029
+        },
+        {
+          "corpus": "CDCP",
+          "method": "t1_i1",
+          "records": 1740,
+          "mean": 45.255925488940356,
+          "p50": 40.563974445349174,
+          "p95": 78.0883667233453,
+          "generation": 25.343318273806602,
+          "proposal": 1.131398137223509,
+          "scoring": 17.423531313242037,
+          "solver": 1.3576777646682106
+        }
+      ],
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "percentiles of generated latency records, not measured hardware",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E6",
+      "requirement": "fixed 3 simulation seeds; paired interval lower bound>0 for the core full-system gain",
+      "scenario_values": {
+        "seeds": [
+          17,
+          29,
+          43
+        ],
+        "unique_documents": {
+          "AAEC": 319,
+          "CDCP": 580
+        }
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "conditional simulation interval; no population-generalization claim",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E7",
+      "requirement": "assumed native-object scorer AUROC>=0.85,ECE<=0.12 and original TP retention>=95%",
+      "scenario_values": {
+        "scores": [
+          {
+            "corpus": "AAEC",
+            "axis": "C",
+            "n": 400,
+            "AUROC": 0.923,
+            "Brier": 0.10156400000000002,
+            "ECE10": 0.008000000000000028,
+            "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+          },
+          {
+            "corpus": "AAEC",
+            "axis": "R",
+            "n": 400,
+            "AUROC": 0.9005,
+            "Brier": 0.121894,
+            "ECE10": 0.012000000000000044,
+            "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+          },
+          {
+            "corpus": "CDCP",
+            "axis": "C",
+            "n": 400,
+            "AUROC": 0.9095,
+            "Brier": 0.11297499999999999,
+            "ECE10": 0.015000000000000088,
+            "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+          },
+          {
+            "corpus": "CDCP",
+            "axis": "R",
+            "n": 400,
+            "AUROC": 0.884,
+            "Brier": 0.13339999999999996,
+            "ECE10": 0.019999999999999997,
+            "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+          }
+        ],
+        "tp_retention": {
+          "AAEC": 99.82578397212544,
+          "CDCP": 99.80676328502416
+        }
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "balanced constructed score samples; not trained OOF calibration or test safety guarantee",
+      "official_or_real_world_approval": false
+    },
+    {
+      "id": "E8",
+      "requirement": "assume a complete two-contribution thesis evidence package exists",
+      "scenario_values": {
+        "core_studies": 2,
+        "native_corpora": 2,
+        "four_cells": 4,
+        "expected_success_and_failure_cases": true,
+        "school_official_rubric_checked": false
+      },
+      "scenario_status": "PASS_SIMULATED",
+      "scope": "authoring-preview acceptance only; no actual school/editorial decision",
+      "official_or_real_world_approval": false
+    }
+  ],
+  "human_review_simulation": {
+    "n": 128,
+    "agreement": 0.9765625,
+    "kappa": 0.9201995012468828,
+    "accepted": 110,
+    "accepted_unsafe": 2,
+    "unsafe_rate": 0.01818181818181818,
+    "actual_human_reviewers": 0,
+    "reference_origin": "author-generated scenario labels, not new gold",
+    "source_original_model_judgments_reused_as_human_answers": false
+  },
+  "score_simulation": [
+    {
+      "corpus": "AAEC",
+      "axis": "C",
+      "n": 400,
+      "AUROC": 0.923,
+      "Brier": 0.10156400000000002,
+      "ECE10": 0.008000000000000028,
+      "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+    },
+    {
+      "corpus": "AAEC",
+      "axis": "R",
+      "n": 400,
+      "AUROC": 0.9005,
+      "Brier": 0.121894,
+      "ECE10": 0.012000000000000044,
+      "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+    },
+    {
+      "corpus": "CDCP",
+      "axis": "C",
+      "n": 400,
+      "AUROC": 0.9095,
+      "Brier": 0.11297499999999999,
+      "ECE10": 0.015000000000000088,
+      "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+    },
+    {
+      "corpus": "CDCP",
+      "axis": "R",
+      "n": 400,
+      "AUROC": 0.884,
+      "Brier": 0.13339999999999996,
+      "ECE10": 0.019999999999999997,
+      "sample_design": "balanced by constructed correctness, not corpus prevalence calibration"
+    }
+  ],
+  "latency_simulation": [
+    {
+      "corpus": "AAEC",
+      "method": "t0_i0",
+      "records": 957,
+      "mean": 30.94532260102859,
+      "p50": 30.72107246220939,
+      "p95": 37.71000418942727,
+      "generation": 17.32938065657601,
+      "proposal": 0.7736330650257147,
+      "scoring": 11.913949201396006,
+      "solver": 0.9283596780308576
+    },
+    {
+      "corpus": "AAEC",
+      "method": "single_object",
+      "records": 957,
+      "mean": 31.42385851753934,
+      "p50": 31.196140593068296,
+      "p95": 38.29314858410914,
+      "generation": 17.597360769822032,
+      "proposal": 0.7855964629384835,
+      "scoring": 12.098185529252646,
+      "solver": 0.9427157555261801
+    },
+    {
+      "corpus": "AAEC",
+      "method": "brj_local",
+      "records": 957,
+      "mean": 32.412832744994894,
+      "p50": 32.17794806351004,
+      "p95": 39.49831366645166,
+      "generation": 18.151186337197142,
+      "proposal": 0.8103208186248725,
+      "scoring": 12.478940606823036,
+      "solver": 0.9723849823498466
+    },
+    {
+      "corpus": "AAEC",
+      "method": "global_equal",
+      "records": 957,
+      "mean": 32.12571119508844,
+      "p50": 31.89290718499469,
+      "p95": 39.14842702964254,
+      "generation": 17.990398269249525,
+      "proposal": 0.8031427798772109,
+      "scoring": 12.36839881010905,
+      "solver": 0.9637713358526532
+    },
+    {
+      "corpus": "AAEC",
+      "method": "t1_i1",
+      "records": 957,
+      "mean": 31.902394434050095,
+      "p50": 31.671208723927204,
+      "p95": 38.87629297879101,
+      "generation": 17.865340883068054,
+      "proposal": 0.7975598608512523,
+      "scoring": 12.282421857109286,
+      "solver": 0.9570718330215029
+    },
+    {
+      "corpus": "CDCP",
+      "method": "t0_i0",
+      "records": 1740,
+      "mean": 43.898247724272146,
+      "p50": 39.3470552119887,
+      "p95": 75.74571572164494,
+      "generation": 24.583018725592403,
+      "proposal": 1.0974561931068036,
+      "scoring": 16.90082537384478,
+      "solver": 1.3169474317281644
+    },
+    {
+      "corpus": "CDCP",
+      "method": "single_object",
+      "records": 1740,
+      "mean": 44.57708660660625,
+      "p50": 39.95551482866894,
+      "p95": 76.91704122249511,
+      "generation": 24.963168499699503,
+      "proposal": 1.1144271651651563,
+      "scoring": 17.162178343543406,
+      "solver": 1.3373125981981873
+    },
+    {
+      "corpus": "CDCP",
+      "method": "brj_local",
+      "records": 1740,
+      "mean": 45.9800202967634,
+      "p50": 41.21299803647476,
+      "p95": 79.33778059091884,
+      "generation": 25.74881136618751,
+      "proposal": 1.1495005074190852,
+      "scoring": 17.70230781425391,
+      "solver": 1.379400608902902
+    },
+    {
+      "corpus": "CDCP",
+      "method": "global_equal",
+      "records": 1740,
+      "mean": 45.57271696736293,
+      "p50": 40.84792226646661,
+      "p95": 78.63498529040871,
+      "generation": 25.520721501723248,
+      "proposal": 1.1393179241840734,
+      "scoring": 17.54549603243473,
+      "solver": 1.367181509020888
+    },
+    {
+      "corpus": "CDCP",
+      "method": "t1_i1",
+      "records": 1740,
+      "mean": 45.255925488940356,
+      "p50": 40.563974445349174,
+      "p95": 78.0883667233453,
+      "generation": 25.343318273806602,
+      "proposal": 1.131398137223509,
+      "scoring": 17.423531313242037,
+      "solver": 1.3576777646682106
+    }
+  ],
+  "actual_new_target_model_training_runs": 0,
+  "actual_new_human_reviewers": 0,
+  "actual_target_GPU_measurements": 0,
+  "actual_new_Luna_calls": 0
+}

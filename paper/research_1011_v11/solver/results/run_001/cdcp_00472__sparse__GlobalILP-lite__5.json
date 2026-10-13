@@ -1,0 +1,79 @@
+{
+  "id": "cdcp_00472",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 5.0,
+  "initial": {
+    "C": [
+      "c000",
+      "c002"
+    ],
+    "R": [
+      "r0003"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c001"
+    ],
+    "R": [
+      "r0000"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0001267920000005418,
+      "time_limit": 5.0,
+      "objective": -1.86,
+      "minimization_dual_bound": -1.86,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00012104099999987739,
+      "time_limit": 4.9998732079999995,
+      "objective": 1.0,
+      "minimization_dual_bound": 1.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 2.908300000026287e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 1.86,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0002478330000004192,
+  "wall_seconds": 0.0004894579999996651,
+  "component_edits_net": 2,
+  "relation_edits_net": 2,
+  "phi_initial": [
+    1.06,
+    -0.4
+  ],
+  "phi_final": [
+    1.5,
+    0.3600000000000001
+  ],
+  "score_condition": "sparse",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.0004977080000001521
+}

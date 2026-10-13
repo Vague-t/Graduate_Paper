@@ -1,0 +1,1502 @@
+{
+  "id": "casimedicos_26_117",
+  "corpus": "casimedicos",
+  "mode": "SingleObject",
+  "status": "completed",
+  "started_at_utc": "2026-10-11T08:27:33.824481+00:00",
+  "ended_at_utc": "2026-10-11T08:27:33.828589+00:00",
+  "wall_seconds": 0.0041082500000000355,
+  "initial_candidate": "score_component_then_relation",
+  "ranks": [],
+  "initial": {
+    "C": [
+      "c000",
+      "c003",
+      "c005",
+      "c010",
+      "c011"
+    ],
+    "R": [
+      "s0000_Support",
+      "s0002_Support",
+      "s0055_Support",
+      "s0059_Attack",
+      "s0060_Attack",
+      "s0101_Attack",
+      "s0103_Attack",
+      "s0111_Attack",
+      "s0113_Attack"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c003",
+      "c005",
+      "c010",
+      "c011"
+    ],
+    "R": [
+      "s0000_Support",
+      "s0002_Support",
+      "s0055_Support",
+      "s0059_Attack",
+      "s0060_Attack",
+      "s0101_Attack",
+      "s0103_Attack",
+      "s0111_Attack",
+      "s0113_Attack"
+    ]
+  },
+  "phi_initial": [
+    4.56,
+    3.0200000000000005
+  ],
+  "phi_final": [
+    4.56,
+    3.0200000000000005
+  ],
+  "component_edits_total": 0,
+  "relation_edits_total": 0,
+  "attempts": [
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0000_Attack",
+          "s0000_Support",
+          "s0030_Attack",
+          "s0030_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0000_Attack",
+        "s0000_Support",
+        "s0030_Attack",
+        "s0030_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0000_Attack",
+        "s0000_Support",
+        "s0030_Attack",
+        "s0030_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        0
+      ],
+      "evaluation_seconds": 0.00035470799999992586,
+      "attempt": 0,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c000"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.9199999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 6.375000000113928e-06,
+      "attempt": 1,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c000"
+        ],
+        "B": [
+          "c001"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c001",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -1.56,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.541000000024553e-06,
+      "attempt": 2,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0002_Attack",
+          "s0002_Support",
+          "s0052_Attack",
+          "s0052_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0002_Attack",
+        "s0002_Support",
+        "s0052_Attack",
+        "s0052_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0002_Attack",
+        "s0002_Support",
+        "s0052_Attack",
+        "s0052_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        1
+      ],
+      "evaluation_seconds": 0.0002862919999999658,
+      "attempt": 3,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c003"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.94,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.3749999999741505e-06,
+      "attempt": 4,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c000"
+        ],
+        "B": [
+          "c002"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c002",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -1.7599999999999998,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.292000000072349e-06,
+      "attempt": 5,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0007_Attack",
+          "s0007_Support",
+          "s0098_Attack",
+          "s0098_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0007_Attack",
+        "s0007_Support",
+        "s0098_Attack",
+        "s0098_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0007_Attack",
+        "s0007_Support",
+        "s0098_Attack",
+        "s0098_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        2
+      ],
+      "evaluation_seconds": 0.0002705830000000464,
+      "attempt": 6,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c005"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8799999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.0829999997947795e-06,
+      "attempt": 7,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c003"
+        ],
+        "B": [
+          "c004"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c004",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.8399999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.2499999999279225e-06,
+      "attempt": 8,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0008_Attack",
+          "s0008_Support",
+          "s0108_Attack",
+          "s0108_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0008_Attack",
+        "s0008_Support",
+        "s0108_Attack",
+        "s0108_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0008_Attack",
+        "s0008_Support",
+        "s0108_Attack",
+        "s0108_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        3
+      ],
+      "evaluation_seconds": 0.00026466600000008,
+      "attempt": 9,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c010"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.9199999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.332999999829724e-06,
+      "attempt": 10,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c005"
+        ],
+        "B": [
+          "c006"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c006",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.23999999999999932,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.208000000005541e-06,
+      "attempt": 11,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0033_Attack",
+          "s0033_Support",
+          "s0055_Attack",
+          "s0055_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0033_Attack",
+        "s0033_Support",
+        "s0055_Attack",
+        "s0055_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0033_Attack",
+        "s0033_Support",
+        "s0055_Attack",
+        "s0055_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        4
+      ],
+      "evaluation_seconds": 0.0002609159999999999,
+      "attempt": 12,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "c011"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8999999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.249999999845656e-06,
+      "attempt": 13,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c005"
+        ],
+        "B": [
+          "c007"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c007",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.7200000000000002,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.333000000134035e-06,
+      "attempt": 14,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0038_Attack",
+          "s0038_Support",
+          "s0101_Attack",
+          "s0101_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0038_Attack",
+        "s0038_Support",
+        "s0101_Attack",
+        "s0101_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0038_Attack",
+        "s0038_Support",
+        "s0101_Attack",
+        "s0101_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        5
+      ],
+      "evaluation_seconds": 0.00025795799999994706,
+      "attempt": 15,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "c011"
+        ],
+        "B": [
+          "c012"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c012"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.7000000000000002,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 5.249999999845656e-06,
+      "attempt": 16,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0039_Attack",
+          "s0039_Support",
+          "s0111_Attack",
+          "s0111_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0039_Attack",
+        "s0039_Support",
+        "s0111_Attack",
+        "s0111_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0039_Attack",
+        "s0039_Support",
+        "s0111_Attack",
+        "s0111_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        6
+      ],
+      "evaluation_seconds": 0.0002663750000000409,
+      "attempt": 17,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0059_Attack",
+          "s0059_Support",
+          "s0103_Attack",
+          "s0103_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0059_Attack",
+        "s0059_Support",
+        "s0103_Attack",
+        "s0103_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0059_Attack",
+        "s0059_Support",
+        "s0103_Attack",
+        "s0103_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        7
+      ],
+      "evaluation_seconds": 0.00025554199999988647,
+      "attempt": 18,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0060_Attack",
+          "s0060_Support",
+          "s0113_Attack",
+          "s0113_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0060_Attack",
+        "s0060_Support",
+        "s0113_Attack",
+        "s0113_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack"
+      ],
+      "variables": [
+        "s0060_Attack",
+        "s0060_Support",
+        "s0113_Attack",
+        "s0113_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        8
+      ],
+      "evaluation_seconds": 0.00025558299999994816,
+      "attempt": 19,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "s0106_Attack",
+          "s0106_Support",
+          "s0116_Attack",
+          "s0116_Support"
+        ]
+      },
+      "before": {
+        "C": [
+          "c000",
+          "c003",
+          "c005",
+          "c010",
+          "c011"
+        ],
+        "R": [
+          "s0000_Support",
+          "s0002_Support",
+          "s0055_Support",
+          "s0059_Attack",
+          "s0060_Attack",
+          "s0101_Attack",
+          "s0103_Attack",
+          "s0111_Attack",
+          "s0113_Attack"
+        ]
+      },
+      "candidate_C": [
+        "c000",
+        "c003",
+        "c005",
+        "c010",
+        "c011"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "s0106_Attack",
+        "s0106_Support",
+        "s0116_Attack",
+        "s0116_Support"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [
+        "s0000_Support",
+        "s0002_Support",
+        "s0055_Support",
+        "s0059_Attack",
+        "s0060_Attack",
+        "s0101_Attack",
+        "s0103_Attack",
+        "s0111_Attack",
+        "s0113_Attack"
+      ],
+      "variables": [
+        "s0106_Attack",
+        "s0106_Support",
+        "s0116_Attack",
+        "s0116_Support"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        9
+      ],
+      "evaluation_seconds": 0.00025729199999990904,
+      "attempt": 20,
+      "round": 1,
+      "committed": false
+    }
+  ],
+  "accepted_attempts": [],
+  "rounds": [
+    {
+      "round": 1,
+      "attempts": 21,
+      "accepts": 0
+    }
+  ],
+  "solver_seconds": 0.0014665029999998414,
+  "solver_limit_seconds": 5.0,
+  "solver_calls": [
+    {
+      "index": 0,
+      "stage": "maximize_phi",
+      "seconds": 0.00021654199999998625,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 1,
+      "stage": "maximize_phi",
+      "seconds": 0.00015758399999987738,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 2,
+      "stage": "maximize_phi",
+      "seconds": 0.00014341700000009006,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 3,
+      "stage": "maximize_phi",
+      "seconds": 0.00013887499999998276,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 4,
+      "stage": "maximize_phi",
+      "seconds": 0.00013645900000014421,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 5,
+      "stage": "maximize_phi",
+      "seconds": 0.00013416699999990733,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 6,
+      "stage": "maximize_phi",
+      "seconds": 0.00014216699999991533,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 7,
+      "stage": "maximize_phi",
+      "seconds": 0.00013324999999997367,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 8,
+      "stage": "maximize_phi",
+      "seconds": 0.00013237499999996238,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 9,
+      "stage": "maximize_phi",
+      "seconds": 0.00013166700000000198,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    }
+  ],
+  "stop_reason": "queue_exhausted",
+  "threshold": 0.5,
+  "score_condition": "explicit_dense_native_C"
+}

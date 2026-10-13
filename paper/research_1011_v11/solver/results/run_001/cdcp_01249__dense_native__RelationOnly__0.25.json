@@ -1,0 +1,277 @@
+{
+  "id": "cdcp_01249",
+  "corpus": "cdcp",
+  "mode": "RelationOnly",
+  "status": "completed",
+  "started_at_utc": "2026-10-11T07:08:32.027578+00:00",
+  "ended_at_utc": "2026-10-11T07:08:32.028186+00:00",
+  "wall_seconds": 0.000608250000000865,
+  "initial_candidate": "g0",
+  "ranks": [
+    {
+      "candidate_id": "g0",
+      "slot": 0,
+      "density": 0,
+      "coherence": 0,
+      "validity": 1,
+      "rank": 0.2
+    },
+    {
+      "candidate_id": "g1",
+      "slot": 1,
+      "density": 0,
+      "coherence": 0,
+      "validity": 1,
+      "rank": 0.2
+    }
+  ],
+  "initial": {
+    "C": [
+      "c001",
+      "c003",
+      "c005"
+    ],
+    "R": []
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c003",
+      "c005"
+    ],
+    "R": []
+  },
+  "phi_initial": [
+    2.9,
+    0
+  ],
+  "phi_final": [
+    2.9,
+    0
+  ],
+  "component_edits_total": 0,
+  "relation_edits_total": 0,
+  "attempts": [
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0010",
+          "r0011",
+          "r0026",
+          "r0027"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c003",
+          "c005"
+        ],
+        "R": []
+      },
+      "candidate_C": [
+        "c001",
+        "c003",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0010",
+        "r0011",
+        "r0026",
+        "r0027"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [],
+      "variables": [
+        "r0010",
+        "r0011",
+        "r0026",
+        "r0027"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        0
+      ],
+      "evaluation_seconds": 0.00018808399999947767,
+      "attempt": 0,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0014",
+          "r0015",
+          "r0042",
+          "r0043"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c003",
+          "c005"
+        ],
+        "R": []
+      },
+      "candidate_C": [
+        "c001",
+        "c003",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0014",
+        "r0015",
+        "r0042",
+        "r0043"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [],
+      "variables": [
+        "r0014",
+        "r0015",
+        "r0042",
+        "r0043"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        1
+      ],
+      "evaluation_seconds": 0.00018375000000148134,
+      "attempt": 1,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "r0030",
+          "r0031",
+          "r0046",
+          "r0047"
+        ]
+      },
+      "before": {
+        "C": [
+          "c001",
+          "c003",
+          "c005"
+        ],
+        "R": []
+      },
+      "candidate_C": [
+        "c001",
+        "c003",
+        "c005"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "r0030",
+        "r0031",
+        "r0046",
+        "r0047"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [],
+      "variables": [
+        "r0030",
+        "r0031",
+        "r0046",
+        "r0047"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        2
+      ],
+      "evaluation_seconds": 0.00017475000000111152,
+      "attempt": 2,
+      "round": 1,
+      "committed": false
+    }
+  ],
+  "accepted_attempts": [],
+  "rounds": [
+    {
+      "round": 1,
+      "attempts": 3,
+      "accepts": 0
+    }
+  ],
+  "solver_seconds": 0.0004067089999999496,
+  "solver_limit_seconds": 0.25,
+  "solver_calls": [
+    {
+      "index": 0,
+      "stage": "maximize_phi",
+      "seconds": 0.0001402499999993978,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 1,
+      "stage": "maximize_phi",
+      "seconds": 0.00013704200000042022,
+      "time_limit": 0.2498597500000006,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 2,
+      "stage": "maximize_phi",
+      "seconds": 0.00012941700000013157,
+      "time_limit": 0.24972270800000018,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    }
+  ],
+  "stop_reason": "queue_exhausted",
+  "score_condition": "dense_native",
+  "budget_seconds": 0.25,
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.0006235839999995108
+}

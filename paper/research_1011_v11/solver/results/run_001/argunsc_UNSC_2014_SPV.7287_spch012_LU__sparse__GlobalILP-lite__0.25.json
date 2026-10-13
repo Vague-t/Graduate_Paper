@@ -1,0 +1,71 @@
+{
+  "id": "argunsc_UNSC_2014_SPV.7287_spch012_LU",
+  "corpus": "argunsc",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 0.25,
+  "initial": {
+    "C": [
+      "c000"
+    ],
+    "R": []
+  },
+  "final": {
+    "C": [],
+    "R": []
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0001716250000001196,
+      "time_limit": 0.25,
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00015862500000007884,
+      "time_limit": 0.24982837499999988,
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 5.2166999999769814e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": -0.0,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.00033025000000019844,
+  "wall_seconds": 0.0006793339999999759,
+  "component_edits_net": 1,
+  "relation_edits_net": 0,
+  "phi_initial": [
+    -0.43999999999999995,
+    0
+  ],
+  "phi_final": [
+    0,
+    0
+  ],
+  "score_condition": "sparse",
+  "source_family": "new_corpora",
+  "total_run_wall_seconds": 0.000687749999999987
+}

@@ -1,0 +1,5073 @@
+{
+  "dataset": "cdcp",
+  "split_counts": {
+    "fit": 348,
+    "calibration": 116,
+    "audit": 116
+  },
+  "oof_span_class_counts": {
+    "value": 988,
+    "NULL": 52290,
+    "fact": 371,
+    "policy": 372,
+    "testimony": 483,
+    "reference": 12
+  },
+  "scorer_classes": [
+    "NULL",
+    "fact",
+    "policy",
+    "reference",
+    "testimony",
+    "value"
+  ],
+  "span_temperature": 1.0,
+  "calibration_temperature_losses": {
+    "0.5": 0.19147600751717855,
+    "1.0": 0.13729291825312395,
+    "2.0": 0.29366319079513503,
+    "4.0": 0.7404662865655556
+  },
+  "calibration_thresholds": [
+    {
+      "threshold": 0.0,
+      "infinite": false,
+      "micro_f1": 0.03374233128834356,
+      "accepted": 116
+    },
+    {
+      "threshold": 0.25,
+      "infinite": false,
+      "micro_f1": 0.03424482494249936,
+      "accepted": 115
+    },
+    {
+      "threshold": 0.5,
+      "infinite": false,
+      "micro_f1": 0.03424482494249936,
+      "accepted": 115
+    },
+    {
+      "threshold": 1.0,
+      "infinite": false,
+      "micro_f1": 0.03424482494249936,
+      "accepted": 115
+    },
+    {
+      "threshold": 2.0,
+      "infinite": false,
+      "micro_f1": 0.03424482494249936,
+      "accepted": 115
+    },
+    {
+      "threshold": 4.0,
+      "infinite": false,
+      "micro_f1": 0.03424482494249936,
+      "accepted": 115
+    },
+    {
+      "threshold": null,
+      "infinite": true,
+      "micro_f1": 0.03326713008937438,
+      "accepted": 0
+    }
+  ],
+  "recoverability": [
+    {
+      "extra_budget": 0,
+      "gold_components": 723,
+      "covered_components": 114,
+      "exact_span_recall": 0.15767634854771784,
+      "mean_candidates": 24.086206896551722,
+      "p95_candidates": 57.5,
+      "native_relations": 200,
+      "native_relation_endpoint_covered": 5,
+      "native_endpoint_recall": 0.025,
+      "initial_missing": 609,
+      "recovered_missing": 0,
+      "missing_recovery_rate": 0.0,
+      "by_type": {
+        "policy": {
+          "hit": 11,
+          "gold": 147,
+          "recall": 0.07482993197278912
+        },
+        "value": {
+          "hit": 79,
+          "gold": 308,
+          "recall": 0.2564935064935065
+        },
+        "fact": {
+          "hit": 16,
+          "gold": 142,
+          "recall": 0.11267605633802817
+        },
+        "reference": {
+          "hit": 1,
+          "gold": 4,
+          "recall": 0.25
+        },
+        "testimony": {
+          "hit": 7,
+          "gold": 122,
+          "recall": 0.05737704918032787
+        }
+      }
+    },
+    {
+      "extra_budget": 64,
+      "gold_components": 723,
+      "covered_components": 681,
+      "exact_span_recall": 0.941908713692946,
+      "mean_candidates": 88.08620689655173,
+      "p95_candidates": 121.5,
+      "native_relations": 200,
+      "native_relation_endpoint_covered": 179,
+      "native_endpoint_recall": 0.895,
+      "initial_missing": 609,
+      "recovered_missing": 567,
+      "missing_recovery_rate": 0.9310344827586207,
+      "by_type": {
+        "policy": {
+          "hit": 137,
+          "gold": 147,
+          "recall": 0.9319727891156463
+        },
+        "value": {
+          "hit": 293,
+          "gold": 308,
+          "recall": 0.9512987012987013
+        },
+        "fact": {
+          "hit": 134,
+          "gold": 142,
+          "recall": 0.9436619718309859
+        },
+        "reference": {
+          "hit": 4,
+          "gold": 4,
+          "recall": 1.0
+        },
+        "testimony": {
+          "hit": 113,
+          "gold": 122,
+          "recall": 0.9262295081967213
+        }
+      }
+    },
+    {
+      "extra_budget": 128,
+      "gold_components": 723,
+      "covered_components": 700,
+      "exact_span_recall": 0.9681881051175657,
+      "mean_candidates": 151.74137931034483,
+      "p95_candidates": 185.5,
+      "native_relations": 200,
+      "native_relation_endpoint_covered": 189,
+      "native_endpoint_recall": 0.945,
+      "initial_missing": 609,
+      "recovered_missing": 586,
+      "missing_recovery_rate": 0.9622331691297209,
+      "by_type": {
+        "policy": {
+          "hit": 137,
+          "gold": 147,
+          "recall": 0.9319727891156463
+        },
+        "value": {
+          "hit": 302,
+          "gold": 308,
+          "recall": 0.9805194805194806
+        },
+        "fact": {
+          "hit": 138,
+          "gold": 142,
+          "recall": 0.971830985915493
+        },
+        "reference": {
+          "hit": 4,
+          "gold": 4,
+          "recall": 1.0
+        },
+        "testimony": {
+          "hit": 119,
+          "gold": 122,
+          "recall": 0.9754098360655737
+        }
+      }
+    },
+    {
+      "extra_budget": 256,
+      "gold_components": 723,
+      "covered_components": 713,
+      "exact_span_recall": 0.9861687413554634,
+      "mean_candidates": 278.4051724137931,
+      "p95_candidates": 313.5,
+      "native_relations": 200,
+      "native_relation_endpoint_covered": 196,
+      "native_endpoint_recall": 0.98,
+      "initial_missing": 609,
+      "recovered_missing": 599,
+      "missing_recovery_rate": 0.9835796387520526,
+      "by_type": {
+        "policy": {
+          "hit": 143,
+          "gold": 147,
+          "recall": 0.9727891156462585
+        },
+        "value": {
+          "hit": 304,
+          "gold": 308,
+          "recall": 0.987012987012987
+        },
+        "fact": {
+          "hit": 142,
+          "gold": 142,
+          "recall": 1.0
+        },
+        "reference": {
+          "hit": 4,
+          "gold": 4,
+          "recall": 1.0
+        },
+        "testimony": {
+          "hit": 120,
+          "gold": 122,
+          "recall": 0.9836065573770492
+        }
+      }
+    },
+    {
+      "extra_budget": 512,
+      "gold_components": 723,
+      "covered_components": 715,
+      "exact_span_recall": 0.9889349930843707,
+      "mean_candidates": 526.6551724137931,
+      "p95_candidates": 569.5,
+      "native_relations": 200,
+      "native_relation_endpoint_covered": 196,
+      "native_endpoint_recall": 0.98,
+      "initial_missing": 609,
+      "recovered_missing": 601,
+      "missing_recovery_rate": 0.986863711001642,
+      "by_type": {
+        "policy": {
+          "hit": 143,
+          "gold": 147,
+          "recall": 0.9727891156462585
+        },
+        "value": {
+          "hit": 304,
+          "gold": 308,
+          "recall": 0.987012987012987
+        },
+        "fact": {
+          "hit": 142,
+          "gold": 142,
+          "recall": 1.0
+        },
+        "reference": {
+          "hit": 4,
+          "gold": 4,
+          "recall": 1.0
+        },
+        "testimony": {
+          "hit": 122,
+          "gold": 122,
+          "recall": 1.0
+        }
+      }
+    }
+  ],
+  "edit_discrimination": {
+    "all": {
+      "n": 24780,
+      "truth_counts": {
+        "neutral": 20797,
+        "good": 1473,
+        "bad": 2510
+      },
+      "good_base_rate": 0.05944309927360775,
+      "good_vs_bad_auc_excludes_neutral": 0.9950384477027397,
+      "good_vs_rest_average_precision": 0.4906495866196389
+    },
+    "insert": {
+      "n": 0,
+      "truth_counts": {},
+      "good_base_rate": null,
+      "good_vs_bad_auc_excludes_neutral": null,
+      "good_vs_rest_average_precision": null
+    },
+    "delete": {
+      "n": 2794,
+      "truth_counts": {
+        "neutral": 1319,
+        "good": 1389,
+        "bad": 86
+      },
+      "good_base_rate": 0.4971367215461704,
+      "good_vs_bad_auc_excludes_neutral": 0.9900714919550623,
+      "good_vs_rest_average_precision": 0.5108482729248138
+    },
+    "retype": {
+      "n": 11176,
+      "truth_counts": {
+        "neutral": 10804,
+        "good": 28,
+        "bad": 344
+      },
+      "good_base_rate": 0.0025053686471009306,
+      "good_vs_bad_auc_excludes_neutral": 0.7876868770764119,
+      "good_vs_rest_average_precision": 0.0017325383644811651
+    },
+    "respan": {
+      "n": 10810,
+      "truth_counts": {
+        "neutral": 8674,
+        "bad": 2080,
+        "good": 56
+      },
+      "good_base_rate": 0.005180388529139685,
+      "good_vs_bad_auc_excludes_neutral": 0.9613152472527472,
+      "good_vs_rest_average_precision": 0.06212896659514811
+    }
+  },
+  "calibrated_policy": {
+    "threshold": 4.0,
+    "threshold_is_infinite": false,
+    "allow_delete": true,
+    "documents": 116,
+    "accepted": 115,
+    "accepted_truth": {
+      "neutral": 62,
+      "good": 53
+    },
+    "accepted_actions": {
+      "delete": 115
+    },
+    "before_counts": [
+      86,
+      2708,
+      637
+    ],
+    "after_counts": [
+      86,
+      2593,
+      637
+    ],
+    "before_micro_f1": 0.04890531703156099,
+    "after_micro_f1": 0.05055849500293945,
+    "delta_micro_f1": 0.0016531779713784625,
+    "paired_document_bootstrap95": [
+      0.0012317605262581457,
+      0.0022417401261420767
+    ],
+    "selected_edits": [
+      {
+        "doc": "00522",
+        "op": "delete",
+        "remove": [
+          [
+            30,
+            31,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.867937024775827,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          24,
+          6
+        ]
+      },
+      {
+        "doc": "01118",
+        "op": "delete",
+        "remove": [
+          [
+            29,
+            30,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.055224092200152,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          21,
+          5
+        ]
+      },
+      {
+        "doc": "00416",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            64,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.020009150703357,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          30,
+          10
+        ]
+      },
+      {
+        "doc": "00930",
+        "op": "delete",
+        "remove": [
+          [
+            124,
+            125,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.690417160855558,
+        "delta_f1": 0.003016591251885359,
+        "truth": "good",
+        "counts": [
+          4,
+          36,
+          7
+        ]
+      },
+      {
+        "doc": "01308",
+        "op": "delete",
+        "remove": [
+          [
+            46,
+            50,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.222541576140726,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          13,
+          2
+        ]
+      },
+      {
+        "doc": "00348",
+        "op": "delete",
+        "remove": [
+          [
+            6,
+            7,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.437956701871247,
+        "delta_f1": 0.009523809523809518,
+        "truth": "good",
+        "counts": [
+          1,
+          10,
+          2
+        ]
+      },
+      {
+        "doc": "00621",
+        "op": "delete",
+        "remove": [
+          [
+            183,
+            184,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.125707618368255,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          45,
+          7
+        ]
+      },
+      {
+        "doc": "00354",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.313133384869396,
+        "delta_f1": 0.047619047619047616,
+        "truth": "good",
+        "counts": [
+          1,
+          3,
+          1
+        ]
+      },
+      {
+        "doc": "01000",
+        "op": "delete",
+        "remove": [
+          [
+            32,
+            33,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.172290934679932,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          28,
+          5
+        ]
+      },
+      {
+        "doc": "00928",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            63,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 10.295082868763615,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          45,
+          13
+        ]
+      },
+      {
+        "doc": "00467",
+        "op": "delete",
+        "remove": [
+          [
+            19,
+            24,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.787856782826228,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          15,
+          4
+        ]
+      },
+      {
+        "doc": "00728",
+        "op": "delete",
+        "remove": [
+          [
+            29,
+            30,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.536193776259118,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          15,
+          4
+        ]
+      },
+      {
+        "doc": "01400",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            65,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 6.2521934916483515,
+        "delta_f1": 0.01470588235294118,
+        "truth": "good",
+        "counts": [
+          2,
+          7,
+          5
+        ]
+      },
+      {
+        "doc": "00396",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.893541501539715,
+        "delta_f1": 0.018181818181818188,
+        "truth": "good",
+        "counts": [
+          1,
+          6,
+          2
+        ]
+      },
+      {
+        "doc": "00388",
+        "op": "delete",
+        "remove": [
+          [
+            82,
+            83,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.934508370366446,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          22,
+          6
+        ]
+      },
+      {
+        "doc": "01057",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            14,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.636499014126523,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          18,
+          6
+        ]
+      },
+      {
+        "doc": "00746",
+        "op": "delete",
+        "remove": [
+          [
+            5,
+            6,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 7.2863731384694255,
+        "delta_f1": 0.09999999999999998,
+        "truth": "good",
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "doc": "00529",
+        "op": "delete",
+        "remove": [
+          [
+            61,
+            63,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.92880577543817,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          31,
+          9
+        ]
+      },
+      {
+        "doc": "01110",
+        "op": "delete",
+        "remove": [
+          [
+            26,
+            27,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.061123179043845,
+        "delta_f1": 0.0006329113924050597,
+        "truth": "good",
+        "counts": [
+          2,
+          62,
+          13
+        ]
+      },
+      {
+        "doc": "00905",
+        "op": "delete",
+        "remove": [
+          [
+            64,
+            69,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.154949311585204,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          33,
+          11
+        ]
+      },
+      {
+        "doc": "01296",
+        "op": "delete",
+        "remove": [
+          [
+            47,
+            51,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.439662608740564,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          19,
+          4
+        ]
+      },
+      {
+        "doc": "00908",
+        "op": "delete",
+        "remove": [
+          [
+            101,
+            102,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.754509312210164,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          34,
+          7
+        ]
+      },
+      {
+        "doc": "00891",
+        "op": "delete",
+        "remove": [
+          [
+            105,
+            106,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.196436320071355,
+        "delta_f1": 0.001161440185830434,
+        "truth": "good",
+        "counts": [
+          1,
+          35,
+          4
+        ]
+      },
+      {
+        "doc": "00586",
+        "op": "delete",
+        "remove": [
+          [
+            5,
+            8,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.868437669250689,
+        "delta_f1": 0.015151515151515166,
+        "truth": "good",
+        "counts": [
+          1,
+          6,
+          3
+        ]
+      },
+      {
+        "doc": "00578",
+        "op": "delete",
+        "remove": [
+          [
+            22,
+            23,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.665689786825576,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          12,
+          2
+        ]
+      },
+      {
+        "doc": "00352",
+        "op": "delete",
+        "remove": [
+          [
+            31,
+            32,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.176425959096633,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          10,
+          2
+        ]
+      },
+      {
+        "doc": "01323",
+        "op": "delete",
+        "remove": [
+          [
+            10,
+            18,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 4.612912217023128,
+        "delta_f1": 0.09999999999999998,
+        "truth": "good",
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "doc": "01006",
+        "op": "delete",
+        "remove": [
+          [
+            33,
+            34,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.194930576631663,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          9,
+          2
+        ]
+      },
+      {
+        "doc": "00997",
+        "op": "delete",
+        "remove": [
+          [
+            111,
+            112,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.763012383318697,
+        "delta_f1": 0.0006265664160401002,
+        "truth": "good",
+        "counts": [
+          1,
+          46,
+          8
+        ]
+      },
+      {
+        "doc": "00224",
+        "op": "delete",
+        "remove": [
+          [
+            15,
+            17,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 6.19179203829401,
+        "delta_f1": 0.0357142857142857,
+        "truth": "good",
+        "counts": [
+          1,
+          3,
+          2
+        ]
+      },
+      {
+        "doc": "01301",
+        "op": "delete",
+        "remove": [
+          [
+            98,
+            99,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.768762246020708,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          36,
+          8
+        ]
+      },
+      {
+        "doc": "00740",
+        "op": "delete",
+        "remove": [
+          [
+            21,
+            22,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 7.270135729388046,
+        "delta_f1": 0.02777777777777779,
+        "truth": "good",
+        "counts": [
+          1,
+          4,
+          2
+        ]
+      },
+      {
+        "doc": "01150",
+        "op": "delete",
+        "remove": [
+          [
+            167,
+            169,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.428998586915576,
+        "delta_f1": 0.0009920634920634885,
+        "truth": "good",
+        "counts": [
+          2,
+          47,
+          12
+        ]
+      },
+      {
+        "doc": "00422",
+        "op": "delete",
+        "remove": [
+          [
+            78,
+            79,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.013434738712139,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          23,
+          8
+        ]
+      },
+      {
+        "doc": "01072",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            68,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.462563781332578,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          13,
+          3
+        ]
+      },
+      {
+        "doc": "00394",
+        "op": "delete",
+        "remove": [
+          [
+            63,
+            64,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.032643248612928,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          16,
+          4
+        ]
+      },
+      {
+        "doc": "01020",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.78046193418011,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          3
+        ]
+      },
+      {
+        "doc": "00867",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 8.488623978893523,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          5,
+          2
+        ]
+      },
+      {
+        "doc": "00427",
+        "op": "delete",
+        "remove": [
+          [
+            6,
+            7,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.48562081670038,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          16,
+          3
+        ]
+      },
+      {
+        "doc": "01284",
+        "op": "delete",
+        "remove": [
+          [
+            50,
+            51,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.312574308677073,
+        "delta_f1": 0.00735294117647059,
+        "truth": "good",
+        "counts": [
+          1,
+          9,
+          5
+        ]
+      },
+      {
+        "doc": "00955",
+        "op": "delete",
+        "remove": [
+          [
+            27,
+            28,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.67495892809495,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          22,
+          4
+        ]
+      },
+      {
+        "doc": "00967",
+        "op": "delete",
+        "remove": [
+          [
+            211,
+            213,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.116172659248928,
+        "delta_f1": 0.0006265664160401002,
+        "truth": "good",
+        "counts": [
+          1,
+          46,
+          8
+        ]
+      },
+      {
+        "doc": "00567",
+        "op": "delete",
+        "remove": [
+          [
+            47,
+            48,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.661026375974249,
+        "delta_f1": 0.0026990553306342757,
+        "truth": "good",
+        "counts": [
+          2,
+          29,
+          5
+        ]
+      },
+      {
+        "doc": "00756",
+        "op": "delete",
+        "remove": [
+          [
+            111,
+            112,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.524367289806596,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          21,
+          4
+        ]
+      },
+      {
+        "doc": "00611",
+        "op": "delete",
+        "remove": [
+          [
+            20,
+            24,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.833459566686642,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          39,
+          6
+        ]
+      },
+      {
+        "doc": "00460",
+        "op": "delete",
+        "remove": [
+          [
+            22,
+            23,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.737914558680652,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          8,
+          2
+        ]
+      },
+      {
+        "doc": "00403",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.134994122347601,
+        "delta_f1": 0.05555555555555558,
+        "truth": "good",
+        "counts": [
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "doc": "01340",
+        "op": "delete",
+        "remove": [
+          [
+            57,
+            58,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.254428974386602,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          20,
+          7
+        ]
+      },
+      {
+        "doc": "00884",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.602871941372095,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          3
+        ]
+      },
+      {
+        "doc": "01062",
+        "op": "delete",
+        "remove": [
+          [
+            47,
+            49,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.388931082713748,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          4
+        ]
+      },
+      {
+        "doc": "01126",
+        "op": "delete",
+        "remove": [
+          [
+            207,
+            208,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.398683421343367,
+        "delta_f1": 0.0010928961748633836,
+        "truth": "good",
+        "counts": [
+          2,
+          43,
+          13
+        ]
+      },
+      {
+        "doc": "00771",
+        "op": "delete",
+        "remove": [
+          [
+            168,
+            169,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.69734988780156,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          45,
+          7
+        ]
+      },
+      {
+        "doc": "00501",
+        "op": "delete",
+        "remove": [
+          [
+            10,
+            11,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.031821524400538,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          5,
+          2
+        ]
+      },
+      {
+        "doc": "00608",
+        "op": "delete",
+        "remove": [
+          [
+            44,
+            45,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.247041137641075,
+        "delta_f1": 0.00096618357487923,
+        "truth": "good",
+        "counts": [
+          1,
+          32,
+          11
+        ]
+      },
+      {
+        "doc": "00599",
+        "op": "delete",
+        "remove": [
+          [
+            42,
+            43,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.477619386773867,
+        "delta_f1": 0.007389162561576346,
+        "truth": "good",
+        "counts": [
+          3,
+          17,
+          5
+        ]
+      },
+      {
+        "doc": "00753",
+        "op": "delete",
+        "remove": [
+          [
+            112,
+            113,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.971032702039144,
+        "delta_f1": 0.0008503401360544227,
+        "truth": "good",
+        "counts": [
+          1,
+          39,
+          7
+        ]
+      },
+      {
+        "doc": "01167",
+        "op": "delete",
+        "remove": [
+          [
+            7,
+            8,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.264490951869531,
+        "delta_f1": 0.004761904761904773,
+        "truth": "good",
+        "counts": [
+          1,
+          15,
+          3
+        ]
+      },
+      {
+        "doc": "01199",
+        "op": "delete",
+        "remove": [
+          [
+            13,
+            14,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.483424210705895,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          17,
+          3
+        ]
+      },
+      {
+        "doc": "00385",
+        "op": "delete",
+        "remove": [
+          [
+            120,
+            121,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.316996350711104,
+        "delta_f1": 0.00046620046620046707,
+        "truth": "good",
+        "counts": [
+          1,
+          53,
+          10
+        ]
+      },
+      {
+        "doc": "01312",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.663507713192255,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          67,
+          10
+        ]
+      },
+      {
+        "doc": "00626",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.089468552060763,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          18,
+          2
+        ]
+      },
+      {
+        "doc": "00587",
+        "op": "delete",
+        "remove": [
+          [
+            7,
+            8,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.760034309280472,
+        "delta_f1": 0.02197802197802201,
+        "truth": "good",
+        "counts": [
+          2,
+          7,
+          2
+        ]
+      },
+      {
+        "doc": "00404",
+        "op": "delete",
+        "remove": [
+          [
+            90,
+            91,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.266257532425387,
+        "delta_f1": 0.0018148820326678722,
+        "truth": "good",
+        "counts": [
+          3,
+          42,
+          9
+        ]
+      },
+      {
+        "doc": "00953",
+        "op": "delete",
+        "remove": [
+          [
+            1,
+            2,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.331171940686746,
+        "delta_f1": 0.006153846153846149,
+        "truth": "good",
+        "counts": [
+          2,
+          15,
+          6
+        ]
+      },
+      {
+        "doc": "01075",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            52,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.745980298624282,
+        "delta_f1": 0.0024390243902439046,
+        "truth": "good",
+        "counts": [
+          2,
+          29,
+          7
+        ]
+      },
+      {
+        "doc": "01097",
+        "op": "delete",
+        "remove": [
+          [
+            31,
+            32,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.858327592392623,
+        "delta_f1": 0.008333333333333331,
+        "truth": "good",
+        "counts": [
+          1,
+          11,
+          2
+        ]
+      },
+      {
+        "doc": "00980",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.61389051530203,
+        "delta_f1": 0.009523809523809545,
+        "truth": "good",
+        "counts": [
+          2,
+          13,
+          3
+        ]
+      },
+      {
+        "doc": "00218",
+        "op": "delete",
+        "remove": [
+          [
+            4,
+            8,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 4.814349285546022,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          2,
+          2
+        ]
+      },
+      {
+        "doc": "00732",
+        "op": "delete",
+        "remove": [
+          [
+            14,
+            15,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.911023499962342,
+        "delta_f1": 0.0019480519480519487,
+        "truth": "good",
+        "counts": [
+          3,
+          41,
+          8
+        ]
+      },
+      {
+        "doc": "00774",
+        "op": "delete",
+        "remove": [
+          [
+            72,
+            73,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.492334544139439,
+        "delta_f1": 0.0032653061224489632,
+        "truth": "good",
+        "counts": [
+          4,
+          32,
+          9
+        ]
+      },
+      {
+        "doc": "00909",
+        "op": "delete",
+        "remove": [
+          [
+            11,
+            17,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.426803343746425,
+        "delta_f1": 0.00735294117647059,
+        "truth": "good",
+        "counts": [
+          1,
+          11,
+          3
+        ]
+      },
+      {
+        "doc": "00325",
+        "op": "delete",
+        "remove": [
+          [
+            21,
+            22,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 8.936006490990895,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          2
+        ]
+      },
+      {
+        "doc": "00476",
+        "op": "delete",
+        "remove": [
+          [
+            2,
+            3,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.292077097890662,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          12,
+          3
+        ]
+      },
+      {
+        "doc": "01140",
+        "op": "delete",
+        "remove": [
+          [
+            61,
+            62,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.7004080750218,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          40,
+          10
+        ]
+      },
+      {
+        "doc": "00703",
+        "op": "delete",
+        "remove": [
+          [
+            88,
+            89,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.859612351656066,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          29,
+          6
+        ]
+      },
+      {
+        "doc": "00381",
+        "op": "delete",
+        "remove": [
+          [
+            171,
+            172,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.884902157717114,
+        "delta_f1": 0.0013568521031207675,
+        "truth": "good",
+        "counts": [
+          3,
+          47,
+          13
+        ]
+      },
+      {
+        "doc": "00517",
+        "op": "delete",
+        "remove": [
+          [
+            25,
+            33,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.478962851233687,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          3
+        ]
+      },
+      {
+        "doc": "00321",
+        "op": "delete",
+        "remove": [
+          [
+            40,
+            41,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.123626463834714,
+        "delta_f1": 0.0013495276653171379,
+        "truth": "good",
+        "counts": [
+          1,
+          31,
+          5
+        ]
+      },
+      {
+        "doc": "00198",
+        "op": "delete",
+        "remove": [
+          [
+            38,
+            40,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.748947275420326,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          17,
+          4
+        ]
+      },
+      {
+        "doc": "00783",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            18,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.69461485882299,
+        "delta_f1": 0.00735294117647059,
+        "truth": "good",
+        "counts": [
+          1,
+          11,
+          3
+        ]
+      },
+      {
+        "doc": "01401",
+        "op": "delete",
+        "remove": [
+          [
+            41,
+            44,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.622404759197236,
+        "delta_f1": 0.019047619047619035,
+        "truth": "good",
+        "counts": [
+          2,
+          7,
+          3
+        ]
+      },
+      {
+        "doc": "01025",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            70,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.687153980526379,
+        "delta_f1": 0.010526315789473661,
+        "truth": "good",
+        "counts": [
+          2,
+          11,
+          4
+        ]
+      },
+      {
+        "doc": "01002",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            52,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.35564286752031,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          48,
+          9
+        ]
+      },
+      {
+        "doc": "01212",
+        "op": "delete",
+        "remove": [
+          [
+            9,
+            10,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.660437649291934,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          24,
+          4
+        ]
+      },
+      {
+        "doc": "00588",
+        "op": "delete",
+        "remove": [
+          [
+            1,
+            3,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.224237436702557,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          6,
+          5
+        ]
+      },
+      {
+        "doc": "00505",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            11,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.670771154682184,
+        "delta_f1": 0.0020161290322580627,
+        "truth": "good",
+        "counts": [
+          1,
+          20,
+          9
+        ]
+      },
+      {
+        "doc": "01292",
+        "op": "delete",
+        "remove": [
+          [
+            21,
+            22,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.007231888055042,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          13,
+          7
+        ]
+      },
+      {
+        "doc": "00881",
+        "op": "delete",
+        "remove": [
+          [
+            140,
+            142,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.475498919636498,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          52,
+          9
+        ]
+      },
+      {
+        "doc": "00499",
+        "op": "delete",
+        "remove": [
+          [
+            4,
+            5,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 8.44827917733284,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          5,
+          4
+        ]
+      },
+      {
+        "doc": "00717",
+        "op": "delete",
+        "remove": [
+          [
+            5,
+            6,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.782068148199373,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          6,
+          2
+        ]
+      },
+      {
+        "doc": "00943",
+        "op": "delete",
+        "remove": [
+          [
+            198,
+            199,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.190786487061688,
+        "delta_f1": 0.0002801120448179262,
+        "truth": "good",
+        "counts": [
+          1,
+          71,
+          11
+        ]
+      },
+      {
+        "doc": "01282",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.467518954464074,
+        "delta_f1": 0.0030769230769230743,
+        "truth": "good",
+        "counts": [
+          1,
+          17,
+          6
+        ]
+      },
+      {
+        "doc": "00430",
+        "op": "delete",
+        "remove": [
+          [
+            1,
+            3,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.43476790853995,
+        "delta_f1": 0.008333333333333331,
+        "truth": "good",
+        "counts": [
+          1,
+          10,
+          3
+        ]
+      },
+      {
+        "doc": "00605",
+        "op": "delete",
+        "remove": [
+          [
+            10,
+            12,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.694322174395555,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          23,
+          5
+        ]
+      },
+      {
+        "doc": "01197",
+        "op": "delete",
+        "remove": [
+          [
+            20,
+            21,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.690317411292742,
+        "delta_f1": 0.001161440185830434,
+        "truth": "good",
+        "counts": [
+          1,
+          30,
+          9
+        ]
+      },
+      {
+        "doc": "00383",
+        "op": "delete",
+        "remove": [
+          [
+            9,
+            11,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.204527056623277,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          9,
+          4
+        ]
+      },
+      {
+        "doc": "01024",
+        "op": "delete",
+        "remove": [
+          [
+            71,
+            75,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.963158206873763,
+        "delta_f1": 0.03030303030303033,
+        "truth": "good",
+        "counts": [
+          2,
+          5,
+          2
+        ]
+      },
+      {
+        "doc": "00987",
+        "op": "delete",
+        "remove": [
+          [
+            108,
+            109,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.773504720913845,
+        "delta_f1": 0.00014486455164421444,
+        "truth": "good",
+        "counts": [
+          1,
+          91,
+          24
+        ]
+      },
+      {
+        "doc": "00230",
+        "op": "delete",
+        "remove": [
+          [
+            37,
+            38,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.378883382294,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          5
+        ]
+      },
+      {
+        "doc": "00826",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.12658949708574,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          4
+        ]
+      },
+      {
+        "doc": "00662",
+        "op": "delete",
+        "remove": [
+          [
+            17,
+            18,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.70227459977064,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          11,
+          3
+        ]
+      },
+      {
+        "doc": "00312",
+        "op": "delete",
+        "remove": [
+          [
+            64,
+            66,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.56460479218999,
+        "delta_f1": 0.003333333333333327,
+        "truth": "good",
+        "counts": [
+          1,
+          17,
+          5
+        ]
+      },
+      {
+        "doc": "01061",
+        "op": "delete",
+        "remove": [
+          [
+            2,
+            3,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.50678444210604,
+        "delta_f1": 0.007905138339920958,
+        "truth": "good",
+        "counts": [
+          2,
+          14,
+          4
+        ]
+      },
+      {
+        "doc": "01374",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            54,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.231162793931437,
+        "delta_f1": 0.003361344537815128,
+        "truth": "good",
+        "counts": [
+          2,
+          23,
+          7
+        ]
+      },
+      {
+        "doc": "01056",
+        "op": "delete",
+        "remove": [
+          [
+            50,
+            51,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.76253800346571,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          4
+        ]
+      },
+      {
+        "doc": "01322",
+        "op": "delete",
+        "remove": [
+          [
+            17,
+            20,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.287151887124805,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          8,
+          2
+        ]
+      },
+      {
+        "doc": "01142",
+        "op": "delete",
+        "remove": [
+          [
+            55,
+            56,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.54244048347352,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          30,
+          10
+        ]
+      },
+      {
+        "doc": "01387",
+        "op": "delete",
+        "remove": [
+          [
+            20,
+            21,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.272074997194938,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          12,
+          3
+        ]
+      },
+      {
+        "doc": "01041",
+        "op": "delete",
+        "remove": [
+          [
+            251,
+            252,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.75579381161477,
+        "delta_f1": 0.0005390835579514794,
+        "truth": "good",
+        "counts": [
+          3,
+          84,
+          15
+        ]
+      },
+      {
+        "doc": "01288",
+        "op": "delete",
+        "remove": [
+          [
+            6,
+            30,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 4.7620299188591915,
+        "delta_f1": 0.018181818181818188,
+        "truth": "good",
+        "counts": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "doc": "00601",
+        "op": "delete",
+        "remove": [
+          [
+            36,
+            39,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.785553978468343,
+        "delta_f1": 0.008333333333333331,
+        "truth": "good",
+        "counts": [
+          1,
+          10,
+          3
+        ]
+      },
+      {
+        "doc": "01269",
+        "op": "delete",
+        "remove": [
+          [
+            118,
+            120,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.397157177626525,
+        "delta_f1": 0.009523809523809518,
+        "truth": "good",
+        "counts": [
+          1,
+          9,
+          3
+        ]
+      },
+      {
+        "doc": "00563",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.488220180191542,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          17,
+          3
+        ]
+      },
+      {
+        "doc": "00208",
+        "op": "delete",
+        "remove": [
+          [
+            74,
+            75,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.310589907121836,
+        "delta_f1": 0.00024968789013732687,
+        "truth": "good",
+        "counts": [
+          1,
+          71,
+          16
+        ]
+      },
+      {
+        "doc": "01329",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.871698305652297,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          4
+        ]
+      }
+    ]
+  },
+  "same_threshold_without_deletion": {
+    "threshold": 4.0,
+    "threshold_is_infinite": false,
+    "allow_delete": false,
+    "documents": 116,
+    "accepted": 0,
+    "accepted_truth": {},
+    "accepted_actions": {},
+    "before_counts": [
+      86,
+      2708,
+      637
+    ],
+    "after_counts": [
+      86,
+      2708,
+      637
+    ],
+    "before_micro_f1": 0.04890531703156099,
+    "after_micro_f1": 0.04890531703156099,
+    "delta_micro_f1": 0.0,
+    "paired_document_bootstrap95": [
+      0.0,
+      0.0
+    ],
+    "selected_edits": []
+  },
+  "prespecified_zero_threshold_policy": {
+    "threshold": 0.0,
+    "threshold_is_infinite": false,
+    "allow_delete": true,
+    "documents": 116,
+    "accepted": 115,
+    "accepted_truth": {
+      "neutral": 62,
+      "good": 53
+    },
+    "accepted_actions": {
+      "delete": 115
+    },
+    "before_counts": [
+      86,
+      2708,
+      637
+    ],
+    "after_counts": [
+      86,
+      2593,
+      637
+    ],
+    "before_micro_f1": 0.04890531703156099,
+    "after_micro_f1": 0.05055849500293945,
+    "delta_micro_f1": 0.0016531779713784625,
+    "paired_document_bootstrap95": [
+      0.0012317605262581457,
+      0.0022417401261420767
+    ],
+    "selected_edits": [
+      {
+        "doc": "00522",
+        "op": "delete",
+        "remove": [
+          [
+            30,
+            31,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.867937024775827,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          24,
+          6
+        ]
+      },
+      {
+        "doc": "01118",
+        "op": "delete",
+        "remove": [
+          [
+            29,
+            30,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.055224092200152,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          21,
+          5
+        ]
+      },
+      {
+        "doc": "00416",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            64,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.020009150703357,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          30,
+          10
+        ]
+      },
+      {
+        "doc": "00930",
+        "op": "delete",
+        "remove": [
+          [
+            124,
+            125,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.690417160855558,
+        "delta_f1": 0.003016591251885359,
+        "truth": "good",
+        "counts": [
+          4,
+          36,
+          7
+        ]
+      },
+      {
+        "doc": "01308",
+        "op": "delete",
+        "remove": [
+          [
+            46,
+            50,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.222541576140726,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          13,
+          2
+        ]
+      },
+      {
+        "doc": "00348",
+        "op": "delete",
+        "remove": [
+          [
+            6,
+            7,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.437956701871247,
+        "delta_f1": 0.009523809523809518,
+        "truth": "good",
+        "counts": [
+          1,
+          10,
+          2
+        ]
+      },
+      {
+        "doc": "00621",
+        "op": "delete",
+        "remove": [
+          [
+            183,
+            184,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.125707618368255,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          45,
+          7
+        ]
+      },
+      {
+        "doc": "00354",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.313133384869396,
+        "delta_f1": 0.047619047619047616,
+        "truth": "good",
+        "counts": [
+          1,
+          3,
+          1
+        ]
+      },
+      {
+        "doc": "01000",
+        "op": "delete",
+        "remove": [
+          [
+            32,
+            33,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.172290934679932,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          28,
+          5
+        ]
+      },
+      {
+        "doc": "00928",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            63,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 10.295082868763615,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          45,
+          13
+        ]
+      },
+      {
+        "doc": "00467",
+        "op": "delete",
+        "remove": [
+          [
+            19,
+            24,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.787856782826228,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          15,
+          4
+        ]
+      },
+      {
+        "doc": "00728",
+        "op": "delete",
+        "remove": [
+          [
+            29,
+            30,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.536193776259118,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          15,
+          4
+        ]
+      },
+      {
+        "doc": "01400",
+        "op": "delete",
+        "remove": [
+          [
+            62,
+            65,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 6.2521934916483515,
+        "delta_f1": 0.01470588235294118,
+        "truth": "good",
+        "counts": [
+          2,
+          7,
+          5
+        ]
+      },
+      {
+        "doc": "00396",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.893541501539715,
+        "delta_f1": 0.018181818181818188,
+        "truth": "good",
+        "counts": [
+          1,
+          6,
+          2
+        ]
+      },
+      {
+        "doc": "00388",
+        "op": "delete",
+        "remove": [
+          [
+            82,
+            83,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.934508370366446,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          22,
+          6
+        ]
+      },
+      {
+        "doc": "01057",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            14,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.636499014126523,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          18,
+          6
+        ]
+      },
+      {
+        "doc": "00746",
+        "op": "delete",
+        "remove": [
+          [
+            5,
+            6,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 7.2863731384694255,
+        "delta_f1": 0.09999999999999998,
+        "truth": "good",
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "doc": "00529",
+        "op": "delete",
+        "remove": [
+          [
+            61,
+            63,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.92880577543817,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          31,
+          9
+        ]
+      },
+      {
+        "doc": "01110",
+        "op": "delete",
+        "remove": [
+          [
+            26,
+            27,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.061123179043845,
+        "delta_f1": 0.0006329113924050597,
+        "truth": "good",
+        "counts": [
+          2,
+          62,
+          13
+        ]
+      },
+      {
+        "doc": "00905",
+        "op": "delete",
+        "remove": [
+          [
+            64,
+            69,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.154949311585204,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          33,
+          11
+        ]
+      },
+      {
+        "doc": "01296",
+        "op": "delete",
+        "remove": [
+          [
+            47,
+            51,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.439662608740564,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          19,
+          4
+        ]
+      },
+      {
+        "doc": "00908",
+        "op": "delete",
+        "remove": [
+          [
+            101,
+            102,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.754509312210164,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          34,
+          7
+        ]
+      },
+      {
+        "doc": "00891",
+        "op": "delete",
+        "remove": [
+          [
+            105,
+            106,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.196436320071355,
+        "delta_f1": 0.001161440185830434,
+        "truth": "good",
+        "counts": [
+          1,
+          35,
+          4
+        ]
+      },
+      {
+        "doc": "00586",
+        "op": "delete",
+        "remove": [
+          [
+            5,
+            8,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.868437669250689,
+        "delta_f1": 0.015151515151515166,
+        "truth": "good",
+        "counts": [
+          1,
+          6,
+          3
+        ]
+      },
+      {
+        "doc": "00578",
+        "op": "delete",
+        "remove": [
+          [
+            22,
+            23,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.665689786825576,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          12,
+          2
+        ]
+      },
+      {
+        "doc": "00352",
+        "op": "delete",
+        "remove": [
+          [
+            31,
+            32,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.176425959096633,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          10,
+          2
+        ]
+      },
+      {
+        "doc": "01323",
+        "op": "delete",
+        "remove": [
+          [
+            10,
+            18,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 4.612912217023128,
+        "delta_f1": 0.09999999999999998,
+        "truth": "good",
+        "counts": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "doc": "01006",
+        "op": "delete",
+        "remove": [
+          [
+            33,
+            34,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.194930576631663,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          9,
+          2
+        ]
+      },
+      {
+        "doc": "00997",
+        "op": "delete",
+        "remove": [
+          [
+            111,
+            112,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.763012383318697,
+        "delta_f1": 0.0006265664160401002,
+        "truth": "good",
+        "counts": [
+          1,
+          46,
+          8
+        ]
+      },
+      {
+        "doc": "00224",
+        "op": "delete",
+        "remove": [
+          [
+            15,
+            17,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 6.19179203829401,
+        "delta_f1": 0.0357142857142857,
+        "truth": "good",
+        "counts": [
+          1,
+          3,
+          2
+        ]
+      },
+      {
+        "doc": "01301",
+        "op": "delete",
+        "remove": [
+          [
+            98,
+            99,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.768762246020708,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          36,
+          8
+        ]
+      },
+      {
+        "doc": "00740",
+        "op": "delete",
+        "remove": [
+          [
+            21,
+            22,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 7.270135729388046,
+        "delta_f1": 0.02777777777777779,
+        "truth": "good",
+        "counts": [
+          1,
+          4,
+          2
+        ]
+      },
+      {
+        "doc": "01150",
+        "op": "delete",
+        "remove": [
+          [
+            167,
+            169,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.428998586915576,
+        "delta_f1": 0.0009920634920634885,
+        "truth": "good",
+        "counts": [
+          2,
+          47,
+          12
+        ]
+      },
+      {
+        "doc": "00422",
+        "op": "delete",
+        "remove": [
+          [
+            78,
+            79,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.013434738712139,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          23,
+          8
+        ]
+      },
+      {
+        "doc": "01072",
+        "op": "delete",
+        "remove": [
+          [
+            67,
+            68,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.462563781332578,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          13,
+          3
+        ]
+      },
+      {
+        "doc": "00394",
+        "op": "delete",
+        "remove": [
+          [
+            63,
+            64,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.032643248612928,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          16,
+          4
+        ]
+      },
+      {
+        "doc": "01020",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.78046193418011,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          3
+        ]
+      },
+      {
+        "doc": "00867",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 8.488623978893523,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          5,
+          2
+        ]
+      },
+      {
+        "doc": "00427",
+        "op": "delete",
+        "remove": [
+          [
+            6,
+            7,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.48562081670038,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          16,
+          3
+        ]
+      },
+      {
+        "doc": "01284",
+        "op": "delete",
+        "remove": [
+          [
+            50,
+            51,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.312574308677073,
+        "delta_f1": 0.00735294117647059,
+        "truth": "good",
+        "counts": [
+          1,
+          9,
+          5
+        ]
+      },
+      {
+        "doc": "00955",
+        "op": "delete",
+        "remove": [
+          [
+            27,
+            28,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.67495892809495,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          22,
+          4
+        ]
+      },
+      {
+        "doc": "00967",
+        "op": "delete",
+        "remove": [
+          [
+            211,
+            213,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.116172659248928,
+        "delta_f1": 0.0006265664160401002,
+        "truth": "good",
+        "counts": [
+          1,
+          46,
+          8
+        ]
+      },
+      {
+        "doc": "00567",
+        "op": "delete",
+        "remove": [
+          [
+            47,
+            48,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.661026375974249,
+        "delta_f1": 0.0026990553306342757,
+        "truth": "good",
+        "counts": [
+          2,
+          29,
+          5
+        ]
+      },
+      {
+        "doc": "00756",
+        "op": "delete",
+        "remove": [
+          [
+            111,
+            112,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.524367289806596,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          21,
+          4
+        ]
+      },
+      {
+        "doc": "00611",
+        "op": "delete",
+        "remove": [
+          [
+            20,
+            24,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.833459566686642,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          39,
+          6
+        ]
+      },
+      {
+        "doc": "00460",
+        "op": "delete",
+        "remove": [
+          [
+            22,
+            23,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.737914558680652,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          8,
+          2
+        ]
+      },
+      {
+        "doc": "00403",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.134994122347601,
+        "delta_f1": 0.05555555555555558,
+        "truth": "good",
+        "counts": [
+          2,
+          3,
+          1
+        ]
+      },
+      {
+        "doc": "01340",
+        "op": "delete",
+        "remove": [
+          [
+            57,
+            58,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.254428974386602,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          20,
+          7
+        ]
+      },
+      {
+        "doc": "00884",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.602871941372095,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          3
+        ]
+      },
+      {
+        "doc": "01062",
+        "op": "delete",
+        "remove": [
+          [
+            47,
+            49,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.388931082713748,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          4
+        ]
+      },
+      {
+        "doc": "01126",
+        "op": "delete",
+        "remove": [
+          [
+            207,
+            208,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.398683421343367,
+        "delta_f1": 0.0010928961748633836,
+        "truth": "good",
+        "counts": [
+          2,
+          43,
+          13
+        ]
+      },
+      {
+        "doc": "00771",
+        "op": "delete",
+        "remove": [
+          [
+            168,
+            169,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.69734988780156,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          45,
+          7
+        ]
+      },
+      {
+        "doc": "00501",
+        "op": "delete",
+        "remove": [
+          [
+            10,
+            11,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.031821524400538,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          5,
+          2
+        ]
+      },
+      {
+        "doc": "00608",
+        "op": "delete",
+        "remove": [
+          [
+            44,
+            45,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.247041137641075,
+        "delta_f1": 0.00096618357487923,
+        "truth": "good",
+        "counts": [
+          1,
+          32,
+          11
+        ]
+      },
+      {
+        "doc": "00599",
+        "op": "delete",
+        "remove": [
+          [
+            42,
+            43,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.477619386773867,
+        "delta_f1": 0.007389162561576346,
+        "truth": "good",
+        "counts": [
+          3,
+          17,
+          5
+        ]
+      },
+      {
+        "doc": "00753",
+        "op": "delete",
+        "remove": [
+          [
+            112,
+            113,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.971032702039144,
+        "delta_f1": 0.0008503401360544227,
+        "truth": "good",
+        "counts": [
+          1,
+          39,
+          7
+        ]
+      },
+      {
+        "doc": "01167",
+        "op": "delete",
+        "remove": [
+          [
+            7,
+            8,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.264490951869531,
+        "delta_f1": 0.004761904761904773,
+        "truth": "good",
+        "counts": [
+          1,
+          15,
+          3
+        ]
+      },
+      {
+        "doc": "01199",
+        "op": "delete",
+        "remove": [
+          [
+            13,
+            14,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.483424210705895,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          17,
+          3
+        ]
+      },
+      {
+        "doc": "00385",
+        "op": "delete",
+        "remove": [
+          [
+            120,
+            121,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.316996350711104,
+        "delta_f1": 0.00046620046620046707,
+        "truth": "good",
+        "counts": [
+          1,
+          53,
+          10
+        ]
+      },
+      {
+        "doc": "01312",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.663507713192255,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          67,
+          10
+        ]
+      },
+      {
+        "doc": "00626",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.089468552060763,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          18,
+          2
+        ]
+      },
+      {
+        "doc": "00587",
+        "op": "delete",
+        "remove": [
+          [
+            7,
+            8,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.760034309280472,
+        "delta_f1": 0.02197802197802201,
+        "truth": "good",
+        "counts": [
+          2,
+          7,
+          2
+        ]
+      },
+      {
+        "doc": "00404",
+        "op": "delete",
+        "remove": [
+          [
+            90,
+            91,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.266257532425387,
+        "delta_f1": 0.0018148820326678722,
+        "truth": "good",
+        "counts": [
+          3,
+          42,
+          9
+        ]
+      },
+      {
+        "doc": "00953",
+        "op": "delete",
+        "remove": [
+          [
+            1,
+            2,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.331171940686746,
+        "delta_f1": 0.006153846153846149,
+        "truth": "good",
+        "counts": [
+          2,
+          15,
+          6
+        ]
+      },
+      {
+        "doc": "01075",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            52,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.745980298624282,
+        "delta_f1": 0.0024390243902439046,
+        "truth": "good",
+        "counts": [
+          2,
+          29,
+          7
+        ]
+      },
+      {
+        "doc": "01097",
+        "op": "delete",
+        "remove": [
+          [
+            31,
+            32,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.858327592392623,
+        "delta_f1": 0.008333333333333331,
+        "truth": "good",
+        "counts": [
+          1,
+          11,
+          2
+        ]
+      },
+      {
+        "doc": "00980",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.61389051530203,
+        "delta_f1": 0.009523809523809545,
+        "truth": "good",
+        "counts": [
+          2,
+          13,
+          3
+        ]
+      },
+      {
+        "doc": "00218",
+        "op": "delete",
+        "remove": [
+          [
+            4,
+            8,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 4.814349285546022,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          2,
+          2
+        ]
+      },
+      {
+        "doc": "00732",
+        "op": "delete",
+        "remove": [
+          [
+            14,
+            15,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.911023499962342,
+        "delta_f1": 0.0019480519480519487,
+        "truth": "good",
+        "counts": [
+          3,
+          41,
+          8
+        ]
+      },
+      {
+        "doc": "00774",
+        "op": "delete",
+        "remove": [
+          [
+            72,
+            73,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.492334544139439,
+        "delta_f1": 0.0032653061224489632,
+        "truth": "good",
+        "counts": [
+          4,
+          32,
+          9
+        ]
+      },
+      {
+        "doc": "00909",
+        "op": "delete",
+        "remove": [
+          [
+            11,
+            17,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.426803343746425,
+        "delta_f1": 0.00735294117647059,
+        "truth": "good",
+        "counts": [
+          1,
+          11,
+          3
+        ]
+      },
+      {
+        "doc": "00325",
+        "op": "delete",
+        "remove": [
+          [
+            21,
+            22,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 8.936006490990895,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          2
+        ]
+      },
+      {
+        "doc": "00476",
+        "op": "delete",
+        "remove": [
+          [
+            2,
+            3,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.292077097890662,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          12,
+          3
+        ]
+      },
+      {
+        "doc": "01140",
+        "op": "delete",
+        "remove": [
+          [
+            61,
+            62,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.7004080750218,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          40,
+          10
+        ]
+      },
+      {
+        "doc": "00703",
+        "op": "delete",
+        "remove": [
+          [
+            88,
+            89,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.859612351656066,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          29,
+          6
+        ]
+      },
+      {
+        "doc": "00381",
+        "op": "delete",
+        "remove": [
+          [
+            171,
+            172,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.884902157717114,
+        "delta_f1": 0.0013568521031207675,
+        "truth": "good",
+        "counts": [
+          3,
+          47,
+          13
+        ]
+      },
+      {
+        "doc": "00517",
+        "op": "delete",
+        "remove": [
+          [
+            25,
+            33,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.478962851233687,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          3
+        ]
+      },
+      {
+        "doc": "00321",
+        "op": "delete",
+        "remove": [
+          [
+            40,
+            41,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.123626463834714,
+        "delta_f1": 0.0013495276653171379,
+        "truth": "good",
+        "counts": [
+          1,
+          31,
+          5
+        ]
+      },
+      {
+        "doc": "00198",
+        "op": "delete",
+        "remove": [
+          [
+            38,
+            40,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.748947275420326,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          17,
+          4
+        ]
+      },
+      {
+        "doc": "00783",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            18,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.69461485882299,
+        "delta_f1": 0.00735294117647059,
+        "truth": "good",
+        "counts": [
+          1,
+          11,
+          3
+        ]
+      },
+      {
+        "doc": "01401",
+        "op": "delete",
+        "remove": [
+          [
+            41,
+            44,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.622404759197236,
+        "delta_f1": 0.019047619047619035,
+        "truth": "good",
+        "counts": [
+          2,
+          7,
+          3
+        ]
+      },
+      {
+        "doc": "01025",
+        "op": "delete",
+        "remove": [
+          [
+            69,
+            70,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.687153980526379,
+        "delta_f1": 0.010526315789473661,
+        "truth": "good",
+        "counts": [
+          2,
+          11,
+          4
+        ]
+      },
+      {
+        "doc": "01002",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            52,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.35564286752031,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          48,
+          9
+        ]
+      },
+      {
+        "doc": "01212",
+        "op": "delete",
+        "remove": [
+          [
+            9,
+            10,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.660437649291934,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          24,
+          4
+        ]
+      },
+      {
+        "doc": "00588",
+        "op": "delete",
+        "remove": [
+          [
+            1,
+            3,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.224237436702557,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          6,
+          5
+        ]
+      },
+      {
+        "doc": "00505",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            11,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.670771154682184,
+        "delta_f1": 0.0020161290322580627,
+        "truth": "good",
+        "counts": [
+          1,
+          20,
+          9
+        ]
+      },
+      {
+        "doc": "01292",
+        "op": "delete",
+        "remove": [
+          [
+            21,
+            22,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.007231888055042,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          13,
+          7
+        ]
+      },
+      {
+        "doc": "00881",
+        "op": "delete",
+        "remove": [
+          [
+            140,
+            142,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.475498919636498,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          52,
+          9
+        ]
+      },
+      {
+        "doc": "00499",
+        "op": "delete",
+        "remove": [
+          [
+            4,
+            5,
+            "fact"
+          ]
+        ],
+        "add": [],
+        "score": 8.44827917733284,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          5,
+          4
+        ]
+      },
+      {
+        "doc": "00717",
+        "op": "delete",
+        "remove": [
+          [
+            5,
+            6,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.782068148199373,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          6,
+          2
+        ]
+      },
+      {
+        "doc": "00943",
+        "op": "delete",
+        "remove": [
+          [
+            198,
+            199,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.190786487061688,
+        "delta_f1": 0.0002801120448179262,
+        "truth": "good",
+        "counts": [
+          1,
+          71,
+          11
+        ]
+      },
+      {
+        "doc": "01282",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.467518954464074,
+        "delta_f1": 0.0030769230769230743,
+        "truth": "good",
+        "counts": [
+          1,
+          17,
+          6
+        ]
+      },
+      {
+        "doc": "00430",
+        "op": "delete",
+        "remove": [
+          [
+            1,
+            3,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.43476790853995,
+        "delta_f1": 0.008333333333333331,
+        "truth": "good",
+        "counts": [
+          1,
+          10,
+          3
+        ]
+      },
+      {
+        "doc": "00605",
+        "op": "delete",
+        "remove": [
+          [
+            10,
+            12,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.694322174395555,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          23,
+          5
+        ]
+      },
+      {
+        "doc": "01197",
+        "op": "delete",
+        "remove": [
+          [
+            20,
+            21,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.690317411292742,
+        "delta_f1": 0.001161440185830434,
+        "truth": "good",
+        "counts": [
+          1,
+          30,
+          9
+        ]
+      },
+      {
+        "doc": "00383",
+        "op": "delete",
+        "remove": [
+          [
+            9,
+            11,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.204527056623277,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          9,
+          4
+        ]
+      },
+      {
+        "doc": "01024",
+        "op": "delete",
+        "remove": [
+          [
+            71,
+            75,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.963158206873763,
+        "delta_f1": 0.03030303030303033,
+        "truth": "good",
+        "counts": [
+          2,
+          5,
+          2
+        ]
+      },
+      {
+        "doc": "00987",
+        "op": "delete",
+        "remove": [
+          [
+            108,
+            109,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.773504720913845,
+        "delta_f1": 0.00014486455164421444,
+        "truth": "good",
+        "counts": [
+          1,
+          91,
+          24
+        ]
+      },
+      {
+        "doc": "00230",
+        "op": "delete",
+        "remove": [
+          [
+            37,
+            38,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.378883382294,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          5
+        ]
+      },
+      {
+        "doc": "00826",
+        "op": "delete",
+        "remove": [
+          [
+            12,
+            13,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.12658949708574,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          7,
+          4
+        ]
+      },
+      {
+        "doc": "00662",
+        "op": "delete",
+        "remove": [
+          [
+            17,
+            18,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.70227459977064,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          11,
+          3
+        ]
+      },
+      {
+        "doc": "00312",
+        "op": "delete",
+        "remove": [
+          [
+            64,
+            66,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.56460479218999,
+        "delta_f1": 0.003333333333333327,
+        "truth": "good",
+        "counts": [
+          1,
+          17,
+          5
+        ]
+      },
+      {
+        "doc": "01061",
+        "op": "delete",
+        "remove": [
+          [
+            2,
+            3,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.50678444210604,
+        "delta_f1": 0.007905138339920958,
+        "truth": "good",
+        "counts": [
+          2,
+          14,
+          4
+        ]
+      },
+      {
+        "doc": "01374",
+        "op": "delete",
+        "remove": [
+          [
+            51,
+            54,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.231162793931437,
+        "delta_f1": 0.003361344537815128,
+        "truth": "good",
+        "counts": [
+          2,
+          23,
+          7
+        ]
+      },
+      {
+        "doc": "01056",
+        "op": "delete",
+        "remove": [
+          [
+            50,
+            51,
+            "testimony"
+          ]
+        ],
+        "add": [],
+        "score": 8.76253800346571,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          4
+        ]
+      },
+      {
+        "doc": "01322",
+        "op": "delete",
+        "remove": [
+          [
+            17,
+            20,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.287151887124805,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          8,
+          2
+        ]
+      },
+      {
+        "doc": "01142",
+        "op": "delete",
+        "remove": [
+          [
+            55,
+            56,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.54244048347352,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          30,
+          10
+        ]
+      },
+      {
+        "doc": "01387",
+        "op": "delete",
+        "remove": [
+          [
+            20,
+            21,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 10.272074997194938,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          12,
+          3
+        ]
+      },
+      {
+        "doc": "01041",
+        "op": "delete",
+        "remove": [
+          [
+            251,
+            252,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.75579381161477,
+        "delta_f1": 0.0005390835579514794,
+        "truth": "good",
+        "counts": [
+          3,
+          84,
+          15
+        ]
+      },
+      {
+        "doc": "01288",
+        "op": "delete",
+        "remove": [
+          [
+            6,
+            30,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 4.7620299188591915,
+        "delta_f1": 0.018181818181818188,
+        "truth": "good",
+        "counts": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "doc": "00601",
+        "op": "delete",
+        "remove": [
+          [
+            36,
+            39,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 8.785553978468343,
+        "delta_f1": 0.008333333333333331,
+        "truth": "good",
+        "counts": [
+          1,
+          10,
+          3
+        ]
+      },
+      {
+        "doc": "01269",
+        "op": "delete",
+        "remove": [
+          [
+            118,
+            120,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.397157177626525,
+        "delta_f1": 0.009523809523809518,
+        "truth": "good",
+        "counts": [
+          1,
+          9,
+          3
+        ]
+      },
+      {
+        "doc": "00563",
+        "op": "delete",
+        "remove": [
+          [
+            52,
+            53,
+            "policy"
+          ]
+        ],
+        "add": [],
+        "score": 9.488220180191542,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          17,
+          3
+        ]
+      },
+      {
+        "doc": "00208",
+        "op": "delete",
+        "remove": [
+          [
+            74,
+            75,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 9.310589907121836,
+        "delta_f1": 0.00024968789013732687,
+        "truth": "good",
+        "counts": [
+          1,
+          71,
+          16
+        ]
+      },
+      {
+        "doc": "01329",
+        "op": "delete",
+        "remove": [
+          [
+            8,
+            9,
+            "value"
+          ]
+        ],
+        "add": [],
+        "score": 8.871698305652297,
+        "delta_f1": 0.0,
+        "truth": "neutral",
+        "counts": [
+          0,
+          14,
+          4
+        ]
+      }
+    ]
+  },
+  "conditional_relation_scoring": {
+    "setting": "gold span + gold type, single-premise native relations only; not end-to-end",
+    "train_pairs": 21191,
+    "calibration_pairs": 7849,
+    "audit_pairs": 5678,
+    "positive_base_rate": 0.03170130327580134,
+    "positive_count": 180,
+    "link_average_precision": 0.31610624922902697,
+    "link_auc": 0.8651004405642456,
+    "argmax_positive_typed_micro_f1": 0.13793103448275862,
+    "counts": [
+      14,
+      9,
+      166
+    ],
+    "temperature": 1.0,
+    "classes": [
+      "NONE",
+      "evidence",
+      "reason"
+    ],
+    "unseen_audit_labels": {}
+  },
+  "training_class_incidence": {
+    "value": {
+      "components": 1031,
+      "incident_native_relations": 598
+    },
+    "fact": {
+      "components": 389,
+      "incident_native_relations": 202
+    },
+    "policy": {
+      "components": 384,
+      "incident_native_relations": 211
+    },
+    "testimony": {
+      "components": 526,
+      "incident_native_relations": 156
+    },
+    "reference": {
+      "components": 19,
+      "incident_native_relations": 11
+    }
+  }
+}

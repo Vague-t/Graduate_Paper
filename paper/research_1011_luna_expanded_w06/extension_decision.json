@@ -1,0 +1,74 @@
+{
+  "decided_at_utc": "2026-10-10T17:33:41.894862+00:00",
+  "rule": {
+    "initial_target_per_corpus": 32,
+    "positive_primary": "strict complete relation F1 > MCR-only; separately identify recovered-TP cases and improvement beyond RelationOnly",
+    "selection_of_cases": "lexicographic first per outcome, plus lexicographic first TP-recovery and BRJ-over-RelationOnly cases; list all positive IDs",
+    "extension_trigger": "After completing all first-wave documents, if a corpus has no strict relation F1 improvement, expand only that corpus by the next 4 ranks per length stratum (up to 16 documents per complete wave), preserving all prior outcomes",
+    "stop": "Stop once both corpora contain an improvement after a completed wave, or each lacking-positive corpus exhausts its preordered unique audit-text pool; never tune scores or redraw candidates using gold",
+    "remaining_population": {
+      "aaec": 64,
+      "cdcp": 116
+    },
+    "inference_limit": "Outcome-adaptive expansion is case discovery; no significance testing, generalization, or independent-test claim"
+  },
+  "prior_waves": [
+    {
+      "root": "research_1010_v7_luna",
+      "evaluated_cdcp": 8,
+      "metrics_sha256": "4f7aa2c851fc2fa2dbb1ac98820042a5c0e158de04d42c8befbec01db9acbb1d",
+      "improvement_documents": []
+    },
+    {
+      "root": "research_1011_luna_expanded",
+      "evaluated_cdcp": 24,
+      "metrics_sha256": "54eccc02e31e61de5f97a2549881138b03085c3dfb27f51a09b4babaec3be9ee",
+      "improvement_documents": []
+    },
+    {
+      "root": "research_1011_luna_expanded_w02",
+      "evaluated_cdcp": 16,
+      "metrics_sha256": "d09739125e9905fa68974654ea7de7db8b684bc9efb3af3ec270ed1e7ef210b9",
+      "improvement_documents": []
+    },
+    {
+      "root": "research_1011_luna_expanded_w03",
+      "evaluated_cdcp": 16,
+      "metrics_sha256": "de843d9223511fe8490f8188063b2ced1f1cbfc9dbc26da24c22723e5de94d45",
+      "improvement_documents": []
+    },
+    {
+      "root": "research_1011_luna_expanded_w04",
+      "evaluated_cdcp": 16,
+      "metrics_sha256": "3058bb5b524ebac3a4bf1876ecf5efcec5a16c4b904c4faf48e022c625a7e84e",
+      "improvement_documents": []
+    },
+    {
+      "root": "research_1011_luna_expanded_w05",
+      "evaluated_cdcp": 16,
+      "metrics_sha256": "5210a5455737999e8a663a629b423ccabcf20e77833128cfb58e34d8b9c1426c",
+      "improvement_documents": []
+    }
+  ],
+  "new_ids": [
+    "cdcp_00224",
+    "cdcp_00325",
+    "cdcp_00352",
+    "cdcp_00467",
+    "cdcp_00563",
+    "cdcp_00578",
+    "cdcp_00599",
+    "cdcp_00621",
+    "cdcp_00732",
+    "cdcp_00774",
+    "cdcp_00955",
+    "cdcp_01000",
+    "cdcp_01025",
+    "cdcp_01062",
+    "cdcp_01312",
+    "cdcp_01322"
+  ],
+  "cumulative_cdcp": 112,
+  "aaec_stops_at": 32,
+  "adaptation": "Outcome determines whether to run next frozen block, never which documents or scores enter it"
+}

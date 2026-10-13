@@ -1,0 +1,88 @@
+{
+  "id": "casimedicos_183_64",
+  "corpus": "casimedicos",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 5.0,
+  "initial": {
+    "C": [
+      "c001",
+      "c003",
+      "c007",
+      "c009"
+    ],
+    "R": [
+      "r0019",
+      "r0127"
+    ]
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c003",
+      "c005",
+      "c007",
+      "c009"
+    ],
+    "R": [
+      "r0019",
+      "r0119",
+      "r0127",
+      "r0155"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0006215410000001143,
+      "time_limit": 5.0,
+      "objective": -7.82,
+      "minimization_dual_bound": -7.82,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0061746669999998005,
+      "time_limit": 4.999378459,
+      "objective": -3.0,
+      "minimization_dual_bound": -3.0,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.0003135829999996176,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 7.82,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.006796207999999915,
+  "wall_seconds": 0.008151999999999937,
+  "component_edits_net": 1,
+  "relation_edits_net": 2,
+  "phi_initial": [
+    3.8,
+    1.72
+  ],
+  "phi_final": [
+    4.6,
+    3.2199999999999998
+  ],
+  "score_condition": "sparse",
+  "source_family": "new_corpora",
+  "total_run_wall_seconds": 0.008207042000000442
+}

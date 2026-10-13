@@ -1,0 +1,489 @@
+diff --git a/report_0914_v2.md b/report_0914_v3.md
+index 78aa934..3ded2be 100644
+--- a/report_0914_v2.md
++++ b/report_0914_v3.md
+@@ -2,23 +2,23 @@
+ 
+ 武汉大学计算机科学与技术学术型硕士学位论文
+ 
+-0914-v2配置核对与参考实现工作稿　2026年9月14日
++0914-v3创新闭环与方法澄清工作稿　2026年9月14日
+ 
+ 英文题目　End-to-End Argument Mining with Large Language Models
+ 
+ ## 版本说明
+ 
+-本稿在0914修订稿基础上核对实验配置，并依据作者授权新建argument_mining_0914参考项目。原有实验表格、数值和近期文献定位保持不变；本次完成软件层面的构造样例测试及随机初始化小模型测试，没有运行AAEC/CDCP正式训练或复现原表。新代码不是原实验代码的恢复，不能追溯性地证明原分数。文中“原稿记录”指从旧稿继承的结果，“新参考实现”指本次明确并编码的协议，二者不得混用。修改与核验边界详见随稿《0914_v2实验配置核对与修改说明》。
++本稿在0914-v2基础上澄清两项贡献的输入、操作与输出，补齐局部增强的边集合、全文回填统计及异常到动作的对应规则，并加入可复算的构造示例和评分反例。相关工作补充至本次检索可核对的2026年公开成果。历史实验表格数值保持不变；新增示例仅用于解释机制，不是AAEC/CDCP实验。本轮未改变参考项目的训练或推理算法，也未运行真实数据实验。版本差异和建议取舍详见随稿《0914_v3评估与修改说明》。
+ 
+-目前没有原实验项目、原始日志和数据划分材料。第三章与第四章Single-Pass的81.67和77.82、两处Full的83.71仍缺run ID对应关系；新增代码不能消除这一历史证据缺口。门控、评价、修正预算等已获得可执行的新定义，但需以真实数据重新实验后才能验证有效性。本稿仍是待作者核验的工作稿，不作为已满足送审要求的声明。正式封面、作者导师信息、原创性声明、授权页、致谢与成果页，应按学院适用模板另行补齐，不代填或代签。
++本稿使用三个证据层次：方法定义与代码检查说明算法如何执行；明确标注的构造例检验性质和反例；原稿结果记录保留已有实验信息。构造数值不得与真实实验成绩混同。原实验日志与划分材料仍缺失，Single-Pass的81.67和77.82及两处Full的83.71尚未绑定run ID。附录A集中列出14项历史证据待核验事项；正文保留影响结果解释的必要提示。当前稿为研究工作稿，正式送审还需补齐实验依据，并按学院适用模板完善封面、声明、授权页、致谢与成果页。
+ 
+ ## 摘要
+ 
+ 论辩挖掘旨在从非结构化文本中识别论辩组件及其关系，恢复符合语料标注规范的论辩图。生成式大语言模型能够统一表示组件跨度、类型和有向关系，但组件识别错误会限制后续关系预测的候选空间，单次生成也可能产生错误引用和缺乏语义依据的连接。针对上述问题，本文从训练阶段的结论组件增强和推理阶段的论辩图修正两个方面研究端到端论辩挖掘方法。
+ 
+-在训练阶段，本文设计面向结论类组件的局部论辩结构保持增强方法。以结论节点及其支撑或攻击邻域作为增强单位，在保留组件类型、关系端点与方向的条件下生成表达变体，并通过格式、结构和语义检查筛选样本。结合类型条件低秩适配、线索感知连续提示和句子级辅助目标，该方法旨在丰富结论表达及其关系上下文，为组件和关系预测提供结构一致的训练监督。增强目标是提高有效样本的多样性，不将样本扩充直接等同于类别平衡改善。
++在训练阶段，本文设计面向结论类组件的局部论辩结构保持增强方法。从标注训练图中选取结论节点及其入邻居，以这些节点之间的已有关系约束组件改写；将变体回填原文并更新跨度，输出类型、编号与关系拓扑保持不变的增强文档，再通过分层检查筛选。该方法针对结论表达及其关系上下文的多样性，类型条件低秩适配、线索感知连续提示和句子级辅助目标提供配套表示能力。全文回填会同时复制未改写组件，因此样本增加不等同于类别比例改善。
+ 
+-在推理阶段，本文提出基于完整候选图评估与异常驱动局部修正的方法MCR-BR。该方法从多个组件假设构建候选论辩图，利用论证连接覆盖、边语义连贯性和输出合法性进行图级评分；随后针对检测到的异常尝试局部修改，通过接受检查与回退机制控制修改过程，并限制修正轮数和每轮接受动作数。该设计将候选选择与生成后的局部调整衔接起来，目标是改善端到端抽取结果，而非以代理评分代替任务正确性判断。
++在推理阶段，本文提出基于完整候选图评估与异常驱动局部修正的方法MCR-BR。多个组件假设分别生成关系，形成可供整体比较的候选图；连接覆盖、边语义连贯性和输出合法性用于选择初始图，检测到的异常用于提出类型转换、组件替换、删边或限定源节点的关系重预测。修改通过合法性及代理评分检查后接受，否则回退。这里的完整候选指同时包含组件与关系，局部修正不具有任意遗漏节点恢复能力；覆盖评分与任务正确性的偏差通过构造反例明确说明。
+ 
+ 现有实验记录中，完整框架在AAEC上的Component-F1和Relation-F1分别为83.71和64.83，在CDCP上分别为76.45和38.17。在采用粗粒度组件标签及有向无标签连接的AAEC到CDCP零样本迁移设置下，完整框架的Link-F1为43.21，较同骨干Single-Pass记录提高9.79个F1点。上述记录呈现了训练增强与推理修正相结合的应用价值；两项方法的独立增益、等计算预算优势及更广泛的迁移能力，仍需在配置核验和相应消融基础上分别确定。
+ 
+@@ -28,9 +28,9 @@
+ 
+ Argument mining reconstructs components and relations from unstructured text under corpus-specific annotation guidelines. Generative large language models can represent component spans, types, and directed relations jointly. However, component errors restrict relation prediction, while a single generation may contain invalid references or unsupported links. This thesis studies complementary training-time conclusion enhancement and inference-time graph repair for end-to-end argument mining.
+ 
+-For training-time enhancement, this thesis designs local structure-preserving augmentation centered on conclusion components and their supporting or attacking neighborhoods. Expression variants preserve component types, relation endpoints, and directions, and undergo format, structural, and semantic checks. Type-conditioned low-rank adaptation, cue-aware continuous prompts, and a sentence-level auxiliary objective provide supporting mechanisms. The aim is to diversify conclusion expressions and relational contexts with consistent supervision, without assuming that more examples automatically improve class balance.
++For training-time enhancement, this thesis designs local structure-preserving augmentation centered on conclusion components. A conclusion and its incoming neighbors define the editable nodes, and their annotated internal relations condition paraphrasing. Rewritten components are inserted into the original document with updated spans while preserving types, identifiers, and relation topology, followed by layered filtering. Type-conditioned low-rank adaptation, cue-aware continuous prompts, and a sentence-level auxiliary objective support representation learning. Whole-document reconstruction also duplicates unchanged components, so augmentation does not necessarily improve class balance.
+ 
+-For inference-time repair, this thesis proposes MCR-BR, combining complete candidate-graph evaluation with anomaly-driven local repair. Graphs built from multiple component hypotheses are scored using argument-link coverage, edge-level semantic coherence, and output validity. Detected anomalies trigger local edits subject to acceptance checks, rollback, and limits on iterations and accepted actions. This connects candidate selection with post-generation adjustment; the surrogate score does not replace gold-standard evaluation.
++For inference-time repair, this thesis proposes MCR-BR. Multiple component hypotheses receive relation predictions to form complete candidate graphs. Argument-link coverage, edge-level semantic coherence, and output validity guide initial selection; detected anomalies trigger type changes, component replacement, edge removal, or relation regeneration over specified source nodes. Edits are accepted only after validity and surrogate-score checks; otherwise, they are rolled back. Complete candidates contain both components and relations, but local repair cannot generally recover missing nodes. Constructed counterexamples clarify why higher surrogate scores need not indicate more accurate extraction.
+ 
+ The retained records report full-framework Component-F1/Relation-F1 scores of 83.71/64.83 on AAEC and 76.45/38.17 on CDCP. Under AAEC-to-CDCP zero-shot transfer with coarse component labels and directed unlabeled links, Link-F1 is 43.21, 9.79 points above the same-backbone Single-Pass baseline. These records indicate the potential value of combining enhancement and repair. Independent gains, matched-budget advantages, and broader transferability require configuration verification and corresponding ablations.
+ 
+@@ -82,23 +82,29 @@ Sun等提出DENIM，以篇章结构感知前缀辅助生成式端到端论辩挖
+ 
+ 局部拓扑保持也不等同于语义标签必然正确或类别比例自动改善。新增一个Claim及多个Premise可能同时增加高频类别，语义筛选也可能继承验证模型偏差。第三章据此区分表达多样性、类别分布和真实测试集增益；只有在等样本量或等训练预算下比较无增强、普通改写与局部结构保持增强，才能分离该设计的独立作用。
+ 
++2026年，Sun等针对LLM伪标注中的组件边界和关系噪声，分别引入边界细化与关系去噪[18]<!--ref:sun2026weak--><!--anchor:section:Abstract-->。其训练数据来源与本文从已标注局部结构生成变体的路径不同，但同样说明合成监督的可靠性需要专门处理。该文的IoU边界评价和关系分类指标不能直接替代本文的端到端精确匹配评价。
++
+ #### 1.2.5 约束解码、多候选评估与局部修正
+ 
+-语法约束解码通过限制后继token控制结构化输出形式，其保证范围取决于实际编码的约束[18]<!--ref:geng2023--><!--anchor:section:Abstract-->。JSON可解析不意味着跨度真实、引用完整或关系成立。前述AASP将结构动作约束融入生成，而本文在已有候选图上开展评估与修改，二者分别侧重生成过程约束与生成后选择、调整。
++语法约束解码通过限制后继token控制结构化输出形式，其保证范围取决于实际编码的约束[19]<!--ref:geng2023--><!--anchor:section:Abstract-->。JSON可解析不意味着跨度真实、引用完整或关系成立。前述AASP将结构动作约束融入生成，而本文在已有候选图上开展评估与修改，二者分别侧重生成过程约束与生成后选择、调整。
++
++Self-Refine通过反馈和迭代修订改进输出[20]<!--ref:madaan2023--><!--anchor:section:Abstract-->；Huang等指出，在其研究的推理设置中，缺乏外部反馈的内在自纠错可能无效甚至降低表现[21]<!--ref:huang2023--><!--anchor:section:Abstract-->。自一致性则通过采样多条推理路径并聚合答案改善所研究的推理任务[22]<!--ref:wang2022--><!--anchor:section:Abstract-->。这些方法分别提供修订与多采样思想，但不能直接证明本文验证器的可靠性或额外计算的收益。
+ 
+-Self-Refine通过反馈和迭代修订改进输出[19]<!--ref:madaan2023--><!--anchor:section:Abstract-->；Huang等指出，在其研究的推理设置中，缺乏外部反馈的内在自纠错可能无效甚至降低表现[20]<!--ref:huang2023--><!--anchor:section:Abstract-->。自一致性则通过采样多条推理路径并聚合答案改善所研究的推理任务[21]<!--ref:wang2022--><!--anchor:section:Abstract-->。这些方法分别提供修订与多采样思想，但不能直接证明本文验证器的可靠性或额外计算的收益。
++论辩分析领域已有更直接的候选判断研究。Tran等针对课堂讨论设计LLM-refine：在不同Claim、Evidence和Warrant组合下形成分割候选，再由LLM选择合适结果[23]<!--ref:tran2025--><!--anchor:section:4.2-->。该方法处理话轮组件分割与分类，并非对包含任意有向关系的完整论辩图实施局部修正。因此，“生成多个论辩候选再评判”不能作为本文独占的创新点；本文需要强调候选对象包含组件与关系，以及异常、动作、接受条件和回退如何共同定义修正过程。
+ 
+-论辩分析领域已有更直接的候选判断研究。Tran等针对课堂讨论设计LLM-refine：在不同Claim、Evidence和Warrant组合下形成分割候选，再由LLM选择合适结果[22]<!--ref:tran2025--><!--anchor:section:4.2-->。该方法处理话轮组件分割与分类，并非对包含任意有向关系的完整论辩图实施局部修正。因此，“生成多个论辩候选再评判”不能作为本文独占的创新点；本文需要强调候选对象包含组件与关系，以及异常、动作、接受条件和回退如何共同定义修正过程。
++Xiao和Li在2026年提出另一项名为ARGUS的研究，将LLM自解释转为抽象论辩框架，并以形式语义规定最小代价修复目标[24]<!--ref:xiao2026repair--><!--anchor:section:Abstract-->。它与前述Caputo等的AAAI论辩挖掘系统不是同一工作，任务也不同于原文跨度和关系抽取。本文未定义这类最小代价目标或形式语义保证，因此应将MCR-BR定位为面向抽取的有限预算启发式修正，不主张最小修改性质。
+ 
+ 完整图选择还应与逐节点、逐边投票区分：独立投票可能拼接出候选池中从未出现过的结构，但选择完整候选也可能保留其遗漏节点。本文以图级评分选择初始状态，再尝试异常驱动修改；评分中的软合法性项不构成硬保证，有限接受动作也不等于严格限制全部模型调用。这些边界在第四章逐项分析。
+ 
+ #### 1.2.6 中文资源、跨语料迁移与研究定位
+ 
+-跨语料训练已有直接研究。Morio等提出MT-AM，利用辅助论辩语料开展端到端多任务训练，并分析不同语料之间的可迁移性[23]<!--ref:morio2022--><!--anchor:section:Abstract-->。这与本文只在源域训练、在目标域测试的零样本设定不同：前者利用辅助语料扩展训练，后者检验给定源域模型的迁移表现，不能仅凭“跨语料”名称视为相同实验。
++跨语料训练已有直接研究。Morio等提出MT-AM，利用辅助论辩语料开展端到端多任务训练，并分析不同语料之间的可迁移性[25]<!--ref:morio2022--><!--anchor:section:Abstract-->。这与本文只在源域训练、在目标域测试的零样本设定不同：前者利用辅助语料扩展训练，后者检验给定源域模型的迁移表现，不能仅凭“跨语料”名称视为相同实验。
++
++Savigny和Yun于2026年发表AMELIA，将19个论辩挖掘数据集转为统一格式，并比较单任务微调、多任务微调和分别微调后的模型合并[26]<!--ref:savigny2026amelia--><!--anchor:section:Abstract-->。它补充了统一任务表示与训练策略这一相邻方向；本文的局部增强和测试时图修正应分别说明相对增量，统一格式本身不构成本文创新。其多任务表现不能直接证明本文单一源域的零样本迁移结论。
+ 
+-Feger等在2025年对17个英文句子级数据集进行泛化评估，发现所研究模型可能依赖数据集相关词汇线索，在未见数据集上表现下降[24]<!--ref:feger2025--><!--anchor:section:Abstract-->。该结果来自句子级论辩识别，而非完整论辩图抽取；本文将其作为检查词汇捷径和域内外差异的依据，不据此推断MCR-BR已克服这些问题。对于Cue-aware分支，尤其需要区分线索带来的域内收益与对目标域表达的适应能力。
++Feger等在2025年对17个英文句子级数据集进行泛化评估，发现所研究模型可能依赖数据集相关词汇线索，在未见数据集上表现下降[27]<!--ref:feger2025--><!--anchor:section:Abstract-->。该结果来自句子级论辩识别，而非完整论辩图抽取；本文将其作为检查词汇捷径和域内外差异的依据，不据此推断MCR-BR已克服这些问题。对于Cue-aware分支，尤其需要区分线索带来的域内收益与对目标域表达的适应能力。
+ 
+-中文资源同样需要按任务而非语言名称归类。ORCHID面向中文辩论的目标无关立场检测和论辩对话摘要，不是AAEC式全文组件与关系图抽取数据集[25]<!--ref:zhao2023--><!--anchor:section:Abstract-->。IAM整合多项论辩挖掘任务，使用英文资源，不能作为中文论辩语料的例证[26]<!--ref:cheng2022--><!--anchor:section:3.1-->。本文实验使用英文AAEC和CDCP，不主张已经验证中文或多语言能力。
++中文资源同样需要按任务而非语言名称归类。ORCHID面向中文辩论的目标无关立场检测和论辩对话摘要，不是AAEC式全文组件与关系图抽取数据集[28]<!--ref:zhao2023--><!--anchor:section:Abstract-->。IAM整合多项论辩挖掘任务，使用英文资源，不能作为中文论辩语料的例证[29]<!--ref:cheng2022--><!--anchor:section:3.1-->。本文实验使用英文AAEC和CDCP，不主张已经验证中文或多语言能力。
+ 
+ 综合以上研究，本文的研究位置是：训练阶段以结论中心局部子图保持关系监督，推理阶段以完整候选图评估和异常驱动局部修改处理生成错误；跨语料实验用于限定方法适用范围。现有文献已覆盖生成式联合预测、结构前缀、关键短语、一阶逻辑、多候选判断及跨语料训练，故本文不作“首次结合大语言模型与论辩结构”的宽泛主张，也不在缺乏同协议比较时宣称全面优于近期方法。
+ 
+@@ -116,9 +122,9 @@ RQ3：上述方法在明确标签归约的AAEC到CDCP迁移协议下，是否仍
+ 
+ #### 1.3.2 主要研究工作与贡献
+ 
+-（1）设计面向结论类组件的局部论辩结构保持增强方法。针对结论组件识别不足可能压缩关系预测候选空间的问题，以结论节点及其支撑或攻击邻域为增强单位，在保持组件类型、关系端点和方向的条件下生成表达变体，并以格式、结构和语义检查筛选样本。该设计将结论表达增强与局部关系监督结合，重点在于增强单位和监督保持机制；类型条件低秩适配、线索感知提示及辅助目标作为配套实现，不分别列为独立创新。
++（1）设计结论中心的局部结构保持增强方法。输入为已标注训练文档；选取结论及其入邻居，用局部诱导子图中的关系约束组件改写，再回填全文、重算跨度并筛选，输出可用于联合抽取训练的增强文档。具体贡献在于将结论表达变化与关系标注保持连接起来。是否优于普通改写，需要在相同源文档、接受样本量及训练预算下验证；条件适配、线索提示和辅助目标作为配套模块，不分别计为独立创新。
+ 
+-（2）提出基于完整候选图评估与异常驱动局部修正的论辩图生成方法。针对单次组件预测及关系生成容易过早固定错误结构的问题，构建多组完整候选图，利用连接覆盖、边语义和合法性信号进行整体评估，再将检测到的异常映射为局部修改动作，并结合接受检查、回退与修正步数限制形成MCR-BR流程。方法贡献在于图级选择和局部修正的任务特定组织，不是多采样或自修正思想本身；当前动作集合不被表述为可以一般性补回遗漏节点。
++（2）提出完整候选图评估与异常驱动局部修正方法MCR-BR。输入为同一文档的多组预测组件及其关系；先整体评分选择初始图，再按异常对象提出有明确字段边界的动作，经过合法性及代理评分检查后接受或回退，输出最终预测图与修正轨迹。具体贡献在于整图选择与任务特定修正流程的衔接。独立收益应由固定候选池的重排序与BR对照确认，成本价值应由等预算比较确认；该方法不承诺最终语义正确、最小修改或补回所有遗漏节点。
+ 
+ （3）开展域内评估与粗粒度协议下的跨语料迁移分析。围绕AAEC和CDCP整理组件、关系、消融、验证器替换及Oracle结果，并通过明确组件标签归约和有向无标签连接指标分析单向迁移表现。这部分属于验证与适用性分析，不构成第三项算法创新，也不将标签映射命名为新的领域自适应方法。
+ 
+@@ -126,9 +132,9 @@ RQ3：上述方法在明确标签归约的AAEC到CDCP迁移协议下，是否仍
+ 
+ |研究问题|主要方法|现有材料|尚缺的关键证据|
+ |:---|:---|:---|:---|
+-|RQ1 结论组件质量|局部结构保持增强及配套表示模块|分类别表与部分模块消融|配置冲突消解、类别统计、增强独立消融|
+-|RQ2 图级结构恢复|完整候选图评估与异常驱动局部修正|域内比较、验证器替换、Oracle记录|固定候选池比较、可执行动作、预算与时延|
+-|RQ3 跨语料适用性|粗粒度映射下的源域迁移|AAEC到CDCP单向记录|目标数据使用审计、双向迁移和映射敏感性|
++|RQ1 结论组件质量|局部结构保持增强|分类别表与配套模块消融记录|普通改写与结构条件对照、Premise表现、全文类别统计|
++|RQ2 图级结构恢复|完整候选图评估与异常驱动局部修正|域内比较、评分反例、代码动作定义|固定候选池、错误修改率、评分消融与等预算比较|
++|RQ3 跨语料适用性|粗粒度映射下的源域迁移|AAEC到CDCP单向记录|同协议评价与目标数据使用记录；双向迁移属扩展|
+ 
+ 两项方法贡献描述的是本文的设计内容，不意味着其独立优越性已经由完整系统总分充分证明。现有数值记录、消融和方法分析分别承担不同证据作用：总分支持完整配置的表现，控制变量消融用于归因，形式分析用于限定可达空间与算法性质；三者不能相互替代。
+ 
+@@ -181,13 +187,13 @@ RQ3：上述方法在明确标签归约的AAEC到CDCP迁移协议下，是否仍
+ 
+ $$P_\theta(Y\mid D)=\prod_{t=1}^{L}P_\theta(y_t\mid D,y_{<t}).$$
+ 
+-Transformer通过自注意力聚合上下文信息，为序列建模提供基础[27]<!--ref:vaswani2017--><!--anchor:section:Abstract-->。本文使用的骨干为原稿所述Qwen2.5-7B-Instruct；Qwen2.5技术报告可用于说明模型系列，但不能代替本文具体权重版本、训练配置和硬件记录[28]<!--ref:qwen2024--><!--anchor:section:Abstract-->。序列概率受输出长度和字段顺序影响，用于候选排序时需明确是否长度归一化；高概率并不意味着候选图中的每条关系均正确。
++Transformer通过自注意力聚合上下文信息，为序列建模提供基础[30]<!--ref:vaswani2017--><!--anchor:section:Abstract-->。本文使用的骨干为原稿所述Qwen2.5-7B-Instruct；Qwen2.5技术报告可用于说明模型系列，但不能代替本文具体权重版本、训练配置和硬件记录[31]<!--ref:qwen2024--><!--anchor:section:Abstract-->。序列概率受输出长度和字段顺序影响，用于候选排序时需明确是否长度归一化；高概率并不意味着候选图中的每条关系均正确。
+ 
+-LoRA在冻结基础权重的条件下引入低秩增量[29]<!--ref:hu2021--><!--anchor:section:Abstract-->。对于一般线性投影，采用统一表示：
++LoRA在冻结基础权重的条件下引入低秩增量[32]<!--ref:hu2021--><!--anchor:section:Abstract-->。对于一般线性投影，采用统一表示：
+ 
+ $$W=W_0+\frac{\alpha}{r}BA,\quad A\in\mathbb R^{r\times d_{in}},\quad B\in\mathbb R^{d_{out}\times r}.$$
+ 
+-其中$r$为秩，$\alpha$为缩放系数。第三章的类型条件门控是附加于这一低秩分支的任务设计，不应把LoRA本身描述为新提出的结构。连续提示则使用可学习向量为冻结或部分微调的模型提供任务条件，其相关基础来自参数高效提示调优研究[30]<!--ref:lester2021--><!--anchor:section:Abstract-->。是否启用提示、提示插入位置及其与LoRA共同训练的方式，均属于具体实现而非方法名称自带的性质。
++其中$r$为秩，$\alpha$为缩放系数。第三章的类型条件门控是附加于这一低秩分支的任务设计，不应把LoRA本身描述为新提出的结构。连续提示则使用可学习向量为冻结或部分微调的模型提供任务条件，其相关基础来自参数高效提示调优研究[33]<!--ref:lester2021--><!--anchor:section:Abstract-->。是否启用提示、提示插入位置及其与LoRA共同训练的方式，均属于具体实现而非方法名称自带的性质。
+ 
+ ### 2.4 候选选择与代理评分
+ 
+@@ -253,7 +259,7 @@ $$R_{rel}\leq \frac{|E_{reach}|}{|E|}.$$
+ 
+ 证明：任何计为正确的预测关系，其两个端点都必须存在于当前可匹配组件集合中，因此正确关系集合是$E_{reach}$的子集。该上界只描述候选空间，不保证这些边能被关系模块预测正确。对多个遗漏节点，应按关联边的并集计数，避免一条边因两个端点均遗漏而重复计入损失；对于在当前关系表示中没有关联边的MajorClaim，不能由该式推出直接的关系召回损失。
+ 
+-本文据此将优化目标从一般类别平衡进一步收敛为两点：一是提高结论类组件的边界与类型识别能力；二是在不过度牺牲Premise性能的前提下，提高包含高连接度结论节点的候选图召回率。
++该上界对所有关系端点成立，并不单独证明Claim比Premise更值得优先增强。选择结论中心，是希望同一次改写同时约束结论表达和其关联关系；其合理性需要由训练集类型计数、关联边分布和分类别错误验证。本文据此关注结论边界与类型，以及含有标注关联边的结论节点召回；在缺少度分布统计时，不将其统一描述为高连接度节点。
+ 
+ ### 3.2 结论中心的局部结构保持增强
+ 
+@@ -261,17 +267,21 @@ $$R_{rel}\leq \frac{|E_{reach}|}{|E|}.$$
+ 
+ 若文本改写仅约束句子语义而未同步维护标注，组件边界和关系方向可能失配。本文以局部论辩子图而非孤立句子作为增强单位。对训练文档图$G=(V,E)$中的结论类节点$v_c$，提取其一跳支撑或攻击邻域：
+ 
+-$$G_c=(V_c,E_c),\qquad V_c=\{v_c\}\cup\{v_i\mid(v_i,v_c,r)\in E\}.$$
++$V_c=\{v_c\}\cup\{v_i\mid(v_i,v_c,r)\in E\},\qquad G_c=(V_c,E_c).$
++
++$E_c=\{(i,j,r)\in E:i\in V_c,\ j\in V_c\}.$
++
++邻域节点按结论的入边选取，边集合则取这些节点上的诱导子图。因此，若两个入邻居之间已有标注边，该边也属于生成条件，不能只保留指向中心的星形边。全文中恰有一个端点位于该节点集合的边称为边界边：回填时保留其端点、方向与标签，并在全文语义筛选中一并检查。结构保持指不改变已有标注，不意味着模型证明了所有未标注关系均不存在。
+ 
+-在AAEC中，局部子图按段落关系标注构造，不将未标注的Claim—MajorClaim立场直接转化为关系边。增强模型接收组件文本、组件类型、关系方向和目标结构等条件，生成保持图拓扑不变但表述不同的文本变体。这样既增加结论表达的词汇与句法多样性，也保留关系训练所需的结构监督。
++在AAEC中，局部子图按已有关系标注构造，不将Claim—MajorClaim立场属性转为Support/Attack边。无关联入边的MajorClaim可能形成单节点单位，其增强仅增加结论表达变体。增强模型接收所选组件文本、类型及内部关系，输出各组件的替换文本；组件ID、类型和全部关系由原标注保留，跨度由回填后的统一分词重新计算。
+ 
+ #### 3.2.2 条件生成约束
+ 
+-对局部子图$G_c$，生成过程表示为：
++对局部子图$G_c$，以下条件生成式表示所选组件文本的联合改写；实际接口按组件ID返回替换文本，而不是让增强模型重新预测标注：
+ 
+ $$D_c'=\operatorname{LLM}_{aug}(D_c\mid \mathcal{T}_c,E_c,\Pi),$$
+ 
+-其中$D_c$为原始局部文本，$\mathcal{T}_c$为目标组件类型，$E_c$为需要保持的关系集合，$\Pi$为生成约束。约束包括：组件数量和类型保持一致；关系端点必须能够在生成文本中对齐；不得新增原结构之外的支持或攻击关系；不得复制验证集或测试集文本。
++其中$D_c$为所选组件的原始文本集合，$\mathcal{T}_c$为对应组件类型，$E_c$为内部关系，$\Pi$为改写约束。生成必须保留各组件的论辩角色和原有含义。程序仅接受与请求ID完全对应的替换项，将其回填全文并重新计算跨度，不接受新增组件、类型或关系字段。所有生成来源限定为训练文档；格式检查不承担证明训练文本与测试文本完全无语义重合的功能。
+ 
+ 为降低模板化生成造成的分布偏差，增强提示同时允许词汇替换、句法重组和论据表述变化，但不允许改变原有立场。生成仅基于训练集进行；原始文档的全部增强版本与原文保持在同一数据划分中，防止同源样本跨集合泄漏。
+ 
+@@ -281,17 +291,23 @@ $$D_c'=\operatorname{LLM}_{aug}(D_c\mid \mathcal{T}_c,E_c,\Pi),$$
+ 
+ 1. **格式合法性**：JSON可解析、必需字段存在、组件编号唯一且跨度位于文本范围内；
+ 2. **结构一致性**：组件数量、类型集合和关系方向满足给定模板，且不存在悬空引用和循环边；
+-3. **语义一致性**：独立验证器判断生成组件是否承担目标论辩角色，并检查每条关系是否获得上下文支持。
++3. **语义一致性**：单独调用验证器检查回填后的全文、组件角色和关系，包含因局部改写而可能受影响的边界边。该检查是模型判断，仍需人工抽检。
+ 
+ 定义三个二值检查函数$q_{fmt}$、$q_{str}$和$q_{sem}$，样本接受条件为：
+ 
+ $$q(D_c',G_c')=q_{fmt}\cdot q_{str}\cdot q_{sem}=1.$$
+ 
+-三层筛选区分可解析性、拓扑一致性和语义合理性。前两层不能证明标签语义正确，第三层也只是验证器判断，仍需人工抽检估计其误判。这里的“独立验证器”指单独验证调用，是否与增强模型使用不同权重、提示或训练数据须由实际配置说明。
++三层筛选分别检查格式、标注结构与语义合理性。第三层的单独调用不等于独立模型、独立知识来源或人工验证。新参考实现由程序保留原关系表并检查全文语义；若局部改写损害边界边，应拒绝整个变体。验证器仍可能漏判，因此需报告边界边样本的人工抽检情况。
+ 
+ #### 3.2.4 增强效果的可识别性与数据追踪
+ 
+-若一个以Claim为中心的增强单位包含一个Claim和$k$个Premise，接受$u$个同类变体后，两类实例数分别变为$N_C+u$和$N_P+ku$。当$u>0$时，Claim相对Premise的数量比提高，当且仅当$N_P>kN_C$。因此，保留局部拓扑并不自动改善类别平衡，应分别验证实例比例变化和表达多样性变化。该推导是对增强机制的分析，不是本稿新增的实验结果。
++类别计数必须与训练实例的组织方式一致。仅当局部单位单独作为训练实例，且每个变体恰含一个Claim和$k$个Premise时，接受$u$个变体才对应$N_C+u$和$N_P+ku$；在$u>0$且计数分母为正时，Claim/Premise比提高当且仅当$N_P>kN_C$。这一条件不能直接用于全文回填方案。
++
++新参考实现每接受一个变体便增加一篇完整文档。设训练文档$d$含类型$\tau$的组件数为$N_{d,\tau}$，该文档最终接受的变体数为$a_d$，则增强后计数应为：
++
++$N_\tau'=N_\tau+\sum_d a_dN_{d,\tau}.$
++
++若每篇源文档接受相同数量的变体，则各类实例数按相同比例增加，IR不变；若接受数不同，类别比例变化来自源文档的重复权重及筛选结果。结论中心决定改写位置，不意味着只有结论进入新增训练样本。类别分布、表达多样性和测试效果因此需要分别统计。
+ 
+ MajorClaim在不包含stance边的AAEC表示中可能形成单节点增强单位。这时只能声称增强了结论表达，不能声称保留了原本不存在的关系监督。局部子图文本若单独作为训练实例，需要说明输入上下文与测试时整篇输入的差异；若回填原文，则必须重新分词、更新所有受影响跨度及引用。两种路径不能在方法与实验之间混用。
+ 
+@@ -299,6 +315,14 @@ MajorClaim在不包含stance边的AAEC表示中可能形成单节点增强单位
+ 
+ 新参考实现将上述要求落实为训练集专用接口：按结论及入邻居构造局部单位，使用固定组件槽位改写并回填全文，随后重算所有受位移影响的跨度，保持类型、ID和关系拓扑。默认每文档最多4个单位、每单位2次尝试、最多保留1个变体；通过格式、结构与模型语义筛选后再执行全局文本去重，实际混合比由输出统计。plain对照只隐藏生成提示中的局部边，保持槽位及后续筛选相同，用于隔离结构条件的作用；它不等同于任一外部增强方法的复现。这些是新计划，尚无真实筛选计数和人工审计结果。
+ 
++#### 3.2.5 全文回填的构造示例
++
++下面的文本和标注为人工构造，仅用于解释接口。原文为“Libraries should stay open longer. Students need study space. Campus services need investment.”。按2.1节坐标，组件1是Claim，跨度[1,5]；组件2是Premise，跨度[7,10]；组件3是Claim，跨度[12,15]。设标注包含Support边2→1和2→3。
++
++以组件1为中心时，选取组件1与2，内部关系为2→1；2→3是边界边。将前两组件改写为“Libraries ought to remain open longer”和“Students require space for studying”，组件3文本保持不变。回填后的三个跨度分别为[1,6]、[8,12]和[14,17]，关系仍为2→1和2→3。组件3虽然没有被改写，也因前文长度变化而更新坐标，并随完整文档再次进入训练。
++
++该例说明需要同时做到文本回填、全体跨度更新和边界边复查。即使ID与边表完全相同，若把组件2改写为“不需要学习空间”，关系语义仍可能改变；确定性拓扑检查无法单独排除这类问题。
++
+ ### 3.3 面向结论组件的配套表示增强
+ 
+ 本节的适配器、连续提示和辅助目标用于利用前节的训练监督，属于结论组件增强方案的配套实现。与DENIM的篇章结构前缀[12]<!--ref:sun2024--><!--anchor:section:Abstract-->和关联关键短语方法[13]<!--ref:das2025key--><!--anchor:section:3-->相比，本文关注结论类型条件和显式线索触发，而不将结构或线索的使用本身视为原创。三项模块的作用需分别通过受控消融解释。
+@@ -315,6 +339,8 @@ $$h_t'=W_0h_t+\frac{\alpha}{r}B_gA_gh_t+g_t\frac{\alpha}{r}B_cA_ch_t,$$
+ 
+ 新实现固定id、type、span的字段顺序。门控仅在已生成前缀包含完整闭合的结论类型后开启，在当前组件对象结束时关闭；类型首token与关系区域均不开启条件分支。AAEC触发类型为Claim/MajorClaim，CDCP为Policy/Value。教师强制同样只使用当前位置可见前缀，不读取未来类型。基础全局LoRA与专项LoRA共同存在，并提供单一全局rank32对照以匹配两条rank16分支的LoRA参数量；参数相近不等于计算量相同。该定义通过因果前缀测试，但不能证明其改善边界或减少梯度覆盖，也不能将旧分数沿用为这一新实现的结果。
+ 
++该因果门控更准确的含义是“已生成结论类型条件下的后续字段适配”。它在当前类型闭合后才开启，不能直接利用该类型去纠正同一组件已经输出的类型字段；后续span生成会受该分支影响。对类型F1的可能作用只能来自共享参数训练或后续上下文等间接路径，不能把分类别分数提高直接解释为门控当场纠正了类型。
++
+ #### 3.3.2 Cue-aware Soft Prompting
+ 
+ 显式篇章线索可作为结论识别的候选信号，但线索词与组件类型并非一一对应，其实际收益需由消融验证。本文首先在输入中检测预定义线索，如“therefore”“thus”“in conclusion”等，再向输入表示附加$m=4$个可学习连续提示向量：
+@@ -391,7 +417,7 @@ $$\mathcal{L}_{comp}=\mathcal{L}_{gen}+\lambda\mathcal{L}_{sat},\qquad \lambda=0
+ 
+ 原稿记录的AAEC修正触发率为42.5%，修正前无效组件引用比例为18.5%，JSON格式错误比例为6.2%，验证器判定的不连贯边比例为22.4%。这些指标的分母可能分别是文档、引用或关系边，不能相加为总体错误率。触发率还依赖异常阈值，不等于经人工确认的错误文档比例。
+ 
+-相应恢复目标是改善可解析性与引用有效性、边级语义一致性和预设的连接覆盖偏好。覆盖不足并不必然是标注错误，未带显式理由的合法Claim也可能触发这一软偏好。
++可解析性由候选生成与解析阶段处理，图级BR只接收已经解析为组件和关系对象的候选。其恢复目标是调整引用、边界或类型错误，以及验证器指出的边语义和连接覆盖问题。覆盖不足只是预设软偏好，未带显式理由的合法Claim也可能触发它。
+ 
+ ### 4.2 多候选组件生成与完整图构建
+ 
+@@ -429,7 +455,7 @@ K个完整候选图
+ 接受或回退 → 终止判断 → 输出图
+ ```
+ 
+-如果候选不能解析，则其节点、关系和语义分量无法直接定义。应记录为解析失败并执行实现明确规定的处置，不能把解析失败偷偷当作空图加入正常语义统计。
++新参考实现对JSON或必需字段解析失败的候选标记失败并跳过，不把它交给图级BR，也不在该槽位内自动重试。后续槽位可以在总预算内继续生成；若没有可解析候选，返回明确失败，评价时保留该文档及其金标准对象。失败调用仍计入成本。因而原表JSON错误从6.2%到0.0%的变化，在阶段和分母未明确前不能归因于四类图修改动作。
+ 
+ ### 4.3 一致性引导的候选评分
+ 
+@@ -472,6 +498,8 @@ $$E_{coh}(S_k)=
+ 
+ 该得分与生成模型的序列概率不同：序列概率衡量输出在生成模型下是否常见，而$E_{coh}$专门判断边是否得到当前上下文支持。
+ 
++覆盖分量和连贯性分量复用同一组边判断$p_{ij}$：前者按目标节点聚合，后者按预测边求平均。二者分别表达连接分布与边级通过比例，但不是两份独立语义证据。组合加权可能重复放大同一次验证错误，需要在固定候选池上分别移除覆盖项与连贯性项，观察最终F1及边数变化。
++
+ #### 4.3.3 输出合法性
+ 
+ 若候选通过全部确定性检查，则$E_{val}(S_k)=1$，否则为0。检查项目包括JSON可解析性、必需字段完整性、token跨度合法性、组件编号引用完整性、自环与结构环检测，以及数据集Schema允许的组件和关系类型。约束解码只能保证部分语法条件，无法替代跨度、引用和拓扑检查。
+@@ -488,7 +516,7 @@ $$k^*=\arg\max_{1\leq k\leq K}E(S_k),\qquad S^{(0)}=S_{k^*}.$$
+ 
+ $$\mathcal{E}(S)=\{e=(\nu,\eta,\sigma)\},$$
+ 
+-其中$\nu\in\{VAL,COH,DENS\}$表示有效性、连贯性或完整性异常，$\eta$表示受影响的节点或边，$\sigma\in[0,1]$表示严重度。严重度定义为：
++其中$\nu\in\{VAL,COH,DENS\}$表示图合法性、边语义连贯性或连接覆盖不足异常，$\eta$表示受影响的节点或边，$\sigma\in[0,1]$表示严重度。严重度定义为：
+ 
+ $$\sigma(e)=
+ \begin{cases}
+@@ -517,6 +545,19 @@ $$\operatorname{Accept}(a,S)=\mathbb{I}[a(S)\in\mathcal{G}_{\mathcal{A}}]\cdot
+ 
+ Replace在原稿中定义为替换已有位置的跨度或类型，并没有明确定义插入缺失节点。如果其实现不改变节点数量，不能据此声称找回所有遗漏Claim；LocalRerun固定组件集合，也不能补节点。Promote/Demote改变类型后须同步重查允许的边类型和拓扑，尤其不能把AAEC的stance隐式转换为关系边。待核验R08：四类动作需补充前置条件、受影响字段、坐标和ID更新规则及失败返回值。
+ 
++表4-1 新参考实现中的异常与动作对应
++
++|异常对象|候选动作与顺序|字段范围与执行限制|
++|:---|:---|:---|
++|边级VAL或COH|先RemoveEdge，再LocalRerun|删当前边；或重预测该边源节点的全部出边，源节点须存在|
++|节点级VAL|类型转换、Replace、LocalRerun|类型转换限AAEC Claim/MajorClaim；Replace保留当前ID与节点数|
++|节点级DENS|类型转换、Replace、LocalRerun|重预测源集合为当前图中除该目标外的全部节点，不插入组件|
++|JSON或字段无法解析|无图级动作|候选阶段记失败并跳过，不进入BR|
++
++表4-1是参考代码的执行说明，不是已证明最优的动作顺序。Replace按候选池中与当前跨度有交集的组件产生替代项，依跨度交并比降序、起止位置及类型排序；没有交集的遗漏组件不能因此被插入。ID重复等问题也可能无法被现有保留ID的动作修好，此时保留失败原因而非宣称动作完备。
++
++LocalRerun固定全部组件，只替换指定源节点的出边，其余出边保留；目标可为当前任一有效组件，随后检查引用、自环和其他约束。对DENS异常，当前实现选择除问题目标以外的全部节点作为源集合，修改范围可能接近全图关系重预测。因此“局部”只说明字段和源集合受到限制，不保证修改只在目标的一跳邻域内；每异常最多4个动作候选还可能使排序靠后的LocalRerun未被尝试。
++
+ #### 4.4.3 终止条件与计算预算
+ 
+ 原稿设置最多执行$T=3$轮，每轮最多接受$M=2$个动作。以下为保留原语义的伪代码；GenerateActions需返回有限序列，模型调用需有超时或解码上限，否则仅靠外层预算不足以保证整个程序终止。
+@@ -559,6 +600,10 @@ return S
+ 
+ 命题三：全图合法后才接受的条件可能阻碍逐步修复。若初始图有两个独立无效引用，一次局部动作只修复其中一个，修改后的图仍不合法，因此被拒绝；即使两步组合能得到合法图，当前一步式接受规则也不一定能走到该状态。原稿同时报告残余无效ID，因此不能宣称BR保证最终输出全部合法。
+ 
++反例四：改变覆盖集合可以提高代理分数而损害组件预测。构造含两个Claim和两个Premise的合法图，Claim 1孤立，两个Premise均以通过验证的Support边指向Claim 2。两Claim均无出边，阈值为2，因此覆盖分数为0.5，连贯性与合法性均为1，总分为0.8。仅将孤立Claim 1改为MajorClaim后，它退出覆盖集合，覆盖分数升至1，总分升至1；边集没有变化。该动作满足当前合法性和非下降接受条件，且位于DENS动作序列前部。
++
++若构造金标准中四个节点原本均正确，该修改使组件精确匹配F1由100降至75，关系F1保持100。数值来自同一构造图的确定性计数，不是测试集成绩。它证明当前接受规则不能排除这类错误修改，不能推断其在真实数据中的发生频率。修正方向及所需对照列于附录B.5。
++
+ 上述分析说明，现有方法的可陈述保证是“有限前提下的步数界”和“固定代理评分下的接受状态非下降”，不是语义正确性或全局最优保证。附录B提出可行候选优先、非法状态处置和总调用预算的修订建议；其中部分已在新项目提供独立选项或预算接口，仍未正式评测，不能回填为本章已有实验的生成过程。
+ 
+ ### 4.5 实验设置
+@@ -583,7 +628,7 @@ $$P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN},\qquad F_1=\frac{2PR}{P+R}.$$
+ 
+ 第一章补充的近期研究用于更新方法定位，并不自动成为已复现的实验基线。DENIM[12]<!--ref:sun2024--><!--anchor:section:Abstract-->和AASP[9]<!--ref:das2025aasp--><!--anchor:section:Abstract-->是优先考虑的生成式或结构预测对照，但需先统一数据划分、输入粒度及精确匹配评价。Cabessa等的分类生成方法[8]<!--ref:cabessa2025--><!--anchor:section:2.2-->、关键短语方法和FOL-AM基于给定组件的任务设定，不能直接并入现有端到端分数表。若将其改造为端到端流程，应单列组件分割器和新增计算成本。
+ 
+-Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选判断提供相邻对照思路，但其课堂话轮分割候选与本文整图不同。比较其思想时需要重新定义整图选择基线，不能沿用原论文任务分数。ARGUS属于端到端系统演示，组件分割研究只覆盖部分子任务；本稿不为这些方法补造统一实验结果，也不据现有表格宣称超过全部近期方法。
++Tran等的LLM-refine[23]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选判断提供相邻对照思路，但其课堂话轮分割候选与本文整图不同。比较其思想时需要重新定义整图选择基线，不能沿用原论文任务分数。ARGUS属于端到端系统演示，组件分割研究只覆盖部分子任务；本稿不为这些方法补造统一实验结果，也不据现有表格宣称超过全部近期方法。
+ 
+ #### 4.5.4 配置核对与新实验命名
+ 
+@@ -597,7 +642,7 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ 
+ #### 4.6.1 AAEC结果
+ 
+-表4-1 AAEC域内结果原稿记录
++表4-2 AAEC域内结果原稿记录
+ 
+ |方法|Comp-F1|Support-F1|Attack-F1|Relation-F1|
+ |:---|---:|---:|---:|---:|
+@@ -613,11 +658,11 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ |Ours (Verifier-only Rerank, $K=3$)|82.18±0.40|63.15±0.36|49.82±0.52|62.21±0.38|
+ |**Ours (Full, $K=3$)**|**83.71±0.42**|**65.92±0.38**|**51.47±0.54**|**64.83±0.38**|
+ 
+-按表4-1记录，Full相对FLAN T5-XXL的Component-F1和Relation-F1差值分别为3.56和3.64个点，相对本表Single-Pass分别为5.89和7.96个点。约束解码、DAG后处理及Self-Refine各行也呈现正向差值，但在提示、训练设置和推理预算未核验前，不能把差异全部归因于BR，亦不能据此判断修复了哪一类节点或关系错误。
++按表4-2记录，Full相对FLAN T5-XXL的Component-F1和Relation-F1差值分别为3.56和3.64个点，相对本表Single-Pass分别为5.89和7.96个点。约束解码、DAG后处理及Self-Refine各行也呈现正向差值，但在提示、训练设置和推理预算未核验前，不能把差异全部归因于BR，亦不能据此判断修复了哪一类节点或关系错误。
+ 
+ #### 4.6.2 CDCP结果
+ 
+-表4-2 CDCP域内结果原稿记录
++表4-3 CDCP域内结果原稿记录
+ 
+ |方法|Comp-F1|Reason-F1|Evidence-F1|Relation-F1|
+ |:---|---:|---:|---:|---:|
+@@ -630,13 +675,13 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ |Ours (Verifier-only Rerank, $K=3$)|75.12±0.41|37.85±0.44|31.42±0.55|36.64±0.45|
+ |**Ours (Full, $K=3$)**|**76.45±0.43**|**39.12±0.45**|**32.86±0.57**|**38.17±0.46**|
+ 
+-按表4-2记录，CDCP上的Full Relation-F1比FLAN T5-XXL高4.21个点，为非AAEC语料上的适用性提供了待复核的结果。Evidence-F1低于Reason-F1，但该差异可能与样本数量、边界错误或标签判别等因素有关；没有类别计数及错误分解时，不能仅归因为证据型关系稀疏或语义隐含。
++按表4-3记录，CDCP上的Full Relation-F1比FLAN T5-XXL高4.21个点，为非AAEC语料上的适用性提供了待复核的结果。Evidence-F1低于Reason-F1，但该差异可能与样本数量、边界错误或标签判别等因素有关；没有类别计数及错误分解时，不能仅归因为证据型关系稀疏或语义隐含。
+ 
+ ### 4.7 消融与机制分析
+ 
+ #### 4.7.1 模块消融
+ 
+-表4-3 模块消融原稿记录
++表4-4 模块消融原稿记录
+ 
+ |配置|Comp-F1|Relation-F1|$\Delta$Comp|$\Delta$Rel|
+ |:---|---:|---:|---:|---:|
+@@ -653,7 +698,7 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ 
+ #### 4.7.2 验证器替换分析
+ 
+-表4-4 验证器替换原稿记录
++表4-5 验证器替换原稿记录
+ 
+ |验证器|Comp-F1|Relation-F1|Top-1一致率|修正触发率|
+ |:---|---:|---:|---:|---:|
+@@ -664,7 +709,7 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ 
+ #### 4.7.3 Oracle上限
+ 
+-表4-5 Oracle条件结果原稿记录
++表4-6 Oracle条件结果原稿记录
+ 
+ |条件|Comp-F1|Relation-F1|$\Delta$Rel|
+ |:---|---:|---:|---:|
+@@ -673,13 +718,13 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ |Condition Oracle（金标准组件输入）|—|78.42±0.35|+13.59|
+ |Output Oracle（金标准替换）|100.00|83.35±0.32|+18.52|
+ 
+-按表4-5记录，Candidate Oracle相对当前选择器的Relation-F1差值为2.41个点，Condition Oracle差值为13.59个点。前者只是给定候选池及Oracle选择准则下的经验诊断，不是整个任务的理论上限。后者同时改变关系模块的输入条件，可能引入分布变化，不能把13.59个点直接当作组件错误可被某一训练模块消除的量。
++按表4-6记录，Candidate Oracle相对当前选择器的Relation-F1差值为2.41个点，Condition Oracle差值为13.59个点。前者只是给定候选池及Oracle选择准则下的经验诊断，不是整个任务的理论上限。后者同时改变关系模块的输入条件，可能引入分布变化，不能把13.59个点直接当作组件错误可被某一训练模块消除的量。
+ 
+ 待核验R12：Candidate Oracle需说明逐文档优化哪个指标、如何处理并列以及先选择后汇总的口径。Output Oracle必须明确金标准替换的是组件、关系还是全部图：若只替换组件且保留预测关系，Relation-F1可以低于100；若全部输出均替换为同一金标准，则表中83.35不符合该定义。定义澄清前不用于量化某类误差贡献。
+ 
+ #### 4.7.4 修正行为统计
+ 
+-表4-6 修正行为原稿记录
++表4-7 修正行为原稿记录
+ 
+ |指标|结果|
+ |:---|---:|
+@@ -705,6 +750,10 @@ Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选
+ 
+ 潜在失败情形包括所有候选均遗漏隐式组件、局部判断无法发现多跳矛盾、验证器错误拒绝有效边或接受表面相关边。这些是需检验的失效假设，不是已完成标注的误差占比。真实案例应同时展示原文、金标准、初始图、触发异常、每步动作、代理评分以及最终任务匹配结果，并纳入错误修改案例。
+ 
++下面给出可复算的成功路径作为机制示例，同样不代替真实错误分析。构造三个已正确识别的节点：一个无出边Claim和两个Premise；初始图含两条入边，其中一条Support为构造金标准关系，另一条Attack不在金标准中。固定验证器分别返回1和0，则覆盖、连贯性、合法性为0.5、0.5、1，总分0.6。COH异常触发RemoveEdge后，三分量变为0.5、1、1，总分0.8，图仍合法，因而接受。
++
++该例组件F1保持100，关系F1由66.67升至100，但DENS仍会因仅有一条通过验证的入边而触发。这说明一次正确删边不代表所有异常都应该继续消除；如果验证器随后误认第二条边，补边也可能提高代理分数而降低精确率。成功路径与反例四共同界定了该方法对验证器质量的依赖。
++
+ MCR-BR还带来额外推理成本。$K=3$候选和逐边验证增加了并行计算量，局部修复则引入顺序解码。现有$T=3$和$M=2$仅限制轮数与接受动作数，尚未给出最坏调用成本上界。若有$A_{try}$次动作尝试，每次还可能涉及多个边验证调用，实际开销取决于候选边数、验证批处理和缓存策略。应测量生成与验证的调用次数、输入输出token、端到端平均及P95时延、峰值显存，并在相同硬件上与Single-Pass比较。当前没有这些记录，不能定量宣称效率改善或成本已严格受控。
+ 
+ 新项目现有预算接口只说明后续能够记录并限制哪些计算，不提供上述历史成本数据，也不证明在目标GPU上的效率优势。
+@@ -715,7 +764,7 @@ MCR-BR还带来额外推理成本。$K=3$候选和逐边验证增加了并行计
+ 
+ ## 第五章 粗粒度标签协议下的跨语料迁移分析
+ 
+-本章在训练域与测试域不一致的条件下分析第三、四章方法的表现，作为两项方法贡献的适用性验证，而非第三项算法创新。与利用辅助语料联合训练的MT-AM[23]<!--ref:morio2022--><!--anchor:section:Abstract-->不同，本章声明的零样本设定仅使用源域训练监督。鉴于近期句子级论辩识别研究揭示了词汇线索与跨数据集泛化之间的风险[24]<!--ref:feger2025--><!--anchor:section:Abstract-->，本章特别区分领域变化、标签归约和评价口径，避免将域内正向结果直接外推到目标域。
++本章在训练域与测试域不一致的条件下分析第三、四章方法的表现，作为两项方法贡献的适用性验证，而非第三项算法创新。与利用辅助语料联合训练的MT-AM[25]<!--ref:morio2022--><!--anchor:section:Abstract-->不同，本章声明的零样本设定仅使用源域训练监督。鉴于近期句子级论辩识别研究揭示了词汇线索与跨数据集泛化之间的风险[27]<!--ref:feger2025--><!--anchor:section:Abstract-->，本章特别区分领域变化、标签归约和评价口径，避免将域内正向结果直接外推到目标域。
+ 
+ ### 5.1 跨领域异构性
+ 
+@@ -746,7 +795,7 @@ $$\psi(r)=Link,\qquad r\neq None.$$
+ 
+ ### 5.3 零样本迁移协议
+ 
+-本章协议要求在AAEC训练集上拟合模型，并仅使用AAEC验证集选择检查点和超参数；迁移到CDCP时不使用目标域标注样本更新参数或选择阈值。原稿是否完全遵循该数据使用边界，仍需配置和日志核验。原稿对迁移时输出源标签还是目标标签没有提供可核验记录。新参考实现明确继续输出AAEC源标签，并只在评价阶段把预测与CDCP金标准分别映射为粗类型及有向Link；不向生成器提供目标域标注示例，也不切换为目标细粒度输出Schema。候选数、评分权重、完整性阈值和修正预算均沿用源域配置。评价采用：
++本章协议要求在AAEC训练集上拟合模型，并仅使用AAEC验证集选择检查点和超参数；迁移到CDCP时不使用目标域标注样本更新参数或选择阈值。原稿是否完全遵循该数据使用边界，仍需配置和日志核验。原稿对迁移时输出源标签还是目标标签没有提供可核验记录。新参考实现明确继续输出AAEC源标签，并只在评价阶段把预测与CDCP金标准分别映射为粗类型及有向Link；不向生成器提供目标域标注示例，也不切换为目标细粒度输出Schema。候选数、评分权重、连接覆盖阈值和修正预算均沿用源域配置。评价采用：
+ 
+ 1. **Coarse Component-F1**：组件边界正确且映射后的Claim/Premise类型正确；
+ 2. **Unlabeled Link-F1**：源节点、目标节点和方向均正确，不区分Reason与Evidence。
+@@ -784,7 +833,7 @@ $$\psi(r)=Link,\qquad r\neq None.$$
+ 
+ ### 5.6 本章小结
+ 
+-本章在明确标签映射和无标签连接评价范围的基础上，完成AAEC到CDCP的零样本迁移验证。原稿记录中MCR-BR的组件和连接指标高于列出的零样本基线，但该结论仅限同一映射和同一目标评价协议，且仍需核验数据使用边界。标签归约、单向迁移和预训练污染风险限制了对跨领域泛化的进一步解释。
++本章明确了AAEC到CDCP零样本迁移的标签映射和无标签连接评价范围，并分析原稿保留记录。Full的组件和连接分数高于表中基线，但这一比较仅限所声明的单向粗粒度协议，仍需核验实际数据使用与评价脚本。双向迁移可作为后续扩展，不是回答本章限定问题的必要条件。
+ 
+ ## 第六章 总结与展望
+ 
+@@ -800,6 +849,8 @@ $$\psi(r)=Link,\qquad r\neq None.$$
+ 
+ 相关工作比较表明，生成式联合抽取、篇章结构引导和论辩候选判断已有相邻研究。本文可主张的具体贡献应落在结论中心局部结构保持增强，以及完整候选图评估与异常驱动局部修正的设计和实证分析上。当前工作仍需完成配置对应、增强独立消融和预算匹配验证，才能进一步确认两项方法各自的增量价值；跨语料结果则仅支持所采用迁移方向与标签归约下的适用性判断。
+ 
++对应RQ1，现有记录尚不能分离结构增强的独立作用，需要同规模普通改写对照及Premise结果；对应RQ2，现有表格给出组合配置的正向差值，固定候选池与等预算结果仍缺，评分反例说明接受规则不保证任务指标提高；对应RQ3，结论限于原稿单向粗粒度迁移记录，不能外推到未测试的语言或领域。三项问题的回答强度以各自证据为准。
++
+ ### 6.2 当前不足与后续研究
+ 
+ 首先，实验可追溯性尚不完整。应优先绑定每张结果表与实际运行配置，解决第三章和第四章同名方法的分数差异，补齐评价脚本、数据划分、重复次数及“±”含义。这些工作属于现有结论的验证前提，不应全部放入长期展望。
+@@ -848,31 +899,37 @@ $$\psi(r)=Link,\qquad r\neq None.$$
+ 
+ [17] PEI Y, BHUSE P, LIU Z, et al. SegMix: A simple structure-aware data augmentation method[EB/OL]. arXiv:2311.09505v1, 2023[2026-09-13]. DOI: 10.48550/arXiv.2311.09505. [来源](https://arxiv.org/abs/2311.09505v1)
+ 
+-[18] GENG S, JOSIFOSKI M, PEYRARD M, et al. Grammar-constrained decoding for structured NLP tasks without finetuning[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 10932–10952. DOI: 10.18653/v1/2023.emnlp-main.674. [来源](https://aclanthology.org/2023.emnlp-main.674/)
++[18] SUN W, LI M, DAVIS J, et al. Weakly-supervised argument mining with boundary refinement and relation denoising[C]//Proceedings of the Ninth Fact Extraction and VERification Workshop (FEVER). Rabat: Association for Computational Linguistics, 2026: 1–12. DOI: 10.18653/v1/2026.fever-1.1. [来源](https://aclanthology.org/2026.fever-1.1/)
++
++[19] GENG S, JOSIFOSKI M, PEYRARD M, et al. Grammar-constrained decoding for structured NLP tasks without finetuning[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 10932–10952. DOI: 10.18653/v1/2023.emnlp-main.674. [来源](https://aclanthology.org/2023.emnlp-main.674/)
++
++[20] MADAAN A, TANDON N, GUPTA P, et al. Self-Refine: Iterative refinement with self-feedback[EB/OL]. arXiv:2303.17651v2, 2023[2026-09-13]. DOI: 10.48550/arXiv.2303.17651. [来源](https://arxiv.org/abs/2303.17651v2)
++
++[21] HUANG J, CHEN X, MISHRA S, et al. Large language models cannot self-correct reasoning yet[EB/OL]. arXiv:2310.01798v2, 2024[2026-09-13]. DOI: 10.48550/arXiv.2310.01798. [来源](https://arxiv.org/abs/2310.01798v2)
+ 
+-[19] MADAAN A, TANDON N, GUPTA P, et al. Self-Refine: Iterative refinement with self-feedback[EB/OL]. arXiv:2303.17651v2, 2023[2026-09-13]. DOI: 10.48550/arXiv.2303.17651. [来源](https://arxiv.org/abs/2303.17651v2)
++[22] WANG X, WEI J, SCHUURMANS D, et al. Self-consistency improves chain of thought reasoning in language models[EB/OL]. arXiv:2203.11171v4, 2023[2026-09-13]. DOI: 10.48550/arXiv.2203.11171. [来源](https://arxiv.org/abs/2203.11171v4)
+ 
+-[20] HUANG J, CHEN X, MISHRA S, et al. Large language models cannot self-correct reasoning yet[EB/OL]. arXiv:2310.01798v2, 2024[2026-09-13]. DOI: 10.48550/arXiv.2310.01798. [来源](https://arxiv.org/abs/2310.01798v2)
++[23] TRAN N, LITMAN D, GODLEY A. Using large language models to analyze students’ collaborative argumentation in classroom discussions[C]//Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con): Full Papers. Pittsburgh: National Council on Measurement in Education, 2025: 111–125. [来源](https://aclanthology.org/2025.aimecon-main.13/)
+ 
+-[21] WANG X, WEI J, SCHUURMANS D, et al. Self-consistency improves chain of thought reasoning in language models[EB/OL]. arXiv:2203.11171v4, 2023[2026-09-13]. DOI: 10.48550/arXiv.2203.11171. [来源](https://arxiv.org/abs/2203.11171v4)
++[24] XIAO Y, LI S. ARGUS: Argumentation-based minimal-change repair for verifiable LLM self-explanations[C]//Proceedings of the 42nd Conference on Uncertainty in Artificial Intelligence. Proceedings of Machine Learning Research, 2026, 337: 7536–7551. [来源](https://proceedings.mlr.press/v337/xiao26a.html)
+ 
+-[22] TRAN N, LITMAN D, GODLEY A. Using large language models to analyze students’ collaborative argumentation in classroom discussions[C]//Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con): Full Papers. Pittsburgh: National Council on Measurement in Education, 2025: 111–125. [来源](https://aclanthology.org/2025.aimecon-main.13/)
++[25] MORIO G, OZAKI H, MORISHITA T, et al. End-to-end argument mining with cross-corpora multi-task learning[J]. Transactions of the Association for Computational Linguistics, 2022, 10: 639–658. DOI: 10.1162/tacl_a_00481. [来源](https://aclanthology.org/2022.tacl-1.37/)
+ 
+-[23] MORIO G, OZAKI H, MORISHITA T, et al. End-to-end argument mining with cross-corpora multi-task learning[J]. Transactions of the Association for Computational Linguistics, 2022, 10: 639–658. DOI: 10.1162/tacl_a_00481. [来源](https://aclanthology.org/2022.tacl-1.37/)
++[26] SAVIGNY H, YUN B. AMELIA: A family of multi-task end-to-end language models for argumentation[J]. Argument & Computation, 2026, 17(1). DOI: 10.1177/19462174251413169. [来源](https://journals.sagepub.com/doi/10.1177/19462174251413169)
+ 
+-[24] FEGER M, BOLAND K, DIETZE S. Limited generalizability in argument mining: State-of-the-art models learn datasets, not arguments[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 23900–23915. DOI: 10.18653/v1/2025.acl-long.1164. [来源](https://aclanthology.org/2025.acl-long.1164/)
++[27] FEGER M, BOLAND K, DIETZE S. Limited generalizability in argument mining: State-of-the-art models learn datasets, not arguments[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 23900–23915. DOI: 10.18653/v1/2025.acl-long.1164. [来源](https://aclanthology.org/2025.acl-long.1164/)
+ 
+-[25] ZHAO X, WANG K, PENG W. ORCHID: A Chinese debate corpus for target-independent stance detection and argumentative dialogue summarization[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 9358–9375. DOI: 10.18653/v1/2023.emnlp-main.582. [来源](https://aclanthology.org/2023.emnlp-main.582/)
++[28] ZHAO X, WANG K, PENG W. ORCHID: A Chinese debate corpus for target-independent stance detection and argumentative dialogue summarization[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 9358–9375. DOI: 10.18653/v1/2023.emnlp-main.582. [来源](https://aclanthology.org/2023.emnlp-main.582/)
+ 
+-[26] CHENG L, BING L, HE R, et al. IAM: A comprehensive and large-scale dataset for integrated argument mining tasks[C]//Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics, Volume 1. Dublin: Association for Computational Linguistics, 2022: 2277–2287. DOI: 10.18653/v1/2022.acl-long.162. [来源](https://aclanthology.org/2022.acl-long.162/)
++[29] CHENG L, BING L, HE R, et al. IAM: A comprehensive and large-scale dataset for integrated argument mining tasks[C]//Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics, Volume 1. Dublin: Association for Computational Linguistics, 2022: 2277–2287. DOI: 10.18653/v1/2022.acl-long.162. [来源](https://aclanthology.org/2022.acl-long.162/)
+ 
+-[27] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all you need[EB/OL]. arXiv:1706.03762, 2017[2026-09-13]. DOI: 10.48550/arXiv.1706.03762. [来源](https://arxiv.org/abs/1706.03762)
++[30] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all you need[EB/OL]. arXiv:1706.03762, 2017[2026-09-13]. DOI: 10.48550/arXiv.1706.03762. [来源](https://arxiv.org/abs/1706.03762)
+ 
+-[28] QWEN TEAM. Qwen2.5 technical report[EB/OL]. arXiv:2412.15115, 2024[2026-09-13]. DOI: 10.48550/arXiv.2412.15115. [来源](https://arxiv.org/abs/2412.15115)
++[31] QWEN TEAM. Qwen2.5 technical report[EB/OL]. arXiv:2412.15115, 2024[2026-09-13]. DOI: 10.48550/arXiv.2412.15115. [来源](https://arxiv.org/abs/2412.15115)
+ 
+-[29] HU E J, SHEN Y, WALLIS P, et al. LoRA: Low-rank adaptation of large language models[EB/OL]. arXiv:2106.09685, 2021[2026-09-13]. DOI: 10.48550/arXiv.2106.09685. [来源](https://arxiv.org/abs/2106.09685)
++[32] HU E J, SHEN Y, WALLIS P, et al. LoRA: Low-rank adaptation of large language models[EB/OL]. arXiv:2106.09685, 2021[2026-09-13]. DOI: 10.48550/arXiv.2106.09685. [来源](https://arxiv.org/abs/2106.09685)
+ 
+-[30] LESTER B, AL-RFOU R, CONSTANT N. The power of scale for parameter-efficient prompt tuning[C]//Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics, 2021: 3045–3059. DOI: 10.18653/v1/2021.emnlp-main.243. [来源](https://aclanthology.org/2021.emnlp-main.243/)
++[33] LESTER B, AL-RFOU R, CONSTANT N. The power of scale for parameter-efficient prompt tuning[C]//Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics, 2021: 3045–3059. DOI: 10.18653/v1/2021.emnlp-main.243. [来源](https://aclanthology.org/2021.emnlp-main.243/)
+ 
+ ## 附录A 复现与证据核验清单
+ 
+@@ -919,8 +976,24 @@ $$\psi(r)=Link,\qquad r\neq None.$$
+ 
+ ### B.4 建议的可复现实验记录
+ 
++本节日志亦应用于识别4.4.4节的评分反例：保留类型修改前后的覆盖集合、各节点阈值及任务匹配计数，避免只记录总分。
++
+ 每个测试文档可记录文档ID、检查点与提示哈希、候选原始输出、规范化结果、各分量评分、选中候选、触发异常、每次动作尝试与回退原因、调用及token消耗、最终预测。该记录有助于核验评分是否因验证器随机性变化，以及代理目标改善是否真正对应任务F1改善。
+ 
++### B.5 覆盖评分投机的保守修订方向
++
++优先评估将“关系修正”与“类型修正”分开：关系修正阶段固定初始图的覆盖节点ID和阈值，仅允许不改变组件类型的动作；类型修正另需基于文本的类型判断依据，并单列其错误修改率。当前仅关闭Promote/Demote仍不充分，因为Replace也能改变类型；仅固定覆盖分母也不充分，因为非下降接受允许等分的错误类型修改。
++
++这一建议会改变现有动作空间与接受条件，本轮未将其写成已实现方法，也未替换旧表结果。应设置原规则、禁止类型变化、固定覆盖集合及阈值、两者结合的对照，先检查构造反例，再在冻结候选池上比较类型F1、关系F1、错误修改率和成本。跨候选重排序中不同候选的覆盖集合仍可能不同，固定BR初始集合不能自动解决选择阶段的偏差。
++
++### B.6 两项贡献的最小独立验证
++
++训练增强首先比较无增强、普通改写、结构条件改写。后两者使用相同源文档、目标单位、全文筛选和尽可能匹配的接受样本量及优化步数；若两组筛选导致源文档分布不同，应报告这种差异。此处plain只隔离生成提示是否含局部边，不能代表完全不使用结构信息的增强基线。另加结论中心与随机组件中心的预算匹配对照，才能检验为何优先选择结论。
++
++推理实验在每个固定检查点下缓存同一批候选，比较长度归一化序列概率选择、图级重排序、重排序加BR；随后比较删边后处理和等调用或等token预算的通用修订。训练增强与BR可组成2×2对照：原始数据/结构增强分别配合重排序/重排序加BR。候选池在同一检查点的两种推理策略间固定，不要求不同训练检查点产生相同候选。
++
++报告分类别Precision、Recall、F1、多个种子的结果和差值不确定性；若开展逐文档重采样，应在每次抽样后重新汇总TP/FP/FN再计算micro-F1。真实成功与错误修改案例需附原文、金标准、候选、动作和成本。若结构增强没有稳定优于plain，或BR没有在预算匹配下优于重排序，应相应收缩贡献表述，保留可复核的负结果与适用边界。
++
+ ## 附录C 修订与辅助工具使用说明
+ 
+ 0914版在0913版基础上，参照academic-research-suite的论文修订、文献检索和引用核查要求，依据作者认可的贡献定位进行修改。辅助工作包括研究主线整理、近期公开文献核查、任务与评价边界比较、局部措辞修订、引用编号检查和Word排版，并保存逐段差异及修改说明。未运行训练实验，未生成人工标注结果，未将论文全文上传外部研究服务，未代替作者确认研究事实。当前遗留稿件缺少完整逐块路线图与裁决链，本轮使用可追溯局部补丁记录，不声称通过ARS全套逐块授权或研究完整性认证。作者应审阅修改，核对引用、实现和数据，并按学校及学院适用要求确认辅助工具披露方式。
+@@ -929,6 +1002,8 @@ $$\psi(r)=Link,\qquad r\neq None.$$
+ 
+ 0914-v2轮次在作者明确授权后新建实验代码，并完成构造数据与随机初始化小模型的前向、反向、短训练、保存和重载测试。上一段“未运行训练实验”对应0914文稿修订轮次；本轮运行的是软件测试，未进行真实语料上的正式模型训练、效能比较或人工标注。参考实现中新增的超参数与协议均有来源分级及代码记录；作者仍需审阅生成代码、核对理论定义并对最终研究事实负责。
+ 
++0914-v3依据作者“评估后可直接修改”的授权执行局部修订，沿用academic-research-suite的证据分级与贡献审查原则。新增内容包括方法定义澄清、2026年相关文献的定向核查、构造示例及评分反例诊断；未将软件诊断作为正式实验。本轮保存逐项替换、完整差异与文件核对记录，不生成或追认缺失的历史实验日志，也不声称完成全套ARS授权链或独立校准的专家评审。
++
+ 
+ ## 附录D 新参考实现与复现实验接口

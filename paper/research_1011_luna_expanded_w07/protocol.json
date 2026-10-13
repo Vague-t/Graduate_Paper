@@ -1,0 +1,106 @@
+{
+  "experiment_id": "AM-LUNA-20261011-EXPAND-007",
+  "created_at_utc": "2026-10-10T17:36:44.853776+00:00",
+  "purpose": "Expanded exploratory real-case search with all outcomes retained; not confirmatory efficacy estimation",
+  "manuscript": {
+    "path": "/Users/channtang/Downloads/paper/report_1011_v9_full.md",
+    "sha256": "57eae9295efecff9ea49e6c14486652b154f54b8ab937a84191c1f5738651a5a"
+  },
+  "model_requested": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "model_snapshot": "not exposed by agent tool",
+  "model_sampling_seed": "not exposed by agent tool",
+  "temperature": "not exposed by agent tool",
+  "generation": {
+    "documents_per_corpus": 8,
+    "candidate_graphs_per_document": 2,
+    "candidate_independence": "same response; not independent draws",
+    "new_documents_per_corpus": {
+      "cdcp": 4
+    },
+    "cumulative_documents_per_corpus": {
+      "aaec": 32,
+      "cdcp": 116
+    },
+    "prediction_task_batch_size": 8
+  },
+  "gold_blinding": "Fresh no-history prediction and score agents; instructional file whitelist, shared filesystem not OS isolation; preparation reads annotations solely for later evaluation, outputs evaluated only after freeze",
+  "data_sources": [
+    {
+      "path": "/Users/channtang/Downloads/paper/research_0920/data/aaec_brat.zip",
+      "sha256": "9f49a6d388896d0f390445592ccc9dbfc87325553e3fe3f988eb252de7cdc4b5",
+      "bytes": 1182788
+    },
+    {
+      "path": "/Users/channtang/Downloads/paper/research_0920/data/aaec_split.csv",
+      "sha256": "903176797ea73c45e3848019bc390882a2bdab520e5feb4b28fd75d95ec44285",
+      "bytes": 7569
+    },
+    {
+      "path": "/Users/channtang/Downloads/paper/research_0920/data/cdcp_acl17.zip",
+      "sha256": "acec61f72e5f9dfcb200ff620a529fad7d1f69928e42498eedc66d98eb1fe2a0",
+      "bytes": 5635976
+    }
+  ],
+  "source_urls": {
+    "aaec_original_metadata": "https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/2422",
+    "aaec_archive_mirror": "https://github.com/ArneBinder/pie-datasets/raw/83fb46f904b13f335b6da3cce2fc7004d802ce4e/data/datasets/ArgumentAnnotatedEssays-2.0/brat-project-final.zip",
+    "aaec_split_mirror": "https://raw.githubusercontent.com/ArneBinder/pie-datasets/83fb46f904b13f335b6da3cce2fc7004d802ce4e/data/datasets/ArgumentAnnotatedEssays-2.0/train-test-split.csv",
+    "cdcp_author_archive": "https://facultystaff.richmond.edu/~jpark/data/cdcp_acl17.zip"
+  },
+  "source_refresh": "Original metadata returned 403; web reader recognized CDCP zip but cannot read zip; shell DNS blocked and escalated GitHub API returned HTTP403. Existing archives match saved provenance hashes; original AAEC versus mirror byte equality remains unverified.",
+  "official_test_used": false,
+  "no_gold_perturbation": true,
+  "evaluation": "Exact original character boundaries/types and complete typed native relations; same evaluator as initial 16; all selected documents including failures stay in denominators",
+  "candidate_protocol": "finite union of 2 Luna graph outputs; supplemental labels/slots specified and frozen before scoring; deviations from exhaustive thesis universe will be enumerated",
+  "scoring_protocol": "separate gold-blind Luna scoring call; fixed per-object confidence as a heuristic proxy, not calibrated probability and not the trained MLP scorer from thesis",
+  "repair_core": {
+    "solver": "scipy.optimize.milp / bundled HiGHS",
+    "kappa_C": 1.0,
+    "kappa_R": 1.0,
+    "w_C": 1.0,
+    "w_R": 1.0,
+    "delta": 0.01,
+    "component_edits_per_transaction": 3,
+    "component_edits_total": 24,
+    "relation_edits_total": 96,
+    "attempts_per_round": 32,
+    "accepts_per_round": 3,
+    "rounds": 4,
+    "batch": 6,
+    "preserve_untouched_relations": true,
+    "allow_empty_graph": true,
+    "acyclic_constraint": false
+  },
+  "report_all_outcomes": true,
+  "case_selection": "fixed rule after full evaluation: first doc ID of improvement, harm, unchanged; enumerate unavailable categories",
+  "not_executed_in_this_pilot": [
+    "training-side augmentation",
+    "paired loss training",
+    "trained independent neural object scorer",
+    "full same-budget global comparison",
+    "four-cell trained-model comparison",
+    "formal test-set benchmark"
+  ],
+  "continuation": {
+    "initial_target_per_corpus": 32,
+    "positive_primary": "strict complete relation F1 > MCR-only; separately identify recovered-TP cases and improvement beyond RelationOnly",
+    "selection_of_cases": "lexicographic first per outcome, plus lexicographic first TP-recovery and BRJ-over-RelationOnly cases; list all positive IDs",
+    "extension_trigger": "After completing all first-wave documents, if a corpus has no strict relation F1 improvement, expand only that corpus by the next 4 ranks per length stratum (up to 16 documents per complete wave), preserving all prior outcomes",
+    "stop": "Stop once both corpora contain an improvement after a completed wave, or each lacking-positive corpus exhausts its preordered unique audit-text pool; never tune scores or redraw candidates using gold",
+    "remaining_population": {
+      "aaec": 64,
+      "cdcp": 116
+    },
+    "inference_limit": "Outcome-adaptive expansion is case discovery; no significance testing, generalization, or independent-test claim"
+  },
+  "previous_pilot": {
+    "path": "/Users/channtang/Downloads/paper/research_1010_v7_luna",
+    "reuse": "Existing 16 predictions, scores and results reused byte-for-byte; new 48 run separately; combined totals clearly split by wave"
+  },
+  "scope_changes": [
+    "Only sample size and task grouping change; candidate constructor, default 0.05, repair functions, budgets and prompt task definitions unchanged"
+  ],
+  "no_gold_tuning": true,
+  "wave": 7
+}

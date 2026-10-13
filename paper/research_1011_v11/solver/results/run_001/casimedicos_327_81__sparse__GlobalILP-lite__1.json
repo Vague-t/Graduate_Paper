@@ -1,0 +1,81 @@
+{
+  "id": "casimedicos_327_81",
+  "corpus": "casimedicos",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "c001",
+      "c005",
+      "c009",
+      "c011"
+    ],
+    "R": []
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c005",
+      "c009",
+      "c011"
+    ],
+    "R": [
+      "r0019"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0008518750000003905,
+      "time_limit": 1.0,
+      "objective": -4.66,
+      "minimization_dual_bound": -4.66,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.011441792000000284,
+      "time_limit": 0.9991481249999996,
+      "objective": -3.0,
+      "minimization_dual_bound": -3.0,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.0004650420000000821,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 4.66,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.012293667000000674,
+  "wall_seconds": 0.013958541999999241,
+  "component_edits_net": 0,
+  "relation_edits_net": 1,
+  "phi_initial": [
+    3.78,
+    0
+  ],
+  "phi_final": [
+    3.78,
+    0.8799999999999999
+  ],
+  "score_condition": "sparse",
+  "source_family": "new_corpora",
+  "total_run_wall_seconds": 0.013994083000000046
+}

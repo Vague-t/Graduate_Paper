@@ -1,0 +1,2724 @@
+{
+  "experiment_id": "AM-LUNA-20261011-EXPAND-005",
+  "evaluation_started_at_utc": "2026-10-10T17:33:28.669486+00:00",
+  "output_freeze_at_utc": "2026-10-10T17:33:28.562882+00:00",
+  "evaluation_code_sha256": "441d16268cedbdf1485b6e7d74d81f6836f75fdb4a56bc87102167d0feb72437",
+  "zero_division": "F1=0 when TP=FP=FN=0; report FP changes separately",
+  "aggregate": {
+    "cdcp": {
+      "documents": 16,
+      "metrics": {
+        "g0": {
+          "C": {
+            "TP": 20,
+            "FP": 52,
+            "FN": 67,
+            "precision": 0.2777777777777778,
+            "recall": 0.22988505747126436,
+            "F1": 0.25157232704402516
+          },
+          "R": {
+            "TP": 0,
+            "FP": 28,
+            "FN": 21,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 18,
+            "FP": 42,
+            "FN": 69,
+            "precision": 0.3,
+            "recall": 0.20689655172413793,
+            "F1": 0.24489795918367346
+          },
+          "R": {
+            "TP": 0,
+            "FP": 25,
+            "FN": 21,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "MCR-only": {
+          "C": {
+            "TP": 21,
+            "FP": 49,
+            "FN": 66,
+            "precision": 0.3,
+            "recall": 0.2413793103448276,
+            "F1": 0.267515923566879
+          },
+          "R": {
+            "TP": 0,
+            "FP": 26,
+            "FN": 21,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 21,
+            "FP": 43,
+            "FN": 66,
+            "precision": 0.328125,
+            "recall": 0.2413793103448276,
+            "F1": 0.2781456953642384
+          },
+          "R": {
+            "TP": 0,
+            "FP": 35,
+            "FN": 21,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 21,
+            "FP": 48,
+            "FN": 66,
+            "precision": 0.30434782608695654,
+            "recall": 0.2413793103448276,
+            "F1": 0.2692307692307692
+          },
+          "R": {
+            "TP": 0,
+            "FP": 42,
+            "FN": 21,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 6,
+            "FP_added": 0,
+            "initial_TP": 21,
+            "initial_TP_retained": 21
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 24,
+            "FP_added": 33,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 8,
+            "FP_added": 7,
+            "initial_TP": 21,
+            "initial_TP_retained": 21
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 24,
+            "FP_added": 40,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 22,
+        "C_gold": 87,
+        "R_hits": 2,
+        "R_gold": 21,
+        "R_all_endpoints_present": 2,
+        "R_multisource_gold": 2,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 119,
+        "R_candidates": 1726
+      },
+      "document_relation_outcomes": {
+        "unchanged": 15,
+        "failure": 1
+      }
+    }
+  },
+  "documents": [
+    {
+      "id": "cdcp_00312",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 6,
+      "gold_R": 0,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 3,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 3,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 3,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 3,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 3,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.6,
+            "recall": 0.5,
+            "F1": 0.5454545454545454
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 3,
+            "initial_TP_retained": 3
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 3,
+            "initial_TP_retained": 3
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 3,
+        "C_gold": 6,
+        "R_hits": 0,
+        "R_gold": 0,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 12,
+        "R_candidates": 274
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00321",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 6,
+      "gold_R": 3,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 4,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "F1": 0.6153846153846154
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 4,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "F1": 0.6153846153846154
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 4,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "F1": 0.6153846153846154
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 4,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.5714285714285714,
+            "recall": 0.6666666666666666,
+            "F1": 0.6153846153846154
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 4,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "F1": 0.6666666666666666
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 4,
+            "initial_TP_retained": 4
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 4,
+            "initial_TP_retained": 4
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 4,
+        "C_gold": 6,
+        "R_hits": 2,
+        "R_gold": 3,
+        "R_all_endpoints_present": 2,
+        "R_multisource_gold": 1,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 12,
+        "R_candidates": 262
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00394",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 4,
+      "gold_R": 1,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.25,
+            "recall": 0.25,
+            "F1": 0.25
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 2,
+            "initial_TP_retained": 2
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 2,
+            "initial_TP_retained": 2
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 2,
+        "C_gold": 4,
+        "R_hits": 0,
+        "R_gold": 1,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 10,
+        "R_candidates": 176
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00427",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 3,
+      "gold_R": 0,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "F1": 0.5714285714285714
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "F1": 0.5714285714285714
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "F1": 0.5714285714285714
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "F1": 0.5714285714285714
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 2,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "F1": 0.5714285714285714
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 2,
+            "initial_TP_retained": 2
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 2,
+            "initial_TP_retained": 2
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 2,
+        "C_gold": 3,
+        "R_hits": 0,
+        "R_gold": 0,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 10,
+        "R_candidates": 168
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00501",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 2,
+      "gold_R": 0,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 1,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 1,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 1,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 1,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 1,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.5,
+            "recall": 0.5,
+            "F1": 0.5
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 1,
+        "C_gold": 2,
+        "R_hits": 0,
+        "R_gold": 0,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 3,
+        "R_candidates": 8
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00587",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 4,
+      "gold_R": 0,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 3,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.75,
+            "recall": 0.75,
+            "F1": 0.75
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 3,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.75,
+            "recall": 0.75,
+            "F1": 0.75
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 3,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.75,
+            "recall": 0.75,
+            "F1": 0.75
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 3,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.75,
+            "recall": 0.75,
+            "F1": 0.75
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 2,
+            "FP": 1,
+            "FN": 2,
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "F1": 0.5714285714285714
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 3,
+            "initial_TP_retained": 3
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 3,
+            "initial_TP_retained": 3
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 3,
+        "C_gold": 4,
+        "R_hits": 0,
+        "R_gold": 0,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 6,
+        "R_candidates": 60
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00746",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 2,
+      "gold_R": 0,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.25,
+            "recall": 0.5,
+            "F1": 0.3333333333333333
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.25,
+            "recall": 0.5,
+            "F1": 0.3333333333333333
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.25,
+            "recall": 0.5,
+            "F1": 0.3333333333333333
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.25,
+            "recall": 0.5,
+            "F1": 0.3333333333333333
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 1,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "F1": 0.4
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 1,
+        "C_gold": 2,
+        "R_hits": 0,
+        "R_gold": 0,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 8,
+        "R_candidates": 84
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00756",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 4,
+      "gold_R": 2,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 2,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.4,
+            "recall": 0.5,
+            "F1": 0.4444444444444444
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 2,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.4,
+            "recall": 0.5,
+            "F1": 0.4444444444444444
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 2,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.4,
+            "recall": 0.5,
+            "F1": 0.4444444444444444
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 2,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.4,
+            "recall": 0.5,
+            "F1": 0.4444444444444444
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 2,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.4,
+            "recall": 0.5,
+            "F1": 0.4444444444444444
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 2,
+            "initial_TP_retained": 2
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 2,
+            "initial_TP_retained": 2
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 2,
+        "C_gold": 4,
+        "R_hits": 0,
+        "R_gold": 2,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 9,
+        "R_candidates": 136
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00771",
+      "corpus": "cdcp",
+      "initial_candidate": "g1",
+      "gold_C": 7,
+      "gold_R": 1,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 0,
+            "FP": 5,
+            "FN": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 0,
+            "FP": 5,
+            "FN": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 7,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 2,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 1,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 0,
+        "C_gold": 7,
+        "R_hits": 0,
+        "R_gold": 1,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 7,
+        "R_candidates": 76
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00783",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 4,
+      "gold_R": 1,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 2,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 2,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 0,
+        "C_gold": 4,
+        "R_hits": 0,
+        "R_gold": 1,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 4,
+        "R_candidates": 22
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00881",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 9,
+      "gold_R": 3,
+      "run_status": {
+        "BRJ-lite": "initial_failure",
+        "RelationOnly": "initial_failure"
+      },
+      "initial_structurally_valid": false,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 0,
+            "FP": 6,
+            "FN": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 0,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 0,
+            "FP": 6,
+            "FN": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 6,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 4,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 6,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 4,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 0,
+        "C_gold": 9,
+        "R_hits": 0,
+        "R_gold": 3,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 1,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 9,
+        "R_candidates": 144
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "failure"
+    },
+    {
+      "id": "cdcp_00943",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 12,
+      "gold_R": 3,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 11,
+            "precision": 0.2,
+            "recall": 0.08333333333333333,
+            "F1": 0.11764705882352941
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 1,
+            "FP": 6,
+            "FN": 11,
+            "precision": 0.14285714285714285,
+            "recall": 0.08333333333333333,
+            "F1": 0.10526315789473684
+          },
+          "R": {
+            "TP": 0,
+            "FP": 8,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 11,
+            "precision": 0.2,
+            "recall": 0.08333333333333333,
+            "F1": 0.11764705882352941
+          },
+          "R": {
+            "TP": 0,
+            "FP": 6,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 11,
+            "precision": 0.2,
+            "recall": 0.08333333333333333,
+            "F1": 0.11764705882352941
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 12,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 2,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 3,
+            "FP_added": 8,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 3,
+            "FP_added": 6,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 1,
+        "C_gold": 12,
+        "R_hits": 0,
+        "R_gold": 3,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 7,
+        "R_candidates": 86
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": -0.012383900928792574,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00967",
+      "corpus": "cdcp",
+      "initial_candidate": "g1",
+      "gold_C": 9,
+      "gold_R": 2,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 8,
+            "precision": 0.25,
+            "recall": 0.1111111111111111,
+            "F1": 0.15384615384615385
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 1,
+            "FP": 5,
+            "FN": 8,
+            "precision": 0.16666666666666666,
+            "recall": 0.1111111111111111,
+            "F1": 0.13333333333333333
+          },
+          "R": {
+            "TP": 0,
+            "FP": 7,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 8,
+            "precision": 0.25,
+            "recall": 0.1111111111111111,
+            "F1": 0.15384615384615385
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 0,
+            "FP": 5,
+            "FN": 9,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 1,
+            "FP": 3,
+            "FN": 8,
+            "precision": 0.25,
+            "recall": 0.1111111111111111,
+            "F1": 0.15384615384615385
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 2,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 4,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 3,
+            "FP_added": 7,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 3,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 1,
+        "C_gold": 9,
+        "R_hits": 0,
+        "R_gold": 2,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 8,
+        "R_candidates": 104
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": -0.020512820512820523,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_00980",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 5,
+      "gold_R": 1,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 0,
+            "FP": 4,
+            "FN": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 1,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 2,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 0,
+        "C_gold": 5,
+        "R_hits": 0,
+        "R_gold": 1,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 4,
+        "R_candidates": 28
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_01199",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 3,
+      "gold_R": 0,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 0,
+            "FP": 3,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 3,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          },
+          "R": {
+            "TP": 0,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 3,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 0,
+        "C_gold": 3,
+        "R_hits": 0,
+        "R_gold": 0,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 3,
+        "R_candidates": 12
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    },
+    {
+      "id": "cdcp_01340",
+      "corpus": "cdcp",
+      "initial_candidate": "g0",
+      "gold_C": 7,
+      "gold_R": 4,
+      "run_status": {
+        "BRJ-lite": "completed",
+        "RelationOnly": "completed"
+      },
+      "initial_structurally_valid": true,
+      "failed_output_evaluation_convention": "No returned prediction is counted as empty; all gold remains FN; no repaired graph or semantic deletion is claimed",
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "F1": 0.16666666666666666
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "BRJ-lite": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "F1": 0.16666666666666666
+          },
+          "R": {
+            "TP": 0,
+            "FP": 9,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "F1": 0.16666666666666666
+          },
+          "R": {
+            "TP": 0,
+            "FP": 9,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "F1": 0.16666666666666666
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 1,
+            "FP": 4,
+            "FN": 6,
+            "precision": 0.2,
+            "recall": 0.14285714285714285,
+            "F1": 0.16666666666666666
+          },
+          "R": {
+            "TP": 0,
+            "FP": 2,
+            "FN": 4,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "BRJ-lite": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 8,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        },
+        "RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 1,
+            "initial_TP_retained": 1
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 1,
+            "FP_added": 8,
+            "initial_TP": 0,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 2,
+        "C_gold": 7,
+        "R_hits": 0,
+        "R_gold": 4,
+        "R_all_endpoints_present": 0,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0,
+        "C_candidates": 7,
+        "R_candidates": 86
+      },
+      "relation_F1_delta": 0.0,
+      "component_F1_delta": 0.0,
+      "relation_outcome": "unchanged"
+    }
+  ],
+  "case_selection": {
+    "cdcp": {
+      "improvement": null,
+      "harm": null,
+      "unchanged": "cdcp_00312"
+    }
+  },
+  "costs": {
+    "cdcp__BRJ-lite": {
+      "documents": 16,
+      "completed_documents": 15,
+      "failed_documents": 1,
+      "wall_seconds": 0.1580158759999999,
+      "solver_seconds": 0.08286975100000038,
+      "attempts": 784,
+      "accepts": 47,
+      "calls": 572,
+      "component_edits": 9,
+      "relation_edits": 60,
+      "timing_scope": "completed repair-stage runs only; initial failure durations not recorded"
+    },
+    "cdcp__RelationOnly": {
+      "documents": 16,
+      "completed_documents": 15,
+      "failed_documents": 1,
+      "wall_seconds": 0.14205741600000021,
+      "solver_seconds": 0.08727912099999813,
+      "attempts": 424,
+      "accepts": 44,
+      "calls": 626,
+      "component_edits": 0,
+      "relation_edits": 53,
+      "timing_scope": "completed repair-stage runs only; initial failure durations not recorded"
+    }
+  },
+  "solver_status_counts": {
+    "0": 354,
+    "2": 844
+  },
+  "committed_tie_status_counts": {
+    "unique_optimum_and_min_edits": 91
+  },
+  "attempt_reason_counts": {
+    "eligible": 177,
+    "component_gate": 364,
+    "infeasible": 667
+  },
+  "committed_shape_counts": {
+    "BRJ-lite:relation": 40,
+    "RelationOnly:relation": 44,
+    "BRJ-lite:insert": 5,
+    "BRJ-lite:replace": 2
+  }
+}

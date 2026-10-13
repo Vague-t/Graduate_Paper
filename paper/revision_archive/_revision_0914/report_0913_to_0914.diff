@@ -1,0 +1,488 @@
+--- report_0913.md
++++ report_0914.md
+@@ -2,39 +2,39 @@
+ 
+ 武汉大学计算机科学与技术学术型硕士学位论文
+ 
+-0913修订工作稿　2026年9月13日
++0914修订工作稿　2026年9月14日
+ 
+ 英文题目　End-to-End Argument Mining with Large Language Models
+ 
+ ## 版本说明
+ 
+-本稿以report_final.md为内容基线，依据严格审阅意见完成结构精简、任务与评价口径统一、文献更正及方法边界分析。原稿实验表格的数值予以保留，本次修订未重新训练模型或复现实验。文中“原稿记录”表示数值来自原稿，不表示已通过日志核验；“待核验”标记属于工作稿编辑说明，需用实际代码、数据和实验记录解决后方可删除。
+-
+-当前最重要的未决事项是第三章与第四章Single-Pass分数及Full配置的对应关系、Claim-specific Adapter的门控实现、修复操作的可执行定义，以及实验划分、重复次数和统计量来源。本稿不能替代上述证据，也不作为已满足送审要求的声明。正式封面、作者及导师信息、原创性声明、授权页、致谢和成果页应在定稿时按学院当年模板补齐，本稿不代填或代签。
++本稿在report_0913.md基础上修订，重点统一研究主线与贡献表述，补充2025—2026年相关研究，并同步更新各章的方法定位和结果解释。原稿实验表格及数值予以保留，本次修订未重新训练模型或复现实验。文中“原稿记录”表示数值继承自原稿，不表示本轮已通过日志核验；“待核验”标记属于工作稿编辑说明，需用实际代码、数据和实验记录解决后方可删除。具体修改和新增文献的任务边界见随稿《0914修订说明》。
++
++当前最重要的未决事项是第三章与第四章Single-Pass分数及Full配置的对应关系、Claim-specific Adapter的门控实现、修复操作的可执行定义，以及实验划分、重复次数和统计量来源。实验结果符合研究预期，不等于上述可追溯性问题已经解决。本稿不作为已满足送审要求的声明；正式封面、作者及导师信息、原创性声明、授权页、致谢和成果页应在定稿时按学院适用模板补齐，不在本次修订中代填或代签。
+ 
+ ## 摘要
+ 
+-论辩挖掘旨在从非结构化文本中识别论辩组件及其关系，并恢复符合语料标注规范的论辩图。生成式大语言模型能够统一输出组件跨度、类型和有向关系，但组件遗漏会限制后续关系预测的可达空间，格式合法的输出也可能包含错误引用或缺乏语义依据的连接。本文围绕候选组件质量和推理阶段结构恢复两个问题，研究面向端到端论辩挖掘的训练增强与多候选修正方法。
+-
+-在训练阶段，本文以结论类组件及其局部论辩子图为条件构造增强样本，通过格式、结构和语义检查控制样本质量，并结合类型条件低秩适配、线索感知连续提示和句子级辅助目标，增强结论组件的表示。该设计以保留监督结构和提高结论表达多样性为目标，不将扩充样本数量直接等同于改善类别平衡。
+-
+-在推理阶段，本文提出多候选重排序与有界修正框架MCR-BR。框架为多个组件假设构建候选图，结合论证连接覆盖、边语义连贯性和输出合法性进行评分，再对检测到的异常尝试局部、可回退的修改。评分非下降仅约束代理目标，不保证每次修改都提高真实任务指标；现有轮数和接受动作预算限制的是修正步数，而非未经进一步约束的模型调用总量。
+-
+-按原稿保留的实验记录，完整框架在AAEC上的Component-F1和Relation-F1分别为83.71和64.83，在CDCP上分别为76.45和38.17。AAEC到CDCP的零样本迁移采用粗粒度组件标签及有向无标签连接评价，完整框架的Link-F1为43.21，较同骨干Single-Pass记录提高9.79个F1点。这些结果为方法的进一步验证提供了依据，但训练增强的独立贡献、相同计算预算下的优势及跨域稳健性仍需结合配置核验和补充实验确定。
+-
+-关键词：论辩挖掘；大语言模型；结构化生成；结论组件增强；多候选重排序；局部修正
++论辩挖掘旨在从非结构化文本中识别论辩组件及其关系，恢复符合语料标注规范的论辩图。生成式大语言模型能够统一表示组件跨度、类型和有向关系，但组件识别错误会限制后续关系预测的候选空间，单次生成也可能产生错误引用和缺乏语义依据的连接。针对上述问题，本文从训练阶段的结论组件增强和推理阶段的论辩图修正两个方面研究端到端论辩挖掘方法。
++
++在训练阶段，本文设计面向结论类组件的局部论辩结构保持增强方法。以结论节点及其支撑或攻击邻域作为增强单位，在保留组件类型、关系端点与方向的条件下生成表达变体，并通过格式、结构和语义检查筛选样本。结合类型条件低秩适配、线索感知连续提示和句子级辅助目标，该方法旨在丰富结论表达及其关系上下文，为组件和关系预测提供结构一致的训练监督。增强目标是提高有效样本的多样性，不将样本扩充直接等同于类别平衡改善。
++
++在推理阶段，本文提出基于完整候选图评估与异常驱动局部修正的方法MCR-BR。该方法从多个组件假设构建候选论辩图，利用论证连接覆盖、边语义连贯性和输出合法性进行图级评分；随后针对检测到的异常尝试局部修改，通过接受检查与回退机制控制修改过程，并限制修正轮数和每轮接受动作数。该设计将候选选择与生成后的局部调整衔接起来，目标是改善端到端抽取结果，而非以代理评分代替任务正确性判断。
++
++现有实验记录中，完整框架在AAEC上的Component-F1和Relation-F1分别为83.71和64.83，在CDCP上分别为76.45和38.17。在采用粗粒度组件标签及有向无标签连接的AAEC到CDCP零样本迁移设置下，完整框架的Link-F1为43.21，较同骨干Single-Pass记录提高9.79个F1点。上述记录呈现了训练增强与推理修正相结合的应用价值；两项方法的独立增益、等计算预算优势及更广泛的迁移能力，仍需在配置核验和相应消融基础上分别确定。
++
++关键词：论辩挖掘；大语言模型；局部结构保持增强；结论组件；候选图评估；异常驱动修正
+ 
+ ## Abstract
+ 
+-Argument mining identifies argumentative components and their relations in unstructured text and recovers an argument graph under corpus-specific annotation guidelines. Generative large language models can jointly output component spans, types, and directed relations. However, missing components restrict the space of recoverable relations, while syntactically valid outputs may still contain invalid references or semantically unsupported links. This thesis studies training-time component enhancement and inference-time structural recovery for end-to-end argument mining.
+-
+-For training-time enhancement, local argument subgraphs centered on conclusion-type components are used to condition synthetic example generation. Format, structural, and semantic checks filter the generated examples. Type-conditioned low-rank adaptation, cue-aware continuous prompts, and a sentence-level auxiliary objective are combined to strengthen conclusion representations. The augmentation is intended to diversify conclusion expressions while preserving supervision; increasing the number of examples does not by itself establish improved class balance.
+-
+-For inference-time recovery, this thesis develops MCR-BR, a framework for multi-candidate reranking and bounded repair. It constructs argument graphs from multiple component hypotheses, scores them using argument-link coverage, edge-level semantic coherence, and output validity, and attempts local, reversible edits in response to detected anomalies. Non-decreasing scores constrain a surrogate objective rather than guarantee improvements in task F1. The current iteration and accepted-action budgets bound repair steps, not the total number of model calls without additional restrictions.
+-
+-The experimental records retained from the original manuscript report Component-F1 and Relation-F1 scores of 83.71 and 64.83 on AAEC, and 76.45 and 38.17 on CDCP. Under an AAEC-to-CDCP zero-shot transfer protocol using coarse component labels and directed unlabeled links, the full framework records a Link-F1 of 43.21, 9.79 points above the same-backbone Single-Pass baseline. These records motivate further validation. Establishing the independent contribution of training enhancement, advantages under matched computational budgets, and transfer robustness requires configuration checks and additional experiments.
+-
+-Keywords: Argument Mining; Large Language Models; Structured Generation; Conclusion Component Enhancement; Multi-Candidate Reranking; Local Repair
++Argument mining reconstructs components and relations from unstructured text under corpus-specific annotation guidelines. Generative large language models can represent component spans, types, and directed relations jointly. However, component errors restrict relation prediction, while a single generation may contain invalid references or unsupported links. This thesis studies complementary training-time conclusion enhancement and inference-time graph repair for end-to-end argument mining.
++
++For training-time enhancement, this thesis designs local structure-preserving augmentation centered on conclusion components and their supporting or attacking neighborhoods. Expression variants preserve component types, relation endpoints, and directions, and undergo format, structural, and semantic checks. Type-conditioned low-rank adaptation, cue-aware continuous prompts, and a sentence-level auxiliary objective provide supporting mechanisms. The aim is to diversify conclusion expressions and relational contexts with consistent supervision, without assuming that more examples automatically improve class balance.
++
++For inference-time repair, this thesis proposes MCR-BR, combining complete candidate-graph evaluation with anomaly-driven local repair. Graphs built from multiple component hypotheses are scored using argument-link coverage, edge-level semantic coherence, and output validity. Detected anomalies trigger local edits subject to acceptance checks, rollback, and limits on iterations and accepted actions. This connects candidate selection with post-generation adjustment; the surrogate score does not replace gold-standard evaluation.
++
++The retained records report full-framework Component-F1/Relation-F1 scores of 83.71/64.83 on AAEC and 76.45/38.17 on CDCP. Under AAEC-to-CDCP zero-shot transfer with coarse component labels and directed unlabeled links, Link-F1 is 43.21, 9.79 points above the same-backbone Single-Pass baseline. These records indicate the potential value of combining enhancement and repair. Independent gains, matched-budget advantages, and broader transferability require configuration verification and corresponding ablations.
++
++Keywords: Argument Mining; Large Language Models; Local Structure-Preserving Augmentation; Conclusion Components; Candidate-Graph Evaluation; Anomaly-Driven Repair
+ 
+ ## 第一章 绪论
+ 
+@@ -50,65 +50,91 @@
+ 
+ ### 1.2 国内外研究现状
+ 
++论辩挖掘的研究路线既包括组件和关系的联合预测，也包括给定组件后的分类与推理。比较相关方法时，需要区分输入是否包含金标准跨度、输出是否覆盖全部子任务，以及评价是否采用相同端点匹配规则。以下按生成建模、结构信号、数据增强、推理修正和跨语料评价组织相关工作，并据此界定本文的研究位置。
++
+ #### 1.2.1 组件识别与联合结构预测
+ 
+-Stab和Gurevych围绕说服性作文建立组件与关系分析方法，为AAEC上的结构预测研究提供了任务和标注基础[2]<!--ref:stab2017--><!--anchor:section:3-->。Eger等将组件识别与论证结构预测纳入神经端到端学习框架，说明联合建模并非大语言模型出现后才产生的路线[4]<!--ref:eger2017--><!--anchor:section:Abstract-->。Morio等研究命题级双仿射解析与任务特定参数化，面向非树状论辩结构进行预测，而不是以图神经网络替代所有子任务[5]<!--ref:morio2020--><!--anchor:section:Abstract-->。
+-
+-这些工作表明，组件识别与关系预测的相互依赖、树与非树结构的差异，以及共享表示和任务特定参数的权衡，均已有直接相关研究。本文的区分点应放在生成候选之后的图级选择与局部回退机制，以及结论类监督如何与完整图恢复衔接，而不能把“联合预测组件和关系”本身列为新贡献。
+-
+-#### 1.2.2 生成式端到端论辩挖掘
+-
+-Kawarada等将论辩挖掘表述为文本到文本生成任务，比较了微调模型和提示式模型在不同语料上的表现，是本文最直接的生成式基线[6]<!--ref:kawarada2024--><!--anchor:section:4-->。因此，统一序列化输出、采用生成模型及跨语料评测均属于已有技术基础。本文需要通过相同数据划分、输入粒度、精确匹配规则和计算预算下的比较，证明候选评估与修正的增量价值。
+-
+-Sun等提出DENIM，通过篇章结构感知前缀辅助生成式端到端论辩挖掘[7]<!--ref:sun2024--><!--anchor:section:Abstract-->。这一工作已经利用篇章信息影响生成过程，与本文线索感知提示和结构信号的使用存在相邻关系；区别在于信号进入模型的位置、表示粒度和是否在生成之后执行结构修改，而不是“是否使用结构信息”。现有稿件尚未提供DENIM在统一协议下的对照结果，故不能宣称超过所有生成式方法。
+-
+-Li等的综述梳理了大语言模型论辩挖掘中的任务重构、提示和评估问题，并讨论LLM评判可靠性等挑战[8]<!--ref:li2025--><!--anchor:section:Abstract-->。在本研究范围内，模型规模扩大、输出更流畅和验证器自评得分提高都不是充分的有效性证据。端到端结果应回到金标准跨度、类型和关系的匹配，并与额外推理成本一起解释。
+-
+-#### 1.2.3 中文及跨语料研究
+-
+-中文论辩资源与英文作文语料的任务设置并不相同。ORCHID面向中文辩论的目标无关立场检测和论辩对话摘要，不是AAEC式全文组件与关系图抽取数据集[9]<!--ref:zhao2023--><!--anchor:section:Abstract-->。IAM整合多项论辩挖掘任务，使用英文资源，不能作为“中文论辩语料”的例证[10]<!--ref:cheng2022--><!--anchor:section:3.1-->。本研究使用英文AAEC和CDCP，因而不能从中文学位论文的写作语言推导模型已具备中文论辩挖掘能力。
+-
+-跨语料评价还受到标注规范变化的影响。若把AAEC的MajorClaim和Claim合并，再把CDCP的部分功能类型映射为Claim，评价任务本身已发生变化。本文在第五章显式定义这种归约，将其定位为单向、粗粒度协议下的迁移分析，而非无损的标签迁移或通用跨领域论辩理解。
+-
+-#### 1.2.4 结构感知数据增强
+-
+-大语言模型数据增强可通过自然语言条件控制生成内容，但可控性、质量筛选和分布偏差仍是重要问题[11]<!--ref:ding2024--><!--anchor:section:Abstract-->。CoDa从训练实例提取约束并通过提示生成新样本，为条件增强提供了相关路线[12]<!--ref:evuru2024--><!--anchor:section:Abstract-->。SegMix则在任务相关片段上进行插值式增强，并在命名实体识别和关系抽取等任务上验证；它不是对论辩组件进行自由文本互换的方法[13]<!--ref:pei2023--><!--anchor:section:Abstract-->。
+-
+-本文的增强单位是结论节点及其局部邻域。与孤立句子改写相比，该单位显式保留组件数量、类型和关系端点；但其是否优于普通改写，必须在等样本量或等训练步数下比较，不能仅依赖方法描述判断。尤其当每个新增样本同时包含一个Claim和多个Premise时，增强不一定改善实例级类别比例。本文将“表达多样性”与“类别平衡”分开提出验证要求。
+-
+-#### 1.2.5 约束解码与推理时修正
+-
+-语法约束解码通过限制允许的后继token约束输出形式，输入相关语法还能表达部分依赖于输入的限制[14]<!--ref:geng2023--><!--anchor:section:Abstract-->。其保证范围取决于实际编码进语法的条件；JSON可解析不等于跨度真实、关系成立或图拓扑正确。本文将语法检查、任务结构检查和语义验证分开处理。
+-
+-Self-Refine使用生成、反馈和修订循环改进输出[15]<!--ref:madaan2023--><!--anchor:section:Abstract-->。Huang等在所研究的推理设置中发现，缺少外部反馈的内在自纠错可能无效甚至降低表现[16]<!--ref:huang2023--><!--anchor:section:Abstract-->。这些结论支持检查反馈可靠性的必要性，但不能直接证明本文验证器可靠，也不能推广为所有自修正方法均无效。
+-
+-自一致性方法通过采样多条推理路径并聚合答案提高所研究推理任务的表现[17]<!--ref:wang2022--><!--anchor:section:Abstract-->。完整论辩图则涉及跨度、类型、端点和拓扑的联合一致性，对节点和边独立投票可能拼出任何候选中都不存在的图。本文因此选择在完整候选图层面评分，再执行受约束的局部修改。这一设计与一般多采样共享候选生成思想，其任务特定价值仍需通过预算匹配的消融验证。
+-
+-### 1.3 研究问题与贡献定位
+-
+-本文将研究目标组织为三个可检验问题。
+-
+-RQ1：结论类组件的结构感知增强及表示增强，能否在不明显损害Premise识别的条件下改善结论跨度与类型预测？这一问题需要分类别Precision、Recall和F1，以及增强、适配器、提示和辅助损失的独立消融；完整系统总分不能单独回答它。
+-
+-RQ2：给定相同骨干和候选预算，图级评分与局部修正是否比序列概率选择、确定性后处理和通用自修正获得更好的端到端结果？这一问题需要保持候选池一致，区分候选数增加、选择器改变和BR本身的影响，并报告错误修改与推理成本。
+-
+-RQ3：上述方法在明确标签归约的AAEC到CDCP迁移协议下，是否仍获得相对于源域训练基线的改进？这一问题只涉及规定的单向迁移设置，不能推导多语言或所有领域上的稳健性。
+-
+-本文的方法贡献定位为两项。第一，围绕结论类节点组织训练增强，将局部拓扑条件、样本筛选和类型相关表示结合起来。第二，构造MCR-BR，将完整候选图选择与异常驱动的局部回退机制结合起来。LoRA、连续提示、多候选采样和自修正本身均不是本文原创技术；可主张的创新在于面向论辩图恢复的具体组织方式及其经实验支持的增量价值。
++Stab和Gurevych围绕说服性作文建立组件与关系分析方法，为AAEC上的结构预测提供了任务和标注基础[2]<!--ref:stab2017--><!--anchor:section:3-->。Eger等将组件识别与论证结构预测纳入神经端到端学习框架，说明联合建模并非大语言模型出现后才产生的路线[4]<!--ref:eger2017--><!--anchor:section:Abstract-->。Morio等研究命题级双仿射解析与任务特定参数化，支持非树状论辩结构预测[5]<!--ref:morio2020--><!--anchor:section:Abstract-->。这些研究表明，共享表示、子任务依赖以及树与非树结构的区别，均是已有研究问题。
++
++组件分割仍是实际端到端系统的重要环节。Caputo等在2026年提出成对标签标注方案，微调小型开放大语言模型完成细粒度组件分割，并考察自动分割对下游组件分类的影响[6]<!--ref:caputo2026acs--><!--anchor:section:Abstract-->。该工作聚焦分割及其下游分类，不应被表述为已完成与本文相同的整图关系抽取评价。它提示本文需要单独分析边界错误，而不能仅依据结论类型F1解释组件质量。
++
++#### 1.2.2 生成式论辩挖掘与结构化输出
++
++Kawarada等将论辩挖掘表述为文本到文本生成任务，比较微调模型和提示式模型在不同语料上的表现，是本文的直接生成式基线[7]<!--ref:kawarada2024--><!--anchor:section:4-->。Cabessa等进一步将组件分类、关系识别、关系分类及其联合形式组织为文本生成任务，在PE、AbstRCT和CDCP上研究多种微调大语言模型[8]<!--ref:cabessa2025--><!--anchor:section:2.2-->。其方法节的输出以组件类型列表及已有组件编号间的关系为核心，不包含原始文本跨度分割这一同口径评价环节，因此不能直接将其ACC或关系分类分数填入本文的端到端结果表。
++
++生成表示也从直接展开标签发展到更明确的结构预测。Das等的AASP将论辩结构表示为受约束的预定义动作集合，由条件语言模型自回归地逐步构建结构[9]<!--ref:das2025aasp--><!--anchor:section:Abstract-->。本文依据其2025年公开的arXiv版本讨论该方法。AASP说明“使用动作和约束构建论辩结构”已有直接相关路线；本文的区分点在于完整候选生成后的图级评估、异常触发和局部回退，而不是动作式建模本身。
++
++2026年的ARGUS系统集成组件分割、组件分类、关系识别与关系分类，并连接符号求解器进行论辩框架分析[10]<!--ref:caputo2026argus--><!--anchor:section:Abstract-->。该成果发表于AAAI系统演示轨道，反映了端到端工具与形式推理的结合方向，但不能据此认定其提供了与本文相同的修正算法或同协议性能比较。结合Li等对LLM论辩挖掘任务和评估的综述[11]<!--ref:li2025--><!--anchor:section:Abstract-->，本文将研究重点限定为可检验的训练增强和推理修正增量，而非“采用大语言模型”这一技术选择。
++
++#### 1.2.3 篇章结构、语义线索与关系推理
++
++Sun等提出DENIM，以篇章结构感知前缀辅助生成式端到端论辩挖掘[12]<!--ref:sun2024--><!--anchor:section:Abstract-->。因此，利用结构信息影响生成过程并不是本文独有的思想。本文的线索感知提示与其相邻，但信号的表示粒度、进入模型的位置及生成后是否执行局部修改不同；这种设计差异需要由对照实验解释，不能仅凭模块名称证明优越性。
++
++2025年的研究进一步关注结构之外的关系语义。Das等提取关联组件对之间的关键短语，并将其纳入增强自然语言格式的生成目标；这里的关键短语表达组件之间的概念联系，不等同于固定的结论提示词表[13]<!--ref:das2025key--><!--anchor:section:3-->。Sun等的FOL-AM把组件类型和关系预测统一为基于一阶逻辑规则的关系查询，研究多跳推理及其解释路径[14]<!--ref:sun2025fol--><!--anchor:section:1-->。两项工作均以已分割的组件为前提，其分类或关系结果不能直接与本文从原始文本出发的精确匹配F1比较。
++
++上述工作限制了本文可以主张的创新范围：线索利用、逻辑信息和结构建模均已有先例。本文以局部子图组织训练监督，以完整候选图组织推理评估，区别在于监督单位与修改流程。第四章的逐边语义评分仍是模型判断，并未实现FOL-AM式多跳规则推理，也不构成论证逻辑有效性的证明。
++
++#### 1.2.4 结构保持数据增强
++
++大语言模型数据增强可以通过自然语言条件控制生成内容，但样本质量、标签一致性和分布偏差仍需检验[15]<!--ref:ding2024--><!--anchor:section:Abstract-->。CoDa从训练实例提取约束并通过提示生成新样本，为条件增强提供了相关路线[16]<!--ref:evuru2024--><!--anchor:section:Abstract-->。SegMix在任务相关片段上进行结构感知的混合增强，并在命名实体识别和关系抽取等任务上验证；它不等同于对论辩组件进行自由文本替换[17]<!--ref:pei2023--><!--anchor:section:Abstract-->。
++
++在本文中，增强对象不是孤立Claim句子，而是结论节点及其局部支撑或攻击邻域。组件类型、关系端点与方向共同构成需保持的监督条件，表达多样性则来自允许变化的文本内容。相对于通用约束生成，可主张的改进是面向论辩关系监督的局部增强单位及其筛选方式，而不是首次提出结构感知增强。
++
++局部拓扑保持也不等同于语义标签必然正确或类别比例自动改善。新增一个Claim及多个Premise可能同时增加高频类别，语义筛选也可能继承验证模型偏差。第三章据此区分表达多样性、类别分布和真实测试集增益；只有在等样本量或等训练预算下比较无增强、普通改写与局部结构保持增强，才能分离该设计的独立作用。
++
++#### 1.2.5 约束解码、多候选评估与局部修正
++
++语法约束解码通过限制后继token控制结构化输出形式，其保证范围取决于实际编码的约束[18]<!--ref:geng2023--><!--anchor:section:Abstract-->。JSON可解析不意味着跨度真实、引用完整或关系成立。前述AASP将结构动作约束融入生成，而本文在已有候选图上开展评估与修改，二者分别侧重生成过程约束与生成后选择、调整。
++
++Self-Refine通过反馈和迭代修订改进输出[19]<!--ref:madaan2023--><!--anchor:section:Abstract-->；Huang等指出，在其研究的推理设置中，缺乏外部反馈的内在自纠错可能无效甚至降低表现[20]<!--ref:huang2023--><!--anchor:section:Abstract-->。自一致性则通过采样多条推理路径并聚合答案改善所研究的推理任务[21]<!--ref:wang2022--><!--anchor:section:Abstract-->。这些方法分别提供修订与多采样思想，但不能直接证明本文验证器的可靠性或额外计算的收益。
++
++论辩分析领域已有更直接的候选判断研究。Tran等针对课堂讨论设计LLM-refine：在不同Claim、Evidence和Warrant组合下形成分割候选，再由LLM选择合适结果[22]<!--ref:tran2025--><!--anchor:section:4.2-->。该方法处理话轮组件分割与分类，并非对包含任意有向关系的完整论辩图实施局部修正。因此，“生成多个论辩候选再评判”不能作为本文独占的创新点；本文需要强调候选对象包含组件与关系，以及异常、动作、接受条件和回退如何共同定义修正过程。
++
++完整图选择还应与逐节点、逐边投票区分：独立投票可能拼接出候选池中从未出现过的结构，但选择完整候选也可能保留其遗漏节点。本文以图级评分选择初始状态，再尝试异常驱动修改；评分中的软合法性项不构成硬保证，有限接受动作也不等于严格限制全部模型调用。这些边界在第四章逐项分析。
++
++#### 1.2.6 中文资源、跨语料迁移与研究定位
++
++跨语料训练已有直接研究。Morio等提出MT-AM，利用辅助论辩语料开展端到端多任务训练，并分析不同语料之间的可迁移性[23]<!--ref:morio2022--><!--anchor:section:Abstract-->。这与本文只在源域训练、在目标域测试的零样本设定不同：前者利用辅助语料扩展训练，后者检验给定源域模型的迁移表现，不能仅凭“跨语料”名称视为相同实验。
++
++Feger等在2025年对17个英文句子级数据集进行泛化评估，发现所研究模型可能依赖数据集相关词汇线索，在未见数据集上表现下降[24]<!--ref:feger2025--><!--anchor:section:Abstract-->。该结果来自句子级论辩识别，而非完整论辩图抽取；本文将其作为检查词汇捷径和域内外差异的依据，不据此推断MCR-BR已克服这些问题。对于Cue-aware分支，尤其需要区分线索带来的域内收益与对目标域表达的适应能力。
++
++中文资源同样需要按任务而非语言名称归类。ORCHID面向中文辩论的目标无关立场检测和论辩对话摘要，不是AAEC式全文组件与关系图抽取数据集[25]<!--ref:zhao2023--><!--anchor:section:Abstract-->。IAM整合多项论辩挖掘任务，使用英文资源，不能作为中文论辩语料的例证[26]<!--ref:cheng2022--><!--anchor:section:3.1-->。本文实验使用英文AAEC和CDCP，不主张已经验证中文或多语言能力。
++
++综合以上研究，本文的研究位置是：训练阶段以结论中心局部子图保持关系监督，推理阶段以完整候选图评估和异常驱动局部修改处理生成错误；跨语料实验用于限定方法适用范围。现有文献已覆盖生成式联合预测、结构前缀、关键短语、一阶逻辑、多候选判断及跨语料训练，故本文不作“首次结合大语言模型与论辩结构”的宽泛主张，也不在缺乏同协议比较时宣称全面优于近期方法。
++
++### 1.3 研究问题与主要研究工作
++
++本文围绕端到端论辩挖掘中的组件识别错误及其向关系预测传播的问题展开研究，分别从训练阶段的结论组件增强和推理阶段的论辩图修正两个方面提出改进方法。前者以局部结构保持增强改善组件学习，后者利用完整候选图评估和异常驱动修正调整预测结果，共同服务于组件与关系的联合抽取。二者是训练与推理阶段的互补设计，不构成验证器向生成器回传梯度的联合训练过程。
++
++#### 1.3.1 研究问题
++
++RQ1：以结论为中心的局部结构保持增强，能否在不明显损害Premise识别的条件下改善结论跨度与类型预测？需要通过分类别Precision、Recall和F1，以及增强和表示模块的独立消融回答，不能将完整系统的全部增益归于训练增强。
++
++RQ2：在相同骨干和候选池下，完整图评估与异常驱动局部修正能否改善端到端组件和关系抽取？需要区分候选数量、选择器和修正动作的作用，并进一步与确定性后处理、通用自修正在可比计算预算下比较。
++
++RQ3：上述方法在明确标签归约的AAEC到CDCP迁移协议下，是否仍优于相应源域训练基线？该问题限定于单向、粗粒度迁移设置，不据此推导多语言或任意领域上的稳健性。
++
++#### 1.3.2 主要研究工作与贡献
++
++（1）设计面向结论类组件的局部论辩结构保持增强方法。针对结论组件识别不足可能压缩关系预测候选空间的问题，以结论节点及其支撑或攻击邻域为增强单位，在保持组件类型、关系端点和方向的条件下生成表达变体，并以格式、结构和语义检查筛选样本。该设计将结论表达增强与局部关系监督结合，重点在于增强单位和监督保持机制；类型条件低秩适配、线索感知提示及辅助目标作为配套实现，不分别列为独立创新。
++
++（2）提出基于完整候选图评估与异常驱动局部修正的论辩图生成方法。针对单次组件预测及关系生成容易过早固定错误结构的问题，构建多组完整候选图，利用连接覆盖、边语义和合法性信号进行整体评估，再将检测到的异常映射为局部修改动作，并结合接受检查、回退与修正步数限制形成MCR-BR流程。方法贡献在于图级选择和局部修正的任务特定组织，不是多采样或自修正思想本身；当前动作集合不被表述为可以一般性补回遗漏节点。
++
++（3）开展域内评估与粗粒度协议下的跨语料迁移分析。围绕AAEC和CDCP整理组件、关系、消融、验证器替换及Oracle结果，并通过明确组件标签归约和有向无标签连接指标分析单向迁移表现。这部分属于验证与适用性分析，不构成第三项算法创新，也不将标签映射命名为新的领域自适应方法。
+ 
+ 表1-1 研究问题与证据对应关系
+ 
+ |研究问题|主要方法|现有材料|尚缺的关键证据|
+ |:---|:---|:---|:---|
+-|RQ1 结论组件质量|结构感知增强与表示增强|分类别表与部分模块消融|配置冲突消解、类别统计、增强独立消融|
+-|RQ2 图级结构恢复|多候选评分与有界修正|域内比较、验证器替换、Oracle记录|固定候选池比较、可执行动作、预算与时延|
++|RQ1 结论组件质量|局部结构保持增强及配套表示模块|分类别表与部分模块消融|配置冲突消解、类别统计、增强独立消融|
++|RQ2 图级结构恢复|完整候选图评估与异常驱动局部修正|域内比较、验证器替换、Oracle记录|固定候选池比较、可执行动作、预算与时延|
+ |RQ3 跨语料适用性|粗粒度映射下的源域迁移|AAEC到CDCP单向记录|目标数据使用审计、双向迁移和映射敏感性|
+ 
+-表1-1用于限定本稿的证据范围。原稿报告的性能差值属于待配置核验的实验记录；新增的方法分析属于对现有定义的推导，不是新增实验证据。
++两项方法贡献描述的是本文的设计内容，不意味着其独立优越性已经由完整系统总分充分证明。现有数值记录、消融和方法分析分别承担不同证据作用：总分支持完整配置的表现，控制变量消融用于归因，形式分析用于限定可达空间与算法性质；三者不能相互替代。
+ 
+ ### 1.4 论文组织结构
+ 
+-第一章介绍研究问题、相关工作和贡献边界。第二章统一任务表示、序列化规范、评价口径及方法所需的技术基础。第三章讨论结论组件增强，明确其监督来源和可复现条件。第四章给出MCR-BR的评分与修正流程，分析算法保证范围并整理域内实验。第五章讨论粗粒度协议下的跨语料迁移。第六章总结研究内容及当前证据边界。附录给出实现核验清单和可单独实验的算法修订建议，不将建议视为已完成实验的方法。
++第一章介绍研究问题、相关工作及两项方法贡献。第二章统一任务表示、序列化规范、评价口径和训练—推理接口。第三章给出面向结论类组件的局部论辩结构保持增强方法及配套表示模块。第四章介绍完整候选图评估与异常驱动局部修正方法MCR-BR，分析其性质并整理域内结果。第五章在粗粒度标签和有向无标签连接协议下分析跨语料迁移。第六章总结研究工作及后续验证方向。附录保留实现核验清单与待实验的算法修订建议，不将建议视为已实现方法。
+ 
+ ## 第二章 任务表示与方法基础
+ 
+@@ -125,7 +151,7 @@
+ |AAEC|MajorClaim、Claim、Premise|Support、Attack|Claim对MajorClaim的stance不混入本文关系F1|
+ |CDCP|Fact、Testimony、Value、Policy、Reference|Reason、Evidence|允许非树状连接；需核验多片段前提的预处理|
+ 
+-表2-1依据相应语料与文本到文本基线的任务说明整理[2]<!--ref:stab2017--><!--anchor:section:3-->[3]<!--ref:park2018--><!--anchor:section:3-->[6]<!--ref:kawarada2024--><!--anchor:section:4-->。AAEC中Claim与MajorClaim的立场属性不能在缺少说明的情况下转换为Support或Attack边；因此MajorClaim的重要性不能直接用本文关系集合中的高连接度来论证。CDCP的功能类型也不与Claim/Premise天然等价，第五章的映射是额外评测选择。
++表2-1依据相应语料与文本到文本基线的任务说明整理[2]<!--ref:stab2017--><!--anchor:section:3-->[3]<!--ref:park2018--><!--anchor:section:3-->[7]<!--ref:kawarada2024--><!--anchor:section:4-->。AAEC中Claim与MajorClaim的立场属性不能在缺少说明的情况下转换为Support或Attack边；因此MajorClaim的重要性不能直接用本文关系集合中的高连接度来论证。CDCP的功能类型也不与Claim/Premise天然等价，第五章的映射是额外评测选择。
+ 
+ ### 2.2 合法图与序列化约定
+ 
+@@ -155,13 +181,13 @@
+ 
+ $$P_\theta(Y\mid D)=\prod_{t=1}^{L}P_\theta(y_t\mid D,y_{<t}).$$
+ 
+-Transformer通过自注意力聚合上下文信息，为序列建模提供基础[18]<!--ref:vaswani2017--><!--anchor:section:Abstract-->。本文使用的骨干为原稿所述Qwen2.5-7B-Instruct；Qwen2.5技术报告可用于说明模型系列，但不能代替本文具体权重版本、训练配置和硬件记录[19]<!--ref:qwen2024--><!--anchor:section:Abstract-->。序列概率受输出长度和字段顺序影响，用于候选排序时需明确是否长度归一化；高概率并不意味着候选图中的每条关系均正确。
+-
+-LoRA在冻结基础权重的条件下引入低秩增量[20]<!--ref:hu2021--><!--anchor:section:Abstract-->。对于一般线性投影，采用统一表示：
++Transformer通过自注意力聚合上下文信息，为序列建模提供基础[27]<!--ref:vaswani2017--><!--anchor:section:Abstract-->。本文使用的骨干为原稿所述Qwen2.5-7B-Instruct；Qwen2.5技术报告可用于说明模型系列，但不能代替本文具体权重版本、训练配置和硬件记录[28]<!--ref:qwen2024--><!--anchor:section:Abstract-->。序列概率受输出长度和字段顺序影响，用于候选排序时需明确是否长度归一化；高概率并不意味着候选图中的每条关系均正确。
++
++LoRA在冻结基础权重的条件下引入低秩增量[29]<!--ref:hu2021--><!--anchor:section:Abstract-->。对于一般线性投影，采用统一表示：
+ 
+ $$W=W_0+\frac{\alpha}{r}BA,\quad A\in\mathbb R^{r\times d_{in}},\quad B\in\mathbb R^{d_{out}\times r}.$$
+ 
+-其中$r$为秩，$\alpha$为缩放系数。第三章的类型条件门控是附加于这一低秩分支的任务设计，不应把LoRA本身描述为新提出的结构。连续提示则使用可学习向量为冻结或部分微调的模型提供任务条件，其相关基础来自参数高效提示调优研究[21]<!--ref:lester2021--><!--anchor:section:Abstract-->。是否启用提示、提示插入位置及其与LoRA共同训练的方式，均属于具体实现而非方法名称自带的性质。
++其中$r$为秩，$\alpha$为缩放系数。第三章的类型条件门控是附加于这一低秩分支的任务设计，不应把LoRA本身描述为新提出的结构。连续提示则使用可学习向量为冻结或部分微调的模型提供任务条件，其相关基础来自参数高效提示调优研究[30]<!--ref:lester2021--><!--anchor:section:Abstract-->。是否启用提示、提示插入位置及其与LoRA共同训练的方式，均属于具体实现而非方法名称自带的性质。
+ 
+ ### 2.4 候选选择与代理评分
+ 
+@@ -185,13 +211,19 @@
+ 
+ 跨域Link-F1主动忽略关系类型，不能与域内细粒度Relation-F1直接比较来估计领域性能下降。结构合法率也不能代替任务F1：删除所有关系可能消除引用错误，却同时丢失真实边。完整评价应同时关注组件和关系质量、输出合法性、错误修改风险以及推理成本。
+ 
+-### 2.6 本章小结
++### 2.6 训练增强与推理修正的接口
++
++第三章在训练集上构造结论中心增强样本，并将其与原始样本用于组件及结构化生成学习；第四章在测试输入上调用训练后的生成器，形成多个组件假设和对应候选图，再执行选择与局部修改。两个阶段共享第二章定义的组件坐标、类型和关系引用规范，但推理阶段的验证评分不回传为训练损失，本文未定义联合优化验证器和生成器的闭环训练算法。
++
++因此，训练增强的作用应在推理策略固定时比较，图级选择与修正的作用应在生成器检查点及候选池固定时比较。完整框架可以报告组合后的表现，但不能用同一Full分数分别证明两个阶段的全部独立贡献。这一接口约定也是第三、四章同名配置核对的依据。
++
++### 2.7 本章小结
+ 
+ 本章统一了组件坐标、关系方向、数据集特定约束和评价口径，并区分语法合法性、图结构一致性与语义正确性。上述定义为第三章的结论组件增强和第四章的图级修正提供共同接口，也限定了实验结果能够支持的结论范围。
+ 
+-## 第三章 面向结论类组件的结构感知增强
+-
+-端到端论辩挖掘同时预测组件与关系，组件集合决定了后续关系搜索空间。若关键Claim未被识别，任何关系模块都无法在缺失节点上恢复正确边。为降低这一上游瓶颈，本章面向MajorClaim和Claim提出结论类组件优化方法：首先在训练数据层面生成带局部论证结构的增强样本，再在模型层面引入Claim-specific Adapter、Cue-aware Soft Prompting和辅助判别目标。三类机制分别补充样本多样性、强化类型相关参数更新并显式建模结论线索。
++## 第三章 面向结论类组件的局部论辩结构保持增强
++
++端到端论辩挖掘中的组件集合限定了后续关系搜索空间；在固定组件集的关系预测设定下，遗漏Claim会使其关联金标准边不可达。本章据此设计面向结论类组件的局部论辩结构保持增强方法，以结论及其支撑或攻击邻域组织生成条件，在表达变化中保留类型与关系监督。Claim-specific Adapter、Cue-aware Soft Prompting和句子级辅助目标作为配套表示模块，与增强数据共同服务于结论组件学习，不分别列为独立创新。MajorClaim与局部Claim在当前关系表示中的作用不同，下文分别说明其增强条件和证据范围。
+ 
+ ### 3.1 组件不平衡与结构影响
+ 
+@@ -221,11 +253,11 @@
+ 
+ 本文据此将优化目标从一般类别平衡进一步收敛为两点：一是提高结论类组件的边界与类型识别能力；二是在不过度牺牲Premise性能的前提下，提高包含高连接度结论节点的候选图召回率。
+ 
+-### 3.2 基于大语言模型的结构感知数据增强
++### 3.2 结论中心的局部结构保持增强
+ 
+ #### 3.2.1 局部子图作为增强单位
+ 
+-普通文本改写只约束句子语义，容易在改写后破坏组件边界或关系方向。本文以局部论辩子图而非孤立句子作为增强单位。对训练文档图$G=(V,E)$中的结论类节点$v_c$，提取其一跳支撑或攻击邻域：
++若文本改写仅约束句子语义而未同步维护标注，组件边界和关系方向可能失配。本文以局部论辩子图而非孤立句子作为增强单位。对训练文档图$G=(V,E)$中的结论类节点$v_c$，提取其一跳支撑或攻击邻域：
+ 
+ $$G_c=(V_c,E_c),\qquad V_c=\{v_c\}\cup\{v_i\mid(v_i,v_c,r)\in E\}.$$
+ 
+@@ -263,7 +295,9 @@
+ 
+ 待核验R02：需补充增强模型名称与版本、完整提示、每个种子子图的尝试数、三层筛选各自通过数、去重规则、原始与增强样本混合比例，以及局部文本回填方式。不得使用测试集标签调节筛选阈值。建议为每个增强样本保留源文档ID、源组件ID、生成配置、拒绝原因和坐标映射，以支持训练集去重与错误追踪。
+ 
+-### 3.3 面向结论组件的表示增强
++### 3.3 面向结论组件的配套表示增强
++
++本节的适配器、连续提示和辅助目标用于利用前节的训练监督，属于结论组件增强方案的配套实现。与DENIM的篇章结构前缀[12]<!--ref:sun2024--><!--anchor:section:Abstract-->和关联关键短语方法[13]<!--ref:das2025key--><!--anchor:section:3-->相比，本文关注结论类型条件和显式线索触发，而不将结构或线索的使用本身视为原创。三项模块的作用需分别通过受控消融解释。
+ 
+ #### 3.3.1 Claim-specific Adapter
+ 
+@@ -279,7 +313,7 @@
+ 
+ #### 3.3.2 Cue-aware Soft Prompting
+ 
+-显式篇章线索对结论识别有帮助，但线索词与组件类型并非一一对应。本文首先在输入中检测预定义线索，如“therefore”“thus”“in conclusion”等，再向输入表示附加$m=4$个可学习连续提示向量：
++显式篇章线索可作为结论识别的候选信号，但线索词与组件类型并非一一对应，其实际收益需由消融验证。本文首先在输入中检测预定义线索，如“therefore”“thus”“in conclusion”等，再向输入表示附加$m=4$个可学习连续提示向量：
+ 
+ $$X'=[P_1,P_2,\dots,P_m;X],$$
+ 
+@@ -333,21 +367,21 @@
+ 
+ ### 3.5 误差类型与讨论
+ 
+-结论组件优化后仍存在三类典型错误。第一，隐式结论没有显式线索词，Cue-aware分支难以提供额外信息；第二，一个长句同时包含论据和结论时，模型容易扩大组件边界；第三，MajorClaim与Claim语义相近，模型可能在类型之间混淆。前两类错误需要更细粒度的边界建模，第三类错误则说明仅依赖局部语义不足，还需要结合文档级位置和段落结构。
++结论组件学习需要重点检验以下三类潜在错误；当前缺少逐例输出，尚不将其视为已完成标注的错误分布。第一，隐式结论没有显式线索词，Cue-aware分支难以提供额外信息；第二，一个长句同时包含论据和结论时，模型容易扩大组件边界；第三，MajorClaim与Claim语义相近，模型可能在类型之间混淆。前两类错误需要更细粒度的边界建模，第三类错误则说明仅依赖局部语义不足，还需要结合文档级位置和段落结构。
+ 
+ 本章方法以改善候选组件质量为目标；其净效果仍需消除表格配置冲突后验证。下一章进一步保留多个组件假设，并利用完整关系结构对候选进行重排序和局部修复，以分析仅改变训练阶段之外的恢复空间。
+ 
+ ### 3.6 本章小结
+ 
+-本章围绕关键结论组件提出训练阶段优化方法。结构感知增强在保持局部图约束的条件下扩充训练样本，Claim-specific Adapter和Cue-aware Soft Prompting分别提供类型专项参数与篇章线索，多目标训练则增加结论存在性监督。原稿分类别记录呈现了正向差值，但尚需完成配置核验、增强独立消融和Premise性能检查，才能确认本章各机制对候选质量的具体贡献。
+-
+-## 第四章 基于多候选评估与有界修正的论辩图生成方法
+-
+-本章提出MCR-BR推理时结构恢复框架。其核心思想不是用规则替代模型预测，而是保留多个由模型生成的结构假设，以确定性约束和单独调用的语义验证信号选择初始图，再在有限预算内对局部异常进行可回退修复。完整流程包括候选组件生成、候选图构建、一致性评分、初始解选择、异常检测和有界修正六个阶段。
++本章以结论中心局部子图作为增强单位，将表达多样化与组件类型、关系端点和方向保持相结合，并通过分层筛选控制监督一致性。类型条件适配、线索感知提示和辅助目标作为配套模块支持结论组件学习。与孤立改写相比，该设计的差异是显式维护局部关系监督，其独立收益仍需通过等训练预算的增强对照验证。原稿分类别记录呈现了正向差值，但配置核验、Premise性能和门控可执行性仍是解释结果的必要前提。
++
++## 第四章 基于候选图评估与异常驱动局部修正的论辩图生成
++
++本章提出基于完整候选图评估与异常驱动局部修正的MCR-BR方法。其评估对象包含组件和关系，先为多个组件假设构建完整图，再以结构检查和单独调用的语义验证信号选择初始状态；检测到的异常触发局部动作，并通过接受检查、回退、轮数和接受动作数限制控制修改。完整流程包括候选组件生成、候选图构建、一致性评分、初始解选择、异常检测和有界局部修正六个阶段。这里的“有界”特指所定义的修正步数约束，不代表已给出全部生成与验证调用的严格上界。
+ 
+ ### 4.1 单次生成的错误传播与恢复目标
+ 
+-单次生成系统直接输出一个组件列表和关系列表。一旦组件被遗漏、边界偏移或编号错误，后续关系便可能出现悬空引用、孤立节点和错误连接。简单后处理可以删除非法边，却不能补回缺失组件；无约束Self-Refine又可能在修改错误部分的同时破坏原本正确的结构。
++单次生成系统直接输出一个组件列表和关系列表。一旦组件被遗漏、边界偏移或编号错误，后续关系便可能出现悬空引用、孤立节点和错误连接。仅删除非法边的后处理不能补回缺失组件；自由生成式修订则可能同时改变正确结构。MCR-BR据此限定修改对象和接受条件，但其当前动作集合同样不提供一般性的缺失节点插入能力。
+ 
+ 原稿记录的AAEC修正触发率为42.5%，修正前无效组件引用比例为18.5%，JSON格式错误比例为6.2%，验证器判定的不连贯边比例为22.4%。这些指标的分母可能分别是文档、引用或关系边，不能相加为总体错误率。触发率还依赖异常阈值，不等于经人工确认的错误文档比例。
+ 
+@@ -527,11 +561,17 @@
+ 
+ #### 4.5.2 基线与实现
+ 
+-外部基线包括FLAN T5-XXL、GPT-4-turbo 20-shot和RoBERTa-large多任务模型。为比较同骨干配置，原稿内部比较采用Qwen2.5-7B-Instruct及相同LoRA训练设置，包括Single-Pass、Constrained Decoding、DAG Post-process、Multi-Sample (LogProb)、Self-Refine、无修正的$K=1$版本和仅验证器重排序的$K=3$版本。原稿称优化器采用AdamW并使用早停，数据划分与评价脚本遵循文本到文本生成基线[6]<!--ref:kawarada2024--><!--anchor:section:4-->，但当前未提供配置文件与脚本，尚不能认定所有协议已经对齐。
++外部基线包括FLAN T5-XXL、GPT-4-turbo 20-shot和RoBERTa-large多任务模型。为比较同骨干配置，原稿内部比较采用Qwen2.5-7B-Instruct及相同LoRA训练设置，包括Single-Pass、Constrained Decoding、DAG Post-process、Multi-Sample (LogProb)、Self-Refine、无修正的$K=1$版本和仅验证器重排序的$K=3$版本。原稿称优化器采用AdamW并使用早停，数据划分与评价脚本遵循文本到文本生成基线[7]<!--ref:kawarada2024--><!--anchor:section:4-->，但当前未提供配置文件与脚本，尚不能认定所有协议已经对齐。
+ 
+ 待核验R09：需补齐数据版本及文档ID划分、输入按全文还是段落组织、分词及跨度转换、CDCP多片段前提的处理、训练步数和有效batch size、学习率、LoRA目标层、dropout、温度、top-p、提示版本、检查点选择、随机种子、运行次数与硬件。原稿各表的“±”暂按原样保留，其代表标准差、标准误还是置信区间尚不确定，不进行显著性判断。
+ 
+ 待核验R10：下列外部FLAN T5-XXL的AAEC总体80.15/61.19、CDCP总体72.68/33.96，以及GPT-4-turbo的AAEC总体55.51/28.38可在Kawarada等的结果表找到；本稿未核实这些外部基线的分类别数值来源。RoBERTa及其他内部行也需绑定复现实验记录。相同骨干不等于相同预算，当前材料没有证实Self-Refine、多采样和MCR-BR已做到总token数或调用次数匹配。
++
++#### 4.5.3 近期相关方法的比较边界
++
++第一章补充的近期研究用于更新方法定位，并不自动成为已复现的实验基线。DENIM[12]<!--ref:sun2024--><!--anchor:section:Abstract-->和AASP[9]<!--ref:das2025aasp--><!--anchor:section:Abstract-->是优先考虑的生成式或结构预测对照，但需先统一数据划分、输入粒度及精确匹配评价。Cabessa等的分类生成方法[8]<!--ref:cabessa2025--><!--anchor:section:2.2-->、关键短语方法和FOL-AM基于给定组件的任务设定，不能直接并入现有端到端分数表。若将其改造为端到端流程，应单列组件分割器和新增计算成本。
++
++Tran等的LLM-refine[22]<!--ref:tran2025--><!--anchor:section:4.2-->为多候选判断提供相邻对照思路，但其课堂话轮分割候选与本文整图不同。比较其思想时需要重新定义整图选择基线，不能沿用原论文任务分数。ARGUS属于端到端系统演示，组件分割研究只覆盖部分子任务；本稿不为这些方法补造统一实验结果，也不据现有表格宣称超过全部近期方法。
+ 
+ ### 4.6 域内主要结果
+ 
+@@ -649,11 +689,11 @@
+ 
+ ### 4.9 本章小结
+ 
+-本章提出完整的MCR-BR结构恢复流程。多候选生成避免过早提交单一组件集合，多维评分将结构和语义信号用于候选选择，有界修正则把检测到的异常转化为局部、可回退的修改动作。现有域内结果、消融、验证器替换与Oracle记录呈现了值得进一步验证的趋势；本章同时指出软合法性选择、非法初始图恢复和调用预算的限制。各模块的独立贡献及预算匹配优势仍需通过可复现实验建立。
++本章以完整候选图为评估对象，将多候选选择与异常驱动局部修正连接起来，明确了异常、动作、接受条件和回退的关系。这是相对于一般多采样和自由文本自修正的具体设计差异，而不是对两类已有思想的首次提出。现有域内、消融、验证器替换和Oracle记录为分析完整配置提供依据；BR的净收益需在固定候选池下解释，额外计算的价值需经预算匹配比较。软合法性、非法初始图恢复和遗漏节点操作仍限定着当前方法的适用范围。
+ 
+ ## 第五章 粗粒度标签协议下的跨语料迁移分析
+ 
+-本章检验第三、四章方法在训练域与测试域不一致时的表现。跨领域实验不作为独立算法创新，而作为对结构恢复框架适用范围的补充验证。为避免不同标签体系造成不可比较结果，本文首先定义粗粒度组件映射和无标签连接协议，再分析零样本迁移结果及其局限。
++本章在训练域与测试域不一致的条件下分析第三、四章方法的表现，作为两项方法贡献的适用性验证，而非第三项算法创新。与利用辅助语料联合训练的MT-AM[23]<!--ref:morio2022--><!--anchor:section:Abstract-->不同，本章声明的零样本设定仅使用源域训练监督。鉴于近期句子级论辩识别研究揭示了词汇线索与跨数据集泛化之间的风险[24]<!--ref:feger2025--><!--anchor:section:Abstract-->，本章特别区分领域变化、标签归约和评价口径，避免将域内正向结果直接外推到目标域。
+ 
+ ### 5.1 跨领域异构性
+ 
+@@ -718,7 +758,7 @@
+ 4. 目标域模型可能受公开数据预训练污染影响；
+ 5. 验证器与生成器可能共享相似的预训练偏差。
+ 
+-因此，本章将跨领域结果定位为适用性证据，而不是对通用领域泛化能力的最终证明。后续可通过增加AbstRCT等目标域、开展双向迁移和比较多种标签对齐策略，进一步检验结论的稳定性。
++因此，本章将跨领域结果定位为特定协议下的适用性证据，而不是通用领域泛化能力的证明。还需关注Cue-aware分支是否依赖源域常见结论词；可在目标域按有无线索词分组报告性能，并比较关闭该分支时的变化。这是受近期泛化研究启发的待验证问题，不是已经完成的实验。增加AbstRCT等目标域、开展双向迁移和比较多种标签对齐策略，可进一步检验结论稳定性。
+ 
+ ### 5.6 本章小结
+ 
+@@ -728,15 +768,15 @@
+ 
+ ### 6.1 工作总结
+ 
+-本文研究生成式端到端论辩挖掘中组件候选不足与推理阶段结构错误相互影响的问题。围绕训练和推理两个阶段，形成了结论组件增强与MCR-BR图级恢复两项相互衔接的方法设计。
+-
+-训练阶段以结论节点及其局部邻域为增强单位，通过格式、结构和语义筛选控制合成样本，并结合条件低秩适配、线索感知提示与辅助目标强化结论表示。本文进一步分析了保留局部拓扑不必然改善类别比例，以及组件召回对可达关系集合的限制。该部分的研究价值应通过实际类别统计、独立增强消融和可复现门控实现验证，不能仅由完整系统的最终分数替代。
+-
+-推理阶段保留多个组件假设并构建完整候选图，通过连接覆盖、边级语义与合法性信号进行选择，再执行异常驱动的局部修改。本文明确了评分非下降与真实F1提升的区别，并给出软合法性选择和非法初始状态修复的反例。现有算法在有限动作生成和调用终止的前提下具有接受步数上界，但没有由此自动得到模型调用总量上界或最终图必然合法的保证。
+-
+-原稿域内表格记录的Full结果为AAEC Component-F1 83.71、Relation-F1 64.83，以及CDCP Component-F1 76.45、Relation-F1 38.17。跨语料记录在规定的粗粒度与无标签连接协议下为60.78和43.21。这些数值在本稿中原样保留，不作为本轮独立复现的结果；配置冲突、基线来源和重复运行统计仍需核验。
+-
+-综合而言，本文可论证的研究主线是：结论组件质量影响关系恢复的候选空间，图级结构信号可用于候选选择与局部修改，而这两类机制的有效性必须在统一协议、明确实现和预算匹配的条件下检验。本文不将既有技术的组合名称视为创新证据，也不把有限语料上的正向记录外推为普遍适用结论。
++本文围绕生成式端到端论辩挖掘中的组件识别错误及其向关系预测传播的问题，形成训练阶段的结论组件增强与推理阶段的论辩图修正两项互补设计。研究主线是改善关系恢复所依赖的组件候选，并利用候选图中的结构与语义反馈调整预测结果，而不是将通用微调、提示或多次采样本身作为创新。
++
++第一，设计面向结论类组件的局部论辩结构保持增强方法。以结论节点及其局部支撑或攻击邻域组织增强样本，在表达变化中保留组件类型和关系监督，并通过分层筛选控制样本质量；类型条件适配、线索感知提示及辅助目标构成配套的表示增强机制。该设计将结论表达的多样性与局部关系上下文相结合。本文同时分析了组件召回对可达关系集合的限制，以及保持局部拓扑不必然改善类别比例的条件。
++
++第二，提出基于完整候选图评估与异常驱动局部修正的MCR-BR方法。多个组件假设分别生成候选论辩图，图级评分用于选择初始结构，异常检测用于触发局部动作，接受检查与回退用于控制修改过程。与仅增加采样次数或自由文本自修正相比，该方法明确了候选对象、反馈粒度和修改边界。其当前性质限于给定前提下的修正步数限制和固定代理评分下的接受状态非下降，不包括全局最优、最终必然合法或任意遗漏节点恢复的保证。
++
++第三，在域内和规定的跨语料协议下分析方法表现。原稿记录中，Full在AAEC上的Component-F1和Relation-F1为83.71和64.83，在CDCP上为76.45和38.17；在AAEC到CDCP的粗粒度组件与有向无标签连接协议下，两项指标分别为60.78和43.21。上述结果保留为完整配置的实验记录，不将总增益分配给某一模块，也不将不同标签协议的分数直接相减解释领域退化。
++
++相关工作比较表明，生成式联合抽取、篇章结构引导和论辩候选判断已有相邻研究。本文可主张的具体贡献应落在结论中心局部结构保持增强，以及完整候选图评估与异常驱动局部修正的设计和实证分析上。当前工作仍需完成配置对应、增强独立消融和预算匹配验证，才能进一步确认两项方法各自的增量价值；跨语料结果则仅支持所采用迁移方向与标签归约下的适用性判断。
+ 
+ ### 6.2 当前不足与后续研究
+ 
+@@ -748,8 +788,6 @@
+ 
+ 最后，跨语料证据只覆盖一种归约和一个方向。双向迁移、更多目标语料、不同映射策略以及预训练污染审计可以检验结论的稳定性。在完成这些验证之前，中文、多语言及长篇专业文本仍属于待研究范围。
+ 
+-
+-
+ ## 参考文献
+ 
+ [1] LAWRENCE J, REED C. Argument mining: A survey[J]. Computational Linguistics, 2019, 45(4): 765–818. DOI: 10.1162/coli_a_00364. [来源](https://aclanthology.org/J19-4006/)
+@@ -762,37 +800,55 @@
+ 
+ [5] MORIO G, OZAKI H, MORISHITA T, et al. Towards better non-tree argument mining: Proposition-level biaffine parsing with task-specific parameterization[C]//Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics. Association for Computational Linguistics, 2020: 3259–3266. DOI: 10.18653/v1/2020.acl-main.298. [来源](https://aclanthology.org/2020.acl-main.298/)
+ 
+-[6] KAWARADA M, HIRAO T, UCHIDA W, et al. Argument mining as a text-to-text generation task[C]//Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics, Volume 1. St. Julian’s: Association for Computational Linguistics, 2024: 2002–2014. DOI: 10.18653/v1/2024.eacl-long.121. [来源](https://aclanthology.org/2024.eacl-long.121/)
+-
+-[7] SUN Y, CHEN G, YANG C, et al. Discourse structure-aware prefix for generation-based end-to-end argumentation mining[C]//Findings of the Association for Computational Linguistics: ACL 2024. Bangkok: Association for Computational Linguistics, 2024: 11597–11613. DOI: 10.18653/v1/2024.findings-acl.689. [来源](https://aclanthology.org/2024.findings-acl.689/)
+-
+-[8] LI H, SCHLEGEL V, SUN Y, et al. Large language models in argument mining: A survey[EB/OL]. arXiv:2506.16383v6, 2025[2026-09-13]. DOI: 10.48550/arXiv.2506.16383. [来源](https://arxiv.org/abs/2506.16383v6)
+-
+-[9] ZHAO X, WANG K, PENG W. ORCHID: A Chinese debate corpus for target-independent stance detection and argumentative dialogue summarization[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 9358–9375. DOI: 10.18653/v1/2023.emnlp-main.582. [来源](https://aclanthology.org/2023.emnlp-main.582/)
+-
+-[10] CHENG L, BING L, HE R, et al. IAM: A comprehensive and large-scale dataset for integrated argument mining tasks[C]//Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics, Volume 1. Dublin: Association for Computational Linguistics, 2022: 2277–2287. DOI: 10.18653/v1/2022.acl-long.162. [来源](https://aclanthology.org/2022.acl-long.162/)
+-
+-[11] DING B, QIN C, ZHAO R, et al. Data augmentation using LLMs: Data perspectives, learning paradigms and challenges[C]//Findings of the Association for Computational Linguistics: ACL 2024. Bangkok: Association for Computational Linguistics, 2024: 1679–1705. DOI: 10.18653/v1/2024.findings-acl.97. [来源](https://aclanthology.org/2024.findings-acl.97/)
+-
+-[12] EVURU C K, GHOSH S, KUMAR S, et al. CoDa: Constrained generation based data augmentation for low-resource NLP[C]//Findings of the Association for Computational Linguistics: NAACL 2024. Mexico City: Association for Computational Linguistics, 2024: 3754–3769. DOI: 10.18653/v1/2024.findings-naacl.238. [来源](https://aclanthology.org/2024.findings-naacl.238/)
+-
+-[13] PEI Y, BHUSE P, LIU Z, et al. SegMix: A simple structure-aware data augmentation method[EB/OL]. arXiv:2311.09505v1, 2023[2026-09-13]. DOI: 10.48550/arXiv.2311.09505. [来源](https://arxiv.org/abs/2311.09505v1)
+-
+-[14] GENG S, JOSIFOSKI M, PEYRARD M, et al. Grammar-constrained decoding for structured NLP tasks without finetuning[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 10932–10952. DOI: 10.18653/v1/2023.emnlp-main.674. [来源](https://aclanthology.org/2023.emnlp-main.674/)
+-
+-[15] MADAAN A, TANDON N, GUPTA P, et al. Self-Refine: Iterative refinement with self-feedback[EB/OL]. arXiv:2303.17651v2, 2023[2026-09-13]. DOI: 10.48550/arXiv.2303.17651. [来源](https://arxiv.org/abs/2303.17651v2)
+-
+-[16] HUANG J, CHEN X, MISHRA S, et al. Large language models cannot self-correct reasoning yet[EB/OL]. arXiv:2310.01798v2, 2024[2026-09-13]. DOI: 10.48550/arXiv.2310.01798. [来源](https://arxiv.org/abs/2310.01798v2)
+-
+-[17] WANG X, WEI J, SCHUURMANS D, et al. Self-consistency improves chain of thought reasoning in language models[EB/OL]. arXiv:2203.11171v4, 2023[2026-09-13]. DOI: 10.48550/arXiv.2203.11171. [来源](https://arxiv.org/abs/2203.11171v4)
+-
+-[18] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all you need[EB/OL]. arXiv:1706.03762, 2017[2026-09-13]. DOI: 10.48550/arXiv.1706.03762. [来源](https://arxiv.org/abs/1706.03762)
+-
+-[19] QWEN TEAM. Qwen2.5 technical report[EB/OL]. arXiv:2412.15115, 2024[2026-09-13]. DOI: 10.48550/arXiv.2412.15115. [来源](https://arxiv.org/abs/2412.15115)
+-
+-[20] HU E J, SHEN Y, WALLIS P, et al. LoRA: Low-rank adaptation of large language models[EB/OL]. arXiv:2106.09685, 2021[2026-09-13]. DOI: 10.48550/arXiv.2106.09685. [来源](https://arxiv.org/abs/2106.09685)
+-
+-[21] LESTER B, AL-RFOU R, CONSTANT N. The power of scale for parameter-efficient prompt tuning[C]//Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics, 2021: 3045–3059. DOI: 10.18653/v1/2021.emnlp-main.243. [来源](https://aclanthology.org/2021.emnlp-main.243/)
++[6] CAPUTO E, GRECO S, LA CAVA L. Argument component segmentation with fine-tuned large language models[C]//Findings of the Association for Computational Linguistics: EACL 2026. Rabat: Association for Computational Linguistics, 2026: 5154–5167. DOI: 10.18653/v1/2026.findings-eacl.272. [来源](https://aclanthology.org/2026.findings-eacl.272/)
++
++[7] KAWARADA M, HIRAO T, UCHIDA W, et al. Argument mining as a text-to-text generation task[C]//Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics, Volume 1. St. Julian’s: Association for Computational Linguistics, 2024: 2002–2014. DOI: 10.18653/v1/2024.eacl-long.121. [来源](https://aclanthology.org/2024.eacl-long.121/)
++
++[8] CABESSA J, HERNAULT H, MUSHTAQ U. Argument mining with fine-tuned large language models[C]//Proceedings of the 31st International Conference on Computational Linguistics. Abu Dhabi: Association for Computational Linguistics, 2025: 6624–6635. [来源](https://aclanthology.org/2025.coling-main.442/)
++
++[9] DAS N, VAIBHAV V, CHOUDHARY Y S, et al. End-to-end argument mining through autoregressive argumentative structure prediction[EB/OL]. arXiv:2510.16363v1, 2025[2026-09-14]. DOI: 10.48550/arXiv.2510.16363. [来源](https://arxiv.org/abs/2510.16363v1)
++
++[10] CAPUTO E, GRECO S, LA CAVA L. ARGUS: Towards end-to-end argument mining with large language models[C]//Proceedings of the AAAI Conference on Artificial Intelligence, 2026, 40(48): 41547–41549. DOI: 10.1609/aaai.v40i48.42335. [来源](https://ojs.aaai.org/index.php/AAAI/article/view/42335)
++
++[11] LI H, SCHLEGEL V, SUN Y, et al. Large language models in argument mining: A survey[EB/OL]. arXiv:2506.16383v6, 2025[2026-09-13]. DOI: 10.48550/arXiv.2506.16383. [来源](https://arxiv.org/abs/2506.16383v6)
++
++[12] SUN Y, CHEN G, YANG C, et al. Discourse structure-aware prefix for generation-based end-to-end argumentation mining[C]//Findings of the Association for Computational Linguistics: ACL 2024. Bangkok: Association for Computational Linguistics, 2024: 11597–11613. DOI: 10.18653/v1/2024.findings-acl.689. [来源](https://aclanthology.org/2024.findings-acl.689/)
++
++[13] DAS N, SARADHI V V, ANAND A. On the role of key phrases in argument mining[C]//Findings of the Association for Computational Linguistics: NAACL 2025. Albuquerque: Association for Computational Linguistics, 2025: 5774–5787. DOI: 10.18653/v1/2025.findings-naacl.319. [来源](https://aclanthology.org/2025.findings-naacl.319/)
++
++[14] SUN Y, CHEN G, ALINEJAD-ROKNY H, et al. Learning first-order logic rules for argumentation mining[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 14133–14148. DOI: 10.18653/v1/2025.acl-long.691. [来源](https://aclanthology.org/2025.acl-long.691/)
++
++[15] DING B, QIN C, ZHAO R, et al. Data augmentation using LLMs: Data perspectives, learning paradigms and challenges[C]//Findings of the Association for Computational Linguistics: ACL 2024. Bangkok: Association for Computational Linguistics, 2024: 1679–1705. DOI: 10.18653/v1/2024.findings-acl.97. [来源](https://aclanthology.org/2024.findings-acl.97/)
++
++[16] EVURU C K, GHOSH S, KUMAR S, et al. CoDa: Constrained generation based data augmentation for low-resource NLP[C]//Findings of the Association for Computational Linguistics: NAACL 2024. Mexico City: Association for Computational Linguistics, 2024: 3754–3769. DOI: 10.18653/v1/2024.findings-naacl.238. [来源](https://aclanthology.org/2024.findings-naacl.238/)
++
++[17] PEI Y, BHUSE P, LIU Z, et al. SegMix: A simple structure-aware data augmentation method[EB/OL]. arXiv:2311.09505v1, 2023[2026-09-13]. DOI: 10.48550/arXiv.2311.09505. [来源](https://arxiv.org/abs/2311.09505v1)
++
++[18] GENG S, JOSIFOSKI M, PEYRARD M, et al. Grammar-constrained decoding for structured NLP tasks without finetuning[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 10932–10952. DOI: 10.18653/v1/2023.emnlp-main.674. [来源](https://aclanthology.org/2023.emnlp-main.674/)
++
++[19] MADAAN A, TANDON N, GUPTA P, et al. Self-Refine: Iterative refinement with self-feedback[EB/OL]. arXiv:2303.17651v2, 2023[2026-09-13]. DOI: 10.48550/arXiv.2303.17651. [来源](https://arxiv.org/abs/2303.17651v2)
++
++[20] HUANG J, CHEN X, MISHRA S, et al. Large language models cannot self-correct reasoning yet[EB/OL]. arXiv:2310.01798v2, 2024[2026-09-13]. DOI: 10.48550/arXiv.2310.01798. [来源](https://arxiv.org/abs/2310.01798v2)
++
++[21] WANG X, WEI J, SCHUURMANS D, et al. Self-consistency improves chain of thought reasoning in language models[EB/OL]. arXiv:2203.11171v4, 2023[2026-09-13]. DOI: 10.48550/arXiv.2203.11171. [来源](https://arxiv.org/abs/2203.11171v4)
++
++[22] TRAN N, LITMAN D, GODLEY A. Using large language models to analyze students’ collaborative argumentation in classroom discussions[C]//Proceedings of the Artificial Intelligence in Measurement and Education Conference (AIME-Con): Full Papers. Pittsburgh: National Council on Measurement in Education, 2025: 111–125. [来源](https://aclanthology.org/2025.aimecon-main.13/)
++
++[23] MORIO G, OZAKI H, MORISHITA T, et al. End-to-end argument mining with cross-corpora multi-task learning[J]. Transactions of the Association for Computational Linguistics, 2022, 10: 639–658. DOI: 10.1162/tacl_a_00481. [来源](https://aclanthology.org/2022.tacl-1.37/)
++
++[24] FEGER M, BOLAND K, DIETZE S. Limited generalizability in argument mining: State-of-the-art models learn datasets, not arguments[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 23900–23915. DOI: 10.18653/v1/2025.acl-long.1164. [来源](https://aclanthology.org/2025.acl-long.1164/)
++
++[25] ZHAO X, WANG K, PENG W. ORCHID: A Chinese debate corpus for target-independent stance detection and argumentative dialogue summarization[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing. Singapore: Association for Computational Linguistics, 2023: 9358–9375. DOI: 10.18653/v1/2023.emnlp-main.582. [来源](https://aclanthology.org/2023.emnlp-main.582/)
++
++[26] CHENG L, BING L, HE R, et al. IAM: A comprehensive and large-scale dataset for integrated argument mining tasks[C]//Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics, Volume 1. Dublin: Association for Computational Linguistics, 2022: 2277–2287. DOI: 10.18653/v1/2022.acl-long.162. [来源](https://aclanthology.org/2022.acl-long.162/)
++
++[27] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all you need[EB/OL]. arXiv:1706.03762, 2017[2026-09-13]. DOI: 10.48550/arXiv.1706.03762. [来源](https://arxiv.org/abs/1706.03762)
++
++[28] QWEN TEAM. Qwen2.5 technical report[EB/OL]. arXiv:2412.15115, 2024[2026-09-13]. DOI: 10.48550/arXiv.2412.15115. [来源](https://arxiv.org/abs/2412.15115)
++
++[29] HU E J, SHEN Y, WALLIS P, et al. LoRA: Low-rank adaptation of large language models[EB/OL]. arXiv:2106.09685, 2021[2026-09-13]. DOI: 10.48550/arXiv.2106.09685. [来源](https://arxiv.org/abs/2106.09685)
++
++[30] LESTER B, AL-RFOU R, CONSTANT N. The power of scale for parameter-efficient prompt tuning[C]//Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing. Association for Computational Linguistics, 2021: 3045–3059. DOI: 10.18653/v1/2021.emnlp-main.243. [来源](https://aclanthology.org/2021.emnlp-main.243/)
+ 
+ ## 附录A 复现与证据核验清单
+ 
+@@ -843,6 +899,6 @@
+ 
+ ## 附录C 修订与辅助工具使用说明
+ 
+-0913版使用academic-research-suite的论文修订与引用核查流程，基于原稿和审阅意见进行编辑。辅助工作包括措辞修改、结构调整、公开文献元数据与相关论述核查、公式和指标一致性检查，以及Word排版；未运行训练实验，未生成人工标注结果，未代替作者确认研究事实。作者应逐项审阅修改，核对引用、实现和实验数据，并按学校及学院适用要求确认是否以及如何披露辅助工具使用。
++0914版在0913版基础上，参照academic-research-suite的论文修订、文献检索和引用核查要求，依据作者认可的贡献定位进行修改。辅助工作包括研究主线整理、近期公开文献核查、任务与评价边界比较、局部措辞修订、引用编号检查和Word排版，并保存逐段差异及修改说明。未运行训练实验，未生成人工标注结果，未将论文全文上传外部研究服务，未代替作者确认研究事实。当前遗留稿件缺少完整逐块路线图与裁决链，本轮使用可追溯局部补丁记录，不声称通过ARS全套逐块授权或研究完整性认证。作者应审阅修改，核对引用、实现和数据，并按学校及学院适用要求确认辅助工具披露方式。
+ 
+ 原稿列出的作者阶段性成果及其发表状态尚缺可核验材料，本稿不将其认定为虚假，也不继续作“已发表”陈述。后续可依据论文首页、录用通知或出版社记录补充成果页。

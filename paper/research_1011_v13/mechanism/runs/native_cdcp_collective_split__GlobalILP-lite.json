@@ -1,0 +1,104 @@
+{
+  "id": "native_cdcp_collective_split",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "g002",
+      "merged"
+    ],
+    "R": [
+      "wrong"
+    ]
+  },
+  "final": {
+    "C": [
+      "g000",
+      "g001",
+      "g002"
+    ],
+    "R": [
+      "gold"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00015258399999995564,
+      "time_limit": 1.0,
+      "objective": -2.56,
+      "minimization_dual_bound": -2.56,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00013408299999995155,
+      "time_limit": 0.999847416,
+      "objective": 2.0,
+      "minimization_dual_bound": 2.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 2.7375000000051664e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 2.56,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0002866669999999072,
+  "wall_seconds": 0.0005306250000000068,
+  "component_edits_net": 3,
+  "relation_edits_net": 2,
+  "phi_initial": [
+    1.48,
+    0.30000000000000004
+  ],
+  "phi_final": [
+    1.76,
+    0.8
+  ],
+  "evidence_type": "ACTUAL_SOLVER_EXECUTION_ON_CONSTRUCTED_INPUT",
+  "source_doc_id": "cdcp_00662",
+  "total_seconds": 0.0005459999999999354,
+  "counts": {
+    "C": [
+      3,
+      0,
+      0
+    ],
+    "R": [
+      1,
+      0,
+      0
+    ]
+  },
+  "initial_counts": {
+    "C": [
+      1,
+      1,
+      2
+    ],
+    "R": [
+      0,
+      1,
+      1
+    ]
+  }
+}

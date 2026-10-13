@@ -1,0 +1,79 @@
+{
+  "id": "cdcp_01227",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 0.25,
+  "initial": {
+    "C": [
+      "c001",
+      "c003",
+      "c004"
+    ],
+    "R": [
+      "r0019"
+    ]
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c003",
+      "c004"
+    ],
+    "R": []
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00020383400000056895,
+      "time_limit": 0.25,
+      "objective": -2.88,
+      "minimization_dual_bound": -2.88,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.000334290999999709,
+      "time_limit": 0.24979616599999943,
+      "objective": -3.0,
+      "minimization_dual_bound": -3.0,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.00010508400000119877,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 2.88,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.000538125000000278,
+  "wall_seconds": 0.0010222090000002737,
+  "component_edits_net": 0,
+  "relation_edits_net": 1,
+  "phi_initial": [
+    2.88,
+    -0.09999999999999998
+  ],
+  "phi_final": [
+    2.88,
+    0
+  ],
+  "score_condition": "dense_native",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.0010365420000013614
+}

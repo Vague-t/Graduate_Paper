@@ -1,0 +1,234 @@
+{
+  "experiment_id": "AM-V11-20261011",
+  "created_at_utc": "2026-10-11T07:01:13.980353+00:00",
+  "requested_model": "gpt-5.6-luna",
+  "requested_reasoning_effort": "low",
+  "manuscript_base": "report_1011_v10_full",
+  "author_request": "Complete preview with genuine Luna drift/filter and bounded mechanism diagnostics plus explicitly marked simulations and cost estimates",
+  "drift": {
+    "source": "AAEC/CDCP training-side annotated sources",
+    "documents_each": 16,
+    "variants_each": 2,
+    "selection": "eligible annotations <=24 components, >=4, <=4000 chars; length quartiles and fixed text hash, no previous outcomes",
+    "generated_views": "concise/fluent ordinary paraphrases of one relation-centered region, <=3 components",
+    "judging": "fresh context filter model and fresh context audit model, same requested family, no human gold; paired original/rewrite factor judgments; no accept flags shown to audit",
+    "filters": [
+      "format_only",
+      "internal_positive_check",
+      "full_affected_positive_and_sampled_NONE_check"
+    ],
+    "factors": "all affected positive relations, plus up to 4 internal NONE and 4 crossing NONE binary slots sampled by fixed ID hash; component meaning/type preservation",
+    "interpretation": "model-assessed label preservation; sampled NONE coverage; not independent human review or downstream training",
+    "failures": "all 64 requested variants in generation denominators; unresolved judgments separately retained; no outcome-selected retries"
+  },
+  "candidate": {
+    "documents_each": 8,
+    "corpora": [
+      "cdcp",
+      "argunsc",
+      "casimedicos"
+    ],
+    "source": "fixed v10 texts, diagnostic re-use after v10 outcomes, not untouched test evidence",
+    "selection": "text length quartiles and fixed new hash; no individual outcome selection",
+    "intervention": "separate full-document component extraction; native definitions; exact spans; type alternatives; compare potential coverage, no claimed end-to-end gain without scoring",
+    "scoring": "no new scores in this stage",
+    "failures": "all 24 denominator, no outcome retries"
+  },
+  "solver_comparison": {
+    "input": "all existing v10 frozen pools/scores and common initial states",
+    "modes": [
+      "RelationOnly",
+      "SingleObject",
+      "BRJ-lite",
+      "same_objective_GlobalILP"
+    ],
+    "gold_free": true,
+    "candidate_score_and_initial": "fixed across modes",
+    "budget": "same 24 component /96 relation maximum edits; local cumulative path edits vs global final net edit distance are explicitly distinct; compare 0.25,1,5 seconds total solver time",
+    "global_scope": "full finite-pool binary MILP with overlap, endpoints, one-label-per-slot, CDCP source-continuity and component/relation nondecrease; no claim of unlimited natural-language optimum",
+    "purpose": "real weak-model-conditioned solver diagnostic, not full trained BR-J"
+  },
+  "simulation": {
+    "identity": "SIMULATED_PREVIEW",
+    "all_missing_empirical_cells": "use deterministic synthetic counts, assumptions and seed; never overwrite real negative results",
+    "cost": "ESTIMATED from explicit candidate counts and assumed throughput, with sensitivity ranges; real code timings separate",
+    "external_system": "synthetic comparator rows never attributed to published method performance",
+    "configuration": "ICIC style and source-supported parameters; proposed extra fields remain preview assumptions"
+  },
+  "report_all_outcomes": true,
+  "tasks": [
+    {
+      "task": "v11_drift_generate_01",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_01.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_01.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "aaec_essay002",
+        "aaec_essay054",
+        "aaec_essay081",
+        "aaec_essay144"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_02",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_02.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_02.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "aaec_essay146",
+        "aaec_essay147",
+        "aaec_essay158",
+        "aaec_essay171"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_03",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_03.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_03.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "aaec_essay175",
+        "aaec_essay210",
+        "aaec_essay251",
+        "aaec_essay298"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_04",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_04.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_04.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "aaec_essay333",
+        "aaec_essay374",
+        "aaec_essay391",
+        "aaec_essay400"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_05",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_05.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_05.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "cdcp_00377",
+        "cdcp_00423",
+        "cdcp_00479",
+        "cdcp_00505"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_06",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_06.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_06.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "cdcp_00551",
+        "cdcp_00784",
+        "cdcp_00808",
+        "cdcp_00840"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_07",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_07.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_07.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "cdcp_00889",
+        "cdcp_00902",
+        "cdcp_00980",
+        "cdcp_00990"
+      ]
+    },
+    {
+      "task": "v11_drift_generate_08",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/inputs/drift_generate_08.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/raw/drift_generate_08.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/drift_generate/instruction.md",
+      "documents": [
+        "cdcp_01017",
+        "cdcp_01154",
+        "cdcp_01312",
+        "cdcp_01390"
+      ]
+    },
+    {
+      "task": "v11_candidate_extract_01",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/inputs/candidate_extract_01.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/raw/candidate_extract_01.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/instruction.md",
+      "documents": [
+        "cdcp_00846",
+        "cdcp_00889",
+        "cdcp_01114",
+        "cdcp_01125"
+      ]
+    },
+    {
+      "task": "v11_candidate_extract_02",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/inputs/candidate_extract_02.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/raw/candidate_extract_02.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/instruction.md",
+      "documents": [
+        "cdcp_01227",
+        "cdcp_01249",
+        "cdcp_01260",
+        "cdcp_01395"
+      ]
+    },
+    {
+      "task": "v11_candidate_extract_03",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/inputs/candidate_extract_03.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/raw/candidate_extract_03.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/instruction.md",
+      "documents": [
+        "argunsc_UNSC_2014_SPV.7154_spch017_CL_pos",
+        "argunsc_UNSC_2014_SPV.7165_spch021_RF2",
+        "argunsc_UNSC_2014_SPV.7167_spch006_UK",
+        "argunsc_UNSC_2014_SPV.7219_spch007_LT_neg"
+      ]
+    },
+    {
+      "task": "v11_candidate_extract_04",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/inputs/candidate_extract_04.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/raw/candidate_extract_04.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/instruction.md",
+      "documents": [
+        "argunsc_UNSC_2014_SPV.7311_spch009_RW",
+        "argunsc_UNSC_2015_SPV.7365_spch004_LT_neg",
+        "argunsc_UNSC_2015_SPV.7365_spch021_RF2",
+        "argunsc_UNSC_2016_SPV.7635_spch010_AO_pos"
+      ]
+    },
+    {
+      "task": "v11_candidate_extract_05",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/inputs/candidate_extract_05.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/raw/candidate_extract_05.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/instruction.md",
+      "documents": [
+        "casimedicos_112_154",
+        "casimedicos_117_112",
+        "casimedicos_187_68",
+        "casimedicos_190_94"
+      ]
+    },
+    {
+      "task": "v11_candidate_extract_06",
+      "input": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/inputs/candidate_extract_06.json",
+      "output": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/raw/candidate_extract_06.json",
+      "instruction": "/Users/channtang/Downloads/paper/research_1011_v11/candidate_extract/instruction.md",
+      "documents": [
+        "casimedicos_26_117",
+        "casimedicos_309_215",
+        "casimedicos_318_140",
+        "casimedicos_75_65"
+      ]
+    }
+  ],
+  "base_hashes": {
+    "report_1011_v10_full.md": "3881452a0b0bdc59eadf0e4d1168d82a500cafacdcbcc003f0346c8ae81fad16",
+    "report_1011_v10_full.docx": "60a8fd33f1cd3b911ddd5da5c8f3e934f7f3a72fed0677b3d14b81657bf96775",
+    "report_1011_v10_full.pdf": "bafdb20061c5ab553670c7be7444fe48777ed2e10a922b59c3e0e833657d9f5a"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "evidence_type": "ACTUAL_NATIVE_TRAINING_CORPUS_FOR_SIMULATION_NOT_HELDOUT_PERFORMANCE",
+  "sources": [
+    {
+      "corpus": "AAEC",
+      "archive": "research_0920/data/aaec_brat.zip",
+      "sha256": "9f49a6d388896d0f390445592ccc9dbfc87325553e3fe3f988eb252de7cdc4b5",
+      "raw_official_train_documents": 322
+    },
+    {
+      "corpus": "CDCP",
+      "archive": "research_0920/data/cdcp_acl17.zip",
+      "sha256": "acec61f72e5f9dfcb200ff620a529fad7d1f69928e42498eedc66d98eb1fe2a0",
+      "raw_official_train_documents": 581
+    }
+  ],
+  "split_sha256": "903176797ea73c45e3848019bc390882a2bdab520e5feb4b28fd75d95ec44285",
+  "duplicates": [
+    [
+      "aaec_essay171",
+      "aaec_essay210",
+      "aaec_essay400"
+    ],
+    [
+      "aaec_essay209",
+      "aaec_essay377"
+    ]
+  ],
+  "exclusions": [
+    {
+      "id": "aaec_essay210",
+      "reason": "duplicate exact text",
+      "representative": "aaec_essay171"
+    },
+    {
+      "id": "aaec_essay377",
+      "reason": "duplicate exact text",
+      "representative": "aaec_essay209"
+    },
+    {
+      "id": "aaec_essay400",
+      "reason": "duplicate exact text",
+      "representative": "aaec_essay171"
+    },
+    {
+      "id": "cdcp_00411",
+      "reason": "retain documented incomplete/duplicate annotation exclusion from existing loader"
+    }
+  ],
+  "statistics": {
+    "AAEC": {
+      "documents": 319,
+      "components": 4793,
+      "relations": 3006,
+      "multi_source_relations": 0,
+      "max_components": 26,
+      "source_arity_counts": {
+        "1": 3006
+      }
+    },
+    "CDCP": {
+      "documents": 580,
+      "components": 3901,
+      "relations": 969,
+      "multi_source_relations": 85,
+      "max_components": 30,
+      "source_arity_counts": {
+        "1": 884,
+        "2": 59,
+        "3": 18,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "8": 2
+      }
+    }
+  },
+  "test_texts_read": false,
+  "token_alignment": "not performed; native character keys used consistently; previous token alignment issues not silently declared fixed",
+  "native_documents_sha256": "601ef19cc857a22eab075cc83f8ae4ce6b0879a2f7b694a1f35c98fedcc14cad"
+}

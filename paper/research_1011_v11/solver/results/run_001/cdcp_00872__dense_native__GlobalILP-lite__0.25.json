@@ -1,0 +1,76 @@
+{
+  "id": "cdcp_00872",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 0.25,
+  "initial": {
+    "C": [
+      "c000",
+      "c001"
+    ],
+    "R": [
+      "r0000"
+    ]
+  },
+  "final": {
+    "C": [
+      "c001"
+    ],
+    "R": []
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00012020800000023257,
+      "time_limit": 0.25,
+      "objective": -0.19999999999999996,
+      "minimization_dual_bound": -0.19999999999999996,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00011483300000136865,
+      "time_limit": 0.24987979199999977,
+      "objective": -1.0,
+      "minimization_dual_bound": -1.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 2.1249999999639613e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 0.19999999999999996,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.00023504100000160122,
+  "wall_seconds": 0.00044604200000009087,
+  "component_edits_net": 1,
+  "relation_edits_net": 1,
+  "phi_initial": [
+    -0.20000000000000007,
+    -0.76
+  ],
+  "phi_final": [
+    0.19999999999999996,
+    0
+  ],
+  "score_condition": "dense_native",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.00045316699999986554
+}

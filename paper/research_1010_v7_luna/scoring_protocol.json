@@ -1,0 +1,19 @@
+{
+  "status": "FROZEN_BEFORE_GOLD_EVALUATION",
+  "model": "gpt-5.6-luna",
+  "reasoning_effort": "low",
+  "fresh_context_from_prediction": true,
+  "same_model_family_independence_claim": false,
+  "score_interpretation": "heuristic confidence, not calibrated probability",
+  "component_scoring": "explicit value for every candidate",
+  "relation_scoring": "model-assigned sparse overrides above declared 0.05 low default",
+  "default_relation_score": 0.05,
+  "learned_scorer": false,
+  "candidate_pool": "union of observed typed components, optional terminal-punctuation trim, all compatible binary slots, generated native multisource slots and endpoint variants; full legal label set for every included slot",
+  "no_gold_tuning": true,
+  "thresholds": {"kappa_C": 1.0, "kappa_R": 1.0, "delta": 0.01},
+  "initial_selection": "MCR 0.4 density + 0.4 coherence + 0.2 validity; relation verification uses q_R>=0.5; selected invalid graph means explicit failure",
+  "solver": {"backend": "scipy.optimize.milp (HiGHS)", "single_call_seconds": 0.25, "total_solver_seconds_per_document": {"aaec":3.0,"cdcp":5.0}, "threads":1, "mip_relative_gap":0.0},
+  "ablation": "RelationOnly on same initial graph, finite universe, scores, budgets, and evaluator",
+  "case_rule": "first lexicographic document ID in improvement/harm/unchanged categories; do not discard documents with failures"
+}

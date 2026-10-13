@@ -1,0 +1,94 @@
+{
+  "id": "casimedicos_413_68",
+  "corpus": "casimedicos",
+  "text": "QUESTION TYPE: CARDIOLOGY AND CARDIOVASCULAR SURGERY\nCLINICAL CASE:\nAn 87-year-old woman with a history of hypertension was admitted 48 hours ago to the coronary unit for acute myocardial infarction with ST-segment elevation of anterior location.\nShe reported dyspnea.\nExamination revealed a systolic murmur with fremitus, radiating to the right sternal border, which was not present on admission.\nWhat complication do you suspect?\n1- Heart failure due to extensive necrosis.\n2- Anterior aneurysm.\n3- Left ventricular free wall rupture.\n4- Rupture in the interventricular septum.\n5- nan\nCORRECT ANSWER: 4\nRupture of the interventricular septum.\nMechanical complications are typical in infarctions in elderly women.\nLikewise, a murmur that was not present indicates abnormal blood flow: the most frequent complications are mitral insufficiency, which would present with a musical or piante murmur, and VSD, which presents with a murmur radiating to the right border (think of the direction of blood flow).",
+  "components": [
+    {
+      "id": "c000",
+      "start": 605,
+      "end": 643,
+      "quote": "Rupture of the interventricular septum",
+      "type": "Claim"
+    },
+    {
+      "id": "c001",
+      "start": 605,
+      "end": 644,
+      "quote": "Rupture of the interventricular septum.",
+      "type": "Claim"
+    },
+    {
+      "id": "c002",
+      "start": 725,
+      "end": 964,
+      "quote": "a murmur that was not present indicates abnormal blood flow: the most frequent complications are mitral insufficiency, which would present with a musical or piante murmur, and VSD, which presents with a murmur radiating to the right border",
+      "type": "Claim"
+    }
+  ],
+  "relations": [
+    {
+      "id": "r0000",
+      "sources": [
+        "c000"
+      ],
+      "target": "c002",
+      "type": "Attack"
+    },
+    {
+      "id": "r0001",
+      "sources": [
+        "c000"
+      ],
+      "target": "c002",
+      "type": "Support"
+    },
+    {
+      "id": "r0002",
+      "sources": [
+        "c001"
+      ],
+      "target": "c002",
+      "type": "Attack"
+    },
+    {
+      "id": "r0003",
+      "sources": [
+        "c001"
+      ],
+      "target": "c002",
+      "type": "Support"
+    },
+    {
+      "id": "r0004",
+      "sources": [
+        "c002"
+      ],
+      "target": "c000",
+      "type": "Attack"
+    },
+    {
+      "id": "r0005",
+      "sources": [
+        "c002"
+      ],
+      "target": "c000",
+      "type": "Support"
+    },
+    {
+      "id": "r0006",
+      "sources": [
+        "c002"
+      ],
+      "target": "c001",
+      "type": "Attack"
+    },
+    {
+      "id": "r0007",
+      "sources": [
+        "c002"
+      ],
+      "target": "c001",
+      "type": "Support"
+    }
+  ]
+}

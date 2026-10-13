@@ -1,0 +1,123 @@
+{
+  "id": "casimedicos_309_215",
+  "corpus": "casimedicos",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 5.0,
+  "initial": {
+    "C": [
+      "c000",
+      "c002",
+      "c004",
+      "c006",
+      "c008",
+      "c010",
+      "c016",
+      "c017",
+      "c018",
+      "c021",
+      "c025",
+      "c028",
+      "c030",
+      "c034"
+    ],
+    "R": [
+      "s0002_Support",
+      "s0332_Attack",
+      "s0589_Attack",
+      "s0691_Attack",
+      "s0791_Support",
+      "s0795_Support",
+      "s0814_Support",
+      "s0881_Support",
+      "s0900_Support",
+      "s0943_Support",
+      "s1061_Support"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c002",
+      "c004",
+      "c006",
+      "c008",
+      "c010",
+      "c016",
+      "c017",
+      "c018",
+      "c021",
+      "c025",
+      "c028",
+      "c033",
+      "c034"
+    ],
+    "R": [
+      "s0002_Support",
+      "s0332_Attack",
+      "s0589_Attack",
+      "s0691_Attack",
+      "s0791_Support",
+      "s0795_Support",
+      "s0814_Support",
+      "s0881_Support",
+      "s0900_Support",
+      "s1030_Support",
+      "s1034_Support",
+      "s1061_Support"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0037116250000002182,
+      "time_limit": 5.0,
+      "objective": -8.719999999999997,
+      "minimization_dual_bound": -8.719999999999995,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.018356874999999828,
+      "time_limit": 4.996288375,
+      "objective": -20.0,
+      "minimization_dual_bound": -20.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.0038514579999997522,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 8.719999999999995,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.022068500000000046,
+  "wall_seconds": 0.03569891699999994,
+  "component_edits_net": 2,
+  "relation_edits_net": 3,
+  "phi_initial": [
+    4.759999999999998,
+    3.54
+  ],
+  "phi_final": [
+    4.759999999999998,
+    3.959999999999999
+  ],
+  "threshold": 0.65,
+  "score_condition": "explicit_dense_native_C"
+}

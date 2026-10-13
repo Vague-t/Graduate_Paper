@@ -1,0 +1,94 @@
+{
+  "id": "casimedicos_75_65",
+  "corpus": "casimedicos",
+  "text": "QUESTION TYPE: ANESTHESIOLOGY, CRITICAL CARE AND EMERGENCIES\nCLINICAL CASE:\nA patient admitted for acute pancreatitis starts with tachypnea, tachycardia, sweating and progressive cyanosis.\nPaO2 is 55 mm Hg (PaO2/FiO2 ratio<200).\nCXR shows bilateral alveolar pulmonary infiltrates.\nPulmonary capillary wedge pressure is normal.\nOxygen therapy does not improve the situation.\nWhat is the most probable diagnosis:\n1- Nosocomial pneumonia.\n2- Cardiac failure.\n3- Carcinomatous lymphangitis.\n4- Pulmonary thromboembolism.\n5- Respiratory distress.\nCORRECT ANSWER: 5\nDirect response question.\nThe question tells the story of a patient with acute pancreatitis who is developing acute respiratory failure.\nThe statement lists the criteria for ARDS (acute respiratory distress syndrome): PaO2/fiO2 < 200 + bilateral pulmonary infiltrates + PCP<18.\nSo the diagnosis is respiratory distress and therefore the correct answer is option 5.",
+  "components": [
+    {
+      "id": "c000",
+      "start": 618,
+      "end": 695,
+      "quote": "a patient with acute pancreatitis who is developing acute respiratory failure",
+      "type": "Claim"
+    },
+    {
+      "id": "c001",
+      "start": 618,
+      "end": 696,
+      "quote": "a patient with acute pancreatitis who is developing acute respiratory failure.",
+      "type": "Claim"
+    },
+    {
+      "id": "c002",
+      "start": 841,
+      "end": 878,
+      "quote": "the diagnosis is respiratory distress",
+      "type": "Claim"
+    }
+  ],
+  "relations": [
+    {
+      "id": "r0000",
+      "sources": [
+        "c000"
+      ],
+      "target": "c002",
+      "type": "Attack"
+    },
+    {
+      "id": "r0001",
+      "sources": [
+        "c000"
+      ],
+      "target": "c002",
+      "type": "Support"
+    },
+    {
+      "id": "r0002",
+      "sources": [
+        "c001"
+      ],
+      "target": "c002",
+      "type": "Attack"
+    },
+    {
+      "id": "r0003",
+      "sources": [
+        "c001"
+      ],
+      "target": "c002",
+      "type": "Support"
+    },
+    {
+      "id": "r0004",
+      "sources": [
+        "c002"
+      ],
+      "target": "c000",
+      "type": "Attack"
+    },
+    {
+      "id": "r0005",
+      "sources": [
+        "c002"
+      ],
+      "target": "c000",
+      "type": "Support"
+    },
+    {
+      "id": "r0006",
+      "sources": [
+        "c002"
+      ],
+      "target": "c001",
+      "type": "Attack"
+    },
+    {
+      "id": "r0007",
+      "sources": [
+        "c002"
+      ],
+      "target": "c001",
+      "type": "Support"
+    }
+  ]
+}

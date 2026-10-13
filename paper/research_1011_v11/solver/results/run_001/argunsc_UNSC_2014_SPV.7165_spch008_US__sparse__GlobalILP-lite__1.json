@@ -1,0 +1,94 @@
+{
+  "id": "argunsc_UNSC_2014_SPV.7165_spch008_US",
+  "corpus": "argunsc",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "c001",
+      "c003",
+      "c005",
+      "c011"
+    ],
+    "R": [
+      "r0027",
+      "r0139"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c003",
+      "c004",
+      "c006",
+      "c008",
+      "c011",
+      "c012",
+      "c013"
+    ],
+    "R": [
+      "r0003",
+      "r0005",
+      "r0019",
+      "r0109",
+      "r0165",
+      "r0167",
+      "r0211"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0015849169999997414,
+      "time_limit": 1.0,
+      "objective": -9.739999999999998,
+      "minimization_dual_bound": -9.739999999999998,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.017699958999999765,
+      "time_limit": 0.9984150830000003,
+      "objective": 10.999999999999996,
+      "minimization_dual_bound": 10.999999999999996,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.0007070000000002352,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 9.739999999999998,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.019284875999999507,
+  "wall_seconds": 0.021787916000000074,
+  "component_edits_net": 8,
+  "relation_edits_net": 9,
+  "phi_initial": [
+    3.6599999999999997,
+    -1.8
+  ],
+  "phi_final": [
+    5.6,
+    4.139999999999999
+  ],
+  "score_condition": "sparse",
+  "source_family": "new_corpora",
+  "total_run_wall_seconds": 0.021878207999999955
+}

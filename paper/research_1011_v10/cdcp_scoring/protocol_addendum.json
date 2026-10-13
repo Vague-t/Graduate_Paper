@@ -1,0 +1,15 @@
+{
+  "recorded_at_utc": "2026-10-10T18:11:28.159973+00:00",
+  "kind": "metadata clarification before scoring and evaluation; no prediction or method change",
+  "current_manuscript_baseline": {
+    "report_1011_v9_full.md": "57eae9295efecff9ea49e6c14486652b154f54b8ab937a84191c1f5738651a5a",
+    "report_1011_v9_full.docx": "996419afb9e111501e654dfb082191915aa5fce08465fbb584977111ee58230e"
+  },
+  "authoritative_source_manifest": "../pre_experiment_manifest.json",
+  "authoritative_source_manifest_sha256": "9c9ac2d7410a4cbc4a961cce952d2fa516e89d8b2332231c378f6bff75efb539",
+  "clarification": "protocol.json was cloned from the first Luna pilot: its manuscript field names v7 and data_sources lists the older AAEC/CDCP archives. These are inherited provenance, not the current manuscript or exhaustive source list. Current manuscript baseline is v9; new sources and frozen revisions are bound by the top-level manifest and local pre_prediction_freeze. Original frozen protocol is preserved.",
+  "upstream_source_identity": "CDCP native official-train archive; excludes the entire previous CPU-audit text set and thus all prior 116 Luna texts",
+  "interface_tests": "../interface_test_results.json",
+  "primary_initial_failure_policy": "failed MCR initialization produces empty prediction for every method including MCR, gold denominator retained. Prior expanded pilot reported raw MCR-selected graph even when structurally invalid; its separate historical table retains that convention and is not pooled with this experiment.",
+  "preflight_failure_coverage_policy": "unbuilt universe coverage is unknown, never inferred from empty placeholder. None observed so far; evaluator must preserve this distinction if one occurs."
+}

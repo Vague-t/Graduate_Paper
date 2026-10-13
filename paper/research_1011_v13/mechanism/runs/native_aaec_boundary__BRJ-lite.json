@@ -1,0 +1,478 @@
+{
+  "id": "native_aaec_boundary",
+  "corpus": "aaec",
+  "mode": "BRJ-lite",
+  "status": "completed",
+  "started_at_utc": "2026-10-11T09:42:45.900944+00:00",
+  "ended_at_utc": "2026-10-11T09:42:45.901857+00:00",
+  "wall_seconds": 0.0009124169999999987,
+  "initial_candidate": "constructed_initial",
+  "ranks": [],
+  "initial": {
+    "C": [
+      "b008",
+      "g010"
+    ],
+    "R": [
+      "wrong"
+    ]
+  },
+  "final": {
+    "C": [
+      "g008",
+      "g010"
+    ],
+    "R": [
+      "gold"
+    ]
+  },
+  "phi_initial": [
+    1.04,
+    0.10000000000000009
+  ],
+  "phi_final": [
+    1.46,
+    0.76
+  ],
+  "component_edits_total": 2,
+  "relation_edits_total": 2,
+  "attempts": [
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "wrong"
+        ]
+      },
+      "before": {
+        "C": [
+          "b008",
+          "g010"
+        ],
+        "R": [
+          "wrong"
+        ]
+      },
+      "candidate_C": [
+        "b008",
+        "g010"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "wrong"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [],
+      "variables": [
+        "wrong"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        0
+      ],
+      "evaluation_seconds": 0.00017274999999994378,
+      "attempt": 0,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "b008"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "b008",
+          "g010"
+        ],
+        "R": [
+          "wrong"
+        ]
+      },
+      "candidate_C": [
+        "g010"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.24,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 4.125000000021473e-06,
+      "attempt": 1,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "b008"
+        ],
+        "B": [
+          "g008"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "b008",
+          "g010"
+        ],
+        "R": [
+          "wrong"
+        ]
+      },
+      "candidate_C": [
+        "g008",
+        "g010"
+      ],
+      "accepted_candidate": true,
+      "component_edits": 2,
+      "delta_phi_C": 0.41999999999999993,
+      "transaction_relations": [
+        "gold",
+        "wrong"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [],
+      "variables": [
+        "gold"
+      ],
+      "primary_optimal": true,
+      "total_phi_upper_bound": 2.2199999999999998,
+      "tie_status": "unique_optimum_and_min_edits",
+      "relation_edits": 2,
+      "delta_phi_R": 0.6599999999999999,
+      "delta_phi": 1.0799999999999998,
+      "phi_before": [
+        1.04,
+        0.10000000000000009
+      ],
+      "phi_after": [
+        1.46,
+        0.76
+      ],
+      "issues": [],
+      "reason": "eligible",
+      "solver_calls": [
+        1,
+        2,
+        3
+      ],
+      "evaluation_seconds": 0.00047833299999999745,
+      "after": {
+        "C": [
+          "g008",
+          "g010"
+        ],
+        "R": [
+          "gold"
+        ]
+      },
+      "attempt": 2,
+      "round": 1,
+      "committed": true
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "g010"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "b008",
+          "g010"
+        ],
+        "R": [
+          "wrong"
+        ]
+      },
+      "candidate_C": [
+        "b008"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.084000000042053e-06,
+      "attempt": 3,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "relation",
+        "D": [],
+        "B": [],
+        "S_R": [
+          "gold"
+        ]
+      },
+      "before": {
+        "C": [
+          "g008",
+          "g010"
+        ],
+        "R": [
+          "gold"
+        ]
+      },
+      "candidate_C": [
+        "g008",
+        "g010"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 0,
+      "delta_phi_C": 0.0,
+      "transaction_relations": [
+        "gold"
+      ],
+      "expanded_slots": [],
+      "fixed_relations": [],
+      "variables": [
+        "gold"
+      ],
+      "primary_optimal": false,
+      "reason": "infeasible",
+      "solver_calls": [
+        4
+      ],
+      "evaluation_seconds": 0.00015212500000005846,
+      "attempt": 4,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "g008"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "g008",
+          "g010"
+        ],
+        "R": [
+          "gold"
+        ]
+      },
+      "candidate_C": [
+        "g010"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.6599999999999999,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 3.709000000018392e-06,
+      "attempt": 5,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "replace",
+        "D": [
+          "g008"
+        ],
+        "B": [
+          "b008"
+        ],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "g008",
+          "g010"
+        ],
+        "R": [
+          "gold"
+        ]
+      },
+      "candidate_C": [
+        "b008",
+        "g010"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 2,
+      "delta_phi_C": -0.41999999999999993,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 2.9579999999418405e-06,
+      "attempt": 6,
+      "round": 1,
+      "committed": false
+    },
+    {
+      "proposal": {
+        "kind": "delete",
+        "D": [
+          "g010"
+        ],
+        "B": [],
+        "S_R": []
+      },
+      "before": {
+        "C": [
+          "g008",
+          "g010"
+        ],
+        "R": [
+          "gold"
+        ]
+      },
+      "candidate_C": [
+        "g008"
+      ],
+      "accepted_candidate": false,
+      "component_edits": 1,
+      "delta_phi_C": -0.8,
+      "reason": "component_gate",
+      "solver_calls": [],
+      "evaluation_seconds": 2.583000000000446e-06,
+      "attempt": 7,
+      "round": 1,
+      "committed": false
+    }
+  ],
+  "accepted_attempts": [
+    2
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "attempts": 8,
+      "accepts": 1
+    }
+  ],
+  "solver_seconds": 0.0006791249999998916,
+  "solver_limit_seconds": 3.0,
+  "solver_calls": [
+    {
+      "index": 0,
+      "stage": "maximize_phi",
+      "seconds": 0.00014895800000003234,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 1,
+      "stage": "maximize_phi",
+      "seconds": 0.0001399169999999339,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": -0.76,
+      "minimization_dual_bound": -0.76,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 2,
+      "stage": "minimize_edits",
+      "seconds": 0.00013024999999999842,
+      "time_limit": 0.25,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 1.0,
+      "minimization_dual_bound": 1.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": true
+    },
+    {
+      "index": 3,
+      "stage": "test_uniqueness",
+      "seconds": 0.0001282499999999409,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    },
+    {
+      "index": 4,
+      "stage": "maximize_phi",
+      "seconds": 0.00013174999999998604,
+      "time_limit": 0.25,
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ],
+      "has_incumbent": false
+    }
+  ],
+  "stop_reason": "queue_exhausted",
+  "evidence_type": "ACTUAL_SOLVER_EXECUTION_ON_CONSTRUCTED_INPUT",
+  "source_doc_id": "aaec_essay001",
+  "total_seconds": 0.0009272500000000461,
+  "counts": {
+    "C": [
+      2,
+      0,
+      0
+    ],
+    "R": [
+      1,
+      0,
+      0
+    ]
+  },
+  "initial_counts": {
+    "C": [
+      1,
+      1,
+      1
+    ],
+    "R": [
+      0,
+      1,
+      1
+    ]
+  }
+}

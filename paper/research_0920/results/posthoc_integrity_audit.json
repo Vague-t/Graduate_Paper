@@ -1,0 +1,48 @@
+{
+  "kind": "read-only reanalysis of saved predictions, not retraining",
+  "date": "2026-09-20",
+  "status": "ANALYZED",
+  "notes": [
+    "An initial inspection command failed because JSON arrays were passed to set without tuple conversion; corrected the read-only inspection, did not modify or rerun training.",
+    "AAEC contains a 3-document identical-text group in audit. Text-group bootstrap below is preferred over the original document-level interval.",
+    "Single-action reachability ignores acceptance thresholds and relation reconstruction; it is an optimistic action-level diagnostic, not final success."
+  ],
+  "aaec": {
+    "audit_documents": 66,
+    "audit_text_groups": 64,
+    "gold_components": 986,
+    "initial_missing_spans": 567,
+    "missing_covered_in_pool_128": 526,
+    "missing_single_action_reachable": 258,
+    "documents_with_beneficial_nondeletion": 65,
+    "per_document_delta_f1_oracle_nondeletion_corpus_micro_f1": 0.30280373831775703,
+    "overlap_conflict_histogram_for_missing_covered": {"0":28,"1":230,"2":148,"3":62,"4":30,"5":18,"6":5,"7":5},
+    "recomputed_edit_counts_and_delta_f1": 14148,
+    "all_recomputed_values_match": true,
+    "audit_unaligned_gold": 0,
+    "audit_multi_premise_native_relations": 0,
+    "all_official_train_type_counts": {"MajorClaim":598,"Claim":1202,"Premise":3023},
+    "text_group_bootstrap95_delta_main": [0.0058089126660061195,0.007066818601591948],
+    "text_group_bootstrap95_delta_without_delete": [0.0,0.005175600739371513],
+    "mean_all_directed_candidate_pairs_128": 23467.363636363636
+  },
+  "cdcp": {
+    "audit_documents": 116,
+    "audit_text_groups": 116,
+    "gold_components": 723,
+    "initial_missing_spans": 609,
+    "missing_covered_in_pool_128": 586,
+    "missing_single_action_reachable": 56,
+    "documents_with_beneficial_nondeletion": 52,
+    "per_document_delta_f1_oracle_nondeletion_corpus_micro_f1": 0.07847597384134206,
+    "overlap_conflict_histogram_for_missing_covered": {"1":56,"2":95,"3":134,"4":67,"5":75,"6":42,"7":45,"8":20,"9":14,"10":7,"11":6,"12":9,"13":3,"14":5,"15":5,"17":1,"18":1,"19":1},
+    "recomputed_edit_counts_and_delta_f1": 24780,
+    "all_recomputed_values_match": true,
+    "audit_unaligned_gold": 0,
+    "audit_multi_premise_native_relations": 19,
+    "all_official_train_type_counts": {"value":1686,"policy":658,"fact":653,"testimony":873,"reference":31},
+    "text_group_bootstrap95_delta_main": [0.0012317605262581457,0.0022417401261420767],
+    "text_group_bootstrap95_delta_without_delete": [0.0,0.0],
+    "mean_all_directed_candidate_pairs_128": 23239.655172413793
+  }
+}

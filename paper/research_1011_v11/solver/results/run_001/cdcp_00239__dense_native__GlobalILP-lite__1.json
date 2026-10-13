@@ -1,0 +1,87 @@
+{
+  "id": "cdcp_00239",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "c000",
+      "c001",
+      "c003",
+      "c005",
+      "c007"
+    ],
+    "R": [
+      "r0001",
+      "r0095",
+      "r0099"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c001",
+      "c002",
+      "c004",
+      "c006"
+    ],
+    "R": [
+      "r0001"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0002908750000001348,
+      "time_limit": 1.0,
+      "objective": -4.16,
+      "minimization_dual_bound": -4.159999999999999,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0002740000000001075,
+      "time_limit": 0.9997091249999999,
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.00020108300000032386,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 4.159999999999999,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0005648750000002423,
+  "wall_seconds": 0.0013992910000002468,
+  "component_edits_net": 6,
+  "relation_edits_net": 2,
+  "phi_initial": [
+    -0.3999999999999999,
+    -1.3199999999999998
+  ],
+  "phi_final": [
+    3.5999999999999996,
+    0.56
+  ],
+  "score_condition": "dense_native",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.001427084000000356
+}

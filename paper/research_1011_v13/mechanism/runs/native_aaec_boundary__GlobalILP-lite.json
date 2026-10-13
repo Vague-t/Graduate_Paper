@@ -1,0 +1,103 @@
+{
+  "id": "native_aaec_boundary",
+  "corpus": "aaec",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "b008",
+      "g010"
+    ],
+    "R": [
+      "wrong"
+    ]
+  },
+  "final": {
+    "C": [
+      "g008",
+      "g010"
+    ],
+    "R": [
+      "gold"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00015779199999998994,
+      "time_limit": 1.0,
+      "objective": -2.2199999999999998,
+      "minimization_dual_bound": -2.2199999999999998,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00012462500000010035,
+      "time_limit": 0.999842208,
+      "objective": 1.0,
+      "minimization_dual_bound": 1.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 2.2625000000053852e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 2.2199999999999998,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0002824170000000903,
+  "wall_seconds": 0.0008926250000000913,
+  "component_edits_net": 2,
+  "relation_edits_net": 2,
+  "phi_initial": [
+    1.04,
+    0.10000000000000009
+  ],
+  "phi_final": [
+    1.46,
+    0.76
+  ],
+  "evidence_type": "ACTUAL_SOLVER_EXECUTION_ON_CONSTRUCTED_INPUT",
+  "source_doc_id": "aaec_essay001",
+  "total_seconds": 0.0009053340000000354,
+  "counts": {
+    "C": [
+      2,
+      0,
+      0
+    ],
+    "R": [
+      1,
+      0,
+      0
+    ]
+  },
+  "initial_counts": {
+    "C": [
+      1,
+      1,
+      1
+    ],
+    "R": [
+      0,
+      1,
+      1
+    ]
+  }
+}

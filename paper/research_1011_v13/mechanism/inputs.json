@@ -1,0 +1,337 @@
+{
+  "evidence_type": "CONSTRUCTED_INPUTS_WITH_NATIVE_TEXT",
+  "gold_used_to_construct": true,
+  "fixtures": [
+    {
+      "id": "native_aaec_boundary",
+      "doc": {
+        "id": "native_aaec_boundary",
+        "corpus": "aaec",
+        "source_doc_id": "aaec_essay001",
+        "text": "Should students be taught to compete or to cooperate?\n\nIt is always said that competition can effectively promote the development of economy. In order to survive in the competition, companies continue to improve their products and service, and as a result, the whole society prospers. However, when we discuss the issue of competition or cooperation, what we are concerned about is not the whole society, but the development of an individual's whole life. From this point of view, I firmly believe that we should attach more importance to cooperation during primary education.\nFirst of all, through cooperation, children can learn about interpersonal skills which are significant in the future life of all students. What we acquired from team work is not only how to achieve the same goal with others but more importantly, how to get along with others. During the process of cooperation, children can learn about how to listen to opinions of others, how to communicate with others, how to think comprehensively, and even how to compromise with other team members when conflicts occurred. All of these skills help them to get on well with other people and will benefit them for the whole life.\nOn the other hand, the significance of competition is that how to become more excellence to gain the victory. Hence it is always said that competition makes the society more effective. However, when we consider about the question that how to win the game, we always find that we need the cooperation. The greater our goal is, the more competition we need. Take Olympic games which is a form of competition for instance, it is hard to imagine how an athlete could win the game without the training of his or her coach, and the help of other professional staffs such as the people who take care of his diet, and those who are in charge of the medical care. The winner is the athlete but the success belongs to the whole team. Therefore without the cooperation, there would be no victory of competition.\nConsequently, no matter from the view of individual development or the relationship between competition and cooperation we can receive the same conclusion that a more cooperative attitudes towards life is more profitable in one's success.",
+        "components": {
+          "g008": {
+            "start": 1387,
+            "end": 1492,
+            "type": "Premise",
+            "quote": "when we consider about the question that how to win the game, we always find that we need the cooperation"
+          },
+          "g010": {
+            "start": 1927,
+            "end": 1992,
+            "type": "Claim",
+            "quote": "without the cooperation, there would be no victory of competition"
+          },
+          "b008": {
+            "start": 1387,
+            "end": 1480,
+            "type": "Premise",
+            "quote": "when we consider about the question that how to win the game, we always find that we need the"
+          }
+        },
+        "relations": {
+          "gold": {
+            "sources": [
+              "g008"
+            ],
+            "target": "g010",
+            "type": "supports"
+          },
+          "wrong": {
+            "sources": [
+              "b008"
+            ],
+            "target": "g010",
+            "type": "supports"
+          }
+        }
+      },
+      "q": {
+        "C": {
+          "g008": 0.83,
+          "g010": 0.9,
+          "b008": 0.62
+        },
+        "R": {
+          "gold": 0.88,
+          "wrong": 0.55
+        }
+      },
+      "initial": {
+        "components": [
+          "b008",
+          "g010"
+        ],
+        "relations": [
+          "wrong"
+        ],
+        "structurally_valid": true,
+        "candidate_id": "constructed_initial"
+      },
+      "gold_C": [
+        "g008",
+        "g010"
+      ],
+      "gold_R": [
+        "gold"
+      ],
+      "scenario": "constructed boundary error and favorable explicit scores on native text"
+    },
+    {
+      "id": "native_cdcp_collective_split",
+      "doc": {
+        "id": "native_cdcp_collective_split",
+        "corpus": "cdcp",
+        "source_doc_id": "cdcp_00662",
+        "text": "I generally prefer e-mail to telephone communication, but you can't be sure the e-mail has reached the person. I would suggest a notice that says, \"If you don't acknowledge receipt of this e-mail, we'll start phoning you.\"",
+        "components": {
+          "g000": {
+            "start": 0,
+            "end": 53,
+            "type": "value",
+            "quote": "I generally prefer e-mail to telephone communication,"
+          },
+          "g001": {
+            "start": 54,
+            "end": 110,
+            "type": "value",
+            "quote": "but you can't be sure the e-mail has reached the person."
+          },
+          "g002": {
+            "start": 111,
+            "end": 222,
+            "type": "policy",
+            "quote": "I would suggest a notice that says, \"If you don't acknowledge receipt of this e-mail, we'll start phoning you.\""
+          },
+          "merged": {
+            "start": 0,
+            "end": 110,
+            "type": "value",
+            "quote": "I generally prefer e-mail to telephone communication, but you can't be sure the e-mail has reached the person."
+          }
+        },
+        "relations": {
+          "gold": {
+            "sources": [
+              "g000",
+              "g001"
+            ],
+            "target": "g002",
+            "type": "reason"
+          },
+          "wrong": {
+            "sources": [
+              "merged"
+            ],
+            "target": "g002",
+            "type": "reason"
+          }
+        }
+      },
+      "q": {
+        "C": {
+          "g000": 0.74,
+          "g001": 0.74,
+          "g002": 0.9,
+          "merged": 0.84
+        },
+        "R": {
+          "gold": 0.9,
+          "wrong": 0.65
+        }
+      },
+      "initial": {
+        "components": [
+          "merged",
+          "g002"
+        ],
+        "relations": [
+          "wrong"
+        ],
+        "structurally_valid": true,
+        "candidate_id": "constructed_initial"
+      },
+      "gold_C": [
+        "g000",
+        "g001",
+        "g002"
+      ],
+      "gold_R": [
+        "gold"
+      ],
+      "scenario": "constructed merged component; only two-span split clears nondecrease gate"
+    },
+    {
+      "id": "native_cdcp_score_failure",
+      "doc": {
+        "id": "native_cdcp_score_failure",
+        "corpus": "cdcp",
+        "source_doc_id": "cdcp_00662",
+        "text": "I generally prefer e-mail to telephone communication, but you can't be sure the e-mail has reached the person. I would suggest a notice that says, \"If you don't acknowledge receipt of this e-mail, we'll start phoning you.\"",
+        "components": {
+          "g000": {
+            "start": 0,
+            "end": 53,
+            "type": "value",
+            "quote": "I generally prefer e-mail to telephone communication,"
+          },
+          "g001": {
+            "start": 54,
+            "end": 110,
+            "type": "value",
+            "quote": "but you can't be sure the e-mail has reached the person."
+          },
+          "g002": {
+            "start": 111,
+            "end": 222,
+            "type": "policy",
+            "quote": "I would suggest a notice that says, \"If you don't acknowledge receipt of this e-mail, we'll start phoning you.\""
+          },
+          "merged": {
+            "start": 0,
+            "end": 110,
+            "type": "value",
+            "quote": "I generally prefer e-mail to telephone communication, but you can't be sure the e-mail has reached the person."
+          }
+        },
+        "relations": {
+          "gold": {
+            "sources": [
+              "g000",
+              "g001"
+            ],
+            "target": "g002",
+            "type": "reason"
+          },
+          "wrong": {
+            "sources": [
+              "merged"
+            ],
+            "target": "g002",
+            "type": "reason"
+          }
+        }
+      },
+      "q": {
+        "C": {
+          "g000": 0.6,
+          "g001": 0.6,
+          "g002": 0.9,
+          "merged": 0.99
+        },
+        "R": {
+          "gold": 0.9,
+          "wrong": 0.65
+        }
+      },
+      "initial": {
+        "components": [
+          "merged",
+          "g002"
+        ],
+        "relations": [
+          "wrong"
+        ],
+        "structurally_valid": true,
+        "candidate_id": "constructed_initial"
+      },
+      "gold_C": [
+        "g000",
+        "g001",
+        "g002"
+      ],
+      "gold_R": [
+        "gold"
+      ],
+      "scenario": "same native graph, wrong merged component has excessive score"
+    },
+    {
+      "id": "native_cdcp_missing_score",
+      "doc": {
+        "id": "native_cdcp_missing_score",
+        "corpus": "cdcp",
+        "source_doc_id": "cdcp_00662",
+        "text": "I generally prefer e-mail to telephone communication, but you can't be sure the e-mail has reached the person. I would suggest a notice that says, \"If you don't acknowledge receipt of this e-mail, we'll start phoning you.\"",
+        "components": {
+          "g000": {
+            "start": 0,
+            "end": 53,
+            "type": "value",
+            "quote": "I generally prefer e-mail to telephone communication,"
+          },
+          "g001": {
+            "start": 54,
+            "end": 110,
+            "type": "value",
+            "quote": "but you can't be sure the e-mail has reached the person."
+          },
+          "g002": {
+            "start": 111,
+            "end": 222,
+            "type": "policy",
+            "quote": "I would suggest a notice that says, \"If you don't acknowledge receipt of this e-mail, we'll start phoning you.\""
+          },
+          "merged": {
+            "start": 0,
+            "end": 110,
+            "type": "value",
+            "quote": "I generally prefer e-mail to telephone communication, but you can't be sure the e-mail has reached the person."
+          }
+        },
+        "relations": {
+          "gold": {
+            "sources": [
+              "g000",
+              "g001"
+            ],
+            "target": "g002",
+            "type": "reason"
+          },
+          "wrong": {
+            "sources": [
+              "merged"
+            ],
+            "target": "g002",
+            "type": "reason"
+          }
+        }
+      },
+      "q": {
+        "C": {
+          "g000": 0.74,
+          "g001": 0.74,
+          "g002": 0.9,
+          "merged": 0.84
+        },
+        "R": {
+          "gold": null,
+          "wrong": 0.65
+        }
+      },
+      "initial": {
+        "components": [
+          "merged",
+          "g002"
+        ],
+        "relations": [
+          "wrong"
+        ],
+        "structurally_valid": true,
+        "candidate_id": "constructed_initial"
+      },
+      "gold_C": [
+        "g000",
+        "g001",
+        "g002"
+      ],
+      "gold_R": [
+        "gold"
+      ],
+      "scenario": "missing required assessment protects initial state"
+    }
+  ],
+  "origin_solver_hashes": {
+    "research_1011_v11/solver_compare.py": "7ea14d219b93d992ec1e57d36e4612bd38382ffa3a8ad2e2490b4a4ec67a7245",
+    "research_1011_v10/cdcp_scoring/repair.py": "ce4bac4d0985ef3c3de089d2a229057b2241d2b8bd74db4ab6da445ea95d31e4"
+  }
+}

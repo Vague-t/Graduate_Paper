@@ -1,0 +1,78 @@
+{
+  "id": "cdcp_01260",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 5.0,
+  "initial": {
+    "C": [
+      "c001",
+      "c005"
+    ],
+    "R": []
+  },
+  "final": {
+    "C": [
+      "c001",
+      "c005"
+    ],
+    "R": [
+      "r0015",
+      "r0031"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.000318792000001622,
+      "time_limit": 5.0,
+      "objective": -2.5999999999999996,
+      "minimization_dual_bound": -2.6,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00030679199999994466,
+      "time_limit": 4.999681207999998,
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 8.479199999911202e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 2.6,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0006255840000015667,
+  "wall_seconds": 0.0010650419999986838,
+  "component_edits_net": 0,
+  "relation_edits_net": 2,
+  "phi_initial": [
+    1.7999999999999998,
+    0
+  ],
+  "phi_final": [
+    1.7999999999999998,
+    0.8
+  ],
+  "score_condition": "sparse",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.0010766669999995315
+}

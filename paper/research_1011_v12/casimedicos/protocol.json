@@ -1,0 +1,61 @@
+{
+  "id": "V12-CASIMEDICOS-FIXED8-DENSE-C",
+  "status": "FROZEN_BEFORE_NEW_SCORES",
+  "time": "2026-10-11T08:20:43.369754+00:00",
+  "sample": "same diagnostic 8 reused from v11; not held-out test",
+  "candidate_layer": "C only; D did not add aggregate recall in v11 and is not rescored",
+  "slots_per_batch": 384,
+  "batches": [
+    "casimedicos_112_154__01",
+    "casimedicos_117_112__01",
+    "casimedicos_187_68__01",
+    "casimedicos_190_94__01",
+    "casimedicos_26_117__01",
+    "casimedicos_309_215__01",
+    "casimedicos_309_215__02",
+    "casimedicos_309_215__03",
+    "casimedicos_318_140__01",
+    "casimedicos_75_65__01",
+    "casimedicos_75_65__02"
+  ],
+  "candidate_and_score_gold_use": false,
+  "thresholds": [
+    0.5,
+    0.65
+  ],
+  "primary_threshold": 0.5,
+  "threshold_selection": "predefined sensitivity, no best-test selection",
+  "initialization": "maximize component utility under interval nonoverlap, then positive directed relation utility; no gold; deterministic ties; replaces parse-failure empty initialization",
+  "utility": "2*q-1 at primary; sensitivity 2*(q-(tau-0.5))-1 (clipped transformed q); NOT calibrated expected F1",
+  "methods": [
+    "component-then-relation initialization",
+    "SingleObject",
+    "BRJ-lite",
+    "GlobalILP-lite"
+  ],
+  "global_budget_seconds": 5,
+  "local_budget_seconds": 5,
+  "edit_budgets": [
+    24,
+    96
+  ],
+  "missing_score": "fail entire document / preserve historical baseline; never infer negative",
+  "evidence": "actual heuristic LLM scoring and deterministic solver, no Qwen training; Casi is exploratory optional extension",
+  "model_snapshot_seed_temperature_tokens": "not exposed by tool; requested model+effort recorded",
+  "hashes": {
+    "research_1011_v12/prepare_casi.py": "938eb251bec6476a5a06d7c1113502c3ac8f396839f614c6e37c25bd18b2bdce",
+    "research_1011_v12/casimedicos/instruction.md": "ec650af2524e6c672c96655adda7e623e24f1430a3519cd11ded84b021813564",
+    "research_1011_v12/casimedicos/candidate_pools.json": "698e7efde88835d7a335b3823c668af3ccdfc7dfb89e1d7d6715653c674767d2",
+    "research_1011_v12/casimedicos/inputs/casimedicos_117_112__01.json": "a747bd634d8dcaf4638ef225d86ebc642f57981fde9bf18fdc2731630177d76d",
+    "research_1011_v12/casimedicos/inputs/casimedicos_26_117__01.json": "5b7b706c353f6279f8de2f9505f18a53dfb36fbb44f15efa1ce2cabbf157ffc6",
+    "research_1011_v12/casimedicos/inputs/casimedicos_75_65__01.json": "552551ecd898cf27e8c5de3a28fcd78ce76bd24a2a81869332c6cc8d0ebcdda8",
+    "research_1011_v12/casimedicos/inputs/casimedicos_112_154__01.json": "2b2955c4219d4b5ac564c10637a075f99c8c74c99a4c562b58d2f57d21fea1e5",
+    "research_1011_v12/casimedicos/inputs/casimedicos_309_215__02.json": "be0471087f9de8067d70a5519c8b6387b57a311bdf711c23adabc81615da8bb2",
+    "research_1011_v12/casimedicos/inputs/casimedicos_187_68__01.json": "5e543f170a90423628900c7214d1591d8552a82edb6d971d6d1d684c56f1d5f0",
+    "research_1011_v12/casimedicos/inputs/casimedicos_190_94__01.json": "b4cc1ca1d187b2c810dec0504138256260b3ed91a20b902a44fb8a6fc08bd9d7",
+    "research_1011_v12/casimedicos/inputs/casimedicos_309_215__03.json": "ca1755cccc372a24dcdb25102219b0c63826f9a6947288de358ededfa23e687d",
+    "research_1011_v12/casimedicos/inputs/casimedicos_318_140__01.json": "28575f2b275ee743dc84ddb378cb7d0d730acf78ab0340157e45d0c6e40a4e25",
+    "research_1011_v12/casimedicos/inputs/casimedicos_309_215__01.json": "e82980d6a220692b5db8f39e6dcb3b5f219dbebbdd21ab6f26f879e6514822cc",
+    "research_1011_v12/casimedicos/inputs/casimedicos_75_65__02.json": "b057cc51bf11eed798efcda0b558b9d6479ba5c5a02163e79c8145814969628d"
+  }
+}

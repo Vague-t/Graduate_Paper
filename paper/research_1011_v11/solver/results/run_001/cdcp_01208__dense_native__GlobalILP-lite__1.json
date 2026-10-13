@@ -1,0 +1,77 @@
+{
+  "id": "cdcp_01208",
+  "corpus": "cdcp",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "c000",
+      "c001"
+    ],
+    "R": [
+      "r0001"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c001"
+    ],
+    "R": []
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00011529200000026663,
+      "time_limit": 1.0,
+      "objective": -1.56,
+      "minimization_dual_bound": -1.56,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0001120830000012063,
+      "time_limit": 0.9998847079999997,
+      "objective": -2.0,
+      "minimization_dual_bound": -2.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 2.0875000000586397e-05,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 1.56,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.00022737500000147293,
+  "wall_seconds": 0.00043670800000050747,
+  "component_edits_net": 0,
+  "relation_edits_net": 1,
+  "phi_initial": [
+    1.56,
+    -0.040000000000000036
+  ],
+  "phi_final": [
+    1.56,
+    0
+  ],
+  "score_condition": "dense_native",
+  "source_family": "cdcp_scoring",
+  "total_run_wall_seconds": 0.0004437079999988214
+}

@@ -1,0 +1,83 @@
+{
+  "id": "casimedicos_458_126",
+  "corpus": "casimedicos",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 0.25,
+  "initial": {
+    "C": [
+      "c001",
+      "c003",
+      "c005"
+    ],
+    "R": [
+      "r0011",
+      "r0047"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c002",
+      "c004"
+    ],
+    "R": [
+      "r0001",
+      "r0021"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00037604099999999363,
+      "time_limit": 0.25,
+      "objective": -4.279999999999999,
+      "minimization_dual_bound": -4.279999999999999,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.00041816600000021964,
+      "time_limit": 0.249623959,
+      "objective": 5.0,
+      "minimization_dual_bound": 5.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.00010895800000021438,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 4.279999999999999,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0007942070000002133,
+  "wall_seconds": 0.0013344159999997274,
+  "component_edits_net": 6,
+  "relation_edits_net": 4,
+  "phi_initial": [
+    2.5200000000000005,
+    -1.8
+  ],
+  "phi_final": [
+    2.7199999999999998,
+    1.56
+  ],
+  "score_condition": "sparse",
+  "source_family": "new_corpora",
+  "total_run_wall_seconds": 0.0013570000000004967
+}

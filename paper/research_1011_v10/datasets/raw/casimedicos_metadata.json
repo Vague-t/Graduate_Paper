@@ -1,0 +1,440 @@
+{
+  "_id": "67323a01f0a6d31fff6e415c",
+  "id": "HiTZ/casimedicos-arg",
+  "author": "HiTZ",
+  "sha": "54a07ccf2993afc42a368e04682125b6f7b13be4",
+  "lastModified": "2026-06-25T16:17:50.000Z",
+  "private": false,
+  "gated": false,
+  "disabled": false,
+  "tags": [
+    "task_categories:text-generation",
+    "task_categories:question-answering",
+    "task_categories:token-classification",
+    "language:en",
+    "language:es",
+    "language:fr",
+    "language:it",
+    "license:cc-by-4.0",
+    "size_categories:1K<n<10K",
+    "format:csv",
+    "modality:text",
+    "library:datasets",
+    "library:pandas",
+    "library:polars",
+    "library:mlcroissant",
+    "region:us",
+    "casimedicos",
+    "explainability",
+    "medical exams",
+    "medical question answering",
+    "multilinguality",
+    "argument mining",
+    "argument generation",
+    "LLMs",
+    "LLM"
+  ],
+  "description": "\n    \n    \n    \n\n\n\t\n\t\t\n\t\n\t\n\t\tCasiMedicos-Arg: A Medical Question Answering Dataset Annotated with Explanatory Argumentative Structures\n\t\n\nCasiMedicos-Arg is, to the best of our knowledge, the first \nmultilingual dataset for Medical Question Answering where correct and incorrect diagnoses for a clinical case are \nenriched with a natural language explanation written by doctors. \nThe casimedicos-exp have been manually annotated with \nargument components (i.e., premise, claim) and argument… See the full description on the dataset page: https://huggingface.co/datasets/HiTZ/casimedicos-arg.",
+  "downloads": 165,
+  "likes": 1,
+  "cardData": {
+    "license": "cc-by-4.0",
+    "language": [
+      "en",
+      "es",
+      "fr",
+      "it"
+    ],
+    "tags": [
+      "casimedicos",
+      "explainability",
+      "medical exams",
+      "medical question answering",
+      "multilinguality",
+      "argument mining",
+      "argument generation",
+      "LLMs",
+      "LLM"
+    ],
+    "pretty_name": "CasiMedicos-Arg",
+    "configs": [
+      {
+        "config_name": "en",
+        "data_files": [
+          {
+            "split": "train",
+            "path": [
+              "en/train_en_all.csv"
+            ]
+          },
+          {
+            "split": "validation",
+            "path": [
+              "en/validation_en_all.csv"
+            ]
+          },
+          {
+            "split": "test",
+            "path": [
+              "en/test_en_all.csv"
+            ]
+          }
+        ]
+      },
+      {
+        "config_name": "es",
+        "data_files": [
+          {
+            "split": "train",
+            "path": [
+              "es/train_es_ordered.csv"
+            ]
+          },
+          {
+            "split": "validation",
+            "path": [
+              "es/validation_es_ordered.csv"
+            ]
+          },
+          {
+            "split": "test",
+            "path": [
+              "es/test_es_ordered.csv"
+            ]
+          }
+        ]
+      },
+      {
+        "config_name": "fr",
+        "data_files": [
+          {
+            "split": "train",
+            "path": [
+              "fr/train_fr_ordered.csv"
+            ]
+          },
+          {
+            "split": "validation",
+            "path": [
+              "fr/validation_fr_ordered.csv"
+            ]
+          },
+          {
+            "split": "test",
+            "path": [
+              "fr/test_fr_ordered.csv"
+            ]
+          }
+        ]
+      },
+      {
+        "config_name": "it",
+        "data_files": [
+          {
+            "split": "train",
+            "path": [
+              "it/train_it_ordered.csv"
+            ]
+          },
+          {
+            "split": "validation",
+            "path": [
+              "it/validation_it_ordered.csv"
+            ]
+          },
+          {
+            "split": "test",
+            "path": [
+              "it/test_it_ordered.csv"
+            ]
+          }
+        ]
+      }
+    ],
+    "task_categories": [
+      "text-generation",
+      "question-answering",
+      "token-classification"
+    ],
+    "size_categories": [
+      "1K<n<10K"
+    ]
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "en/test_en_all.csv"
+    },
+    {
+      "rfilename": "en/test_en_ordered.csv"
+    },
+    {
+      "rfilename": "en/test_en_ordered.json"
+    },
+    {
+      "rfilename": "en/train.json"
+    },
+    {
+      "rfilename": "en/train_en_all.csv"
+    },
+    {
+      "rfilename": "en/train_en_ordered.csv"
+    },
+    {
+      "rfilename": "en/train_en_ordered.json"
+    },
+    {
+      "rfilename": "en/validation_en_all.csv"
+    },
+    {
+      "rfilename": "en/validation_en_ordered.csv"
+    },
+    {
+      "rfilename": "en/validation_en_ordered.json"
+    },
+    {
+      "rfilename": "es/test_es_ordered.csv"
+    },
+    {
+      "rfilename": "es/test_es_ordered.json"
+    },
+    {
+      "rfilename": "es/test_es_ordered.jsonl"
+    },
+    {
+      "rfilename": "es/train_es_ordered.csv"
+    },
+    {
+      "rfilename": "es/train_es_ordered.json"
+    },
+    {
+      "rfilename": "es/train_es_ordered.jsonl"
+    },
+    {
+      "rfilename": "es/validation_es_ordered.csv"
+    },
+    {
+      "rfilename": "es/validation_es_ordered.json"
+    },
+    {
+      "rfilename": "es/validation_es_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/README.md"
+    },
+    {
+      "rfilename": "extended/en/dev.tsv"
+    },
+    {
+      "rfilename": "extended/en/test.tsv"
+    },
+    {
+      "rfilename": "extended/en/test_en_ordered.json"
+    },
+    {
+      "rfilename": "extended/en/train.tsv"
+    },
+    {
+      "rfilename": "extended/en/train_en_ordered.json"
+    },
+    {
+      "rfilename": "extended/en/validation_en_ordered.json"
+    },
+    {
+      "rfilename": "extended/es/dev.tsv"
+    },
+    {
+      "rfilename": "extended/es/test.tsv"
+    },
+    {
+      "rfilename": "extended/es/test_es_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/es/train.tsv"
+    },
+    {
+      "rfilename": "extended/es/train_es_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/es/validation_es_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/fr/dev.tsv"
+    },
+    {
+      "rfilename": "extended/fr/test.tsv"
+    },
+    {
+      "rfilename": "extended/fr/test_fr_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/fr/train.tsv"
+    },
+    {
+      "rfilename": "extended/fr/train_fr_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/fr/validation_fr_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/it/dev.tsv"
+    },
+    {
+      "rfilename": "extended/it/test.tsv"
+    },
+    {
+      "rfilename": "extended/it/test_it_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/it/train.tsv"
+    },
+    {
+      "rfilename": "extended/it/train_it_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/it/validation_it_ordered.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/en/test_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/en/train_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/en/validation_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/es/skipped/skipped_test.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/es/skipped/skipped_train.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/es/skipped/skipped_validation.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/es/test_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/es/train_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/es/validation_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/fix_relations.json"
+    },
+    {
+      "rfilename": "extended/relations/fr/skipped/skipped_test.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/fr/skipped/skipped_train.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/fr/skipped/skipped_validation.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/fr/test_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/fr/train_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/fr/validation_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/it/skipped/skipped_test.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/it/skipped/skipped_train.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/it/skipped/skipped_validation.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/it/test_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/it/train_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/relations/it/validation_relations.jsonl"
+    },
+    {
+      "rfilename": "extended/report_fix.txt"
+    },
+    {
+      "rfilename": "extended/report_skipped.txt"
+    },
+    {
+      "rfilename": "fr/test_fr_ordered.csv"
+    },
+    {
+      "rfilename": "fr/test_fr_ordered.json"
+    },
+    {
+      "rfilename": "fr/test_fr_ordered.jsonl"
+    },
+    {
+      "rfilename": "fr/train_fr_ordered.csv"
+    },
+    {
+      "rfilename": "fr/train_fr_ordered.json"
+    },
+    {
+      "rfilename": "fr/train_fr_ordered.jsonl"
+    },
+    {
+      "rfilename": "fr/validation_fr_ordered.csv"
+    },
+    {
+      "rfilename": "fr/validation_fr_ordered.json"
+    },
+    {
+      "rfilename": "fr/validation_fr_ordered.jsonl"
+    },
+    {
+      "rfilename": "it/test_it_ordered.csv"
+    },
+    {
+      "rfilename": "it/test_it_ordered.json"
+    },
+    {
+      "rfilename": "it/test_it_ordered.jsonl"
+    },
+    {
+      "rfilename": "it/train_it_ordered.csv"
+    },
+    {
+      "rfilename": "it/train_it_ordered.json"
+    },
+    {
+      "rfilename": "it/train_it_ordered.jsonl"
+    },
+    {
+      "rfilename": "it/validation_it_ordered.csv"
+    },
+    {
+      "rfilename": "it/validation_it_ordered.json"
+    },
+    {
+      "rfilename": "it/validation_it_ordered.jsonl"
+    },
+    {
+      "rfilename": "relations/test_relations.jsonl"
+    },
+    {
+      "rfilename": "relations/train_relations.jsonl"
+    },
+    {
+      "rfilename": "relations/validation_relations.jsonl"
+    }
+  ],
+  "createdAt": "2024-11-11T17:08:17.000Z",
+  "usedStorage": 2804064
+}

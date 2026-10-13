@@ -1,0 +1,86 @@
+{
+  "id": "casimedicos_112_154",
+  "corpus": "casimedicos",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 5.0,
+  "initial": {
+    "C": [
+      "c000",
+      "c003",
+      "c006",
+      "c008",
+      "c009",
+      "c012",
+      "c014",
+      "c016",
+      "c018"
+    ],
+    "R": [
+      "s0061_Support",
+      "s0145_Support",
+      "s0210_Support",
+      "s0244_Support",
+      "s0278_Support",
+      "s0312_Attack"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c003",
+      "c006",
+      "c008",
+      "c009",
+      "c012",
+      "c014",
+      "c016",
+      "c018"
+    ],
+    "R": [
+      "s0061_Support",
+      "s0145_Support",
+      "s0210_Support",
+      "s0244_Support",
+      "s0278_Support",
+      "s0312_Attack"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 2,
+      "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is At lower/fixed bound)",
+      "seconds": 0.0012063749999999818,
+      "time_limit": 5.0,
+      "objective": null,
+      "minimization_dual_bound": null,
+      "gap": null,
+      "nodes": null,
+      "has_incumbent": false,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "not_started",
+  "construction_seconds": 0.007441750000000025,
+  "primary_optimal": false,
+  "stop_reason": "no_eligible_improvement",
+  "accepted": false,
+  "solver_seconds": 0.0012063749999999818,
+  "wall_seconds": 0.010057125,
+  "component_edits_net": 0,
+  "relation_edits_net": 0,
+  "phi_initial": [
+    3.339999999999999,
+    2.4399999999999995
+  ],
+  "phi_final": [
+    3.339999999999999,
+    2.4399999999999995
+  ],
+  "threshold": 0.65,
+  "score_condition": "explicit_dense_native_C"
+}

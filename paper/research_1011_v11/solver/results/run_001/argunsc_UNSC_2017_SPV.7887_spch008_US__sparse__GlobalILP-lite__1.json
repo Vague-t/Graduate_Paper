@@ -1,0 +1,82 @@
+{
+  "id": "argunsc_UNSC_2017_SPV.7887_spch008_US",
+  "corpus": "argunsc",
+  "mode": "GlobalILP-lite",
+  "budget_seconds": 1.0,
+  "initial": {
+    "C": [
+      "c004",
+      "c005"
+    ],
+    "R": [
+      "r0041"
+    ]
+  },
+  "final": {
+    "C": [
+      "c000",
+      "c002",
+      "c004",
+      "c005"
+    ],
+    "R": [
+      "r0017",
+      "r0041"
+    ]
+  },
+  "status": "completed",
+  "scope": "same finite universe, objective, legality, nondecrease gates; net edit bound, not cumulative path bound",
+  "solver_calls": [
+    {
+      "stage": "maximize_phi",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0002945419999997867,
+      "time_limit": 1.0,
+      "objective": -4.54,
+      "minimization_dual_bound": -4.54,
+      "gap": 0.0,
+      "nodes": 1.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    },
+    {
+      "stage": "minimize_net_edits",
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "seconds": 0.0003993329999998352,
+      "time_limit": 0.9997054580000002,
+      "objective": 0.0,
+      "minimization_dual_bound": 0.0,
+      "gap": 0.0,
+      "nodes": 0.0,
+      "has_incumbent": true,
+      "warnings": [
+        "Unrecognized options detected: {'threads'}. These will be passed to HiGHS verbatim."
+      ]
+    }
+  ],
+  "tie_status": "primary_and_min_edits_optimal_lex_not_solved",
+  "construction_seconds": 0.00010545800000016925,
+  "primary_optimal": true,
+  "total_phi_upper_bound": 4.54,
+  "stop_reason": "accepted_global_solution",
+  "accepted": true,
+  "solver_seconds": 0.0006938749999996219,
+  "wall_seconds": 0.0012158749999997553,
+  "component_edits_net": 2,
+  "relation_edits_net": 1,
+  "phi_initial": [
+    1.76,
+    0.5800000000000001
+  ],
+  "phi_final": [
+    3.4400000000000004,
+    1.1
+  ],
+  "score_condition": "sparse",
+  "source_family": "new_corpora",
+  "total_run_wall_seconds": 0.001233041999999962
+}

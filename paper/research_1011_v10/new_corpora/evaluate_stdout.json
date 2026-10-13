@@ -1,0 +1,414 @@
+{
+  "aggregate": {
+    "argunsc": {
+      "documents": 32,
+      "gold_C": 828,
+      "gold_R": 505,
+      "initial_failures": 1,
+      "parsed_graphs": 58,
+      "valid_graphs": 58,
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 43,
+            "FP": 50,
+            "FN": 785,
+            "precision": 0.46236559139784944,
+            "recall": 0.051932367149758456,
+            "F1": 0.09337676438653637
+          },
+          "R": {
+            "TP": 3,
+            "FP": 50,
+            "FN": 502,
+            "precision": 0.05660377358490566,
+            "recall": 0.005940594059405941,
+            "F1": 0.010752688172043012
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 34,
+            "FP": 43,
+            "FN": 794,
+            "precision": 0.44155844155844154,
+            "recall": 0.04106280193236715,
+            "F1": 0.07513812154696133
+          },
+          "R": {
+            "TP": 3,
+            "FP": 40,
+            "FN": 502,
+            "precision": 0.06976744186046512,
+            "recall": 0.005940594059405941,
+            "F1": 0.010948905109489052
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 27,
+            "FP": 57,
+            "FN": 801,
+            "precision": 0.32142857142857145,
+            "recall": 0.03260869565217391,
+            "F1": 0.05921052631578947
+          },
+          "R": {
+            "TP": 0,
+            "FP": 42,
+            "FN": 505,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "sparse__BRJ-lite": {
+          "C": {
+            "TP": 42,
+            "FP": 105,
+            "FN": 786,
+            "precision": 0.2857142857142857,
+            "recall": 0.050724637681159424,
+            "F1": 0.08615384615384615
+          },
+          "R": {
+            "TP": 0,
+            "FP": 69,
+            "FN": 505,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "sparse__RelationOnly": {
+          "C": {
+            "TP": 43,
+            "FP": 50,
+            "FN": 785,
+            "precision": 0.46236559139784944,
+            "recall": 0.051932367149758456,
+            "F1": 0.09337676438653637
+          },
+          "R": {
+            "TP": 0,
+            "FP": 22,
+            "FN": 505,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "sparse__BRJ-lite": {
+          "C": {
+            "TP_recovered": 7,
+            "TP_lost": 8,
+            "FP_removed": 7,
+            "FP_added": 62,
+            "initial_TP": 43,
+            "initial_TP_retained": 35
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 3,
+            "FP_removed": 36,
+            "FP_added": 55,
+            "initial_TP": 3,
+            "initial_TP_retained": 0
+          }
+        },
+        "sparse__RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 43,
+            "initial_TP_retained": 43
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 3,
+            "FP_removed": 39,
+            "FP_added": 11,
+            "initial_TP": 3,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 61,
+        "C_gold": 828,
+        "R_hits": 4,
+        "R_gold": 505,
+        "C_candidates": 266,
+        "R_candidates": 4784,
+        "R_all_endpoints_present": 4,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0
+      },
+      "score_diagnostics": {
+        "sparse_default_R": 4597,
+        "sparse_default_gold_R": 4,
+        "sparse_positive_gold_R": 0
+      },
+      "relation_outcomes": {
+        "sparse__BRJ-lite": {
+          "unchanged": 29,
+          "harm": 3
+        },
+        "sparse__RelationOnly": {
+          "unchanged": 29,
+          "harm": 3
+        }
+      },
+      "case_selection": {
+        "sparse__BRJ-lite": {
+          "improvement": null,
+          "harm": "argunsc_UNSC_2014_SPV.7154_spch007_UK_neg",
+          "unchanged": "argunsc_UNSC_2014_SPV.7154_spch004_RF_neg"
+        },
+        "sparse__RelationOnly": {
+          "improvement": null,
+          "harm": "argunsc_UNSC_2014_SPV.7154_spch007_UK_neg",
+          "unchanged": "argunsc_UNSC_2014_SPV.7154_spch004_RF_neg"
+        }
+      }
+    },
+    "casimedicos": {
+      "documents": 32,
+      "gold_C": 389,
+      "gold_R": 211,
+      "initial_failures": 14,
+      "parsed_graphs": 29,
+      "valid_graphs": 26,
+      "metrics": {
+        "MCR-only": {
+          "C": {
+            "TP": 24,
+            "FP": 29,
+            "FN": 365,
+            "precision": 0.4528301886792453,
+            "recall": 0.061696658097686374,
+            "F1": 0.1085972850678733
+          },
+          "R": {
+            "TP": 1,
+            "FP": 30,
+            "FN": 210,
+            "precision": 0.03225806451612903,
+            "recall": 0.004739336492890996,
+            "F1": 0.008264462809917356
+          }
+        },
+        "g0": {
+          "C": {
+            "TP": 17,
+            "FP": 14,
+            "FN": 372,
+            "precision": 0.5483870967741935,
+            "recall": 0.043701799485861184,
+            "F1": 0.08095238095238096
+          },
+          "R": {
+            "TP": 1,
+            "FP": 19,
+            "FN": 210,
+            "precision": 0.05,
+            "recall": 0.004739336492890996,
+            "F1": 0.008658008658008658
+          }
+        },
+        "g1": {
+          "C": {
+            "TP": 18,
+            "FP": 23,
+            "FN": 371,
+            "precision": 0.43902439024390244,
+            "recall": 0.04627249357326478,
+            "F1": 0.08372093023255814
+          },
+          "R": {
+            "TP": 1,
+            "FP": 19,
+            "FN": 210,
+            "precision": 0.05,
+            "recall": 0.004739336492890996,
+            "F1": 0.008658008658008658
+          }
+        },
+        "sparse__BRJ-lite": {
+          "C": {
+            "TP": 21,
+            "FP": 45,
+            "FN": 368,
+            "precision": 0.3181818181818182,
+            "recall": 0.05398457583547558,
+            "F1": 0.09230769230769231
+          },
+          "R": {
+            "TP": 0,
+            "FP": 51,
+            "FN": 211,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        },
+        "sparse__RelationOnly": {
+          "C": {
+            "TP": 24,
+            "FP": 29,
+            "FN": 365,
+            "precision": 0.4528301886792453,
+            "recall": 0.061696658097686374,
+            "F1": 0.1085972850678733
+          },
+          "R": {
+            "TP": 0,
+            "FP": 36,
+            "FN": 211,
+            "precision": 0.0,
+            "recall": 0.0,
+            "F1": 0.0
+          }
+        }
+      },
+      "changes": {
+        "sparse__BRJ-lite": {
+          "C": {
+            "TP_recovered": 3,
+            "TP_lost": 6,
+            "FP_removed": 3,
+            "FP_added": 19,
+            "initial_TP": 24,
+            "initial_TP_retained": 18
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 1,
+            "FP_removed": 13,
+            "FP_added": 34,
+            "initial_TP": 1,
+            "initial_TP_retained": 0
+          }
+        },
+        "sparse__RelationOnly": {
+          "C": {
+            "TP_recovered": 0,
+            "TP_lost": 0,
+            "FP_removed": 0,
+            "FP_added": 0,
+            "initial_TP": 24,
+            "initial_TP_retained": 24
+          },
+          "R": {
+            "TP_recovered": 0,
+            "TP_lost": 1,
+            "FP_removed": 9,
+            "FP_added": 15,
+            "initial_TP": 1,
+            "initial_TP_retained": 0
+          }
+        }
+      },
+      "coverage": {
+        "C_hits": 34,
+        "C_gold": 389,
+        "R_hits": 3,
+        "R_gold": 211,
+        "C_candidates": 131,
+        "R_candidates": 1592,
+        "R_all_endpoints_present": 3,
+        "R_multisource_gold": 0,
+        "R_multisource_in_pool": 0
+      },
+      "score_diagnostics": {
+        "sparse_default_R": 1416,
+        "sparse_default_gold_R": 2,
+        "sparse_positive_gold_R": 0
+      },
+      "relation_outcomes": {
+        "sparse__BRJ-lite": {
+          "unchanged": 31,
+          "harm": 1
+        },
+        "sparse__RelationOnly": {
+          "unchanged": 31,
+          "harm": 1
+        }
+      },
+      "case_selection": {
+        "sparse__BRJ-lite": {
+          "improvement": null,
+          "harm": "casimedicos_353_161",
+          "unchanged": "casimedicos_112_154"
+        },
+        "sparse__RelationOnly": {
+          "improvement": null,
+          "harm": "casimedicos_353_161",
+          "unchanged": "casimedicos_112_154"
+        }
+      }
+    }
+  },
+  "costs": {
+    "argunsc__sparse__BRJ-lite": {
+      "documents": 32,
+      "completed": 31,
+      "failures": 1,
+      "wall_seconds": 0.4865329579999995,
+      "solver_seconds": 0.19215010200000426,
+      "attempts": 1631,
+      "commits": 105,
+      "solver_calls": 1299,
+      "component_edits": 86,
+      "relation_edits": 94,
+      "unknown_C": 0,
+      "unknown_R": 0
+    },
+    "argunsc__sparse__RelationOnly": {
+      "documents": 32,
+      "completed": 31,
+      "failures": 1,
+      "wall_seconds": 0.16159166500000077,
+      "solver_seconds": 0.09284911600000034,
+      "attempts": 441,
+      "commits": 49,
+      "solver_calls": 615,
+      "component_edits": 0,
+      "relation_edits": 53,
+      "unknown_C": 0,
+      "unknown_R": 0
+    },
+    "casimedicos__sparse__BRJ-lite": {
+      "documents": 32,
+      "completed": 18,
+      "failures": 14,
+      "wall_seconds": 0.11720225000000073,
+      "solver_seconds": 0.060780941999999394,
+      "attempts": 556,
+      "commits": 38,
+      "solver_calls": 429,
+      "component_edits": 31,
+      "relation_edits": 52,
+      "unknown_C": 0,
+      "unknown_R": 0
+    },
+    "casimedicos__sparse__RelationOnly": {
+      "documents": 32,
+      "completed": 18,
+      "failures": 14,
+      "wall_seconds": 0.04881674999999985,
+      "solver_seconds": 0.03133499300000153,
+      "attempts": 160,
+      "commits": 22,
+      "solver_calls": 228,
+      "component_edits": 0,
+      "relation_edits": 25,
+      "unknown_C": 0,
+      "unknown_R": 0
+    }
+  }
+}

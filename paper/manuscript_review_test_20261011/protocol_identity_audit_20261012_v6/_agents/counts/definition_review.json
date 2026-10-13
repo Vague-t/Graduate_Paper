@@ -1,0 +1,78 @@
+{
+  "review_scope": "对revision_manifest.json中9处定义补丁进行只读交叉审核；未修改DOCX、数值或其他审查方案。",
+  "manifest_sha256": "463905ac919b733cddf4ab180fe1c2fe3c3470ddf6c9e75da586c0a5062eb60d",
+  "reviewed_output_sha256_as_recorded": "bca4cdc224b6cf05a448bde5610111760ef2c2c4800b6c3958a624862afb1009",
+  "status": "PASS_FOR_DOCUMENTED_PROTOCOL_DEFINITIONS",
+  "summary": "9处补丁与已核对的继承定义、G0构建段落和64/256配置口径一致。未发现把G0等同于I0、把I1写成I0后追加、把256误作规则补充独立额度，或把协议澄清扩大成真实执行完成的断言。",
+  "checks": [
+    {
+      "block_id": "B0300",
+      "status": "pass",
+      "comment": "与原上传稿明确的BR-O继承定义及G0合法化定义一致；区分I0终态与初始图，没有把G0当成I0。"
+    },
+    {
+      "block_id": "B0488",
+      "status": "pass",
+      "comment": "补明训练对照统一使用的I0包含BR-O，未改变训练比较对象。"
+    },
+    {
+      "block_id": "B0527",
+      "status": "pass",
+      "comment": "按第四章从候选生成、MCR初选及G0出发进入新决策的协议，I1替代BR-O的表述正确；仅保留初始接口，不声称新旧全部模块或参数相同。"
+    },
+    {
+      "block_id": "B0553",
+      "status": "pass",
+      "comment": "64是模型完整源组与目标提案上限；256是模型提案加相邻2/3成员规则补充的合计上限，不是256再加64。受保护已有关系仍保留，排除于补充额度的解释由B0557明确。"
+    },
+    {
+      "block_id": "B0557",
+      "status": "pass",
+      "comment": "与preview_config的cdcp_model_group_proposals=64、cdcp_total_group_proposals=256一致；补充跨度64是另一类额度，已分别标注；受保护对象另计。"
+    },
+    {
+      "block_id": "B0782",
+      "status": "pass",
+      "comment": "四格身份对应准确：T1/I0保留BR-O，T0/I1改变推理配置，T1/I1同时改变训练与推理。"
+    },
+    {
+      "block_id": "B0783",
+      "status": "pass",
+      "comment": "将固定T1的差值准确解释为I1与含BR-O的I0之差，避免误称I1相对未经修正的G0增量。"
+    },
+    {
+      "block_id": "B0785",
+      "status": "pass",
+      "comment": "比较问题改为完整I1与继承I0的比较，与四格差值相符。"
+    },
+    {
+      "block_id": "B0799",
+      "status": "pass",
+      "comment": "明确替代关系，原数值未变；未写成I1在I0终态上追加处理。"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+      "lines": "816",
+      "supports": "原上传稿明确T0/I0保留结论专项适配、线索提示、句子监督及BR-O推理。"
+    },
+    {
+      "path": "/Users/channtang/Downloads/paper/_revision_1011_v13/compose_content.py",
+      "lines": "187",
+      "supports": "I0表示多候选重排序及有界修正，完整继承不能由MCR初始图替代。"
+    },
+    {
+      "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt",
+      "lines": "879-905",
+      "supports": "候选生成、原MCR初选及共同合法化得到G0，再进入后续学习型修正。"
+    },
+    {
+      "path": "/Users/channtang/Downloads/paper/_revision_1011_v13/preview_config.json",
+      "lines": "133-144",
+      "supports": "supplement_spans=64与cdcp_model_group_proposals=64是独立字段；cdcp_total_group_proposals=256为总提案上限。"
+    }
+  ],
+  "scope_limit": "结论是文稿协议定义与已有配置的一致性，不证明这些模块已经真实实现、运行或验收；三项独立审查报告中的执行状态、模块身份和统计来源缺口仍按各自结论保留。",
+  "required_changes": []
+}

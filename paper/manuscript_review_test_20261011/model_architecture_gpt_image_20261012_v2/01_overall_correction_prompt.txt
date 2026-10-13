@@ -1,0 +1,18 @@
+Edit the supplied model architecture diagram. Preserve its landscape layout, attractive paper-style vector-like graphic design, the two blue/amber lanes, original title, model layer stacks, matrices, graphs, and the overall sizes and placements. This is a scientific correction pass, so do not add any new mechanisms or decorate it. Make these exact corrections:
+
+1. In the upper left document rows, remove all invented Chinese sentences and the [CLS]/[SEP] tokens. Replace each with abstract colored token tiles: original “x₁ x₂ x₃ … x₈” and enhanced “x₁′ x₂′ x₃′ … x₉′”. Keep labels “原文 x” and “增强文 x′”. In the little original argument graph, replace Chinese sentence node labels by “c₁”, “c₂”, “c₃”, and use generic relation labels “r₁”, “r₂”. Do not imply a real dataset example.
+2. The small mask is FACTOR-LEVEL, not token-level: replace the long tile row beneath tokens by two short distinct rows labeled “组件 mC” with three indexed factor entries “c₁  c₂  c₃”, and “关系 mR” with three factor entries “r₁  r₂  NONE”; small 1/0 tiles under these factors represent retained/ignored supervision. Keep group heading “可靠因素掩码”. Do not align mask tiles to token positions.
+3. In the bottom-left fixed-candidate tray, correct its three column headings and content EXACTLY:
+“跨度候选 U” containing colored interval strips only;
+“带类型组件 V” containing two abstract objects “(b,e,t)” and “(b′,e′,t′)” plus small type-color chips;
+“完整关系 P” containing one complete source-set→target relation motif.
+V MUST NOT be titled “关系候选”, and V MUST NOT contain relation triples.
+4. Inference input text must also be abstract tokens “x₁ x₂ x₃ … x₈” with no [CLS], [SEP] or invented sentence.
+5. Remove the small duplicate decision gate inside the amber “依赖闭合联合决策” block. Keep its two alternative solver objects “全局 ILP” and “有界局部”, with “或” between them; keep dashed sublabel “集合动作：可选”. This diagram must contain only ONE final “决策接受门”.
+6. Make the inference dataflow unambiguous: candidates → 重排序 → 初始图 G₀; 初始图 G₀ has its own black input arrow into the amber joint-decision block. Fixed candidates and independent qC/qR also feed that amber block. Amber block output → the single final decision gate → 完整论辩图. Remove the incorrect upward arrow from the gate back to 重排序. Remove the misleading output-graph feedback loop. Instead place a small grey annotation below the final decision gate reading “未通过：保留当前合法图”, with no feedback arrows.
+7. Keep the gate formula exactly “ΔΦC ≥ 0”, “ΔΦR ≥ 0”, “ΔΦ > δ”.
+8. Ensure original full-graph generation supervision is an original-only path from the SHARED GENERATOR. Keep the label “原文完整生成监督（仅原文 x）”. The augmented hidden-state H′ must not feed complete-graph generation supervision.
+9. Keep the independent inference object scorer separate, label “独立对象评分器”, “OOF 训练后冻结”, “qC（组件得分）”, “qR（关系得分）”. No connection from the upper auxiliary heads into this scorer.
+10. Maintain complete multi-source hyperedge hub motif, b→b′ replacement illustration, source/target dependency arrows and the final graph. Finish with sharp legible Chinese text and generous clearance around all connectors.
+
+No additional text, no numerical measured results, no architecture inventing. Output the corrected complete diagram.

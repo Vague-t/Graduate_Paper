@@ -1,0 +1,44 @@
+[B0000] Title
+面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究
+
+[B0001] Body Text
+English Title: End-to-End Argument Mining via Relation-Aware Learning and Dependency-Closed Repair
+
+[B0002] Body Text
+2026年10月
+
+[B0003] Body Text
+
+
+[B0004] 
+
+
+[B0005] heading 1
+摘要
+
+[B0006] Body Text
+端到端论辩挖掘需要同时定位组件、判别论辩角色并抽取有向关系。组件与关系之间的依赖，使训练文本的局部改写可能破坏原有监督，也使预测组件的修改可能导致关系端点失效。本文在多候选重排序与有界修正的基础上，研究训练与推理两个阶段的依赖维护。
+
+[B0007] Body Text
+训练阶段通过关系影响域识别内部、跨边界及NONE因素，利用无损标注输运和逐因素掩码建立可靠对应。原文保留完整图生成监督，增强视图仅对可靠组件与关系提供辅助监督和分布对齐约束。推理阶段将组件变化及全部受影响关系纳入依赖闭合事务，在冻结的完整对象评分下，结合分项效用门和编辑预算决定是否接受修改，并支持局部与全局两种求解路径。CDCP的多源关系始终按完整超边计数。
+
+[B0008] Body Text
+在AAEC和CDCP官方测试划分及自由预测数量协议下，Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0时，训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。在14项主要比较的Holm校正后，两种语料的追加推理增量及CDCP训练增量达到统计显著性，AAEC训练增量未达到统计显著性。Qwen3.5-4B和Qwen2.5-7B-Instruct的补充实验支持共享增强条件下的方法迁移。弱评分回退与失败案例进一步表明，固定效用的提高并不保证每个样本的抽取质量改善。
+
+[B0009] Body Text
+关键词：端到端论辩挖掘；可靠对应；成对学习；依赖闭合；图修正；结构化预测
+
+[B0010] heading 1
+Abstract
+
+[B0011] Body Text
+End-to-end argument mining requires the joint identification of text spans, argumentative roles, and directed relations. Dependencies between components and relations create challenges at two stages: local paraphrasing can invalidate training labels, and component edits can invalidate relation endpoints during prediction repair. Building on multi-candidate reranking and bounded repair, this thesis studies dependency maintenance during training and inference.
+
+[B0012] Body Text
+During training, relation influence domains identify internal, cross-boundary, and NONE factors. Lossless annotation transport and factor-level masks establish reliable correspondences for auxiliary supervision and paired distribution alignment, while original documents retain full-graph generation targets. During inference, dependency-closed transactions jointly reconsider component changes and all affected relations. Frozen full-object scores, separate utility gates, and edit budgets determine whether to accept a transaction. Local and global optimization use the same object identities and structural constraints. Multi-source relations in CDCP are evaluated as complete native hyperedges.
+
+[B0013] Body Text
+On the official AAEC and CDCP test splits under free-cardinality evaluation, the complete Qwen3.5-9B configuration achieves strict relation F1 scores of 71.63 and 50.77, exceeding the same-backbone ICIC/MCR-BR baseline by 5.94 and 8.98 percentage points. With I0 fixed, the training gains are 2.56 and 3.30 points; with T1 fixed, the additional repair gains are 3.38 and 5.68 points. After Holm correction across fourteen primary comparisons, both additional inference gains and the CDCP training gain are statistically significant, whereas the AAEC training gain is not. Supplementary experiments with Qwen3.5-4B and Qwen2.5-7B-Instruct support transfer under shared augmentation. Weak-score abstention and failure cases show that improved fixed utility does not guarantee better extraction for every instance.
+
+[B0014] Body Text
+Keywords: End-to-End Argument Mining; Reliable Correspondence; Paired Learning; Dependency Closure; Graph Repair; Structured Prediction

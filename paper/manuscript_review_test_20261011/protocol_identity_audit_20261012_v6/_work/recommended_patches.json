@@ -1,0 +1,444 @@
+{
+  "source_sha256": "177c90ce5327cc7cf258d576fbb478a5e766065dcedfa1dfde61448f8c56f3fa",
+  "status": "RECOMMENDATIONS_NOT_APPLIED",
+  "patches": [
+    {
+      "block_id": "B0230",
+      "op": "replace_text",
+      "old_text": "第六章总结两项研究及其组合分析，区分配置变化与机制贡献，并据此说明适用条件、证据局限和后续研究方向。附录集中保存数据坐标、实现验收、实验登记、外部对照、逐种子记录、案例定位与公共配置。",
+      "new_text": "第六章总结两项研究及其组合分析，区分配置变化与机制贡献，并据此说明适用条件、证据局限和后续研究方向。附录集中保存数据坐标、实现检查方案与模拟记录、实验登记、外部对照、逐种子记录、案例定位与公共配置。",
+      "reason": "使绪论的附录定位与实际材料状态一致，不提前宣告实现通过。",
+      "priority": "recommended",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/acceptance_scenario/assumed_implementation_acceptance.json",
+          "lines": "1-61"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0952",
+      "op": "replace_text",
+      "old_text": "附录B 评分与事务执行记录",
+      "new_text": "附录B 评分与事务记录规范",
+      "reason": "本附录主要给出目标运行的记录要求，已列验收数为模拟稿列示，标题不应将其一概表述为真实执行记录。",
+      "priority": "recommended",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/acceptance_scenario/assumed_implementation_acceptance.json",
+          "lines": "1-61"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0955",
+      "op": "replace_text",
+      "old_text": "输入快照保存C0、R0、完整候选V/P、qC/qR、未校准分数、κ、种子及文档来源。金标只进入离线评价字段，决策函数的输入为候选、冻结分数和约束。模型、分词器、OOF折与校准身份在登记记录中关联。",
+      "new_text": "目标运行的输入快照应保存C0、R0、完整候选V/P、qC/qR、未校准分数、κ、种子及文档来源；决策函数只接收候选、冻结分数和约束，金标仅用于离线评价。模型、分词器、OOF折与校准身份须通过文件摘要关联。本段规定真实运行的隔离要求；历史模拟允许按金标构造对象或分数，其材料须另标身份，不能据此认定已满足盲预测协议。",
+      "reason": "将运行规范与金标知情模拟区分，避免把设计约束写成已完成的运行事实。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/generate_graph_scenario.py",
+          "lines": "1-5,97-121,157-162"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/supplement_acceptance.py",
+          "lines": "31-52"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0966",
+      "op": "replace_text",
+      "old_text": "B.4 实现一致性验收",
+      "new_text": "B.4 实现检查方案与模拟记录",
+      "reason": "“实现一致性验收”容易把模拟PASS解释为模块已实现；保留章节编号并限定其证据层级。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/acceptance_scenario/assumed_implementation_acceptance.json",
+          "lines": "1-61"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0969",
+      "op": "replace_text",
+      "old_text": "原稿的模拟验收记录列示：8970条图记录通过合法性与严格计数重算，6900条终态与3131次接受账本通过重放，并检查金标关系供给、逐种子计数、端点链、源组及四格成员恒等式。这些列示记录用于评审功能测试，不表示本轮已复现真实目标模型或求解器实验。正文实际CPU案例与原生语料案例另按其材料身份核对；主结果统计输入的缺口见附录J的S2.5。",
+      "new_text": "原稿列示8970条图记录、6900条终态和3131次接受账本，并给出合法性检查、严格计数和重放通过的模拟结论。本轮未定位到与本稿数值及版本绑定的逐条输入、输出和重放报告，故保留这些数量作为模拟稿列示值，不确认相应检查已实际执行。历史图模拟、构造输入上的程序检查和实际CPU诊断分别具有独立材料身份，不能互相替代；本版统计输入的绑定要求见附录J的S2.5。",
+      "reason": "8970/6900/3131在当前输入原稿中出现，现存v12/v13记录与其数量、协议、结果均不匹配；撤销未经证实的重放完成语气，亦不误称磁盘无任何历史记录。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/simulation/manifest.json",
+          "lines": "1-15"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/data/manifest.json",
+          "lines": "50-80"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_manifest.json",
+          "lines": "1-11"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0973",
+      "op": "replace_text",
+      "old_text": "表B-1 接口验收与故障注入",
+      "new_text": "表B-1 接口检查与故障注入的模拟记录",
+      "reason": "表题直接披露表内输入数、通过数和数值观察为模拟列示，防止脱离封面后被当作实测验收。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/acceptance_scenario/assumed_implementation_acceptance.json",
+          "lines": "1-61"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0975",
+      "op": "replace_text",
+      "old_text": "每类检查保存输入身份、配置、输出身份和判定。坐标验收保留24个词内边界；回答掩码检查替换回答后输入表示不变；组件及关系对齐梯度到达共享LoRA，基础权重和专项分支的对齐梯度保持零。故障注入的“通过”表示按预期回退或恢复，不表示故障没有发生。",
+      "new_text": "表B-1按模拟情景列示各类检查的预期输入数、通过数及判定；其数值尚未与本稿版本匹配的训练日志、故障输入和逐条输出建立绑定。真实验收须保存输入身份、配置、输出身份与判定，并核验词内边界、回答隔离、共享LoRA梯度及冻结参数。故障检查的“通过”应表示已按预期回退或恢复，不能由预设PASS字段推定。",
+      "reason": "旧稿“每类检查保存”“梯度到达”混淆目标接口与已观测行为；历史脚本明确直接构造PASS及梯度值。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/acceptance_scenario/assumed_implementation_acceptance.json",
+          "lines": "1-61"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/supplement_acceptance.py",
+          "lines": "75-89"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0979",
+      "op": "replace_text",
+      "old_text": "12个候选资源溢出输入返回G0；60个超时检查含38个有incumbent、22个无incumbent，全部返回合法完整图。40个提交失败和24个中断恢复输入保持语义哈希一致；60个缺分输入不把NaN或未评估值转成低概率。240个破同分输入完成固定次序，主评价无超时，最优gap为0。故障挑战集不并入正常评价的时限比例。",
+      "new_text": "表B-1的资源边界情景包括12个候选溢出输入、60个超时输入（38个有incumbent、22个无incumbent）、40个提交失败输入、24个中断恢复输入、60个缺分输入和240个破同分输入。列示的合法回退、语义哈希一致、缺分保护及固定次序通过均为模拟记录；“主评价无超时、最优gap为0”也未由本版绑定的求解日志确认。真实报告应另存求解返回、约束复核及各级最优性状态，故障挑战集不并入正常评价的时限比例。",
+      "reason": "保留全部既有数量但不将模拟故障和求解证书当作已执行事实；补上可以关闭该缺口的日志要求。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_blocks.json",
+          "lines": "6434-6593"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/acceptance_scenario/assumed_implementation_acceptance.json",
+          "lines": "1-61"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/supplement_acceptance.py",
+          "lines": "75-89"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B1002",
+      "op": "replace_text",
+      "old_text": "本稿列明原始输入摘要、规范化语料、配置、逐对象计数、评分、事务、审核及成本等材料的保存要求。现有模拟材料、教学输入与实际CPU诊断分别保留其来源身份；主结果仍缺少完整的文档×种子×方法计数输入，统计复算范围以附录J的S2.5为准。引用原文保持原拼写，不因语言错误擅自润色数据集内容。",
+      "new_text": "本稿列明原始输入摘要、规范化语料、配置、逐对象计数、评分、事务、审核及成本材料的保存要求。磁盘保留旧版模拟计数及构造程序记录，教学输入与实际CPU诊断也分别具有来源身份；但尚未建立与本版主表相匹配的完整“文档×种子×方法”输入及文件摘要绑定。旧版存在数据不等于本版可复算，统计复核范围以附录J的S2.5为准。引用原文保持原拼写，不因语言错误擅自润色数据集内容。",
+      "reason": "将“缺少输入”限定为当前结果的版本绑定，承认旧版完整数据确实存在，同时避免把旧版当作本版复算证据。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/simulation/manifest.json",
+          "lines": "1-15"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/data/manifest.json",
+          "lines": "50-80"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/_revision_1011_v12/simulation/manifest.json",
+          "lines": "1-12"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/chapter_revision_20261012/ch02/recompute_statistics.py",
+          "lines": "1-7,12-27,39-65"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B1006",
+      "op": "replace_text",
+      "old_text": "主实验、失败分析、原稿已发表表和实际CPU案例具有独立运行身份。修订不覆盖前一版草稿，完整文件清单及SHA-256写入final_manifest。读者可由正文表格定位到记录文件和复算脚本。",
+      "new_text": "主结果模拟、失败分析、原稿已发表表及实际CPU案例应分别登记材料身份。修订保留前版文稿；文稿文件清单与实验材料清单分开管理，各自记录版本和SHA-256。仅当正文表格与计数输入、图对象、配置和复算脚本逐项绑定后，才能说明该表已具备相应复算条件。",
+      "reason": "原文笼统声称读者可由表格定位记录及复算，与当前本版输入未绑定冲突；改成可执行的材料管理要求。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/chapter_revision_20261012/ch02/recompute_statistics.py",
+          "lines": "1-7,12-27,39-65"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_manifest.json",
+          "lines": "1-11"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B1207",
+      "op": "replace_text",
+      "old_text": "随本章提供的统计脚本与教学输入用于验证计数、配对与重采样接口。教学输入使用DEMO标识，不参与论文主结果。原稿主结果尚缺少完整的文档×种子×方法计数输入，因此本轮不声称已经复现表3-6、表4-6或表5-3中的统计分布。",
+      "new_text": "随本章提供的统计脚本与DEMO教学输入只验证计数、配对和重采样接口，不参与论文主结果。历史v12保留人工计数情景，v13保留319篇AAEC与580篇CDCP训练文本上的构造图及逐文档计数；二者与本稿80篇AAEC、150篇CDCP测试划分背景及主表数值不同，不能直接替换本版输入。本版尚未完成主表、逐文档计数、比较族及共同抽样索引的文件摘要绑定，因此不声称已经复现表3-6、表4-6或表5-3中的统计分布。",
+      "reason": "明确旧模拟可复算与当前稿不可据此复算之间的版本和协议边界；避免不准确的绝对缺失表述。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/_revision_1011_v12/generate_scenario.py",
+          "lines": "11-41,54-67,94-100"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/data/manifest.json",
+          "lines": "50-80"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/generate_graph_scenario.py",
+          "lines": "157-162"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/chapter_revision_20261012/ch02/recompute_statistics.py",
+          "lines": "1-7,12-27,39-65"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0724",
+      "op": "replace_text",
+      "old_text": "SetLocal与Single在当前池中得到相同计数，集合动作没有新增收益；Global相对局部的微小差值区间跨零。全局路径的选择依据包括可行解证书、较少调度与资源成本，而非必然更高的F1。主路径690个输入均获得最优证书，gap为0，正常评价无超时；破同分与故障输入另见附录B。",
+      "new_text": "SetLocal与Single在模拟主池中得到相同计数，集合动作没有新增收益；Global相对局部的微小差值区间跨零。全局路径的设计依据包括可行解证书、调度复杂度与资源成本，而非必然更高的F1。该模拟条件将690个输入均获最优证书、gap为0且无超时列为场景状态；本版尚未提供绑定这些输入的求解返回与证书，不将其解释为真实求解验收。破同分与故障检查的记录要求见附录B。",
+      "reason": "阻止第四章把模拟场景的最优证书与无超时改写成实际求解观测，与附录B修改后的证据身份对齐。",
+      "priority": "required",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt",
+          "lines": "1265-1326"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/_source_audit/source_manifest.json",
+          "lines": "1-11"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v13/generate_graph_scenario.py",
+          "lines": "1-5,157-162"
+        }
+      ],
+      "topic": "execution",
+      "applied": false
+    },
+    {
+      "block_id": "B0378",
+      "op": "insert_after",
+      "old_text": "所有版本先检查格式、槽位身份、坐标往返和完整端点引用，再在全文上下文中检查改写组件的含义、角色、指代、否定与模态。格式失效或确认改变组件含义时拒绝整个变体；组件意义待定时也不接纳该变体。原始文档和金标不因模型判断而删除。",
+      "new_text": "本章将用于产生因素判断的模型称为语义审核器。目标配置为Qwen/Qwen2.5-7B-Instruct：输入原文与改写文、完整端点及原生标签定义，分别输出组件含义与角色、关系状态及待定标记，再与原标注比较生成掩码。该身份来自设计配置，尚未绑定实际审核检查点和调用日志；它不同于第四章输出完整对象正确性分数的评分器。",
+      "reason": "为语义审核器补齐模型身份和输入输出，同时明确设计配置不等于执行证据。",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/_revision_1011_v13/preview_config.json",
+          "lines": "2–12"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt",
+          "lines": "497–509"
+        }
+      ],
+      "topic": "modules",
+      "applied": false
+    },
+    {
+      "block_id": "B0567",
+      "op": "replace_text",
+      "old_text": "评分器采用固定文本编码、跨度MLP与有向端点组合MLP，参数不与生成器共享。它学习真实候选中完整对象的正确性；第三章辅助头则学习给定监督因素的类型与关系状态。两者的参数、标签含义与用途均有区别，参数分离本身不保证误差独立，参见第二章2.3节。",
+      "new_text": "评分器的目标配置采用冻结的Qwen/Qwen2.5-7B-Instruct文本编码器，配合跨度MLP与有向端点组合MLP；评分头为两层、隐藏维度1024、dropout为0.1，参数不与生成器共享。编码器名称表示同一预训练模型系列，不表示复用生成器适配后的检查点。该评分器拟在OOF候选上学习完整对象正确性，第三章辅助头则学习给定监督因素的类型与关系状态，两者的参数、标签含义与用途均有区别。现存配置尚不能证明评分头已完成拟合、Platt校准已完成并用于目标评价；参数分离本身也不保证误差独立。",
+      "reason": "补齐评分编码器及评分头的拟定身份，避免把生成骨干或真实Luna启发式评分混称为训练完成的神经评分器。",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/_revision_1011_v13/preview_config.json",
+          "lines": "2–12,44–46,88–93"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1010_v7_luna/protocol.json",
+          "lines": "48,69–75"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1010_v7_luna/scoring_protocol.json",
+          "lines": "3–12"
+        }
+      ],
+      "topic": "modules",
+      "applied": false
+    },
+    {
+      "block_id": "B0560",
+      "op": "replace_text",
+      "old_text": "原稿所述CasiMedicos实际诊断复用既有的C层候选，未启用没有额外聚合覆盖收益的D层边界扩展。其证据限于该有限提案诊断；CDCP完整源组提案器仍属于待实现并经训练验收的目标配置，不因主结果表完整而视为已经落实。",
+      "new_text": "CDCP源组提案器目前明确的是完整源集合与目标的输出接口及64／256两级候选上限，现有配置没有给出独立的提案器模型、网络结构、训练目标或检查点，因而仍属待实现和验证的模块；不得将生成骨干或跨度头自动认作该提案器。原稿所述CasiMedicos实际诊断复用既有的C层候选，未启用没有额外聚合覆盖收益的D层边界扩展；该诊断不能补足CDCP多源提案器的实现证据。",
+      "reason": "区分已知候选上限与仍缺失的提案器模型身份，并限制跨语料诊断的证明范围。",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/_revision_1011_v13/preview_config.json",
+          "lines": "4–12,132–147"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v12/casimedicos/protocol.json",
+          "lines": "5–6,43–44"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1010_v7_luna/graph_core.py",
+          "lines": "141–142"
+        }
+      ],
+      "topic": "modules",
+      "applied": false
+    },
+    {
+      "block_id": "B1198",
+      "op": "replace_text",
+      "old_text": "配置、提示和版本清单绑定登记标识RT-PREREG-01。权重与分词器身份为rt-qwen25-7b-r1、rt-qwen25-tokenizer-r1；最终检查点按语料、方法、种子和epoch命名。NoPair、CompPair、T1/I0共享视图及掩码摘要，改变学习项；其余增强对照匹配接受规模和源文档更新预算。",
+      "new_text": "本稿沿用RT-PREREG-01及rt-qwen25-7b-r1、rt-qwen25-tokenizer-r1等模拟登记名称，作为文内记录的关联键，不将其作为已核验的模型版本或权重摘要。设计配置给出的模型系列为Qwen/Qwen2.5-7B-Instruct，实际运行仍须记录仓库revision、权重与分词器哈希，并分别绑定生成器、语义审核器、跨度头和对象评分器的检查点。NoPair、CompPair、T1/I0在目标协议中共享视图及掩码摘要，只改变学习项；其余增强对照匹配接受规模和源文档更新预算。",
+      "reason": "将文内模拟别名与实际模型revision/hash明确分开，不把检查点命名规则当作权重已存在。",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/_revision_1011_v13/preview_config.json",
+          "lines": "2–12,154–160"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt",
+          "lines": "2423–2425"
+        }
+      ],
+      "topic": "modules",
+      "applied": false
+    },
+    {
+      "block_id": "B1199",
+      "op": "insert_after",
+      "old_text": "登记标识与文件摘要用于关联记录。本轮没有凭这些名称确认对应训练或推理已执行；模型、预测和逐文档计数仍需与实际交付文件绑定。",
+      "new_text": "实际诊断采用另一组模块身份：research_1011_v11中的增强语义判断请求gpt-5.6-luna、low推理强度，并向判断任务提供原标签；它不是正文先独立分类再比较标签的目标审核流程，也没有独立人工裁决。research_1010_v7_luna及后续有限候选诊断使用同型号新上下文给出启发式对象置信度，没有训练本文的冻结编码器与MLP评分器；服务端快照未由接口暴露。CPU-BIO-SGD为另行拟合的线性组件与关系诊断模型，不承担上述三个神经模块的身份。",
+      "reason": "集中登记真实诊断与目标配置的对应边界，避免各处重复长篇说明。",
+      "source_evidence": [
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v11/protocol.json",
+          "lines": "4–21"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v11/model_execution_manifest.json",
+          "lines": "243–257"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1011_v11/drift/filter_instruction.md",
+          "lines": "1–4"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1010_v7_luna/protocol.json",
+          "lines": "9–13,48,69–75"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/research_1010_v7_luna/scoring_protocol.json",
+          "lines": "3–12"
+        },
+        {
+          "path": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt",
+          "lines": "1984"
+        }
+      ],
+      "topic": "modules",
+      "applied": false
+    },
+    {
+      "block_id": "B0311",
+      "op": "replace_text",
+      "old_text": "在上述公共实验条件下，统计分析先对每个训练种子汇总全部测试文档的整数计数并计算micro-F1，再报告三个种子的均值与样本标准差。逐文档统计记录至少包含语料、文档标识、源文档组、种子、方法、对象族、TP、FP、FN及失败状态。不同方法必须使用同一组文档和种子，且相同任务下的金标供给 TP+FN 保持一致，才能进行配对比较。",
+      "new_text": "在上述公共实验条件下，统计分析先对每个训练种子汇总全部测试文档的整数计数并计算micro-F1，再报告三个种子的均值与样本标准差。逐文档统计记录至少包含语料、文档标识、源文档组、种子、方法、对象族、TP、FP、FN及失败状态。不同方法必须使用同一组文档和种子，且相同任务下的金标供给 TP+FN 保持一致，才能进行配对比较。评价同时保留预测总量TP+FP；它与金标总量相等并非严格匹配的要求，不应利用测试金标数量补足或删减预测以强制满足等量条件。本文模拟结果中的等总量现象及其解释边界见附录H.4。",
+      "reason": "区分共同金标供给要求与预测数量自由度；不把FP=FN写成评价协议本身的要求。",
+      "source_evidence": [
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:357-367",
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2281-2310",
+        "/Users/channtang/Downloads/paper/research_1011_v13/common.py:24-28"
+      ],
+      "topic": "counts",
+      "applied": false
+    },
+    {
+      "block_id": "B1152",
+      "op": "replace_text",
+      "old_text": "表H-5 四格严格关系原始计数",
+      "new_text": "表H-5 四格严格关系的逐种子模拟计数",
+      "reason": "该表的整数和F1算术可核对，但当前不能精确绑定原始预测链；用“模拟计数”替代容易被误读为真实模型原始输出的“原始计数”。",
+      "source_evidence": [
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:1-12",
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2281-2310",
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2445-2451"
+      ],
+      "topic": "counts",
+      "applied": false
+    },
+    {
+      "block_id": "B1153",
+      "op": "insert_after",
+      "old_text": "语料配置种子TPFPFNF1AAECT0I01755725225268.85AAECT0I02952328628664.65AAECT0I04350230730762.05AAECT1I01757223723770.70AAECT1I02955925025069.10AAECT1I04353927027066.63AAECT0I11756517924472.76AAECT0I12953619027369.84AAECT0I14351521129467.10AAECT1I11758116822874.58AAECT1I12957216523774.00AAECT1I14355118625871.28CDCPT0I0179815415438.89CDCPT0I02910614614642.06CDCPT0I0438916316335.32CDCPT1I01711313913944.84CDCPT1I02911713513546.43CDCPT1I04310015215239.68CDCPT0I1171049414846.22CDCPT0I1291159913749.36CDCPT0I14310110015144.59CDCPT1I1171188413451.98CDCPT1I1291278612554.62CDCPT1I1431139213949.45",
+      "new_text": "表H-5中，T0/I0与T1/I0的12行模拟计数均满足FP=FN，即总预测关系数Npred=TP+FP与金标总数Ngold=TP+FN相同；AAEC均为809，CDCP均为252。在分母非零时，这一计数条件使Precision、Recall与F1相等。因此，I0各行只反映等总量条件下的对象匹配结果，不能据此认定模型独立学会了正确的输出数量，或充分评价精度与召回的取舍。汇总计数本身不能区分固定配额、一对一替换或其他构造方式，也不能证明每篇文档均等总量。已检查的历史v13模拟生成器明确读取金标构造预测，但其输出与本表12行不一致，不能据此补认本表的生成来源。仅由FP=FN既不能证明真实模型发生测试泄漏，也不能排除泄漏；本表在精确生成链补齐前继续保留模拟结果身份。真实实验的推理流程不得读取测试金标及其数量，须保存原始预测、数量约束配置和逐文档完整计数，冻结预测后再由独立评价程序复算。",
+      "reason": "如实说明12行等总量事实、P/R/F1退化和推断限制；不伪造来源解释、不更改数据，也不将历史金标感知模拟混作真实推理泄漏证据。",
+      "source_evidence": [
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2281-2310",
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2445-2451",
+        "/Users/channtang/Downloads/paper/research_1011_v13/generate_graph_scenario.py:73-120",
+        "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_agents/counts/i0_count_audit.json:3291-3307"
+      ],
+      "topic": "counts",
+      "applied": false
+    }
+  ]
+}

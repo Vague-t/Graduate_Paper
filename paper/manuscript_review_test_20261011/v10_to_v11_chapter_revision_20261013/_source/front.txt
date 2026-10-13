@@ -1,0 +1,44 @@
+[B0000] Title math=0
+面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究
+
+[B0001] Body Text math=0
+English Title: End-to-End Argument Mining via Relation-Aware Learning and Dependency-Closed Repair
+
+[B0002] Body Text math=0
+2026年10月
+
+[B0003] Body Text math=0
+
+
+[B0004]  math=0
+
+
+[B0005] heading 1 math=0
+摘要
+
+[B0006] Body Text math=0
+端到端论辩挖掘需要同时定位组件、判别论辩角色并抽取有向关系。组件与关系的依赖使局部改写和预测修改产生连锁变化：前者可能破坏原有监督，后者可能使关系端点失效。本文在多候选重排序与有界修正的基础上，研究训练与推理两个阶段的依赖维护。
+
+[B0007] Body Text math=0
+训练侧通过关系影响域定位内部、跨边界及NONE因素，利用无损标注输运和逐因素掩码构造可靠对应；原文保留完整图生成监督，变体在可靠组件与关系上提供辅助监督和分布对齐。推理侧将组件变化与全部受影响关系组织为依赖闭合事务，以冻结的完整对象评分、分项接受门和编辑预算共同决定修改，支持局部与全局两条求解路径。CDCP的联合源关系始终以完整超边计数。
+
+[B0008] Body Text math=0
+在AAEC和CDCP官方测试划分及自由预测数量协议下的记录中，Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0时，训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。两语料追加推理增量及CDCP训练增量通过14项Holm校正；AAEC训练增量为正但未通过校正。共享增强数据下的4B和Qwen2.5-7B四格提供跨骨干补充；CDCP弱评分回退及真实语料案例保留成功与失败。
+
+[B0009] Body Text math=0
+关键词：端到端论辩挖掘；可靠对应；成对学习；依赖闭合；图修正；结构化预测
+
+[B0010] heading 1 math=0
+Abstract
+
+[B0011] Body Text math=0
+End-to-end argument mining identifies text spans, argumentative roles, and directed relations. Component–relation dependencies create cascading effects during both local paraphrasing and prediction repair. This thesis investigates dependency maintenance in training and inference, building on multi-candidate reranking and bounded repair.
+
+[B0012] Body Text math=0
+For training, relation influence domains identify internal, cross-boundary, and NONE factors. Lossless annotation transport and factor masks define reliable correspondences for auxiliary supervision and paired distribution alignment, while original documents retain full-graph generation targets. For inference, dependency-closed transactions jointly reconsider component changes and all affected relations under frozen full-object scores, separate utility gates, and edit budgets. Local and global optimization share the same object identity and constraints. CDCP collective-source relations are evaluated as complete native hyperedges.
+
+[B0013] Body Text math=0
+In scenario records with Qwen3.5-9B under free-cardinality evaluation, the complete system achieves strict relation F1 of 71.63 on AAEC and 50.77 on CDCP, exceeding the same-backbone ICIC/MCR-BR baseline by 5.94 and 8.98 points. Both additional inference effects and the CDCP training effect pass Holm correction over fourteen primary comparisons; the positive AAEC training effect does not. Supplementary four-cell comparisons use Qwen3.5-4B and Qwen2.5-7B with shared augmentation. Weak-score abstention and traceable corpus cases retain the method’s limits.
+
+[B0014] Body Text math=0
+Keywords: End-to-End Argument Mining; Reliable Correspondence; Paired Learning; Dependency Closure; Graph Repair; Structured Prediction

@@ -1,0 +1,39 @@
+[
+  {
+    "block_id": "B0311",
+    "op": "replace_text",
+    "old_text": "在上述公共实验条件下，统计分析先对每个训练种子汇总全部测试文档的整数计数并计算micro-F1，再报告三个种子的均值与样本标准差。逐文档统计记录至少包含语料、文档标识、源文档组、种子、方法、对象族、TP、FP、FN及失败状态。不同方法必须使用同一组文档和种子，且相同任务下的金标供给 TP+FN 保持一致，才能进行配对比较。",
+    "new_text": "在上述公共实验条件下，统计分析先对每个训练种子汇总全部测试文档的整数计数并计算micro-F1，再报告三个种子的均值与样本标准差。逐文档统计记录至少包含语料、文档标识、源文档组、种子、方法、对象族、TP、FP、FN及失败状态。不同方法必须使用同一组文档和种子，且相同任务下的金标供给 TP+FN 保持一致，才能进行配对比较。评价同时保留预测总量TP+FP；它与金标总量相等并非严格匹配的要求，不应利用测试金标数量补足或删减预测以强制满足等量条件。本文模拟结果中的等总量现象及其解释边界见附录H.4。",
+    "reason": "区分共同金标供给要求与预测数量自由度；不把FP=FN写成评价协议本身的要求。",
+    "source_evidence": [
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:357-367",
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2281-2310",
+      "/Users/channtang/Downloads/paper/research_1011_v13/common.py:24-28"
+    ]
+  },
+  {
+    "block_id": "B1152",
+    "op": "replace_text",
+    "old_text": "表H-5 四格严格关系原始计数",
+    "new_text": "表H-5 四格严格关系的逐种子模拟计数",
+    "reason": "该表的整数和F1算术可核对，但当前不能精确绑定原始预测链；用“模拟计数”替代容易被误读为真实模型原始输出的“原始计数”。",
+    "source_evidence": [
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:1-12",
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2281-2310",
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2445-2451"
+    ]
+  },
+  {
+    "block_id": "B1153",
+    "op": "insert_after",
+    "old_text": "语料配置种子TPFPFNF1AAECT0I01755725225268.85AAECT0I02952328628664.65AAECT0I04350230730762.05AAECT1I01757223723770.70AAECT1I02955925025069.10AAECT1I04353927027066.63AAECT0I11756517924472.76AAECT0I12953619027369.84AAECT0I14351521129467.10AAECT1I11758116822874.58AAECT1I12957216523774.00AAECT1I14355118625871.28CDCPT0I0179815415438.89CDCPT0I02910614614642.06CDCPT0I0438916316335.32CDCPT1I01711313913944.84CDCPT1I02911713513546.43CDCPT1I04310015215239.68CDCPT0I1171049414846.22CDCPT0I1291159913749.36CDCPT0I14310110015144.59CDCPT1I1171188413451.98CDCPT1I1291278612554.62CDCPT1I1431139213949.45",
+    "new_text": "表H-5中，T0/I0与T1/I0的12行模拟计数均满足FP=FN，即总预测关系数Npred=TP+FP与金标总数Ngold=TP+FN相同；AAEC均为809，CDCP均为252。在分母非零时，这一计数条件使Precision、Recall与F1相等。因此，I0各行只反映等总量条件下的对象匹配结果，不能据此认定模型独立学会了正确的输出数量，或充分评价精度与召回的取舍。汇总计数本身不能区分固定配额、一对一替换或其他构造方式，也不能证明每篇文档均等总量。已检查的历史v13模拟生成器明确读取金标构造预测，但其输出与本表12行不一致，不能据此补认本表的生成来源。仅由FP=FN既不能证明真实模型发生测试泄漏，也不能排除泄漏；本表在精确生成链补齐前继续保留模拟结果身份。真实实验的推理流程不得读取测试金标及其数量，须保存原始预测、数量约束配置和逐文档完整计数，冻结预测后再由独立评价程序复算。",
+    "reason": "如实说明12行等总量事实、P/R/F1退化和推断限制；不伪造来源解释、不更改数据，也不将历史金标感知模拟混作真实推理泄漏证据。",
+    "source_evidence": [
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2281-2310",
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_source/fulltext.txt:2445-2451",
+      "/Users/channtang/Downloads/paper/research_1011_v13/generate_graph_scenario.py:73-120",
+      "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/protocol_identity_audit_20261012_v6/_agents/counts/i0_count_audit.json:3291-3307"
+    ]
+  }
+]

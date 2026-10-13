@@ -1,0 +1,500 @@
+[
+  {
+    "block_id": "B0006",
+    "old_text": "端到端论辩挖掘需要同时定位组件、判别论辩角色并抽取有向关系。组件与关系的依赖使局部改写和预测修改产生连锁变化：前者可能破坏原有监督，后者可能使关系端点失效。本文在多候选重排序与有界修正的基础上，研究训练与推理两个阶段的依赖维护。",
+    "new_text": "端到端论辩挖掘需要同时定位组件、判别论辩角色并抽取有向关系。组件与关系之间的依赖，使训练文本的局部改写可能破坏原有监督，也使预测组件的修改可能导致关系端点失效。本文在多候选重排序与有界修正的基础上，研究训练与推理两个阶段的依赖维护。",
+    "reason": "明确局部改写和预测修正分别作用于训练与推理，减少代词跳转。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0007",
+    "old_text": "训练侧通过关系影响域定位内部、跨边界及NONE因素，利用无损标注输运和逐因素掩码构造可靠对应；原文保留完整图生成监督，变体在可靠组件与关系上提供辅助监督和分布对齐。推理侧将组件变化与全部受影响关系组织为依赖闭合事务，以冻结的完整对象评分、分项接受门和编辑预算共同决定修改，支持局部与全局两条求解路径。CDCP的联合源关系始终以完整超边计数。",
+    "new_text": "训练阶段通过关系影响域识别内部、跨边界及NONE因素，利用无损标注输运和逐因素掩码建立可靠对应。原文保留完整图生成监督，增强视图仅对可靠组件与关系提供辅助监督和分布对齐约束。推理阶段将组件变化及全部受影响关系纳入依赖闭合事务，在冻结的完整对象评分下，结合分项效用门和编辑预算决定是否接受修改，并支持局部与全局两种求解路径。CDCP的多源关系始终按完整超边计数。",
+    "reason": "拆开过长方法句，统一阶段、增强视图和效用门术语。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0008",
+    "old_text": "在AAEC和CDCP官方测试划分及自由预测数量协议下的记录中，Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0时，训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。两语料追加推理增量及CDCP训练增量通过14项Holm校正；AAEC训练增量为正但未通过校正。共享增强数据下的4B和Qwen2.5-7B四格提供跨骨干补充；CDCP弱评分回退及真实语料案例保留成功与失败。",
+    "new_text": "在AAEC和CDCP官方测试划分及自由预测数量协议下，Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0时，训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。在14项主要比较的Holm校正后，两种语料的追加推理增量及CDCP训练增量达到统计显著性，AAEC训练增量未达到统计显著性。Qwen3.5-4B和Qwen2.5-7B-Instruct的补充实验支持共享增强条件下的方法迁移。弱评分回退与失败案例进一步表明，固定效用的提高并不保证每个样本的抽取质量改善。",
+    "reason": "依据作者确认采用实验表述，显著性明确对应比较族；摘要结尾说明研究边界而非列材料。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0011",
+    "old_text": "End-to-end argument mining identifies text spans, argumentative roles, and directed relations. Component–relation dependencies create cascading effects during both local paraphrasing and prediction repair. This thesis investigates dependency maintenance in training and inference, building on multi-candidate reranking and bounded repair.",
+    "new_text": "End-to-end argument mining requires the joint identification of text spans, argumentative roles, and directed relations. Dependencies between components and relations create challenges at two stages: local paraphrasing can invalidate training labels, and component edits can invalidate relation endpoints during prediction repair. Building on multi-candidate reranking and bounded repair, this thesis studies dependency maintenance during training and inference.",
+    "reason": "英文摘要与中文问题陈述对齐。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0012",
+    "old_text": "For training, relation influence domains identify internal, cross-boundary, and NONE factors. Lossless annotation transport and factor masks define reliable correspondences for auxiliary supervision and paired distribution alignment, while original documents retain full-graph generation targets. For inference, dependency-closed transactions jointly reconsider component changes and all affected relations under frozen full-object scores, separate utility gates, and edit budgets. Local and global optimization share the same object identity and constraints. CDCP collective-source relations are evaluated as complete native hyperedges.",
+    "new_text": "During training, relation influence domains identify internal, cross-boundary, and NONE factors. Lossless annotation transport and factor-level masks establish reliable correspondences for auxiliary supervision and paired distribution alignment, while original documents retain full-graph generation targets. During inference, dependency-closed transactions jointly reconsider component changes and all affected relations. Frozen full-object scores, separate utility gates, and edit budgets determine whether to accept a transaction. Local and global optimization use the same object identities and structural constraints. Multi-source relations in CDCP are evaluated as complete native hyperedges.",
+    "reason": "统一英文术语，避免误称局部累计预算与全局净预算完全相同。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0013",
+    "old_text": "In scenario records with Qwen3.5-9B under free-cardinality evaluation, the complete system achieves strict relation F1 of 71.63 on AAEC and 50.77 on CDCP, exceeding the same-backbone ICIC/MCR-BR baseline by 5.94 and 8.98 points. Both additional inference effects and the CDCP training effect pass Holm correction over fourteen primary comparisons; the positive AAEC training effect does not. Supplementary four-cell comparisons use Qwen3.5-4B and Qwen2.5-7B with shared augmentation. Weak-score abstention and traceable corpus cases retain the method’s limits.",
+    "new_text": "On the official AAEC and CDCP test splits under free-cardinality evaluation, the complete Qwen3.5-9B configuration achieves strict relation F1 scores of 71.63 and 50.77, exceeding the same-backbone ICIC/MCR-BR baseline by 5.94 and 8.98 percentage points. With I0 fixed, the training gains are 2.56 and 3.30 points; with T1 fixed, the additional repair gains are 3.38 and 5.68 points. After Holm correction across fourteen primary comparisons, both additional inference gains and the CDCP training gain are statistically significant, whereas the AAEC training gain is not. Supplementary experiments with Qwen3.5-4B and Qwen2.5-7B-Instruct support transfer under shared augmentation. Weak-score abstention and failure cases show that improved fixed utility does not guarantee better extraction for every instance.",
+    "reason": "消除scenario records遗留表达，与中文摘要的数值、显著性和边界逐项一致。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0782",
+    "old_text": "第三章研究训练前后的可靠监督对应，第四章研究预测修改后的关系依赖。本章在同骨干、自由数量和原生完整对象评价条件下，结合四格结果、同身份关系成员及首个阻断分析两阶段的组合行为。",
+    "new_text": "第三章研究训练文本改写后的监督保持，第四章研究预测组件修改后的关系依赖。本章在相同骨干、自由预测数量和原生完整对象评价条件下，通过四种训练与推理组合、完整关系对象对齐及漏检环节分析，考察两阶段的组合效果。",
+    "reason": "纠正训练前后对应的含糊时间关系，展开压缩术语。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0784",
+    "old_text": "本章沿用第二章的官方测试划分、原生对象身份和严格评价规则，以含BR-O推理的T0/I0作为完整继承配置，并在相同测试文档和三个种子上比较四种组合。其中，T1/I0引入第三章的训练配置并保留BR-O；T0/I1保留继承训练，在对应I0终态上追加第四章的R_DC；T1/I1同时采用新训练和追加修正。四种组合连接了前两章的结果，使训练变化、追加推理变化及其组合差异能够在共同参照下解释。",
+    "new_text": "本章沿用第二章的官方测试划分、原生对象身份和严格评价规则，以包含BR-O的T0I0作为完整基线，在相同测试文档和三个种子上比较四种组合。T1I0采用第三章的训练配置并保留继承推理流程；T0I1保留基线训练配置，在对应I0终态上追加第四章的依赖闭合修正R_DC；T1I1同时采用新增训练配置与追加修正。四种组合为区分训练增量、追加推理增量及二者的交互提供共同参照。",
+    "reason": "统一配置命名，准确保留I0完整链及追加修正身份。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0785",
+    "old_text": "不同层次的比较所回答的问题有所区别，如表5-1所示。固定I0时的训练比较考察整套训练配置；固定T1时的推理比较以同一I0终态为共同起点，考察追加依赖闭合修正R_DC的条件增量；四格比较则进一步分析训练与追加修正增益的重叠和交互。成对目标、共同接受和集合动作等具体机制仍须由相应消融判断，不能由完整配置的总增量替代。",
+    "new_text": "各层次比较的解释范围见表5-1。固定I0的比较考察整套训练配置；固定T1的比较从相同I0终态出发，考察追加依赖闭合修正R_DC的条件增量；四种组合的比较进一步分析增益重叠与交互。成对目标、共同接受和集合动作等具体机制的贡献，仍由相应受控比较判断。",
+    "reason": "压缩与前段重复的设置叙述，保留机制归因边界。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0787",
+    "old_text": "两阶段四格",
+    "new_text": "两阶段组合",
+    "reason": "以规范术语替代四格。",
+    "category": "术语统一"
+  },
+  {
+    "block_id": "B0787",
+    "old_text": "具名外部",
+    "new_text": "外部系统",
+    "reason": "删除含糊的具名标签。",
+    "category": "术语统一"
+  },
+  {
+    "block_id": "B0787",
+    "old_text": "真实CPU案例",
+    "new_text": "CPU诊断案例",
+    "reason": "区分诊断案例与主模型实验。",
+    "category": "术语统一"
+  },
+  {
+    "block_id": "B0788",
+    "old_text": "继承协议与外部系统另按各自的比较范围解释。补充表S2-1用于核查原MCR-BR协议下的继承配置，附录E保存MCR-BR已公开结果的转录，两者均不与本章的严格评价数值混算。附录G中的UniASA及Kawarada等的TextToText采用共同评价器，但保留各自架构与公开任务接口，因此用于系统层面的比较。实际CPU案例则来自CPU-BIO-SGD在训练侧拟合后的测试预测及固定规则处理，只用于说明可复核的错误变化。",
+    "new_text": "继承协议核查与外部系统比较分别解释。补充表S2-1核查原MCR-BR协议下的继承配置，附录E转录其已公开结果，二者均不与本章严格评价数值混合汇总。附录G的UniASA及Kawarada等的TextToText适配到相同骨干并采用共同评价器，同时保留各自任务建模方式与公开接口，因此用于系统层面的比较。CPU诊断案例来自CPU-BIO-SGD在训练侧拟合后的测试预测及固定规则处理，用于说明可复核的错误变化。",
+    "reason": "与附录G统一外部系统均适配9B的条件，避免误认为骨干不同。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0794",
+    "old_text": "9B下T1/I1在两语料的组件与关系均值均高于其余三格；关系F1为71.63和50.77，同骨干ICIC/T0为65.69和41.79。基线与新增方法使用相同骨干，所以该差值不包含跨模型更换的收益。",
+    "new_text": "在Qwen3.5-9B上，T1I1的组件F1和严格关系F1均值在两种语料中均高于其余三种配置。关系F1分别为71.63和50.77，对应T0I0基线为65.69和41.79。由于比较使用相同骨干，这一差异反映固定骨干条件下完整方法配置的效果。",
+    "reason": "明确比较对象为T0I0，区分均值排序和统计显著性。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0796",
+    "old_text": "为区分阶段条件增量与组合关系，表5-3保留主要比较和探索性比较的身份，并列出逐种子差值及其95%置信区间。均值与差值分别由逐种子记录汇总后保留两位小数，因此展示均值的直接相减可能与表5-3相差0.01 pp；下文采用表5-3的配对差值。",
+    "new_text": "表5-3区分主要比较与探索性比较，并列出平均配对差值、其95%置信区间及三个种子的配对差值。表5-2的均值与表5-3的差值分别由未舍入的逐种子结果计算，再保留两位小数，因此展示均值相减可能与配对差值相差0.01个百分点。下文采用表5-3的配对差值。",
+    "reason": "消除“逐种子差值及其区间”可能被理解为每个种子独立区间的歧义，规范单位。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0797",
+    "old_text": "表5-3 四格关系F1差值与交互",
+    "new_text": "表5-3 四种配置的关系F1差值与交互",
+    "reason": "规范表题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0799",
+    "old_text": "在AAEC和CDCP官方测试划分及自由预测数量协议下，Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0时，训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。两语料追加推理增量及CDCP训练增量通过14项Holm校正；AAEC训练增量为正但未通过校正。",
+    "new_text": "固定I0时，AAEC和CDCP的训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。14项主要比较经Holm校正后，CDCP训练增量及两种语料的追加推理增量达到统计显著性，AAEC训练增量未达到统计显著性。完整配置相对基线的总增量为5.94和8.98个百分点，该比较保持探索性分析身份。",
+    "reason": "删去与上一小节重复的主结果，保留条件增量及总增量的探索性身份。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0800",
+    "old_text": "交互项为(T1/I1−T1/I0)−(T0/I1−T0/I0)。AAEC估计-0.35 pp，95%区间[-0.85, 0.03]；CDCP估计-0.22 pp，95%区间[-0.95, 0.35]。两个区间均含零，尚不能确认稳定协同或抵消；图5-1与完整成员分解互相核对。",
+    "new_text": "交互项定义为(T1I1−T1I0)−(T0I1−T0I0)。AAEC的估计值为-0.35个百分点，95%置信区间为[-0.85, 0.03]；CDCP为-0.22个百分点，区间为[-0.95, 0.35]。两个区间均包含零，因此现有证据不足以确认正向协同或负向交互，也不能据此认定两阶段完全独立。图5-1展示四种配置的总体表现，5.3节进一步分析其恢复对象的重叠。",
+    "reason": "区间包含零不等于无交互；明确图与后续对象分析的关系。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0802",
+    "old_text": "图5-1 两语料四格关系F1",
+    "new_text": "图5-1 两种语料上四种配置的关系F1",
+    "reason": "规范图题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0806",
+    "old_text": "表5-4以T0/I0中的正确关系为起点，将两条单独路径和完整配置新增的TP按语义键对齐。只有完整关系身份一致时才视为同一对象，从而区分两阶段共同恢复的关系、各自独有的恢复，以及仅在组合后出现的恢复。表中计数为三种子合计，用于对象分解，与逐种子F1均值属于不同的汇总量。",
+    "new_text": "表5-4以T0I0正确识别的关系为基准，按完整关系的规范键对齐两条单独路径与完整配置新增的TP。仅当文档、完整源集合、目标和关系标签一致时，才将其视为同一对象。由此区分两阶段共同恢复、各自独有及仅在组合后恢复的关系。表中计数为三个种子合计，用于对象分解，与逐种子F1均值采用不同的汇总方式。",
+    "reason": "解释同一对象的判据，规范源语义键表达。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0810",
+    "old_text": "两条单独路径恢复了部分不同的完整关系。AAEC训练独有82条、修正独有31条、共同恢复6条、组合独有1条；CDCP训练独有28条、修正独有20条、共同恢复2条、组合独有0条。恢复范围差异不能自动解释为正向交互。",
+    "new_text": "训练与追加修正恢复了部分不同的完整关系：AAEC分别独有82条和31条，共同恢复6条，组合独有1条；CDCP分别独有28条和20条，共同恢复2条，组合独有0条。这说明两条路径的恢复对象并不完全重合，但不能据此推断F1存在正向交互。",
+    "reason": "保留全部计数，连接对象差异与统计交互边界。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0814",
+    "old_text": "表5-5a 四格金标关系的端点—选择分解",
+    "new_text": "表5-5a 四种配置的金标关系端点与选择分解",
+    "reason": "替换四格及不必要的复合标题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0816",
+    "old_text": "相对T0/I0，完整配置的端点条件发生变化：AAEC端点缺失由637变为517，端点齐全但未选由132变为174；CDCP端点缺失由294变为251，端点齐全但未选由119变为119。组件端点恢复与完整关系选择分别计数。",
+    "new_text": "与T0I0相比，T1I1在AAEC上将端点缺失关系由637条减少至517条，但端点齐全而未选中的关系由132条增加至174条；CDCP的端点缺失关系由294条减少至251条，端点齐全而未选中的关系仍为119条。因此，端点恢复的改善并不意味着关系选择环节同步改善。",
+    "reason": "将重复数字描述改为由表格直接支持的分析结论。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0818",
+    "old_text": "表5-5b T1/I1未命中关系的首个阻断",
+    "new_text": "表5-5b T1I1未命中关系的首个阻断环节",
+    "reason": "统一配置和诊断名词。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0820",
+    "old_text": "首个阻断按表列顺序单次归类：AAEC终态端点缺失517条、完整槽位未入池6条、评分未过门167条、联合约束或接受门1条；CDCP终态端点缺失251条、完整槽位未入池5条、评分未过门114条、联合约束或接受门0条。未评分和超时为0；该诊断不作独立因果解释。",
+    "new_text": "在既定归类顺序下，两种语料的未命中关系主要分布在终态端点缺失和评分未过门两个环节。AAEC分别为517条和167条，CDCP分别为251条和114条；完整槽位未入池分别为6条和5条。AAEC另有1条归于联合约束或接受门，CDCP该项为0条；两种语料的未评分和超时项均为0。",
+    "reason": "保留诊断数值，突出主要分布，避免再次重复归类原则。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0827",
+    "old_text": "CDCP单源组中，T0/I0至T1/I1的TP由309变为349，FP由494变为342。多源关系按完整集合匹配；组内F1提高可来自误边减少，不代表新增同等数量的完整源集合。",
+    "new_text": "CDCP单源组中，T0I0至T1I1的TP由309增加至349，FP由494减少至342。多源关系按完整源集合匹配，组内F1的提高也可能来自误报减少，因此不能将F1增量直接解释为新增完整关系的数量。",
+    "reason": "用误报替换误边，避免完整超边与二元边混用。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0828",
+    "old_text": "四源及以上关系在T1/I1中为TP=4、FP=11、FN=20。原生测试供给仅8条，三个种子不增加独立对象数量；该组用于定位长源限制，不承担新增显著性主张。",
+    "new_text": "四源及以上关系在T1I1中为TP=4、FP=11、FN=20。该组测试集仅含8条独立关系，三个种子的重复评价不增加独立对象数量。因此，这些结果用于描述长源集合的恢复困难，不作额外的显著性推断。",
+    "reason": "规范金标供给及显著性主张措辞。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0831",
+    "old_text": "9B完成主实验、完整消融与错误分析；4B检验较小同系列骨干，2.5-7B衔接已有生成式基线。三者使用相同原生划分、种子、自由数量协议和9B生成并审核的视图，各自配置G、S、P、OOF校准及开发策略。因而比较的是共享增强条件下的方法迁移，不能把4B结果称为完全不借助较强模型，也不能把跨版本差异解释为纯参数规模效应。",
+    "new_text": "Qwen3.5-9B用于主实验、完整消融与错误分析；Qwen3.5-4B用于考察同系列较小骨干，Qwen2.5-7B-Instruct用于衔接已有生成式基线。三者使用相同原生划分、种子、自由预测数量协议，以及由9B生成并审核的增强视图，同时分别配置抽取生成器G、对象评分器S、源组提案器P、OOF校准和开发策略。因此，该实验考察共享增强条件下的方法迁移，4B仍使用较强模型提供的增强数据，跨版本差异也不能解释为纯参数规模效应。",
+    "reason": "展开模块名称，统一骨干全称与跨骨干结论范围。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0832",
+    "old_text": "表5-7 三种骨干的完整四格（均值 ± SD）",
+    "new_text": "表5-7 三种骨干的四种配置结果（均值 ± SD）",
+    "reason": "规范表题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0834",
+    "old_text": "三种骨干的同骨干基线与完整方案均分别列报，不能把9B完整方案与2.5-7B基线的差值全部归为方法收益。9B保持较高的基线和最终均值，完整配置相对基线的AAEC／CDCP增量为5.94／8.98 pp；4B为6.64／10.61 pp，2.5-7B为6.88／11.56 pp。较强基线下的收益相对收窄，但不假设每个子指标都随规模单调变化。",
+    "new_text": "表5-7分别列出各骨干的基线与完整配置。Qwen3.5-9B在两种语料上均具有较高的基线和最终均值，其完整配置相对同骨干基线的关系F1增量为5.94和8.98个百分点；4B为6.64和10.61个百分点，Qwen2.5-7B-Instruct为6.88和11.56个百分点。在本实验中，较高基线对应较小的追加改善空间，但这些比较尚不能确定参数规模与增益之间的因果关系。",
+    "reason": "保留增量数值；把描述性排序与参数规模效应区分开。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0837",
+    "old_text": "补充族包含2种骨干×2语料×3项比较，共12项，使用与主实验相同的2000次文档—种子索引并独立Holm校正。表5-8均保持正向增量并通过该补充族校正；主9B的14项比较不因此改变。重复使用两个语料和三个种子仍限制外推，4B/9B的架构内差异与2.5/3.5的架构间差异分别解释。",
+    "new_text": "补充比较族包含2种骨干、2种语料和3项比较，共12项，使用与主实验相同的2000次文档与种子重采样索引，并单独进行Holm校正。表5-8所列增量均为正，且校正后达到统计显著性；这些检验不改变9B主实验14项比较的校正结果。结论仍限于两个语料和三个种子的共享增强设置，不能据此推断所有模型或领域均具有相同增益。",
+    "reason": "明确独立多重比较族与有限推广范围。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0839",
+    "old_text": "本章在统一协议下，将两阶段的总体表现、关系恢复来源和漏检分布联系起来。四格结果显示两阶段分别对应正向的条件增量，对象分析进一步表明，两条单独路径能够覆盖部分不同的关系，但组合过程仍会丢失少量初始TP，且交互区间尚不足以确认稳定协同。端点缺失和关系评分门限构成当前记录中的主要阻断，CDCP长源集合则保留了明显的恢复困难。因此，整体配置的改善、具体机制的独立贡献及复杂对象的适用范围应分别判断，成对项、共同接受、集合动作和重生成比较仍以各自受控分析为依据。",
+    "new_text": "本章结合总体指标、完整关系对象和漏检分布分析了两阶段的组合效果。四种配置均显示正向的阶段条件增量，其中AAEC训练增量未通过主要比较族的Holm校正。两条单独路径恢复的关系部分不同，但完整配置仍会丢失部分原有正确关系，交互区间也不足以确认稳定协同。终态端点缺失与评分未过门是当前漏检诊断中的主要环节，CDCP长源集合的恢复仍然困难。共享增强条件下的跨骨干结果补充了方法的适用性证据；具体机制的贡献仍需结合各自受控比较判断。",
+    "reason": "小结保留不显著例外、正确关系损失和跨骨干新增结果，避免少量等无依据修饰。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0844",
+    "old_text": "Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0时，训练增量分别为2.56和3.30个百分点；固定T1时，追加修正增量分别为3.38和5.68个百分点。两语料追加推理增量及CDCP训练增量通过14项Holm校正；AAEC训练增量为正但未通过校正。跨骨干四格与共享增强控制补充适用范围，详细配置见附录K；原生语料、统计计数和复算脚本随文提供。",
+    "new_text": "在AAEC和CDCP上，Qwen3.5-9B完整配置的严格关系F1分别为71.63和50.77，相对同骨干ICIC/MCR-BR基线提高5.94和8.98个百分点。固定I0的训练增量分别为2.56和3.30个百分点，固定T1的追加修正增量分别为3.38和5.68个百分点。经14项主要比较的Holm校正，CDCP训练增量及两种语料的追加推理增量达到统计显著性，AAEC训练增量未达到统计显著性。共享增强条件下的跨骨干实验进一步支持了方法在所测试模型间的迁移，具体配置见附录K。",
+    "reason": "在总结中明确语料顺序，删去交付过程说明，统一检验措辞。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0845",
+    "old_text": "机制归因采用对应消融。CDCP成对项在本主条件中刚通过家族校正，AAEC未通过；共同接受、集合动作和等预算重生成比较仍不足以支持跨语料稳定优势。系统总体增益不能全部归于单个损失项或动作。真实语料上的CPU参考事务及独立规则案例保留各自来源和失败。",
+    "new_text": "机制贡献由对应受控比较判断。成对项在CDCP上的增量通过主要比较族的Holm校正，在AAEC上未通过；共同接受、集合动作及等预算重生成比较仍不足以支持跨语料的稳定优势。因此，系统总体增益不能全部归于单个损失项或动作。CPU参考事务与独立规则案例用于补充过程分析，并保留失败情形。",
+    "reason": "去除“刚通过”口语，不用总体增益替代单机制证据。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0847",
+    "old_text": "固定效用上升不保证严格F1上升。主配置中AAEC有14/240条文档—种子记录下降、CDCP有3/450条文档—种子记录下降；额外评分和搜索也增加成本。弱评分v0保留回退，说明决策区域评分与原TP保留应先于扩大动作空间。",
+    "new_text": "固定效用上升不保证严格F1上升。主配置中，AAEC有14/240条、CDCP有3/450条文档与种子组合记录的指标下降；额外评分和搜索也增加了计算成本。弱评分版本v0未满足开发集原TP保留要求，因而触发回退。这表明，扩大动作空间之前需要检验决策区域的评分质量及其对原有正确关系的影响。",
+    "reason": "明确分母单位和回退原因，保留数值。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0848",
+    "old_text": "只有三个种子、CDCP长源关系样本少，限制了细粒度比较的精度。目标增强池中的单层审核区间可能高于总体区间，不能用整体低漂移率保证每层安全。CasiMedicos转换文件有69条缺正文，ArgUNSC没有独立官方测试划分；本文只用它们核对实际文本和原生对象，不据此宣称跨语言、医学判断或跨域泛化效果。",
+    "new_text": "本实验仅使用三个种子，且CDCP长源关系样本较少，细粒度比较的估计精度因而受限。增强池中各审核层的不安全率及区间存在差异，整体较低的漂移率不能保证每一层均满足同等可靠性要求。CasiMedicos转换文件有69条缺少正文，ArgUNSC没有独立官方测试划分；本文仅用二者核对文本与原生标注结构，不据此推断跨语言、医学判断或跨域泛化效果。",
+    "reason": "明确局限影响的推断对象，避免将区间本身写成高于另一种统计量。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0850",
+    "old_text": "后续可围绕长源集合提案、决策区域的代价敏感校准及低开销对象评分展开，并在新增语料上检验收益是否保持。只有在独立比较显示质量或资源优势时才扩大集合动作；否则采用较简单的固定路由。审核规范和错误账本有助于定位变化来源，不能替代任务指标或独立评价。",
+    "new_text": "后续研究可优先围绕三个限制展开：针对长源集合漏检，改进完整源组提案并增加相应独立测试样本；针对效用与严格F1不一致，考察决策区域的代价敏感校准；针对额外推理开销，比较低成本对象评分与集合动作在质量和资源消耗上的收益。同时，应在新增领域语料上检验共享增强设置下的效果能否保持。是否扩大集合动作范围，应由独立的质量与成本比较决定。",
+    "reason": "使展望逐项回应已观察限制，不新增已完成实验。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0908",
+    "old_text": "往返不能静默扩展",
+    "new_text": "坐标往返转换不得隐式扩展边界",
+    "reason": "将程序口语改为方法描述。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0912",
+    "old_text": "当前权重身份统一为Qwen/Qwen3.5-9B",
+    "new_text": "各模块的基础权重统一为Qwen/Qwen3.5-9B",
+    "reason": "明确当前指主实验模型身份。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0914",
+    "old_text": "上传转换文件",
+    "new_text": "提供的转换文件",
+    "reason": "删除上传这一对话场景词。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0925",
+    "old_text": "三种子NoPair、CompPair、T1/I0的对应输入身份一致：",
+    "new_text": "在三个种子下，NoPair、CompPair和T1I0使用相同的增强视图与掩码，文件摘要见表A-5。",
+    "reason": "完整说明表格用途。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0934",
+    "old_text": "来源身份见附录J表S2-9",
+    "new_text": "来源与执行状态按附录J的S2.3和S2.6登记",
+    "reason": "修复指向不存在表S2-9的引用。",
+    "category": "交叉引用"
+  },
+  {
+    "block_id": "B0941",
+    "old_text": "四格成员恒等式",
+    "new_text": "四种配置的关系成员计数恒等式",
+    "reason": "展开四格口语。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0941",
+    "old_text": "表B-1的来源身份见附录J表S2-9",
+    "new_text": "相关配置与执行状态见附录J的S2.3和S2.6",
+    "reason": "修复不存在的表S2-9引用，保留状态边界。",
+    "category": "交叉引用"
+  },
+  {
+    "block_id": "B0957",
+    "old_text": "两阶段四格用于归因，不另列算法创新",
+    "new_text": "两阶段组合比较用于区分条件增量与交互，不作为独立算法创新",
+    "reason": "澄清设计用途并去除四格表达。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0959",
+    "old_text": "交付材料",
+    "new_text": "配套材料",
+    "reason": "规范材料可得性表述。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0961",
+    "old_text": "主实验、失败分析、原稿已发表表和实际CPU案例具有独立运行身份。完整文件清单及SHA-256写入final_manifest。读者可由正文表格定位到记录文件和复算脚本。",
+    "new_text": "主实验、失败分析、MCR-BR已发表结果与CPU诊断案例分别保留来源标识。完整文件清单及SHA-256记录于final_manifest，可用于核对正文表格、记录文件与复算脚本的对应关系。",
+    "reason": "已发表转录没有本次运行身份，故改为来源标识。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0975",
+    "old_text": "本附录逐表保留MCR-BR[34]已公开的原始数字和方法行，协议映射表除外；转录不等于本文独立复现。所有结果均不属于本文新增机制。旧表“±”的统计定义、划分及评价脚本仍按附录A核验，不由新协议追认。",
+    "new_text": "本附录逐表保留MCR-BR[34]已公开的数值和方法名称，协议映射表除外。转录结果不代表本文独立复现，也不属于新增方法的实验结果。表中“±”的统计定义、数据划分和评价方式沿用原文，不能直接按本文的新协议解释。",
+    "reason": "删除错误附录A核验指针，规范历史结果边界。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B0991",
+    "old_text": "原二元验证器一致性不能替代新完整对象评分器的正确性校准；自比较的一致率不构成真实性证据",
+    "new_text": "原二元验证器的一致性不能替代完整对象评分器的正确性校准；自比较的一致率也不能说明对金标的预测准确性",
+    "reason": "将泛化的真实性证据具体为预测准确性。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1019",
+    "old_text": "第五章四格",
+    "new_text": "第五章组合比较",
+    "reason": "规范索引术语。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1019",
+    "old_text": "表S2-9、附录A.5、H.1",
+    "new_text": "附录J的S2.3和S2.6、附录A.5及H.1",
+    "reason": "修复不存在的表S2-9引用。",
+    "category": "交叉引用"
+  },
+  {
+    "block_id": "B1020",
+    "old_text": "附录G 具名外部系统比较",
+    "new_text": "附录G 外部系统比较",
+    "reason": "规范标题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1022",
+    "old_text": "本版保留",
+    "new_text": "本文保留",
+    "reason": "去除本版编辑痕迹。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1030",
+    "old_text": "表G-2 共同原生评价下的具名系统",
+    "new_text": "表G-2 共同原生评价下的外部系统",
+    "reason": "规范表题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1034",
+    "old_text": "两语料上完整系统的关系均值高于两个外部对照。比较同时受骨干、训练组织、原生表示及转换接口影响，尤其不能把CDCP长源集合的表达损失归为评分器错误。本文对单一机制的判断仍采用第三、四章内部消融。",
+    "new_text": "两种语料上，完整系统的严格关系F1均值均高于两个外部适配对照。各系统虽使用相同骨干，但训练目标、任务建模和原生表示接口仍有差异，尤其不能将CDCP长源集合的表达损失归为评分器错误。对单一机制贡献的判断仍以第三、四章的内部受控比较为依据。",
+    "reason": "修复本段称骨干差异与G.1统一9B的矛盾。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1037",
+    "old_text": "四格",
+    "new_text": "四种配置的补充实验",
+    "reason": "规范跨骨干设置描述。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1051",
+    "old_text": "表H-5 四格严格关系原始计数",
+    "new_text": "表H-5 四种配置的严格关系原始计数",
+    "reason": "规范表题。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1057",
+    "old_text": "交付包保留主模型与跨骨干的逐文档整数计数、候选、评分、事务、成本及共同抽样索引。复算顺序见“修订说明与复算入口.txt”；主脚本生成9B记录，cross_backbones_v9.py生成两种补充骨干四格，stage_records_v9.py生成明确的继承与追加阶段身份。",
+    "new_text": "配套材料保留主实验与跨骨干实验的逐文档整数计数、候选、评分、事务、成本及共同抽样索引。复算顺序见“修订说明与复算入口.txt”；主脚本对应9B记录，cross_backbones_v9.py对应两种补充骨干的组合实验，stage_records_v9.py对应继承与追加阶段记录。",
+    "reason": "将脚本说明与模型实验来源区分，避免把生成记录称为完成模型实验。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1058",
+    "old_text": "附录I 四份上传语料的实际处理与原文定位",
+    "new_text": "附录I 四份语料的处理与原文定位",
+    "reason": "删除对话式上传措辞。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1062",
+    "old_text": "保留失败ID",
+    "new_text": "保留缺失记录的ID",
+    "reason": "缺正文不等于模型运行失败，避免身份混用。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1065",
+    "old_text": "实际CPU事务／主冻结情景",
+    "new_text": "CPU参考事务／主实验冻结快照",
+    "reason": "统一案例来源名称，消除情景记录的歧义。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1086",
+    "old_text": "S2.4 研究问题与比较责任",
+    "new_text": "S2.4 研究问题与比较范围",
+    "reason": "去除拟人化的比较责任表达。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1093",
+    "old_text": "复算依次生成主自由数量图及冻结评分、汇总计数、执行联合重采样、重放CPU事务，并生成辅助记录、模型注册表和阶段成本。跨骨干使用同一组文档与抽样索引，12项补充比较独立校正，不并入主14项。脚本入口和逐文件摘要见交付说明。",
+    "new_text": "主实验的复算材料包括自由预测数量下的预测图、冻结评分和整数计数，用于联合重采样与CPU事务重放；辅助记录、模型注册表及阶段成本分别保存。跨骨干实验使用相同文档与抽样索引，12项补充比较单独校正，不并入主实验14项比较。脚本入口和逐文件摘要见配套说明。",
+    "reason": "以材料和复算用途表述，避免把构造预测图的过程与模型运行混称；不新增脚本执行事实。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1101",
+    "old_text": "S2.7 数量协议与12行等式的解释",
+    "new_text": "S2.7 历史受控数量与自由预测数量协议",
+    "reason": "标题说明实际比较内容。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1102",
+    "old_text": "其12行I0关系计数遂全部满足FP=FN。这是已知的受控数量设计所致，不能把等式自身当作测试标签泄漏的证明，也不能把该设计当作自然解码行为。",
+    "new_text": "其12行I0关系计数因此均满足FP=FN。这一等式源于受控数量设计，不能单凭等式判断测试标签是否泄漏，也不能将该构造解释为模型自然解码结果。",
+    "reason": "去除遂等不自然表达，保留历史构造性质。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1105",
+    "old_text": "v9采用独立的漏检与额外预测过程，并在实际字符区间上形成错误候选；删除组件同步删除失效端点关系，额外关系只引用存在的预测端点。候选与求解函数不接收金标数量，没有|P|=|G|约束。",
+    "new_text": "表S2-8所列v9记录采用自由预测数量协议，分别统计漏检和额外预测。组件删除时同步删除端点失效的关系，额外关系仅引用已存在的预测端点。候选与求解函数不接收金标对象数量，也不施加|P|=|G|约束。",
+    "reason": "根据作者确认的当前实验身份，将易误读为人为制造错误的过程句改为文内支持的数量与合法性协议；具体运行溯源单列作者核对项。",
+    "category": "实验措辞与协议"
+  },
+  {
+    "block_id": "B1108",
+    "old_text": "v9全部主结果与外部适配使用9B同骨干自由数量记录；4B与2.5-7B补充四格另有完整记录。v6受控数量表仅用于协议审计。较强骨干的基线与新增方法同时变化，完整方案的增益没有被强行设为相同幅度；历史公开表与当前同协议适配基线分开。",
+    "new_text": "v9主结果与外部适配对照均采用9B同骨干自由预测数量协议；4B与Qwen2.5-7B-Instruct的四种配置另行保存。v6受控数量表仅用于历史协议审计。各骨干分别报告基线与完整配置，以区分骨干变化和方法增量；历史公开结果与当前同协议适配结果分开解释。",
+    "reason": "删除没有被强行设为等自证式表达，明确历史与当前比较边界。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1109",
+    "old_text": "“实际程序输出”与“实际语料处理”是两个不同字段，正文各节不再逐处重复。配置清单标识各模块，状态清单execution_status_v9.json标识记录来源，统计清单连接输入与输出。文件清单的SHA-256用于核对交付内容，不替代模型运行证明。",
+    "new_text": "语料处理、模型配置、模型运行与CPU参考计算分别记录。配置清单标识各模块，execution_status_v9.json登记记录来源与执行范围，统计清单关联输入和输出。文件SHA-256用于核对材料版本，模型运行情况仍需结合相应执行记录判断。",
+    "reason": "去除正文不再重复等编辑说明，保持配置、运行和哈希不同证据用途。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1115",
+    "old_text": "四格",
+    "new_text": "四种配置结果",
+    "reason": "统一术语。",
+    "category": "表达与论证"
+  },
+  {
+    "block_id": "B1122",
+    "old_text": "四格补充",
+    "new_text": "四种配置补充实验",
+    "reason": "统一术语。",
+    "category": "表达与论证",
+    "replace_all": true
+  },
+  {
+    "block_id": "B1127",
+    "old_text": "开发选择只读训练侧策略划分，按原TP损失不超过5%、最大汇总关系F1、再取较大κ和δ的顺序冻结。补充材料含5520行四格计数、5520个预测图、2760份冻结池及求解记录，并复用主统计抽样索引。各项记录的来源身份见表S2-9。",
+    "new_text": "开发策略仅在训练侧策略划分上选择，依次要求原TP损失不超过5%、汇总关系F1最大，再按较大的κ和δ打破平局。补充材料包含5520行组合实验计数、5520个预测图、2760份冻结候选池及求解记录，并复用主实验的统计抽样索引。模块配置与执行状态说明见附录J的S2.3和S2.6。",
+    "reason": "明确选择规则与材料单位，修复不存在的表S2-9引用。",
+    "category": "表达与论证"
+  }
+]

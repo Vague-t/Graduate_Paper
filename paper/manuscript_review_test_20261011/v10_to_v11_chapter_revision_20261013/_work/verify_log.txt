@@ -1,0 +1,57 @@
+{
+  "source_preserved": true,
+  "source_sha256": "2d694cab29d5862c9971f9d02a55843ac02cfbcb4774fdcebc2c5ded14172765",
+  "docx_sha256": "47fd5bb42baae2d6e71746b7cf64cb24121aab6588c71496c332d6448c3ac600",
+  "pdf_sha256": "ee261f6f88932d9bc8827d68abf7b747eb2309f9887a67fa9b1f1a3cc2cb776c",
+  "pages": 127,
+  "body_first_physical_page": 9,
+  "printed_body_pages": 119,
+  "patch_count": 328,
+  "tables": 83,
+  "table_cells_checked": 3825,
+  "all_experimental_numbers_preserved": true,
+  "native_math": 380,
+  "native_math_byte_preserved": 379,
+  "math_layout_only": [
+    "3-9"
+  ],
+  "numbered_equations": 42,
+  "references_verbatim": 54,
+  "toc_entries": 149,
+  "fonts_embedded": 51,
+  "margin_overflow": [],
+  "red_error_glyphs": [],
+  "plain_prose_checked": 652,
+  "plain_prose_unmatched": [
+    {
+      "block_id": "B0444",
+      "text": "审核模式mode∈{FactorMask,FullFilter}。"
+    },
+    {
+      "block_id": "B0447",
+      "text": "02for每篇源文档d∈D_traindo"
+    },
+    {
+      "block_id": "B0460",
+      "text": "15ifD_A≠∅then"
+    },
+    {
+      "block_id": "B0561",
+      "text": "全类型、三源成员完全组合仍作为规模上界和覆盖消融。对m个跨度、每跨度q类,其宽松槽位量为AAEC的m(m−1)q2及CDCP的Σk=13C(m,k)(m−k)qk+1。该组合空间通常远大于默认提案池,不能把它的组合界写成默认实现已经枚举的数量。"
+    },
+    {
+      "block_id": "B0570",
+      "text": "固定评分器S采用Qwen3.5-9B冻结文本编码,与抽取LoRA及训练辅助头分离。组件头输入跨度均值与全文输入末端表示,维度8192→1024→原生类型+NULL;关系头输入完整源组、目标、全文末端表示、类型/标签嵌入及几何特征,维度12375→1024→1。两头使用GELU、dropout0.1,AdamW、学习率10−3训练10epoch,监督为OOF候选完整对象的精确正确性。S与P共享冻结文本缓存,不共享可训练头;4B及2.5-7B各自重新拟合并校准。"
+    },
+    {
+      "block_id": "B0575",
+      "text": "策略选择在源文档独立的策略集上进行。AAEC固定κR=1;CDCP联合检查κR∈{0.5,1.0}及δ∈{0.01,0.05,0.10,0.20}。先剔除原TP损失率超过5%的条件,再最大化汇总关系F1;并列时依次取较大的κR和δ。全部失败时保持I0输出。完整开发网格保存为risk_grid_v9.json,测试标签不用于选门限。"
+    }
+  ],
+  "changed_package_parts": [
+    "word/document.xml"
+  ],
+  "figure_changes": [],
+  "render_dir": "/Users/channtang/Downloads/paper/manuscript_review_test_20261011/v10_to_v11_chapter_revision_20261013/_render_07",
+  "model_runs_executed_in_revision": false
+}

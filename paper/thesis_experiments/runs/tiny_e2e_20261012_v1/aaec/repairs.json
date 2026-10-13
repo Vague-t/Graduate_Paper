@@ -1,0 +1,1789 @@
+{
+  "Global": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "status": "no_strict_gain",
+    "ledger": [],
+    "metadata": {
+      "solver_status": "optimal",
+      "primary_optimal": true,
+      "secondary_optimal": true,
+      "tie_break_complete": true,
+      "raw_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "solver_calls": 2,
+      "tie_break_rule": "initial_state",
+      "lex_calls": 0,
+      "elapsed_seconds": 0.002191375009715557,
+      "method": "Global",
+      "budget_semantics": "net",
+      "pool_hash": "e991cf1fa04a395a80aee5f2b8b69f66d26804b2eb575df4e430f034367af7a3",
+      "score_hash": "cf62d5ad0c4e19afdc5f1b91ee6717531c941e937e9a531e105ef3d1de1beedc"
+    }
+  },
+  "Single": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "Single",
+      "budget_semantics": "cumulative",
+      "attempts": 9,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.004731292021460831,
+      "pool_hash": "e991cf1fa04a395a80aee5f2b8b69f66d26804b2eb575df4e430f034367af7a3",
+      "score_hash": "cf62d5ad0c4e19afdc5f1b91ee6717531c941e937e9a531e105ef3d1de1beedc",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0005149579374119639
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "MajorClaim"
+              ],
+              [
+                0,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004584159469231963
+          }
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00043875002302229404
+          }
+        },
+        {
+          "attempt": 4,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "MajorClaim"
+              ],
+              [
+                0,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042912503704428673
+          }
+        },
+        {
+          "attempt": 5,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004234170773997903
+          }
+        },
+        {
+          "attempt": 6,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "Premise"
+              ],
+              [
+                1,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004182499833405018
+          }
+        },
+        {
+          "attempt": 7,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                7,
+                12,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00041783403139561415
+          }
+        },
+        {
+          "attempt": 8,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "Premise"
+              ],
+              [
+                1,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00041387497913092375
+          }
+        },
+        {
+          "attempt": 9,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                13,
+                19,
+                "Claim"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0005404999246820807
+          }
+        }
+      ],
+      "state_queues": {
+        "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb": {
+          "enumerated": 13,
+          "queued": 9,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "SetLocal": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "SetLocal",
+      "budget_semantics": "cumulative",
+      "attempts": 9,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.004727500025182962,
+      "pool_hash": "e991cf1fa04a395a80aee5f2b8b69f66d26804b2eb575df4e430f034367af7a3",
+      "score_hash": "cf62d5ad0c4e19afdc5f1b91ee6717531c941e937e9a531e105ef3d1de1beedc",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0007346660131588578
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "MajorClaim"
+              ],
+              [
+                0,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004982500104233623
+          }
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004390410613268614
+          }
+        },
+        {
+          "attempt": 4,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "MajorClaim"
+              ],
+              [
+                0,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042937498074024916
+          }
+        },
+        {
+          "attempt": 5,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004157089861109853
+          }
+        },
+        {
+          "attempt": 6,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "Premise"
+              ],
+              [
+                1,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004083329113200307
+          }
+        },
+        {
+          "attempt": 7,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                7,
+                12,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00040749995969235897
+          }
+        },
+        {
+          "attempt": 8,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "Premise"
+              ],
+              [
+                1,
+                6,
+                "Premise"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004047499969601631
+          }
+        },
+        {
+          "attempt": 9,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                13,
+                19,
+                "Claim"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004064160166308284
+          }
+        }
+      ],
+      "state_queues": {
+        "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb": {
+          "enumerated": 13,
+          "queued": 9,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "RelationOnly": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "RelationOnly",
+      "budget_semantics": "cumulative",
+      "attempts": 2,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.0009289169684052467,
+      "pool_hash": "e991cf1fa04a395a80aee5f2b8b69f66d26804b2eb575df4e430f034367af7a3",
+      "score_hash": "cf62d5ad0c4e19afdc5f1b91ee6717531c941e937e9a531e105ef3d1de1beedc",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004117500502616167
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00039587507490068674
+          }
+        }
+      ],
+      "state_queues": {
+        "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb": {
+          "enumerated": 2,
+          "queued": 2,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "Sequential": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "Sequential",
+      "budget_semantics": "cumulative",
+      "attempts": 9,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.0011373750166967511,
+      "pool_hash": "e991cf1fa04a395a80aee5f2b8b69f66d26804b2eb575df4e430f034367af7a3",
+      "score_hash": "cf62d5ad0c4e19afdc5f1b91ee6717531c941e937e9a531e105ef3d1de1beedc",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "attacks"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "Premise"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "Claim"
+                ],
+                "supports"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00041091698221862316
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "insert",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 4,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "replace",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 5,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "Premise"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "Premise"
+                ],
+                "attacks"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004171249456703663
+          }
+        },
+        {
+          "attempt": 6,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "insert",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 7,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 8,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "replace",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 9,
+          "round": 0,
+          "state_hash": "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb",
+          "kind": "delete",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        }
+      ],
+      "state_queues": {
+        "732eceaf5c9b30a4364430a5c5e32e3957f4168b222683ae58768d892c5d81eb": {
+          "enumerated": 13,
+          "queued": 9,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "I1": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "status": "no_strict_gain",
+    "ledger": [],
+    "metadata": {
+      "solver_status": "optimal",
+      "primary_optimal": true,
+      "secondary_optimal": true,
+      "tie_break_complete": true,
+      "raw_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "solver_calls": 2,
+      "tie_break_rule": "initial_state",
+      "lex_calls": 0,
+      "elapsed_seconds": 0.001770709059201181,
+      "method": "Global",
+      "budget_semantics": "net",
+      "pool_hash": "e991cf1fa04a395a80aee5f2b8b69f66d26804b2eb575df4e430f034367af7a3",
+      "score_hash": "cf62d5ad0c4e19afdc5f1b91ee6717531c941e937e9a531e105ef3d1de1beedc",
+      "requested_method": "I1",
+      "routed_method": "Global",
+      "routing_variables": 8
+    }
+  }
+}

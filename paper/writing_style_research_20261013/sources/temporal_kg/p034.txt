@@ -1,0 +1,37 @@
+基于结构增强语言模型的时序知识图谱推理方法研究
+面取得了一定进展，但仍然存在两个关键问题亟待解决。
+查询:(United States, provid aid, ? , t) 答案: Ukraine
+P
+r
+a
+si
+W e W P
+a a o r
+w
+e g …
+w
+e g
+e
+di v
+r a
+e
+N r a di a
+g
+o
+ait
+et
+t-n t-3 t-2 t-1 t 时间
+（a）现有基于PLM的方法忽视了高阶结构依赖建模
+（b）ICEWS18数据集上的历史事实频次分布特性
+图3.1现有PLM-based的方法面临的两个挑战
+首先，现有 PLM-based 的方法难以有效捕捉时序知识图谱中的复杂结构依赖关
+系。当模型仅基于孤立或浅层的历史上下文进行建模时，在外推场景下容易导致预
+测结果不稳定。如图 3.1（a）所示，对于查询（United States, provide aid, ?, 𝑡），仅
+依赖与UnitedStates直接相关的一阶历史信息不足以确定正确答案。相反，正确结果
+可能依赖于早期时刻中所蕴含的高阶关系结构。例如，在时间 𝑡 − 𝑛 的历史快照中，
+UnitedStates曾指责（Accuse）NorthKorea对SouthKorea发动战争（Wage War），并
+向SouthKorea提供援助。这一历史结构反映出一种潜在模式，即UnitedStates通常在指
+责某一方发起冲突后，倾向于向冲突中受到攻击的一方提供援助。当类似情形在后续
+时间步再次出现时，例如在𝑡−1时刻，UnitedStates指责Russia对Ukraine发动战争；则
+在𝑡时刻，模型应能够基于该结构依赖模式进行迁移推理，从而推断UnitedStates很可
+21

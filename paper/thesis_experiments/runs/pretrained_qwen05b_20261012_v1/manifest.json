@@ -1,0 +1,182 @@
+{
+  "status": "failed",
+  "command": "smoke",
+  "configuration": {
+    "augmentation": {
+      "attempts": 4,
+      "accepted": 2
+    },
+    "generation": {
+      "candidates": 3,
+      "temperature": 0.7,
+      "max_new_tokens": 512
+    },
+    "head": {
+      "hidden": 64,
+      "dropout": 0.1
+    },
+    "span_training": {
+      "epochs": 1,
+      "lr": 0.001,
+      "seed": 17,
+      "batch_size": 64
+    },
+    "score_training": {
+      "epochs": 1,
+      "lr": 0.001,
+      "seed": 17,
+      "batch_size": 64
+    },
+    "candidates": {
+      "supplement_spans": 64,
+      "supplement_types_per_span": 2,
+      "supplement_slots": 4096,
+      "preflight_slot_limit": 50000,
+      "cdcp_model_group_proposals": 64,
+      "cdcp_total_group_proposals": 256,
+      "max_new_sources": 3,
+      "max_span_tokens": 64,
+      "acyclic": false,
+      "one_outgoing": false
+    },
+    "legacy": {
+      "density_weight": 0.4,
+      "coherence_weight": 0.4,
+      "validity_weight": 0.2,
+      "root_threshold": 2.0,
+      "other_threshold": 1.0,
+      "rounds": 3,
+      "accepted_per_round": 2,
+      "actions_per_error": 4,
+      "max_attempts": 24,
+      "acyclic": false
+    },
+    "repair": {
+      "kappa_c": 1.0,
+      "kappa_r": 1.0,
+      "weight_c": 1.0,
+      "weight_r": 1.0,
+      "delta": 0.01,
+      "numeric_tol": 1e-09,
+      "component_budget": 24,
+      "relation_budget": 96,
+      "max_transaction_components": 3,
+      "attempts": 128,
+      "accepts": 12,
+      "rounds": 4,
+      "round_attempts": 32,
+      "round_accepts": 3,
+      "batch_size": 8,
+      "global_variable_limit": 2500,
+      "time_limit": 5.0,
+      "total_time_limit": 90.0,
+      "lex_call_limit": 64,
+      "global_tie_break": "initial_state",
+      "local_tie_break": "graph_key",
+      "queue_limit": 10000,
+      "acyclic": false,
+      "one_outgoing": false,
+      "allow_set_actions": false,
+      "presolve": true
+    },
+    "profile": {
+      "name": "local_pretrained_qwen05b_cpu",
+      "purpose": "preliminary_debug_only",
+      "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "pinned_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "not_comparable_to_paper_model": true
+    },
+    "model": {
+      "backend": "hf",
+      "model_name": "models/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "hidden_size": 48,
+      "layers": 2,
+      "attention_heads": 4,
+      "head_hidden": 64,
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "head_dropout": 0.1,
+      "four_bit": false,
+      "gradient_checkpointing": true,
+      "device": "cpu",
+      "dtype": "float32",
+      "max_input_tokens": 1536,
+      "max_output_tokens": 512,
+      "max_context": 2048,
+      "seed": 17,
+      "local_files_only": true
+    },
+    "training": {
+      "variant": "T1",
+      "epochs": 1,
+      "learning_rate": 0.0002,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.03,
+      "microbatch_sources": 1,
+      "accumulation": 1,
+      "gradient_clip": 1.0,
+      "lambda_sentence": 0.5,
+      "lambda_supervision": 1.0,
+      "lambda_component": 0.5,
+      "lambda_relation": 0.5,
+      "seed": 17,
+      "max_steps": 1,
+      "max_factors": 50000
+    },
+    "chat": {
+      "model_id": "models/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "device": "cpu",
+      "dtype": "float32",
+      "load_in_4bit": false,
+      "max_context": 2048,
+      "max_new_tokens": 512,
+      "max_calls": 10000,
+      "max_total_output_tokens": 1000000,
+      "local_files_only": true,
+      "seed": 17
+    },
+    "encoder": {
+      "backend": "hf",
+      "model_id": "models/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "max_tokens": 1536,
+      "device": "cpu",
+      "dtype": "float32",
+      "four_bit": false,
+      "local_files_only": true
+    }
+  },
+  "started_unix": 1791819841.637316,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "inputs": {
+    "configs/local_qwen05b.json": "fbca74d08ba363ee2c4f55a2ee095acae4369acca76bff2be288ecde4ef181c1"
+  },
+  "code": {
+    "__init__.py": "17143f1a5cb7c3e09031e8ffe8f03df22a7e8be7fdfd68cdd979249596c6550f",
+    "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+    "augmentation.py": "d40c6210bce6ba66c702dd539b40ffb2e0de6ce60400c5a69f65ef27455ec2ac",
+    "candidates.py": "c1053c08bcacc51c5d7b53278df0008c2e3bbd3f7753ae85e8c9ab92788965f7",
+    "chat.py": "385eb0a76dd3d5c618b93dd7844ba25af6b4d4c1494aa85f787449d0cb12205b",
+    "cli.py": "47ff2d3b08a5f5698b59e1f32258624083d327aac4f01a8325e000ed2997da11",
+    "data.py": "e0e27eca955945f1380a58161215c6ef27c68d4ade84570035dded2e6a35364e",
+    "evaluation.py": "9ea3a4c0cfeea4b7a5b19875b242680f50b345a5604c2b3323baf88c83bf0390",
+    "io.py": "74c556e7860531a965b47acc24e7785d378d691629f3123cb09c405e0e07b26a",
+    "legacy.py": "816e00ddc4017c01e59c60ea310103389da6c5e26338742d626ddeb38b9b2c3b",
+    "modeling.py": "2b1cc3089e1f26728875cc19fbe3a10241601ceaee16453843ed39bce230b431",
+    "policy.py": "ce635ec26516f9d5e849d43c7a1e5f667a5010196cf42257d9569e47b253b1be",
+    "proposals.py": "37d7f76b11974c22e3ea11578ae765531a6ed15fccfba4aae9a59fc80f51cdbc",
+    "repair.py": "d6b142651b503e3531bc03f0b5ae104b4d61be96bff0f32fa44e71a89185959d",
+    "schema.py": "bbff6a9304b8817624bb582feb1c51dc273ace5d6149a0ac3f32bf2b7b6ae725",
+    "scoring.py": "62746e9531a691226592bb2c5dd6b29a580a9f9f0f5afc861cae6710b8ad3214",
+    "smoke.py": "1a6b1bc6f3b8a05e24a219a424cb11f814120917534e51e5c0b555a9337f3d0f",
+    "training.py": "118c3cf20284d82c2c5e246e887b2d44f6e2b3061907422a0f3d08ff55afe2c4",
+    "workflow.py": "3a001e8f41ca2a7c6a886e1a3337a975d43c400b24e7ee4d1ec035fa63a9bd1c"
+  },
+  "evidence_type": "EXECUTED_CODE_OUTPUT_NOT_HISTORICAL_THESIS_RESULTS",
+  "error": "TypeError: Object of type mappingproxy is not JSON serializable",
+  "elapsed_seconds": 8.645310209016316
+}

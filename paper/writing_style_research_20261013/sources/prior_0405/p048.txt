@@ -1,0 +1,40 @@
+武汉大学硕士学位论文
+表3.7 实验环境详细配置
+配置项 具体设备
+操作系统 Ubuntu20.04.1LTS
+内存 251G
+GPU NVIDIAA80080GBPCIe
+CPU Intel(R)Xeon(R)Silver4314CPU@2.40GHz
+CUDA CUDA12.8
+F1分数是精确率（Precision）与召回率（Recall）的调和平均数，尤其适用于
+类别分布不均衡的二元分类场景。其定义如下：
+𝑇𝑃
+Precision = , (3.17)
+𝑇𝑃 +𝐹𝑃
+𝑇𝑃
+Recall = , (3.18)
+𝑇𝑃 +𝐹𝑁
+Precision⋅Recall 2⋅𝑇𝑃
+F1-Score = 2⋅ = , (3.19)
+Precision+Recall 2⋅𝑇𝑃 +𝐹𝑃 +𝐹𝑁
+其中，𝑇𝑃、𝐹𝑃 和𝐹𝑁 分别表示真正例（TruePositives）、假正例（FalsePositives）
+和假负例（FalseNegatives）。F1分数的取值范围为[0,1]，其数值越大，表明模型
+在保证较高精确率的同时也具有较强的召回能力，因此能够更好地反映模型对正
+类样本的综合识别效果。
+除F1分数外，本文还采用ROC曲线下面积（AreaUndertheReceiverOperating
+CharacteristicCurve,AUC-ROC）作为评价指标。ROC曲线通过统计不同分类阈值
+下的真阳性率（TruePositiveRate,TPR）与假阳性率（FalsePositiveRate,FPR），刻
+画模型对正负样本的区分能力。其中，
+𝑇𝑃
+TPR = , (3.20)
+𝑇𝑃 +𝐹𝑁
+𝐹𝑃
+FPR = , (3.21)
+𝐹𝑃 +𝑇𝑁
+其中，𝑇𝑁 表示真负例（True Negatives）。ROC 曲线以 FPR 为横轴、TPR 为纵轴，
+反映模型在不同判别阈值下的性能变化。
+AUC-ROC定义为ROC曲线下的面积，其取值范围为[0,1]。AUC-ROC越大，
+说明模型对正负样本的排序与区分能力越强。当 AUC-ROC 等于 1 时，表示模型
+能够完全区分正负类；当AUC-ROC等于0.5时，表示模型的判别能力接近随机猜
+测。
+36

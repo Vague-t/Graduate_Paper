@@ -1,0 +1,53 @@
+{
+  "status": "COMPLETED",
+  "kind": "REAL_OPTIMIZER_TRAINING",
+  "model": {
+    "backend": "tiny",
+    "model_name": "random_tiny_causal_transformer",
+    "resolved_revision": null,
+    "artifact_identity": {
+      "kind": "random_tiny",
+      "seed": 17
+    },
+    "trainable_parameters": 3679,
+    "frozen_parameters": 44304,
+    "lora_modules": [
+      "layers.0.attention.q_proj",
+      "layers.0.attention.k_proj",
+      "layers.0.attention.v_proj",
+      "layers.0.attention.o_proj"
+    ],
+    "four_bit": false
+  },
+  "training": {
+    "variant": "T1",
+    "epochs": 1,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.03,
+    "microbatch_sources": 1,
+    "accumulation": 1,
+    "gradient_clip": 1.0,
+    "lambda_sentence": 0.5,
+    "lambda_supervision": 1.0,
+    "lambda_component": 0.5,
+    "lambda_relation": 0.5,
+    "seed": 17,
+    "max_steps": 1,
+    "max_factors": 50000
+  },
+  "sources": [
+    {
+      "doc_id": "fixture-train",
+      "sha256": "bc135b0596f6c6bd0a06095167b0c9c07a7acacced750e62626a0e9be8819952"
+    }
+  ],
+  "steps_completed": 1,
+  "sources_processed": 1,
+  "local_tiny_diagnostic": true,
+  "device": "cpu",
+  "torch_version": "2.9.1",
+  "start_unix": 1791820588.142488,
+  "end_unix": 1791820588.165426,
+  "final_loss": 8.20620346069336
+}

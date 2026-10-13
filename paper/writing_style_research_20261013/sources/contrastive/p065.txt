@@ -1,0 +1,40 @@
+基于对比式自监督学习的结构语义融合知识推理研究
+表4.11 不同的时序上下文构建策略对模型性能的影响
+时序上下文 ICEWS14 ICEWS14-OOG
+模型
+构建策略 MRR H@10 MRR H@10
+Origin ChapTER 33.2 51.5 36.1 75.2
+Timestamp w/o timestamp 32.1 50.5 35.8 73.9
+Text random timestamp 31.9 49.7 33.5 73.2
+history descending order 33.2 51.5 36.1 75.2
+Historical
+history ascending order 32.2 49.8 34.4 72.1
+Sequence
+history random order 32.8 50.4 34.9 74.3
+Form of pairs 33.2 51.5 36.1 75.2
+Context entities 32.4 50.2 35.9 73.4
+不同前缀微调策略对模型性能的影响。由于 ChapTER 模型是基于虚拟时间
+前缀提示进行的微调，因此，模型在训练的时候仅对前缀向量进行梯度计算，同
+时冻结预训练语言模型的其余参数。为了进一步讨论不同前缀微调方法对
+ChapTER 性能的影响，表 4.12 中总结和比较了在 ICEWS14 数据集上使用两种
+前缀微调策略（Prefix-tuning[82]和 P-tuning V2[83]）的 ChapTER 模型实验结果。
+从表4.12中可以观察到，使用具有重参数化编码器（MLP）的P-tuning V2 方法
+比使用Prefix-tuning 方法微调的ChapTER 性能更好（前者MRR 指标为 33.2，后
+者MRR指标为32.1）。此外，表4.10中还展示了具有不同重参数化模块的P-tuning
+V2 微调方法对 ChapTER 的性能影响。结果显示，MLP 重参数化模块为模型引
+入了更多可训练参数，在性能上带来了轻微的提升，但其具体效果在不同的数据
+集和任务设置中会有一定程度上的不同。
+表4.12 ICEWS14数据集上不同的前缀微调策略对模型参数、效率及性能的影响
+重参数编
+模型 训练参数量 训练时间/轮 MRR Hits@3 Hits@10
+码器
+ChapTER
+MLP 47.3M 4.2min 32.1 35.8 50.3
+- Prefix Tuning
+ChapTER
+MLP 19.7M 3.6min 33.2 37.0 51.5
+- P-tuning v2
+ChapTER
+Embedding 0.37M 3.3min 30.8 34.5 49.1
+- P-tuning V2
+53

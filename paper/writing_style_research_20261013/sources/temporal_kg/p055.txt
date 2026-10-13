@@ -1,0 +1,45 @@
+武汉大学硕士学位论文
+广泛使用的时序知识图谱数据集[35,38]，包括ICEWS14[68]、ICEWS18[30]、ICEWS05-
+15[68]、GDELT[38] 以及WIKI[84]。
+1. 样本构建与划分策略 3.可解释文本生成
+可解释文本
+(Barack Obama,Consult,Japan,t) 查询文本 初始生成
+替换实体
+Steps 2,3 正样本
+大模型
+(Barack Obama,Consult,China,t) 负样本 Please revise the provided text to 修改润色
+中立样本 推理链文本 ensure that the prediction aligns
+替换关系 with the reasoning steps. Expand
+the explanation of each reasoning
+step to make the text more
+(Barack Obama,Makea visit,China,t) coherent and readable……
+2. 推理链文本构建 4. 数据质量控制
+时序知识图谱 推理链文本
+Q C A 基准ETR
+Positive Sample 过滤无效答案
+Q C A
+提取与查询 转为自然 人工审查
+Negative Sample
+相关的推理链 语言文本
+Q C A
+Neutral Sample
+图4.2ETR基准构建流程
+表4.1ETR基准的数据统计信息
+数据集 时间粒度 实体数 关系数 类型 正样本 负样本 中立样本 总数
+训练集 5000 4800 4500 14300
+ICEWS14 1天 7128 230
+测试集 800 700 600 2100
+训练集 4500 4400 4200 13100
+ICEWS05-15 1天 10094 251
+测试集 720 680 660 2060
+训练集 4400 4200 4000 12600
+ICEWS18 1天 23033 256
+测试集 750 700 650 2100
+训练集 4800 4600 4400 13800
+GDELT 15分钟 5850 238
+测试集 800 700 650 2150
+训练集 2482 2504 2342 7328
+WIKI 1年 12554 24
+测试集 347 286 316 949
+从应用场景的角度来看，ETR基准所选数据集可归纳为以下三类：
+42

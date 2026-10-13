@@ -1,0 +1,40 @@
+武汉大学硕士学位论文
+4.5.3 实验设置
+表4.3GETER实验环境配置
+配置项 具体信息
+操作系统 Ubuntu20.04.1LTS
+CPU IntelIceLakeSilver4314
+内存 256GB
+GPU NVIDIAA800(80GB)×2
+CUDA 11.8
+框架 PyTorch
+表4.4模型训练与推理阶段的主要超参数设置
+参数名称 取值
+LoRA𝑟 16
+LoRA𝛼 32
+LoRAdropout 0.05
+LoRA作用模块 (q,k,v,o,down,up,gate)projection
+最大序列长度 2048
+训练轮数（epochs） 3
+单卡batchsize 6
+梯度累积步数 1
+学习率 3×10−4
+权重衰减 1×10−5
+warmup比例 0.01
+学习率调度策略 cosine
+生成序列数量 10
+投影层数 1
+在模型架构方面，本实验采用开源大语言模型作为基础骨干模型（backbone），包括
+Llama3-8B-Instruct、Qwen2.5-7B-Instruct以及Mistral-7B-Instruct-v0.3，并选用RE-GCN
+作为时序结构编码器。在数据构建与参数设置方面，时间窗口大小𝑤设置为30，阈值
+𝜏 设置为0.7，用于构建面向可解释过程的时序知识图谱推理基准ETR。在模型训练过
+程中，时序结构编码器RE-GCN保持参数冻结，仅对大语言模型部分进行微调。同时，
+引入低秩适配方法对模型进行参数高效微调。结构嵌入维度𝑑 设置为512，文本嵌入
+𝑠
+维度𝑑 保持与所选大语言模型的隐藏层维度一致。为确保实验对比的公平性，所有基
+𝑥
+于嵌入的基线方法均采用一致的结构嵌入维度，即 𝑑 = 512。在训练与优化方面，采
+𝑠
+用 DeepSpeed ZeRO Stage 3 1 进行分布式训练，以提升模型训练效率。模型训练与评
+1 https://github.com/microsoft/Megatron-DeepSpeed
+50

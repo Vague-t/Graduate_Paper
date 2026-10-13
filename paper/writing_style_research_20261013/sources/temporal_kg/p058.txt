@@ -1,0 +1,61 @@
+基于结构增强语言模型的时序知识图谱推理方法研究
+可解释文本生成提示模板
+初始化模板:
+We predict that [$e_s$] [$r$] [$e_o$] will happen on [$t_q$]. Here are the reasoning steps: $\mathcal{C}(e_s,e_o)$.
+正样本润色模板:
+You are an expert in temporal knowledge graph reasoning and natural language explanation generation.
+Given the following text:
+"We predict that [$e_s$] [$r$] [$e_o$] will happen on [$t_q$]. Here are the reasoning steps: $\mathcal{C}(e_s,e_o)$.“ Revise
+the explanation to improve its quality.
+Requirements:
+-The prediction must be fully supported by the reasoning steps;
+-Each reasoning step should be clearly explained and logically connected;
+-You may add intermediate reasoning steps if necessary;
+-The explanation should be fluent, coherent, and easy to understand.
+Output a single concise paragraph with strong logical consistency and no bullet points.
+负样本润色模板:
+You are an expert in temporal knowledge graph reasoning and natural language explanation generation.
+Given the following text:
+"It is unlikely that [$e_s$] [$r$] [$e_o'$] will happen on [$t_q$]. Here are the reasoning steps: $\mathcal{C}(e_s,e_o')$."
+Revise the explanation to justify why the event is unlikely.
+Requirements:
+-The conclusion must be consistent with the reasoning steps;
+-Explicitly explain why the reasoning steps do not support the event;
+-Highlight contradictions or missing evidence when applicable;
+-Ensure the explanation is coherent and logically sound.
+Output a single concise paragraph with strong logical consistency and no bullet points.
+中立样本润色模板：
+You are an expert in temporal reasoning and uncertainty-aware explanation generation.
+Given the following text:
+"It is uncertain whether [$e_s$] [$r'$] [$e_o$] will happen on [$t_q$]. Here are the reasoning steps: $\mathcal{C}(e_s,e_o)$."
+Revise the explanation to reflect uncertainty.
+Requirements:
+-The explanation must show that the reasoning steps are insufficient to support or refute the event;
+-Clearly indicate missing or inconclusive evidence;
+-Avoid making definitive conclusions;
+-Ensure the explanation is coherent and logically consistent.
+Output a single concise paragraph with strong logical consistency and no bullet points.
+评估与优化模板：
+You are an expert in evaluating explanation quality for temporal reasoning.Given the generated explanation, assess and refineit
+according to the following criteria:-Logical consistency: Is the conclusion supported by the reasoning steps?-Completeness:
+Are all reasoning steps adequately explained?-Clarity: Is the explanation fluent and easy to understand?-Faithfulness: Does the
+explanation accurately reflect the reasoning chains?If any issues are identified, revise the explanation to improve its overall
+quality. Output a single refined paragraph with clear logic and strong readability.
+图4.3可解释文本生成工作流提示
+4.3.3 可解释文本生成
+基于查询及其推理链文本，进一步生成可解释文本。对于正样本，给定查询 𝑞 =
+(𝑒 ,𝑟,𝑒 ,𝑡 )及其对应的推理链𝒞(𝑒 ,𝑒 )，生成与推理过程一致的自然语言解释。本节提
+𝑠 𝑜 𝑞 𝑠 𝑜
+出了一种分阶段的生成方法，包括初始生成、结果优化与质量评估三个阶段，以提升
+解释文本的逻辑一致性与表达质量，其整体流程如图4.3所示。
+′
+在初始化阶段，基于预定义模板生成初始解释文本𝒜 ，将结构化推理链转化为基
+𝑖
+础的自然语言描述。然而，受限于模板表达能力及部分推理链支撑不足，初始文本通
+常存在表达不连贯、语言不自然和逻辑一致性不足等问题。进一步地，在润色阶段，引
+″
+入GPT-4o对初始解释文本进行优化，生成中间解释文本𝒜 ，通过构建约束生成提示，
+𝑖
+引导模型逐步展开推理链与语义重构，从而提升文本的连贯性与可读性。在评估与优
+化阶段，构建基于GPT-4o的自动评估机制，从逻辑一致性、完整性与表达清晰性等维
+45

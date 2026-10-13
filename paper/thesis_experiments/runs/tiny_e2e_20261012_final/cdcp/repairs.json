@@ -1,0 +1,2375 @@
+{
+  "Global": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "no_strict_gain",
+    "ledger": [],
+    "metadata": {
+      "solver_status": "optimal",
+      "primary_optimal": true,
+      "secondary_optimal": true,
+      "tie_break_complete": true,
+      "raw_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "solver_calls": 2,
+      "tie_break_rule": "initial_state",
+      "lex_calls": 0,
+      "elapsed_seconds": 0.0014019169611856341,
+      "method": "Global",
+      "budget_semantics": "net",
+      "pool_hash": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "score_hash": "e0b2beccac912d884386bddb8c8669abdfb44423ff4944ecc426e880cdeea017"
+    }
+  },
+  "Single": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "Single",
+      "budget_semantics": "cumulative",
+      "attempts": 10,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.004939540987834334,
+      "pool_hash": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "score_hash": "e0b2beccac912d884386bddb8c8669abdfb44423ff4944ecc426e880cdeea017",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00045654200948774815
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                0,
+                6,
+                "reference"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004426250234246254
+          }
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042429205495864153
+          }
+        },
+        {
+          "attempt": 4,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                0,
+                6,
+                "reference"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004214999498799443
+          }
+        },
+        {
+          "attempt": 5,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004249579505994916
+          }
+        },
+        {
+          "attempt": 6,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                1,
+                6,
+                "fact"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00041550002060830593
+          }
+        },
+        {
+          "attempt": 7,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                7,
+                12,
+                "value"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004161660326644778
+          }
+        },
+        {
+          "attempt": 8,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                1,
+                6,
+                "fact"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00043445907067507505
+          }
+        },
+        {
+          "attempt": 9,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.000441916985437274
+          }
+        },
+        {
+          "attempt": 10,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                13,
+                19,
+                "policy"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004282919690012932
+          }
+        }
+      ],
+      "state_queues": {
+        "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338": {
+          "enumerated": 14,
+          "queued": 10,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "SetLocal": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "SetLocal",
+      "budget_semantics": "cumulative",
+      "attempts": 10,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.0047597920056432486,
+      "pool_hash": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "score_hash": "e0b2beccac912d884386bddb8c8669abdfb44423ff4944ecc426e880cdeea017",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004254160448908806
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                0,
+                6,
+                "reference"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004163340199738741
+          }
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.000410082982853055
+          }
+        },
+        {
+          "attempt": 4,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                0,
+                6,
+                "reference"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004101250087842345
+          }
+        },
+        {
+          "attempt": 5,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004164580022916198
+          }
+        },
+        {
+          "attempt": 6,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "insert",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                1,
+                6,
+                "fact"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004094999749213457
+          }
+        },
+        {
+          "attempt": 7,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                7,
+                12,
+                "value"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00040987494867295027
+          }
+        },
+        {
+          "attempt": 8,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "replace",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                0,
+                6,
+                "fact"
+              ],
+              [
+                1,
+                6,
+                "fact"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              1
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00040916597936302423
+          }
+        },
+        {
+          "attempt": 9,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00041366706136614084
+          }
+        },
+        {
+          "attempt": 10,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [
+              [
+                13,
+                19,
+                "policy"
+              ]
+            ],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              1,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.000424250029027462
+          }
+        }
+      ],
+      "state_queues": {
+        "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338": {
+          "enumerated": 14,
+          "queued": 10,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "RelationOnly": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "RelationOnly",
+      "budget_semantics": "cumulative",
+      "attempts": 3,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.0014535000082105398,
+      "pool_hash": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "score_hash": "e0b2beccac912d884386bddb8c8669abdfb44423ff4944ecc426e880cdeea017",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042820803355425596
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042325002141296864
+          }
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042554200626909733
+          }
+        }
+      ],
+      "state_queues": {
+        "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338": {
+          "enumerated": 3,
+          "queued": 3,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "Sequential": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "queue_exhausted",
+    "ledger": [],
+    "metadata": {
+      "method": "Sequential",
+      "budget_semantics": "cumulative",
+      "attempts": 10,
+      "accepts": 0,
+      "commits": 0,
+      "cumulative_components": 0,
+      "cumulative_relations": 0,
+      "net_components": 0,
+      "net_relations": 0,
+      "elapsed_seconds": 0.0019007920054718852,
+      "pool_hash": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "score_hash": "e0b2beccac912d884386bddb8c8669abdfb44423ff4944ecc426e880cdeea017",
+      "trace": [
+        {
+          "attempt": 1,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.00042054092045873404
+          }
+        },
+        {
+          "attempt": 2,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "insert",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 3,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 4,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "replace",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 5,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "evidence"
+              ],
+              [
+                [
+                  [
+                    0,
+                    6,
+                    "fact"
+                  ],
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  13,
+                  19,
+                  "policy"
+                ],
+                "reason"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0005965409800410271
+          }
+        },
+        {
+          "attempt": 6,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "insert",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 7,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 8,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "replace",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        },
+        {
+          "attempt": 9,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "relation",
+          "status": "infeasible",
+          "solver": {
+            "affected_components": [],
+            "transaction_relations": [
+              [
+                [
+                  [
+                    7,
+                    12,
+                    "value"
+                  ]
+                ],
+                [
+                  0,
+                  6,
+                  "fact"
+                ],
+                "evidence"
+              ]
+            ],
+            "expanded_slots": 0,
+            "actual_shape": [
+              0,
+              0
+            ],
+            "solver_status": "infeasible",
+            "primary_optimal": false,
+            "secondary_optimal": false,
+            "tie_break_complete": false,
+            "raw_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "mip_gap": null,
+            "solver_calls": 1,
+            "elapsed_seconds": 0.0004760000156238675
+          }
+        },
+        {
+          "attempt": 10,
+          "round": 0,
+          "state_hash": "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338",
+          "kind": "delete",
+          "status": "no_strict_component_gain",
+          "solver": {}
+        }
+      ],
+      "state_queues": {
+        "4097d10ab4f493ea0514acfaa9675a95015ca0562d13e8a70ec7d88e4b2b1338": {
+          "enumerated": 14,
+          "queued": 10,
+          "truncated": false
+        }
+      }
+    }
+  },
+  "I1": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "no_strict_gain",
+    "ledger": [],
+    "metadata": {
+      "solver_status": "optimal",
+      "primary_optimal": true,
+      "secondary_optimal": true,
+      "tie_break_complete": true,
+      "raw_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "solver_calls": 2,
+      "tie_break_rule": "initial_state",
+      "lex_calls": 0,
+      "elapsed_seconds": 0.0010042500216513872,
+      "method": "Global",
+      "budget_semantics": "net",
+      "pool_hash": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "score_hash": "e0b2beccac912d884386bddb8c8669abdfb44423ff4944ecc426e880cdeea017",
+      "requested_method": "I1",
+      "routed_method": "Global",
+      "routing_variables": 9
+    }
+  }
+}

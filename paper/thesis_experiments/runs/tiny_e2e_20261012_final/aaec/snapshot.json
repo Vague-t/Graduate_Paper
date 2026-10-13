@@ -1,0 +1,162 @@
+{
+  "pool": {
+    "input": {
+      "doc_id": "fixture-train",
+      "corpus": "aaec",
+      "text": "Alpha. Beta. Gamma.",
+      "source_group": "fixture-train",
+      "split": "train"
+    },
+    "universe": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "MajorClaim"
+        },
+        {
+          "id": "c1",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 1,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c3",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c4",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c1"
+          ],
+          "target": "c4",
+          "type": "attacks"
+        },
+        {
+          "sources": [
+            "c1"
+          ],
+          "target": "c4",
+          "type": "supports"
+        },
+        {
+          "sources": [
+            "c3"
+          ],
+          "target": "c1",
+          "type": "attacks"
+        }
+      ]
+    },
+    "initial": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "protected": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "Premise"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "Premise"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "Claim"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c2",
+          "type": "supports"
+        }
+      ]
+    },
+    "metadata": {
+      "evidence_type": "CONSTRUCTED_DIAGNOSTIC_POOL_USING_TRAIN_LABELS",
+      "natural_distribution": false
+    },
+    "key": "0ae73be2dfba7ae603a59da881aecc9dc91df9fe55725e4f1026f5ecda67cb6c"
+  },
+  "scores": {
+    "pool_key": "0ae73be2dfba7ae603a59da881aecc9dc91df9fe55725e4f1026f5ecda67cb6c",
+    "components": [
+      0.0342687328627227,
+      0.7853649964809024,
+      0.6445420678817807,
+      0.99998889210317,
+      0.5349618466370122
+    ],
+    "relations": [
+      0.0020930252091116617,
+      0.9974980465927168,
+      1.8048513878454153e-35
+    ],
+    "metadata": {
+      "pool_key": "0ae73be2dfba7ae603a59da881aecc9dc91df9fe55725e4f1026f5ecda67cb6c",
+      "scorer_identity": "118fa8265244fb7f7a4d453214b17b0b16ad619ebd9ce07adc873a10e6dd9140",
+      "failure": null,
+      "calibrated": true,
+      "fit_source_groups": [
+        "fixture-train"
+      ],
+      "calibration_source_groups": [
+        "fixture-calibration"
+      ]
+    }
+  }
+}

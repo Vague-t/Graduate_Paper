@@ -1,0 +1,37 @@
+基于结构增强语言模型的时序知识图谱推理方法研究
+查询: Given the provide context, does the Police
+engage cooperation Citizen on 11-16？
+相关子图文本:
+Police arrest Citzen on 10-22. Police investigate Citzen on 11-04. Police Make an
+appeal or reques Citizen on 11-13 .Police express intent to meet or negotiate Citizen
+on 11-11. Police demand Lawyer on 10-31, Lawyer Accuse Citizen on 11-10……..
+时序知识图谱 基于嵌入的方法 Yes/No/Unsure
+（a） 现有的时序知识图谱推理方法：推理过程不透明，缺乏可解释性
+大语言模型
+No, it is not plausible that Police engage cooperation
+Citizen on 11-16. Several factors support this
+prediction: 1. Police arrest Citzen on 10-22……there
+is no indication in the document of any intention by
+Police to enage in cooperation with Citzen.
+（b）大语言模型生成难以信服的可解释推理结果
+正确的可解释证据
+Yes. it is plausible to predict that the police will
+engage cooperation with citizens on November 16.
+Prior interactions reveal a pattern of both
+enforcement...... The expressed intent to meet and
+instances of reconciliation suggest a transition
+toward collaborative interaction……
+（c） 我们的方法利用图结构信息约束引导大语言模型实现可解释推理
+图4.1现有时序知识图谱推理方法与本文方法的对比示意图
+基于逻辑规则的方法通过挖掘时序知识图谱中的规则模板，以实现推理过程的可解释
+性。例如,TLogic[31]通过在时序知识图谱上进行随机游走以挖掘潜在的时序逻辑规则，
+从而实现对历史依赖关系的显式建模。然而，这类基于逻辑规则的方法在复杂时序场
+景下难以兼顾表达能力与泛化能力。其规则通常依赖有限的模式空间，难以覆盖复杂
+多变的时序依赖关系；同时，其组合与扩展能力有限，在多跳推理及长时间跨度依赖
+场景下建模能力受限。基于强化学习的方法通过在时序知识图谱上学习推理路径来构
+建解释过程。例如，xERTE[30]通过构建与查询相关的子图以缩小搜索空间，并在此基
+础上学习潜在的推理路径；TITer[83]则通过逐步遍历图结构，构建序列化的推理链，从
+而完成目标事实的预测。然而，这类基于强化学习的方法通常依赖于隐式策略表示进
+行决策，缺乏清晰的语义表达，使得生成的推理路径难以直接被人类理解；同时，该
+类方法对奖励函数设计较为敏感、易出现训练不稳定等问题，因而难以应用于复杂时
+39

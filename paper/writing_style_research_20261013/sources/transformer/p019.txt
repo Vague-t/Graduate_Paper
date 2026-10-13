@@ -1,0 +1,41 @@
+武汉大学硕士学位论文
+Output
+Probabilities
+Linear&
+Softmax
+Add & Norm
+Feed
+Forward
+Add & Norm
+Add & Norm
+Multi-Head N×
+Feed Attention Decoder
+Forward K V Q
+N× Add & Norm
+Encoder Add & Norm
+Masked
+Multi-Head Multi-Head
+Attention Attention
+V K Q V K Q
+Positional Positional
+Encoding Encoding
+Input Output
+Embedding Embedding
+Inputs Outputs
+图2.1 Transformer整体结构概览[1]
+词向量信息嵌入（Embedding）。模型的输入首先经过一个词向量嵌入层，
+将 one-hot 编码转换为维度为 d 的向量表示，该过程通常使用预训练词向量或构
+建可训练的随机向量。随后，将得到的嵌入向量与位置编码进行相加，送入多头
+自注意力模块中。位置编码通常采用正弦波输入的形式或者是可训练的向量嵌入。
+经过向量嵌入后，原始数据就对应到向量形式的抽象表示。原始数据在自然语言
+处理中可以是一个单词、一个汉字，在计算机视觉场景中可以是一组像素块，后
+文将原始数据对应的向量表示统一称作Token。
+多头注意力（Multi-Head Attention）。Transformer 模型架构的核心组件是
+多头注意力模块，该模块的主要思想是通过注意力计算，使得序列的每个Token
+可以从其他位置的Token中获取信息。对于模型的输入 ，首先会通过线性映射
+得到多头空间的三个特征矩阵Q（Query）、K（Key）和V（Value）。根据注意
+𝑋𝑋
+力计算中Query和Key-Value 对的来源，可以划分三种类型的注意力：
+（1）自注意力。在编码器中，Q、K、V 的初始来源都是输入序列 X，X 为
+上一层输出，在第一层为初始模型输入。
+10

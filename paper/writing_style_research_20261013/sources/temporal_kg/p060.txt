@@ -1,0 +1,45 @@
+基于结构增强语言模型的时序知识图谱推理方法研究
+时序知识图谱 目标解释词元
+查询
+Large Language Models
+time tq
+训练 (self Attention layers)
+Lora
+映射
+时序结构 graph
+感知编码器 token
+编码 Adapter LLM Text Embedder
+推理链
+图嵌入
+<Instruction>:
+Given the following document, is it plausible that
+<query description> will happen? Please answer yes,
+池化 no, or unsure then explain your decision.
+<Input>：
+{Reasoning Chains text}
+<Answer>：
+{Target explanation text}
+指令微调Prompt
+图4.4GETER模型总框架图
+4.4.1 时序结构感知编码器
+为充分利用大语言模型在语义理解与生成方面的优势，同时弥补其对时序知识图
+谱结构信息建模能力的不足，首先引入时序结构感知编码器，对图结构信息进行建模。
+给定时序知识图谱𝒢，采用时序图编码模型（如RE-GCN[12]），通过图神经网络的消息
+传递机制捕捉实体与关系的结构依赖及其时间演化模式，获得如公式4.7的结构表示：
+s = TGE(𝑥 ∣ 𝒢) ∈ ℝ𝑑 𝑠, (4.7)
+n 𝑛
+其中，𝑥 表示实体或关系𝑛的初始表示，𝑑 为结构嵌入的维度，TGE(⋅)表示时序图编
+𝑛 𝑠
+码器（Temporal Graph Encoder）。在此基础上，可分别得到实体嵌入矩阵 E ∈ ℝ|ℰ|×𝑑 𝑠
+与关系嵌入矩阵 R ∈ ℝ|ℛ|×𝑑 𝑠。得到的 s 融合了时序图结构信息，为后续结构表示与
+n
+大语言模型语义空间的对齐提供了桥梁。
+4.4.2 结构-文本对齐适配器
+为实现图结构表示与语言模型语义空间的有效融合，构建结构-文本对齐适配器
+（Adapter），将结构信息以软提示的形式注入大语言模型。具体地，给定查询𝑞 = (𝑒 ,𝑟,𝑒 ,𝑡)
+𝑠 𝑜
+及其对应的推理路径 𝒞(𝑒 ,𝑒 )，基于结构嵌入通过无参数的消息传递方式对查询及推
+𝑠 𝑜
+理路径进行聚合，得到图结构表示；随后，通过可训练的投影矩阵W ∈ ℝ3𝑑 𝑠 ×𝑑 𝑥 将其
+𝑝
+47

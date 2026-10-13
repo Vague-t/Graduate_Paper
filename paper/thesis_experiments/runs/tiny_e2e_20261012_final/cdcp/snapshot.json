@@ -1,0 +1,174 @@
+{
+  "pool": {
+    "input": {
+      "doc_id": "fixture-train",
+      "corpus": "cdcp",
+      "text": "Alpha. Beta. Gamma.",
+      "source_group": "fixture-train",
+      "split": "train"
+    },
+    "universe": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 0,
+          "end": 6,
+          "type": "reference"
+        },
+        {
+          "id": "c2",
+          "start": 1,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c3",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c4",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0"
+          ],
+          "target": "c4",
+          "type": "reason"
+        },
+        {
+          "sources": [
+            "c0",
+            "c3"
+          ],
+          "target": "c4",
+          "type": "evidence"
+        },
+        {
+          "sources": [
+            "c0",
+            "c3"
+          ],
+          "target": "c4",
+          "type": "reason"
+        },
+        {
+          "sources": [
+            "c3"
+          ],
+          "target": "c0",
+          "type": "evidence"
+        }
+      ]
+    },
+    "initial": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "protected": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 6,
+          "type": "fact"
+        },
+        {
+          "id": "c1",
+          "start": 7,
+          "end": 12,
+          "type": "value"
+        },
+        {
+          "id": "c2",
+          "start": 13,
+          "end": 19,
+          "type": "policy"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c0",
+            "c1"
+          ],
+          "target": "c2",
+          "type": "reason"
+        }
+      ]
+    },
+    "metadata": {
+      "evidence_type": "CONSTRUCTED_DIAGNOSTIC_POOL_USING_TRAIN_LABELS",
+      "natural_distribution": false
+    },
+    "key": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246"
+  },
+  "scores": {
+    "pool_key": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+    "components": [
+      0.8237258584022262,
+      0.0005547301885851947,
+      0.633640053259488,
+      0.5424727739636549,
+      0.99926353269282
+    ],
+    "relations": [
+      0.0743736071594905,
+      3.120074397721253e-15,
+      0.9238885988864103,
+      2.2157111764792477e-08
+    ],
+    "metadata": {
+      "pool_key": "e5ea95f81dc3f2e7a05b8a1b8a6c08e7dccee4ac6cedf3777067ade5d6b13246",
+      "scorer_identity": "430cb456bdba32745cb1eea4062083a3fabb5e9ebd9358b147d602b1ea2e1c8f",
+      "failure": null,
+      "calibrated": true,
+      "fit_source_groups": [
+        "fixture-train"
+      ],
+      "calibration_source_groups": [
+        "fixture-calibration"
+      ]
+    }
+  }
+}

@@ -1,0 +1,71 @@
+基于对比式自监督学习的结构语义融合知识推理研究
+3.2 上下文 schema 构建
+开放的知识图谱例如 Freebase、Wikipedia 等，均包含了源生的本体属性和
+关系，图 3.2 对一个知识图谱中的实例视图及其对应 schema 视图进行了展示。
+其中的“Nicole Kidman”实体有两种不同的类型：“Actress”和“Citizen”，该
+实体在两种不同的上下文中表达出不同的语义信息。图中左上部分描述的是有关
+“妮可基德曼作为演员获得的奖项和作品”的上下文信息。具体地，实体“Nicole
+Kidman”和实体“66th Cannes”之间存在关系相连，在这种情况下，模型很容易
+对（Nicole Kidman，？，Lane Cove Public School）这样的预测产生错误的推理
+结果，因为实体类型“Actress”和实体类型“School”之间没有直接的关系相连
+接。但是考虑到“Nicole Kidman”实际上也是“Citizen of Austrilia”，因此进行
+这样的预测实际上是合理且符合实际的。
+21
+S
+实
+c h
+M
+例
+类 型 实 体
+e m a 视 图 F ilm
+F e stiv a l
+P r iz e
+J u r y o f
+W in n er o f
+A c tr e ss o v ie A cted in
+F rien d w ith D irected b y
+D ir e c to r
+th 6 6 C a n n e s
+B e st
+? A c tr e ss
+W in n er o f
+T h e N ic o
+A cted in H o u r s
+K id m
+D irected b y F rien d w ith
+S te p h e n
+视 图 D a ld r y
+C
+le
+a n
+类 型 映 射 关 系
+S c h o o l
+E d u c a te d a t
+C
+B o rn in
+itiz e n
+L o ca ted
+W o rk ed in
+T h e a tr e
+L a n e C o v e
+P u b lic S c h o o l
+?
+A
+B o rn in
+L o ca ted in
+W o rk ed in
+P h illip S tr e e t
+T h e a tr e
+o u n tr y
+in
+u str a lia
+图3.2 知识图谱实例视图及其对应的schema视图
+由于知识图谱中的本体信息通常较为稀疏，且含有大量噪声，难以被直接建
+模为图结构加以利用。因此，本节旨在依赖现有的实体类型信息，构建出知识图
+谱的 schema 图，使得它能够合理地表达出知识图谱的高阶元特征和概念之间的
+关联。
+对于一个知识图谱 ，它包含了若干实体组成的实体集合 ，若干关系组成
+的关系集合 ，所有三元组实例(s,r,o)组成的三元组集合 ，以及所有实体类
+型组成的实体类型集合 。其中，对于一个头实体s 或者尾实体o ，它们
+均有一个或者多个对应的类型t ,t ,...,t  。首先，对于知识图谱中的所有三
+s1 s2 sn

@@ -1,0 +1,48 @@
+武汉大学硕士学位论文
+易被冗长的文本淹没；2）相比之下，历史上下文文本对模型在时间建模方面的
+贡献更大，因为它们引入了时序的、最近邻的历史，为四元组查询项提供了丰富
+的背景知识。因此，ChapTER 模型可以从丰富的历史上下文中捕捉到更准确的
+时序历史信息。
+表4.9 模型在ICEWS14和ICEWS14-OOG（Zero-shot）上消融实验效果统计
+ICEWS14 ICEWS14-OOG
+序号 模型
+MRR H@10 MRR H@10
+1 ChapTER 33.2 51.5 36.1 75.2
+2 w/o timestamp 32.1 50.5 35.8 73.9
+3 w/o description 31.9 49.7 30.8 65.1
+4 w/o historical contexts 32.4 48.4 35.0 70.6
+5 w/o pre-batch negatives 32.6 50.9 35.0 72.6
+6 w/o self negative 32.9 51.0 35.8 75.5
+7 w/o pre-batch & self negatives 32.6 50.7 34.3 73.4
+8 w/ last layer tuned 32.3 50.4 34.7 74.8
+9 w/ last 6 layers tuned 31.6 49.9 35.9 74.8
+10 w/ first layer tuned 31.1 49.4 33.3 72.1
+11 w/ fully tuned 31.6 49.3 35.7 74.8
+负样本组成。表 4.9 的第 5-7 行展示了 ChapTER 在 ICEWS14 和
+ICEWS14-OOG数据集上使用不同类型的训练负样本（批次内负样本
+50
+in
+、批次
+外负样本
+p re
+和自负样本
+se lf
+）的性能变化。具体地，对ChapTER 模型的负样
+本组成从三个方面进行消融：移除 负样本（w/o pre-batch negatives）、移除
+pre
+se lf
+负样本（w/o self negative）以及同时移除
+p re
+和
+se lf
+（w/o pre-batch & self
+negatives）。从表4.9 的第5-7行可以观察到，同时移除 和
+pre se lf
+比单独移除
+其中任一部分都会导致更差的性能结果。由于自负样本的存在能够减少
+ChapTER 对简单文本匹配的依赖，它倾向于提高模型的Hits@1 指标，但同时会
+降低 Hits@10（例如，在 ICEWS14-OOG 数据集上，Hits@10 从 75.5 降低到了
+75.2）。此外，本小节进一步分析了模型训练过程中批次内负样本数量对模型整
+体性能的影响，如图 4.2 所示。随着负样本数量的增加，模型 MRR 指标从 19.2
+稳步提升到了 32.2，但当负样本数量大于 768 时，模型性能的提升变得很微弱。
+总的来说，每种类型的负样本都对 ChapTER 的最终结果作出了贡献。批次内负

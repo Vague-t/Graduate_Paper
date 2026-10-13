@@ -1,0 +1,34 @@
+Abstract
+In recent years, there has been a rapid development of deep learning techniques,
+resulting in revolutionary breakthroughs in various fields. Within the field of deep learning,
+the Transformer model based on attention mechanisms has proven to be a highly effective
+modeling framework. This has led to the development of many representative models, with
+ChatGPT in particular sparking a new wave of AI revolution. The effectiveness of the
+Transformer model is largely due to the attention mechanism's ability to capture global
+information dependencies. However, attention calculations also bring a complexity of .
+2
+As network size and parameter count increase, there are growing demands on computational
+𝑂𝑂(𝐿𝐿 𝑑𝑑)
+and memory resources, which limits the model's depth of application in long sequence data
+and resource-limited scenarios. Therefore, optimizing and accelerating the Transformer
+model has become an urgent problem that needs to be addressed. Existing research has
+explored the use of sparse attention to improve model efficiency. However, position-based
+sparse attention fails to consider differentiated information among samples, while
+content-based sparse attention may suffer from clustering errors and loss of information
+interaction, which can affect model performance. Additionally, these methods only optimize
+and design based on a single lateral layer dimension and lack optimization considerations for
+other dimensions of the overall model structure. As a result, there is still room for
+improvement in both model effectiveness and efficiency.
+This thesis aims to optimize the Transformer model structure and proposes a
+comprehensive optimization and acceleration scheme, CSformer, based on intra-layer
+clustering and inter-layer selection. The scheme includes the following main components: 1)
+intra-layer clustering and clustering of sequences within a single layer of the stacked encoder
+or decoder of the Transformer model, which replaces complete attention calculation with
+content-based sparse attention. To improve the accuracy of clustering, several methods are
+proposed for cluster center vector generation, cluster center information enhancement, and
+cluster loss calculation at different stages of clustering. 2) A hierarchical fusion method for
+classification information is proposed to optimize the performance of the clustering attention
+model in classification tasks. 3) For measuring the contribution of tokens, three token
+contribution calculation strategies based on attention scores are proposed between the model
+encoder or decoder layers and between different clusters. Based on these strategies, a global
+II

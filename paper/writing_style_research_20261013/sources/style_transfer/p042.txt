@@ -1,0 +1,33 @@
+武汉大学硕士学位论文
+注出来，而生成器负责对标注器标注出的需要修改的字词进行修改。
+（4）RACoLN[71]：RACoLN使用重建损失隐式地移除文本中的风格从而得
+到文本的内容表示，同时使用条件层归一化构建与内容相关的风格表示，二者融
+合得到目标文本。模型的编码器与解码器均采用带有注意力的单层 GRU 结构。
+（5）GPT-3.5-turbo（ChatGPT）2：它是OpenAI开发的一个闭源的大语言模
+型，具有行业领先的性能。
+3.4.3 模型训练详情
+论文使用PyTorch3与Transformers4框架，生成模型使用修改后的MT5-Base，
+并在此基础上修改了词表与词嵌入大小以及最顶端的 LM-head，只保留了汉语的
+和 48 个特殊哨兵词嵌入。蒙特卡洛采样过程选择基于 Top-P 与 Top-K 采样法对
+生成的词语进行随机采样。风格分类器在 Bert-Chinese-base5的基础上进行微调，
+用于计算困惑度的语言模型则采用 GPT2-Chinese-Cluecorpussmall6和 GPT2-
+Chinese-Ancient7进行微调。具体的超参数如表3.3所示。
+表3.3 基于提示强化学习算法的超参数
+超参数 取值
+风格迁移准确性奖励权重 0.35
+内容保留完整性奖励权重𝛼𝛼 0.35
+文本语言流畅性奖励权重𝛽𝛽 0.3
+学习率 𝛾𝛾 1e-5
+Batch大小 48
+词移相似度阈值 0.6
+𝜀𝜀
+3.4.4 评价指标
+论文主要从三个维度评价模型的有效性：风格迁移准确率、内容保留完整性、
+文本语言流畅性。其中，风格迁移准确率采取与风格迁移奖励函数类似的方式，
+2 https://openai.com/chatgpt
+3 https://pytorch.org/
+4 https://github.com/huggingface/transformers
+5 https://huggingface.co/google-bert/bert-base-chinese
+6 https://huggingface.co/uer/gpt2-chinese-cluecorpussmall
+7 https://huggingface.co/uer/gpt2-chinese-ancient
+30

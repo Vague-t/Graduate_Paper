@@ -1,0 +1,149 @@
+基于结构增强语言模型的时序知识图谱推理方法研究
+2.2.2 基于语言模型的方法
+随着语言模型的快速发展，基于语言模型的时序知识图谱推理方法逐渐成为重要
+研究方向。该类方法通常将时序知识图谱中的结构化四元组转化为文本序列输入，通
+过语言模型对实体、关系及时间进行统一建模，从而利用其强大的语义理解与生成能
+力提升推理性能。相较于基于图结构模型的推理方法，此类方法更加侧重语义建模。
+Figure2: Modelarchitecture.ECOLAjointlyoptimizestheknowledge-textprediction(KTP)objectiveandthe
+temporalknowledgeembedding(tKE)o图bjec2t.i1veE. COLA模型结构图
+早bed期din研gw究ith主kn要ow基led于ge以emBbeEddRinTg[m52o]d为els代,e.表g.,的预KG训co练mp语let言ion模tas型k（wPithLoMutsu）s，in通gP常LM采a用ndEannycoder-
+TransE (Bordes et al., 2013), and inject the pre- textualdataforpreventinginformationleakageand
+only结trai构ned ， e并ntit将ye任mb务edd建ing模in为toP掩LM码s,语wh言ile建fix模ing任务ke 。 ep具ing体af地ast ， in通fer常enc通es过pee构d. 造提示模板，将四
+theentityembeddingduringtrainingPLMs.Thus,
+元组(𝑠,𝑟,𝑜,𝑡)转化为文本序列输入，例如“[CLS]𝑠[SEP]𝑟[SEP]𝑜[SEP]𝑡[SEP]”，并通过
+theyarenotrealjointmodelsforlearningknowl- 3.1 EmbeddingLayer
+掩码预edg测ee或mb分edd类ing任an务d实lan现gua对ge缺em失bed实din体g的sim预ul-测。In如tKG图em2.b1e所ddi示ng，moEdeClsO,eLnAtity[5r3e]p通res过ent构atio造ns“知
+taneously. Yao et al. (2019), Kim et al. (2020), evolveovertime.Thus,thekeypointofenhancing
+识—文and本W ” ang对e齐t al机. (2制02 ， 1)将lea时rn序to 知gen识era图te谱ent中ity的四
+ati
+元
+me
+组
+-de
+与
+pe
+对
+nde
+应
+nt
+文
+ent
+本
+ity
+描
+rep
+述
+res
+进
+ent
+行
+atio
+联
+ne
+合
+t
+建
+is
+模
+to
+，并
+i
+p q
+设计双
+em
+重
+bed
+优
+din
+化
+gs
+目
+wit
+标
+hP
+实
+LM
+现
+s
+推
+fro
+理
+me
+。
+nt
+此
+ity
+外
+des
+，
+cr
+还
+ipti
+有
+ons
+一
+.
+些
+fi
+方
+nd
+法
+text[s32th–a3t4a]r
+通
+er
+过
+elev
+引
+an
+入
+tto
+提
+the
+示
+en
+学
+tity
+习
+at
+、
+th
+前
+eti
+缀
+me
+微调
+Moreover,Heetal.(2019),Sunetal.(2020),and ofinterestt. Tothisend,weusetKGquadruples
+及对比Liu学et习al.机(20制20，)ex进plo一itt步he增pot强ent模ial型of对con时tex间tu-信息(e.g的.,建e
+i
+,模p,能e
+j
+,力t )。as这an类im方plic法itm通ea过su将ref结or构the化知
+p q
+alized knowledge representation by constructing alignment. Wepairaquadruplewithitsrelevant
+识转化sub为gra文phs本of输stru入ctu，red有kn效ow利led用ge了and预tex训tua练ld语ata言模tex型tua的lda语taa义nd表use示su能cht力ext 。 ual然dat而ato ， en由han于ce其the本质
+insteadoftreatingsingletriplesastrainingunits. entity representation e t . Therefore, a training
+仍属于判别式建模范式，通常依赖候选实体排序或得分函数进i p行q 预测，其推理过程缺
+Nevertheless,noneoftheseworksconsiderthetem- sampleisapairofquadruplefromtemporalKGs
+乏显式por建al a模sp。ect of knowledge graphs, which makes andthecorrespondingtextualdescription,which
+themdifferentfromourproposedECOLA. are packed together into a sequence. As shown
+随着训练语料规模的不断扩大以及模型参in数Fig规ure模2,的th持e in续pu增t e长mb ， edd预ing训is练th语e s言um模of型逐
+3 ECOLA token embedding, type embedding, and position
+步演进为大语言模型，其主流架构也由 Encoder-only 范式向 Decoder-only 的自回归生
+embedding. For token embedding, we maintain
+成范式Int转his变sec。tio在n,此we背pre景sen下tth，e越ove来rall越fra多me研wo究rko开f 始t探hre索e l基ook于up大ta语ble言s f模or型sub的wo时rds序, e推nti理ties方, a法nd。该
+ECOLA,includingthemodelarchitectureinSec- predicates,respectively.Forsubwordembedding,
+类方法tion通3.常1-基3.3于, a自no回vel归tas语kd言es建ign模ed机for制ali，gni将ng推理we任fir务stt建oke模niz为eth条et件ext序ual列de生scr成ipti问on题int。oa给se-定输
+knowledge embedding and language representa- quenceofsubwordsfollowing(Devlinetal.,2018)
+入序列X = (𝑥 ,𝑥 ,…,𝑥 )，语言模型通过建模如公式2.8所示的联合概率分布：
+tioninSectio1n3.24,andth𝑇etrainingprocedurein andusetheWordPiecealgorithm(Wuetal.,2016).
+Section3.5.AsshowninFigure2,ECOLAimplic- As𝑇thelightbluetokensshowninFigure2,wede-
+itlyincorporatestextualknowledgeintotemporal note an embedding sequence of subword tokens
+𝑃(𝑥 ,𝑥 ,…,𝑥 ) = 𝑃(𝑥 ∣ 𝑥 ), (2.8)
+knowledgeembeddingsbyjointly1opti2mizingth𝑇e a∏s w ,...,𝑡w <. 𝑡In contrast to subword embed-
+1 n
+𝑡=t1 u
+knowledge-text prediction loss and the temporal ding, the embeddings for entities and predicates
+knowledge embedding loss. Note that, at infer- aredirectlylearnedfromscratch,similartocom-
+ence time, we only take the enhanced temporal15monknowledgeembeddingmethods. Wedenote
+knowledge embeddings to perform the temporal theentityembeddingandpredicateembeddingase
+5435

@@ -1,0 +1,32 @@
+武汉大学硕士学位论文
+更为广泛。图3.5（b）不同簇之间微小的空间上重叠表明了本章所提出的 SMiLE
+模型在有效地建模实体上下文信息的同时，能够将不同类型实体更清晰地区分开
+来。为了更具体地解释图 3.5，表 3.8 中列出了与图 3.5 中实体相关的细节信息。
+从表中可以观察到，“Warner Bros.”、“California”、“African Americans”实
+体以及它们之间的关系构成了一个更大的上下文 schema。从直观上来看，它们
+之间存在一些在“美洲”层面上的语义联系，因此在语义空间上这些簇之间具有
+更近的距离。
+表3.8 FB15k数据集中部分代表性实体名称与类型信息
+实体名称 实体类型 构成的上下文schema
+business.employer (award_winner,
+1 Warner Bros. award.award_winner /place_lived/location,
+film.production_company administrative_division)
+government.political_district (award_winner,
+2 California
+location.administrative_division /person/ethnicity, book_subject)
+(administrative_division,
+people.ethnicity
+3 African Americans /location/containedby,
+book.book_subject
+book_subject)
+3.7 本章小结
+本章针对知识图谱中“如何建模上下文语义信息以及如何与结构信息进行融
+合”的问题，提出了 schema 增强的多层级对比学习知识推理模型。首先，本章
+提出了一种自动从知识图谱中构建完整 schema 的方法，并分别设计了结构视图
+和上下文视图的实体编码器。然后，提出了在上下文层级和全局层级的正负样本
+采样策略，定义了多层级的对比自监督预训练目标，以充分捕获实体的上下文信
+息。最后在微调阶段，在三元组的监督下微调模型，以学习更细粒度的实体和关
+系表示。基于提出的模型，针对链接预测任务，在四个基准数据集上开展了详尽
+的实验，并对模型性能和具体案例进行了分析。实验结果表明，本章提出的模型
+能够有效建模和平衡知识图谱中的局部上下文信息和全局结构信息。
+36

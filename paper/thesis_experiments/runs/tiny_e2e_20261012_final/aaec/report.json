@@ -1,0 +1,82 @@
+{
+  "corpus": "aaec",
+  "evidence_type": "CONSTRUCTED_SOFTWARE_DIAGNOSTIC",
+  "training_steps": 1,
+  "loss": 8.20620346069336,
+  "accepted_fixture_views": 1,
+  "scorer_history": [
+    {
+      "epoch": 1,
+      "loss": 1.1185072234698705,
+      "objects": 7
+    },
+    {
+      "epoch": 2,
+      "loss": 1.0718978984015328,
+      "objects": 7
+    }
+  ],
+  "calibration": {
+    "component": {
+      "slope": 73.18525301040326,
+      "intercept": 86.30287512249069,
+      "fitted": true,
+      "evidence_type": "CONSTRUCTED_CALIBRATOR_OPTIMIZER_DIAGNOSTIC",
+      "observations": 5
+    },
+    "relation": {
+      "slope": 284.47550046632733,
+      "intercept": 68.13593644372729,
+      "fitted": true,
+      "evidence_type": "CONSTRUCTED_CALIBRATOR_OPTIMIZER_DIAGNOSTIC",
+      "observations": 3
+    }
+  },
+  "span_history": [
+    {
+      "epoch": 1,
+      "loss": 0.7953486686403101,
+      "boundary_and_type_observations": 22
+    }
+  ],
+  "span_proposals": 4,
+  "strict_metrics_on_fixture": {
+    "method": "fixture-I1",
+    "seed": 17,
+    "documents": 1,
+    "failures": {},
+    "protocol": "native_char_complete_source_set_strict_micro; canonical_dedup_all_methods; zero_denominator=0",
+    "metrics": {
+      "aaec": {
+        "component": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "n_pred": 3,
+          "n_gold": 3,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        },
+        "relation": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "n_pred": 1,
+          "n_gold": 1,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        }
+      }
+    }
+  },
+  "repair_methods": [
+    "Global",
+    "Single",
+    "SetLocal",
+    "RelationOnly",
+    "Sequential",
+    "I1"
+  ]
+}

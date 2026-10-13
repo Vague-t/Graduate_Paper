@@ -1,0 +1,80 @@
+{
+  "corpus": "cdcp",
+  "evidence_type": "CONSTRUCTED_SOFTWARE_DIAGNOSTIC",
+  "training_steps": 1,
+  "loss": 8.898159980773926,
+  "accepted_fixture_views": 1,
+  "scorer_history": [
+    {
+      "epoch": 1,
+      "loss": 1.187262773513794,
+      "objects": 8
+    },
+    {
+      "epoch": 2,
+      "loss": 1.1466842293739319,
+      "objects": 8
+    }
+  ],
+  "calibration": {
+    "component": {
+      "slope": 22.267632494633517,
+      "intercept": 34.62276770192736,
+      "fitted": true,
+      "observations": 5
+    },
+    "relation": {
+      "slope": 499.93523009430584,
+      "intercept": 217.2202949603344,
+      "fitted": true,
+      "observations": 4
+    }
+  },
+  "span_history": [
+    {
+      "epoch": 1,
+      "loss": 0.9341317848725752,
+      "boundary_and_type_observations": 22
+    }
+  ],
+  "span_proposals": 4,
+  "strict_metrics_on_fixture": {
+    "method": "fixture-I1",
+    "seed": 17,
+    "documents": 1,
+    "failures": {},
+    "protocol": "native_char_complete_source_set_strict_micro; canonical_dedup_all_methods; zero_denominator=0",
+    "metrics": {
+      "cdcp": {
+        "component": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "n_pred": 3,
+          "n_gold": 3,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        },
+        "relation": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "n_pred": 1,
+          "n_gold": 1,
+          "precision": 100.0,
+          "recall": 100.0,
+          "f1": 100.0
+        }
+      }
+    }
+  },
+  "repair_methods": [
+    "Global",
+    "Single",
+    "SetLocal",
+    "RelationOnly",
+    "Sequential",
+    "I1"
+  ]
+}

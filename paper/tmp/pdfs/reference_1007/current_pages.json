@@ -1,0 +1,4229 @@
+[
+  {
+    "physical_page": 1,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n武汉大学\n学术型硕士学位论文\n面向关系感知学习与依赖闭合修正的\n端到端论辩挖掘方法研究\nEnd-to-End Argument Mining via\nRelation-Aware Learning and\nDependency-Closed Repair\nChen Tang\n计算机科学与技术\n1007-v1 完整修订稿 含非实测占位 勿送审\n2026 年 10 月 7 日",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 212,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "GAAAAA+TimesNewRomanPSMT",
+        "size": 15.0,
+        "characters": 81
+      },
+      {
+        "font": "FAAAAA+HiraginoSansGB-W6",
+        "size": 24.0,
+        "characters": 27
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "KAAAAA+STSongti-SC-Bold",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 11
+      },
+      {
+        "font": "EAAAAA+STSongti-SC-Regular",
+        "size": 18.0,
+        "characters": 9
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      108.0,
+      153.13,
+      495.24,
+      563.63
+    ]
+  },
+  {
+    "physical_page": 2,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n摘要\n端到端论辩挖掘从原始文本中识别论辩组件的跨度、类型及组件间关系。组件与\n关系相互依赖：训练文本的局部改写可能改变原有论证作用，使继承标注失真；预测\n组件的边界或类型发生变化，也会改变关联关系的端点身份。本文以作者前期结论组\n件专项建模、多候选重排序与有界修正研究为基础，分别研究训练阶段的关系监督保\n持与推理阶段的结构恢复。\n第一，提出面向结论组件的关系感知增强学习方法。该方法只改写选定组件的文\n字，检查集合内部及跨边界的合法端点组合，同时核对已有关系与无关系状态。程序\n将原标注映射到回填后的文档，语义检查发现标签漂移时拒绝整个变体。在前期专项\n建模基础上，对原文与合格增强文的对应组件和关系实施成对监督，使表达变化与学\n习目标之间建立明确对应。按源文档归一化训练权重，限制同源变体数量对优化过程\n的影响。\n第二，提出多候选驱动的依赖闭合论辩图修正方法 MCR-BR-J。该方法保持输入\n原文不变，在多候选重排序获得初始图后，以兼容组件集合替换表示遗漏补回、多检\n删除、边界或类型调整以及拆分合并。组件修改与全部受影响关系的重建组成一个事\n务，在固定对象评分、整图约束和预算下整体接受或回退。评分器估计包含跨度、类\n型及关系端点的完整对象正确性，代价敏感效用明确修改的比较依据。形式分析说明\n标注输运、局部效用差和有限终止的适用条件，不据此保证真实 F1 提高。\n本文建立 AAEC 与 CDCP 上的验证协议，分别检验训练增强和推理修正的独立\n贡献，并将 CDCP 多前提关系作为原生超边处理。验证重点包括近邻增强方法、同数\n据不同损失、同候选同评分的顺序与联合修正、结构化全局解码，以及候选覆盖、错\n误修改和计算成本。现有成果与轻量诊断用于说明研究基础；第五章预期情景值仅为\n写作占位，新增方法的实证结论仍需与运行记录及严格评价绑定。\n关键词：端到端论辩挖掘；关系感知增强；结论组件；依赖闭合；图修正；代价敏感评分",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 839,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 684
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 39
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 35
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 22
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      130.48,
+      523.55,
+      620.14
+    ]
+  },
+  {
+    "physical_page": 3,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nAbstract\nEnd-to-end argument mining jointly identifies component spans, component types, and\nargumentative relations from raw text. Components are interdependent: paraphrasing a\ncomponent during training may alter its relations to surrounding components, while\nchanging its span or type during inference may invalidate existing relations. Increasing the\nnumber of textual variants or editing predictions independently does not explicitly address\nthese dependencies. Building on the author's prior work on conclusion-specific modeling,\nmulti-candidate reranking, and bounded repair, this thesis develops two complementary\nmethods for preserving relational supervision and restoring prediction dependencies.\nThe first method is relation-aware augmentation learning for conclusion components.\nOnly designated component spans may be paraphrased. Legal endpoint combinations within\nthe editable set and across its boundary are checked for preservation of both annotated\nrelations and no-relation states. Deterministic annotation transfer establishes component\ncorrespondence after text replacement; detected semantic drift leads to rejection of the entire\nvariant. Building on the inherited conclusion-specific modeling, paired component and\nrelation supervision connects accepted textual variations to the shared generation\nrepresentation. Source-document normalization controls the influence of multiple variants\nfrom the same document.\nThe second method, MCR-BR-J, repairs predicted argument graphs while keeping the\ninput text unchanged. After multi-candidate reranking, compatible component-set\nreplacements support insertion, deletion, span or type changes, splitting, and merging within\na fixed candidate universe. A replacement and the reconstruction of all affected relations\nform one transaction, which is accepted or rolled back as a whole under fixed scores, global\nstructural constraints, and explicit budgets. The scorer estimates the correctness of complete\nobjects, including spans, types, and relation endpoints. A cost-sensitive utility provides the\ncomparison criterion. Conditional analyses establish annotation transport, local utility\ndifferences, and finite termination without guaranteeing improvement in true F1.\nThe evaluation protocol separates the contributions of training-time learning and\ninference-time repair on AAEC and CDCP, retaining CDCP multi-premise relations as\nnative hyperedges. It includes related augmentation methods, matched-data loss ablations,\nsequential and joint repair under identical candidates and scores, global structured decoding,\ncandidate recovery, harmful edits, and computational cost. Prior results and diagnostics\nestablish the research basis. Numerical scenarios in Chapter 5 are writing placeholders, not\nmeasurements; new empirical claims require reproducible runs and strict evaluation.\nKeywords: End-to-End Argument Mining; Relation-Aware Augmentation; Conclusion Components;\nDependency Closure; Graph Repair; Cost-Sensitive Scoring",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 3019,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2835
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 146
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "OAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 16.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      112.54,
+      523.51,
+      701.33
+    ]
+  },
+  {
+    "physical_page": 4,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n目录\n第一章 绪论 1\n第二章 任务表示与方法基础 10\n第三章 面向结论组件的关系感知增强学习 16\n第四章 多候选驱动的依赖闭合论辩图修正 26\n第五章 实验设计与结果分析 40\n第六章 总结与展望 55\n参考文献 57\n附录 A 复现与证据核验清单 61\n附录 B 运行身份与事务记录规范 62\n附录 C 前期成果归属与研究辅助说明 63\n附录 D 参考实现与新增方法的对应状态 64\n附录 E 前期数值与协议存档 66\n附录 F 符号与阅读索引 71",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 254,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 98
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 60
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 37
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      128.29,
+      504.65,
+      631.38
+    ]
+  },
+  {
+    "physical_page": 5,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n第一章 绪论\n1.1 研究背景与问题提出\n论辩挖掘研究文本中的主张、理由及其连接方式，目标不只是判断作者赞成或反\n对什么，还包括定位论证内容并识别论证结构。其研究对象涵盖说服性作文、公共政\n策评论和其他带有论证行为的文本。论辩挖掘与立场检测、论证质量评价等任务相\n关，但组件和关系抽取的准确性不能直接替代对论证有效性或事实真实性的评价\n[1]。\n本文关注从原始文本到组件跨度、组件类型及有向关系的联合预测。AAEC 以学\n生说服性作文为对象，区分 MajorClaim、Claim 和 Premise；CDCP 以电子规则制定评\n论为对象，采用 Fact、Testimony、Value、Policy 和 Reference 等组件类型[2][3]。两\n个语料的标签不能仅凭名称直接对齐，关系拓扑也不能统一假设为树。因此，本文将\n图约束限定为给定实验表示下的任务约束，不将所有自然语言论辩都定义为有向无环\n图。\n生成式建模把多个子任务映射到同一输出序列，使组件和关系能够共享上下文，\n但没有消除输出内部的依赖关系。例如，一个 Claim 的跨度没有被召回时，以该节点\n为端点的金标准关系便不能在当前候选集合中得到精确匹配；一个存在的 Claim 被赋\n予错误编号时，则可能形成可被确定性检查发现的引用错误。前者是候选空间不足，\n后者是结构一致性错误，二者需要不同的处理机制。\n局部改写同样可能产生不易察觉的关系变化。以人为构造的片段为例：“图书馆\n现有座位不足，而且开放时间偏短”可以分别支持“增加图书馆经费”和“延长开放时\n间”。若增强过程只保留“座位不足”，它可能仍支持第一个观点，却失去对第二个观\n点的论据作用。仅检查改写区域内部的关系，便可能遗漏与区域外观点的连接变化。\n第三章以这一例子说明需要检查的监督范围，例子不作为真实语料或实验结果。\n推理阶段面对的是另一类变化：原文没有改变，模型却可能只抽取上述论据的一\n部分，或漏掉“延长开放时间”这一组件。补全跨度或补回组件后，关系的端点对象发\n生变化，必须重新判断涉及这些对象的连接。因此，本文分别研究文本改写后的监督\n保持和预测修改后的结构恢复，并通过独立对照分析两者的作用及计算代价。\n1",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 950,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 570
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 213
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 83
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 9
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 6
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      523.45,
+      701.63
+    ]
+  },
+  {
+    "physical_page": 6,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n1.2 国内外研究现状\n论辩挖掘的研究路线既包括组件和关系的联合预测，也包括给定组件后的分类与\n推理。比较相关方法时，需要区分输入是否包含金标准跨度、输出是否覆盖全部子任\n务，以及评价是否采用相同端点匹配规则。以下按生成建模、结构信号、数据增强、\n推理修正和跨语料评价组织相关工作，并据此界定本文的研究位置。\n1.2.1 组件识别与联合结构预测\nStab 和 Gurevych 围绕说服性作文建立组件与关系分析方法，为 AAEC 上的结构\n预测提供了任务和标注基础[2]。Eger 等将组件识别与论证结构预测纳入神经端到端\n学习框架，说明联合建模并非大语言模型出现后才产生的路线[4]。Morio 等研究命题\n级双仿射解析与任务特定参数化，支持非树状论辩结构预测[5]。这些研究表明，共\n享表示、子任务依赖以及树与非树结构的区别，均是已有研究问题。\n组件分割仍是实际端到端系统的重要环节。Caputo 等在 2026 年提出成对标签标\n注方案，微调小型开放大语言模型完成细粒度组件分割，并考察自动分割对下游组件\n分类的影响[6]。该工作聚焦分割及其下游分类，不应被表述为已完成与本文相同的\n整图关系抽取评价。它提示本文需要单独分析边界错误，而不能仅依据结论类型 F1\n解释组件质量。\n1.2.2 生成式论辩挖掘与结构化输出\nKawarada 等将论辩挖掘表述为文本到文本生成任务，比较微调模型和提示式模\n型在不同语料上的表现，是本文的直接生成式基线[7]。Cabessa 等进一步将组件分\n类、关系识别、关系分类及其联合形式组织为文本生成任务，在 PE、AbstRCT 和\nCDCP 上研究多种微调大语言模型[8]。其方法节的输出以组件类型列表及已有组件编\n号间的关系为核心，不包含原始文本跨度分割这一同口径评价环节，因此不能直接将\n其 ACC 或关系分类分数填入本文的端到端结果表。\n生成表示也从直接展开标签发展到更明确的结构预测。Das 等的 AASP 将论辩结\n构表示为受约束的预定义动作集合，由条件语言模型自回归地逐步构建结构[9]。本\n文依据其 2025 年公开的 arXiv 版本讨论该方法。AASP 说明“使用动作和约束构建论\n辩结构”已有直接相关路线；本文的区分点在于完整候选生成后的图级评估、异常触\n发和局部回退，而不是动作式建模本身。\n2",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1004,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 580
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 188
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 110
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 24
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 12
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 7
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      118.88,
+      523.45,
+      725.98
+    ]
+  },
+  {
+    "physical_page": 7,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n2026 年的 ARGUS 系统集成组件分割、组件分类、关系识别与关系分类，并连接\n符号求解器进行论辩框架分析[10]。该成果发表于 AAAI 系统演示轨道，反映了端到\n端工具与形式推理的结合方向，但不能据此认定其提供了与本文相同的修正算法或同\n协议性能比较。结合 Li 等对 LLM 论辩挖掘任务和评估的综述[11]，本文将研究重点\n限定为可检验的训练增强和推理修正增量，而非“采用大语言模型”这一技术选择。\n1.2.3 篇章结构、语义线索与关系推理\nSun 等提出 DENIM，以篇章结构感知前缀辅助生成式端到端论辩挖掘[12]。因\n此，利用结构信息影响生成过程并不是本文独有的思想。本文的线索感知提示与其相\n邻，但信号的表示粒度、进入模型的位置及生成后是否执行局部修改不同；这种设计\n差异需要由对照实验解释，不能仅凭模块名称证明优越性。\n2025 年的研究进一步关注结构之外的关系语义。Das 等提取关联组件对之间的关\n键短语，并将其纳入增强自然语言格式的生成目标；这里的关键短语表达组件之间的\n概念联系，不等同于固定的结论提示词表[13]。Sun 等的 FOL-AM 把组件类型和关系\n预测统一为基于一阶逻辑规则的关系查询，研究多跳推理及其解释路径[14]。两项工\n作均以已分割的组件为前提，其分类或关系结果不能直接与本文从原始文本出发的精\n确匹配 F1 比较。\n上述工作限制了本文可以主张的创新范围：线索利用、逻辑信息和结构建模均已\n有先例。本文以局部子图组织训练监督，以完整候选图组织推理评估，区别在于监督\n单位与修改流程。第四章的完整对象评分仍是模型判断，并未实现 FOL-AM 式多跳\n规则推理，也不构成论证逻辑有效性的证明。\n1.2.4 结构保持数据增强\n大语言模型数据增强可以通过自然语言条件控制生成内容，但样本质量、标签一\n致性和分布偏差仍需检验[15]。CoDa 通过从训练实例提取约束来指导生成[16]；\nSegMix 则在任务相关片段上实施结构感知的混合增强[17]。这些工作说明，利用标签\n或结构限制合成过程已有基础，不能仅以“结构保持”作为独立的新颖性依据。\n论辩挖掘领域的直接近邻是 Bao 等提出的质量导向合成 QOS[35]。QOS 将上下文\n和组件分别组织为槽位化输入，在改写后恢复跨度并继承组件类型及关系标签。其方\n法节明确说明，论辩关系没有显式提供给生成模型，而依赖语义保持使原有关系继续\n成立。因此，本文不能主张首次开展保留论辩标注的改写；需要具体检验的区别是，\n3",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1081,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 626
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 208
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 106
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 27
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 22
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 12
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      99.24,
+      524.3,
+      732.83
+    ]
+  },
+  {
+    "physical_page": 8,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n显式描述并检查改写区域内部及穿越边界的关系，能否减少直接继承标签产生的监督\n噪声。\n关系抽取领域也提供了重要近邻。ConsistRE 利用关系条件和上下文约束组织细\n粒度生成[38]；CovEReD 通过反事实实体替换研究文档级关系预测的一致性[37]；\nODDA 进一步关注低资源关系抽取中增强样本的质量和多样性[39]。这些工作与论辩\n组件的角色、立场和支持／攻击关系并不相同，但共同限制了“利用关系控制增强”这\n一宽泛主张。本文需同时报告标签可靠性、表达多样性、生成与筛选成本，而不能只\n以通过率解释增强质量。\nWang 等在 2026 年的联合实体关系抽取研究中，将 LLM 生成的增强样本用于半\n监督学习，并结合一致性正则化、伪标签及迭代反馈[36]。本文对该工作的比较依据\n出版方可获取的摘要和方法摘录，未取得完整全文，不据此断言其缺少某项细节。已\n有近邻表明，“数据增强加一致性学习”本身不足以构成本文的创新点；本文将比较范\n围收紧到论辩改写的影响域定义、跨边界监督检查，以及在相同增强样本上实施的组\n件—关系对齐学习。\n增强还可能引入不可靠的表面线索。Rocha 等发现，补入话语标记对组件识别和\n分类的帮助因语料而异，并非在所有语料上均有效[40]。其文本标记补全不同于本文\n继承的连续提示模块，但提示本文需检查线索依赖，而不能把连接词出现视为关系成\n立的证据。Sun 等针对弱监督论辩挖掘提出组件边界细化与关系去噪[18]，也说明合\n成监督需要单独处理边界和关系噪声；其训练来源与评价口径不能直接等同于本文的\n精确跨度整图抽取。\n据此，本文将训练侧研究问题限定为：以结论组件及其邻域作为可改写集合，在\n声明的有限端点组合范围内，同时检查集合内部与跨边界组合的已有关系和无关系状\n态，并将原文与增强文本的对应组件和关系纳入共享表示学习。“内部／跨边界”描述\n端点位置，“有关系／无关系”描述标签状态，两者是不同维度。这里的“保持”是生成\n约束与审核目标，不是语义标签必然正确的保证。普通改写、QOS 式改写、匹配随\n机中心以及同数据去对齐的对照分别用于区分约束、取样和学习目标的作用。\n1.2.5 约束解码、多候选评估与局部修正\n语法约束解码通过限制后继 token 控制结构化输出形式，其保证范围取决于实际\n编码的约束[19]。JSON 可解析不意味着跨度真实、引用完整或关系成立。前述 AASP\n将结构动作约束融入生成，而本文在已有候选图上开展评估与修改，二者分别侧重生\n成过程约束与生成后选择、调整。\n4",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1089,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 664
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 184
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 84
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 65
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 15
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 6
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.51,
+      758.28
+    ]
+  },
+  {
+    "physical_page": 9,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nSelf-Refine 通过反馈和迭代修订改进输出[20]；Huang 等指出，在其研究的推理\n设置中，缺乏外部反馈的内在自纠错可能无效甚至降低表现[21]。自一致性则通过采\n样多条推理路径并聚合答案改善所研究的推理任务[22]。这些方法分别提供修订与多\n采样思想，但不能直接证明本文验证器的可靠性或额外计算的收益。\n论辩分析领域已有更直接的候选判断研究。Tran 等针对课堂讨论设计 LLM-\nrefine：在不同 Claim、Evidence 和 Warrant 组合下形成分割候选，再由 LLM 选择合适\n结果[23]。该方法处理话轮组件分割与分类，并非对包含任意有向关系的完整论辩图\n实施局部修正。因此，“生成多个论辩候选再评判”不能作为本文独占的创新点；本文\n需要强调候选对象包含组件与关系，以及异常、动作、接受条件和回退如何共同定义\n修正过程。\nXiao 和 Li 在 2026 年提出另一项名为 ARGUS 的研究，将 LLM 自解释转为抽象\n论辩框架，并以形式语义规定最小代价修复目标[24]。它与前述 Caputo 等的 AAAI 论\n辩挖掘系统不是同一工作，任务也不同于原文跨度和关系抽取。本文采用抽取对象上\n的代价敏感效用与预算约束，而不是抽象论辩语义下的最小变更目标；两者的目标、\n可修改对象和保证范围需要区分。\n对组件与关系联合调整也已有相邻研究。Re-Cent 以关系标签引导跨度对抽取，\n并用关系与跨度对之间的相关性实施修正[43]，说明对象级评分和纠正并非独有机\n制。Pirozelli 等 2026 年的作者预印本在论辩重构流程中提供可选的组件合并、重写与\n关系检查步骤[44]。其重构允许改变组件表述，任务表示不同于本文的原文字面跨度\n抽取，但已足以排除“首次合并组件”或“首次同时处理组件与关系”的笼统表述。\n评分目标与最终评价指标之间的关系同样需要明确。F1 是不可按单个预测对象\n简单相加的指标；Waegeman 等的分析表明，一般标签依赖条件下的 F1 最优决策不\n能仅由普通边际概率替代[41]。Lipton 等关于校准概率和最优 F1 阈值的结论也有明确\n条件，不支持将任意基线 F1 直接代入阈值并称为理论最优[42]。概率校准有助于检\n查预测置信度是否对应经验正确率[45]，但不能保证每次被选中的修改都正确。因\n此，本文区分代价敏感效用、预测概率校准和最终精确匹配 F1，不把三者视为等价\n指标。\n本文的直接研究基础是作者参与完成的 ICIC 2026 成果：多候选完整图重排序与\n有界修正 MCR-BR[34]。原方法已经包含组件替换、类型调整和关系修改，本研究并\n非首次使二者可修改，而是进一步处理组件变化对关联关系的连带影响：将组件修改\n及受影响关系重建组织为原子事务，以包含完整端点信息的对象评分比较修改前后效\n用，并在约束和预算内搜索、接受或回退。该深化不再固定全部组件；它也不保证候\n5",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1251,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 708
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 185
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 185
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 76
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      99.24,
+      524.3,
+      762.73
+    ]
+  },
+  {
+    "physical_page": 10,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n选空间包含正确答案、不主张全局最优或单次修改必然提高 F1。与原方法、关系-\nonly 修正及同评分的结构化解码进行匹配比较，才能确定事务闭合与搜索策略的独立\n作用。\n1.2.6 中文资源、跨语料迁移与研究定位\n跨语料训练已有直接研究。Morio 等提出 MT-AM，利用辅助论辩语料开展端到\n端多任务训练，并分析不同语料之间的可迁移性[25]。这与本文只在源域训练、在目\n标域测试的零样本设定不同：前者利用辅助语料扩展训练，后者检验给定源域模型的\n迁移表现，不能仅凭“跨语料”名称视为相同实验。\nSavigny 和 Yun 于 2026 年发表 AMELIA，将 19 个论辩挖掘数据集转为统一格\n式，并比较单任务微调、多任务微调和分别微调后的模型合并[26]。它补充了统一任\n务表示与训练策略这一相邻方向；本文的局部增强和测试时图修正应分别说明相对增\n量，统一格式本身不构成本文创新。其多任务表现不能直接证明本文单一源域的零样\n本迁移结论。\nFeger 等在 2025 年对 17 个英文句子级数据集进行泛化评估，发现所研究模型可\n能依赖数据集相关词汇线索，在未见数据集上表现下降[27]。该结果来自句子级论辩\n识别，而非完整论辩图抽取；本文将其作为检查词汇捷径和域内外差异的依据，不据\n此推断 MCR-BR 已克服这些问题。对于 Cue-aware 分支，尤其需要区分线索带来的域\n内收益与对目标域表达的适应能力。\n中文资源同样需要按任务而非语言名称归类。ORCHID 面向中文辩论的目标无关\n立场检测和论辩对话摘要，不是 AAEC 式全文组件与关系图抽取数据集[28]。IAM 整\n合多项论辩挖掘任务，使用英文资源，不能作为中文论辩语料的例证[29]。本文实验\n使用英文 AAEC 和 CDCP，不主张已经验证中文或多语言能力。\n综合以上研究，本文围绕“训练时提高组件—关系监督的可靠性”和“推理时联合\n恢复组件及其关系”组织两项研究工作。两项工作均以作者参与完成的 ICIC 2026 研究\n为基础[34]：训练侧继承结论专项适配、线索感知提示与辅助监督，进一步研究影响\n域约束增强和成对对齐学习；推理侧继承多候选完整图选择与有界修正，进一步研究\n依赖闭合的修改事务和完整抽取对象的代价敏感评分。学位论文的整体贡献由既有研\n究及上述深化共同构成，第三、四章分别说明继承内容、新增设计和验证边界。本文\n不将结构保持、联合预测、概率评分或有限预算各自列为首创，也不凭不同评价协议\n的已发表分数宣称优于近期方法；新增模块的效能由对应实验单独验证，跨语料实验\n用于限定其适用范围。\n6",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1118,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 653
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 186
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 120
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 52
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 15
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 6
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      99.24,
+      524.15,
+      758.28
+    ]
+  },
+  {
+    "physical_page": 11,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n1.3 研究问题与主要研究工作\n本文将组件—关系依赖置于训练和推理两个阶段考察。训练阶段改变文本表达而\n保持图监督，推理阶段保持原始文本而改变错误图预测。两项研究共享任务表示，但\n具有不同的输入、优化对象和验证条件；推理评分不向训练生成器回传梯度，不构成\n自训练或强化学习闭环。\n1.3.1 研究问题\nRQ1：在继承结论组件专项建模的基础上，检查改写集合内部及跨边界的端点组\n合，并同时保持已有关系和 NONE 状态，能否提高增强样本的监督可靠性？在同一\n批增强数据上，成对图因素学习能否进一步改善原始测试文本的严格抽取质量？两问\n分别检验数据构造与学习目标的作用。\nRQ2：在固定初始图、候选对象和评分器的条件下，组件集合替换与关系依赖闭\n合能否恢复顺序局部修正难以处理的组件—关系错误，并取得可接受的误改风险与计\n算成本？候选是否包含正确对象、评分能否区分好坏修改、搜索是否找到高效用事务\n是三个不同问题，需要分别验证。\n跨语料分析回答上述设计在任务协议变化下的适用边界，不另列第三项算法创\n新。AAEC 到 CDCP 的粗粒度映射仅为补充；原生域内结果是两项研究的主要证据。\n1.3.2 两项方法贡献\n（1）面向结论组件的关系感知增强学习。针对局部文本改写可能使继承关系标\n注失真的问题，在前期结论专项建模基础上，定义按端点关联确定的关系影响域，检\n查改写集合内部及跨边界组合的关系状态。通过标注输运建立原文与增强文的对应，\n再以组件和关系的成对监督约束共享生成表示。该研究将可靠增强数据构造与学习目\n标相衔接，其独立作用由近邻增强、同数据去对齐和匹配中心对照检验。适配器、提\n示与散度函数是这一方法的基础或实现手段，不分别列为创新。\n（2）多候选驱动的依赖闭合论辩图修正。针对组件变化会使关联关系的身份与\n合法性发生变化、逐项修改难以完整评价其影响的问题，在前期多候选重排序与有界\n修正基础上，以兼容组件集合替换统一组织修改，并同步重建全部受影响关系。候选\n事务依据固定完整对象评分、整图约束和预算整体接受或回退。新增内容是集合级修\n改、依赖重建与整体决策的结合；代价敏感效用和局部整数规划分别提供决策依据与\n求解方式，不被表述为通用概率理论或全局最优算法的首创。\n7",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 963,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 694
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 108
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 44
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 21
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 12
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 11
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 10
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      118.88,
+      523.45,
+      750.98
+    ]
+  },
+  {
+    "physical_page": 12,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n表 1-1 研究问题、机制与主要证据\n研究问题 关键机制 必要对照 结论边界\nQOS 式增强；同数据 自动筛选不保证语义等\nRQ1 监督保持与学 完整影响域、标注输\n去对齐；匹配随机中 价；一致性提高不等于 F1\n习 运、成对因素学习\n心 提高\n同评分顺序修正；关\nRQ2 依赖恢复与决 集合替换、关系闭合、 有限终止不等于 F1 或全局\n系修正；同目标全局\n策 整体接受 最优保证\nILP\n固定各自检查点内候\n不要求超加性增益，不推\n组合与适用边界 训练×推理的 2×2 设计 选；域内与单向迁移\n出任意领域泛化\n分表\n1.3.3 与本人 ICIC 2026 工作的递进关系\n本文以前期论文 Improving End-to-End Argument Mining with LLMs via Multi-\nCandidate Reranking and Bounded Repair 为研究基础，作者为 Chen Tang、Min Peng 和\nGang Tian，官方公开记录归于 ICIC 2026 Posters Volume I[34]。学位论文的完整贡献\n可以包含本人前期成果及其深化；相对已公开论文的新增内容则必须单独界定。共同\n署名不自动确定每项研究的个人分工，最终成果说明须由作者与合作者据实核准。\n表 1-2 前期成果与本论文深化内容\n研究层次 ICIC 已公开机制 本论文新增内容 结果归属\n结论专项适配、线索提 关系影响域约束的增强及 ICIC 原表只支持前期配\n训练与表示\n示、句子辅助监督 成对因素学习 置\n候选生成与选 多候选组件、关系构 保留为初始图接口，另建 候选增加与选择变化单\n择 建、整图重排序 固定候选宇宙 独归因\n组件及关系修 类型调整、候选跨度替 兼容集合替换、完整依赖\n不能说 ICIC 只改关系\n正 换、删边、局部重预测 闭合、事务接受\n覆盖、语义、合法性混 完整对象正确性、固定计 新效用与新实验不沿用\n评分与验证\n合评分及非下降接受 数效用、风险及搜索审计 旧成绩\n8",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 887,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 381
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 152
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 79
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 36
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 30
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 26
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 26
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      107.07,
+      523.45,
+      739.52
+    ]
+  },
+  {
+    "physical_page": 13,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n原 ICIC 方法已经可以改变组件类型和候选跨度。因此，本论文不把“首次同时修\n复组件和关系”作为创新点，而将深化集中在集合级恢复、依赖完整性及决策依据。\n此前固定组件的保守版 MCR-BR-C 提供受限关系对照，本论文主方案 MCR-BR-J 进\n一步开放组件修改，并以整体事务约束其影响。\n1.4 论文组织结构\n第一章提出组件—关系依赖问题，梳理相关研究并区分前期成果与新增内容。第\n二章统一任务表示、严格评价与训练—推理接口，并给出全文框架。第三章以贯穿案\n例说明关系感知增强、标注输运和成对学习。第四章讨论候选空间、对象评分和依赖\n闭合事务，解释整体接受与回退及其性质。第五章组织独立对照、风险成本和适用条\n件分析，区分已有证据、预期占位及机制示意。第六章总结方法和局限。附录 A 至 E\n保留材料核验、运行记录、成果归属、实现状态及历史数值，附录 F 提供符号、核验\n接口与阅读索引。\n9",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 424,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 249
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 75
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 24
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 6
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      352.88
+    ]
+  },
+  {
+    "physical_page": 14,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n第二章 任务表示与方法基础\n2.1 论辩组件、二元关系与原生超边\nD=(x ,…,x ) c=(s,e,t )\n设输入文档在固定评价分词器下表示为 1 n 。组件定义为 ，\n其中 1≤s≤e≤n ，跨度采用从 1 开始的闭区间， t 为语料规定的类型。实现同时保存原\n文字符坐标与评价 token 坐标，并检查往返一致。评价 token 与模型子词不是同一对\n象；改变评价分词器时不能复用旧坐标。\nr=(c ,c ,ℓ)\n二元关系记为 i j ，包含完整源、目标组件和关系标签，方向由提供理由\nG=(C ,R)\n或攻击的一方指向目标。预测结构写为 。“端到端”指从原始文本评价组件和\n关系，不提供测试金标组件，并不要求整个系统仅调用一次模型。\nCDCP 的多前提关系保留为 h=(S,c j ,ℓ) ，其中 S 为非空源组件集合， c j为目标。\n源集合的顺序规范化，但不拆成若干独立二元边。超边匹配要求源集合中全部组件、\n目标及标签同时正确；漏掉一个源成员不是同一完整关系。二元图是源集合大小为 1\n的特例。本文用 R 统称关系对象，但实现必须保留其实际元数[3][46]。\n表 2-1 域内任务与评价边界\n语料 组件类型 关系对象 额外边界\nSupport、Attack Claim 对 MajorClaim 的 stance 单\nAAEC MajorClaim、Claim、Premise\n二元关系 列，不转换为普通关系\nReason、\nFact、Testimony、Value、 多前提不静默展开；类型不归并\nCDCP Evidence 原生超\nPolicy、Reference 为 Claim/Premise\n边\n上述边界依据语料与联合预测研究定义[2][3][46]。CDCP 中的结论角色用于第三\n章选择增强中心，不改变原生组件标签；第五章跨语料标签归约是单独协议，不能反\n向改变域内金标。\n2.2 合法结构与语义身份\n相对于固定语料协议𝒜，以𝒢 表示合法结构集合。必要检查包括跨度位于原\n𝒜\n文、类型合法、关系端点存在、关系标签合法，以及语料确实要求的重叠、方向和拓\n10",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 919,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 359
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 124
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 83
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 44
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 39
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 23
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 21
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      524.45,
+      747.88
+    ]
+  },
+  {
+    "physical_page": 15,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n扑规则。不默认所有论辩图都必须为树或有向无环图，也不为满足解码约束删除不符\n合假设的测试金标。若语料包含嵌套或多前提结构，应在协议中显式处理。\n组件的语义身份由文档、规范坐标和类型共同确定，关系身份由完整端点及标签\n确定，超边另包含规范排序后的完整源集合。JSON 编号仅用于序列化。编号重排不\n产生新组件，不计作编辑，也不触发重新打分；坐标或类型改变则是不同对象，不能\n复用旧端点的关系证据。\n本版候选协议统一采用文档级输入。AAEC 枚举同文档不同组件的有向对，禁止\n自环，但不额外施加跨段或组件类型配对的硬掩码；没有标注边的候选状态为\nNONE，不能由 stance 补造边。CDCP 的候选源为所选组件按位置排列后的连续非空\n区间，目标不能属于源集合；关系标签为 Reason 或 Evidence，其余状态为 NONE。\n主配置对同一端点槽位采用单一关系状态，若数据审计发现并存标签，则使用显式合\n法标签组合，不丢弃其中一项。组件重叠、嵌套及其他语料特定限制必须由数据审计\n固定为协议清单；发现反例时调整协议，而不是删除金标。无环性只作为经语料验证\n后的可选硬约束，不作为跨语料默认条件。\n以下为人工构造示例，token 序列为“Libraries / should / stay / open / longer / . /\nStudents / need / study / space / .”。它只说明坐标和引用，不作为效果证据。\n{\n\"components\": [\n{\"id\": 1, \"type\": \"Claim\", \"span\": [1, 5]},\n{\"id\": 2, \"type\": \"Premise\", \"span\": [7, 10]}\n],\n\"relations\": [\n{\"sources\": [2], \"target\": 1, \"type\": \"Support\"}\n]\n}\n统一使用 sources 列表可容纳超边，但不能据此认为旧二元关系模型已经支持多\n前提。CDCP 的编码、候选构造、评分训练、优化器和评价器必须同时实现超边语\n义。字段顺序固定为 ID、type、span 等已声明顺序；第三章类型门控只能使用已经输\n出的前缀，不能读取尚未生成的标签。\n2.3 生成建模与参数高效适配\nY =( y ,…, y )\n对序列化输出 1 L ，自回归生成定义为：\nP (Y ∣D)=∏L P ( y ∣D, y ). （2-1）\nθ t=1 θ t <t\n11",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1072,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 430
+      },
+      {
+        "font": "CBAAAA+CourierNewPSMT",
+        "size": 9.5,
+        "characters": 190
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 152
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 131
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 11
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 11.88,
+        "characters": 10
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.5,
+      719.24
+    ]
+  },
+  {
+    "physical_page": 16,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nTransformer 以注意力聚合上下文[30]。本文继承的参考骨干为 Qwen2.5-7B-\nInstruct，正式实验仍须绑定权重 revision、分词器、软件及硬件，模型系列报告不能\n替代实际运行记录[31]。生成概率受长度和字段顺序影响，高概率不意味着图中关系\n成立。\nLoRA 在冻结权重上引入低秩更新[32]：\nα\nW =W 0 + r B A , A∈ℝ r×d in,B∈ℝ d out ×r. （2-2）\nr α\n其中 是秩， 是缩放系数。结论条件门控是前期研究施加于专项分支的任务机\n制，不是重新提出 LoRA。连续提示利用可学习向量表达任务条件，其基础来自提示\n调优研究[33]。本论文继承这些机制，并通过第三章的监督接口深化其学习目标，而\n不将通用参数高效方法计为本文创新。\n2.4 候选空间、评分与搜索\n多候选选择从已生成的完整图中确定初始状态：\nG =argmax E (G),G = L (G ). （2-3）\nrank G∈𝒮 rank 0 𝒜 rank\nL\n其中 为各方法共用的确定性合法化过程，其规则与变更单独记录；无法得到\n𝒜\n合法状态时显式失败，不进入后续修正。因而原始重排序胜者与合法初始图不必相\n同。\n候选池是否包含较好结构、评分器是否识别该结构、搜索能否找到更好的可达状\n态，分别对应覆盖、判断和求解能力。增加候选数只能可能扩大覆盖，不能自动提高\n后两者。Candidate Oracle 仅在离线分析中使用金标度量当前候选空间，不参与实际\n测试决策。\n第四章在初始选择后另外固定跨度候选宇宙 U 、带类型组件宇宙𝒱和关系候选宇\nP\n宙 ，并在其上计算完整对象正确性分数。影响域“完整”均相对于显式声明的有限因\n素宇宙，不意味着枚举任意长度文本跨度或所有非空组件子集。未进入宇宙的正确对\n象对当前修正器不可达，需要报告覆盖上界。\n确定性合法性、模型语义判断和统计校准不能互换。合法性检查只保证遵守编码\n规则；评分器的概率含义需要真实预测负例和独立校准材料；不同模型参数也不能保\n证生成器与评分器的误差统计独立。搜索反复选择高分对象还可能放大评分误差，因\n此须评价最终接受轨迹，而不只报告随机样本上的校准分数。\n12",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 957,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 464
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 142
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 80
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 75
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 13
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.01,
+        "characters": 11
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      99.24,
+      523.45,
+      747.73
+    ]
+  },
+  {
+    "physical_page": 17,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n2.5 严格评价与可比性\nT P F P F N\n对组件或完整关系对象，分别汇总 、 、 ，定义：\nT P T P 2T P\nP= ,R= ,F = .\nT P+F P T P+F N 1 2T P+F P+F N （2-4）\n新实验主指标采用精确组件 micro-F1 和严格关系 micro-F1。前者要求跨度与类型\n完全匹配；后者还要求全部端点跨度、类型、方向和关系标签正确。CDCP 超边以整\n个源集合计数，不把展开后的边数作为原生关系数。另报告边界 F1 及给定金标组件\n的关系分类诊断，但它们不替代主指标。域内细粒度 Relation-F1 与跨域无标签 Link-\nF1 分开命名和展示。\n每个预测语义对象最多匹配一次金标；重复输出的多余项计 FP。图归一化若预\n先去重，则同时报告原始重复率，并对全部方法使用相同规则。解析、超长或图验证\n失败不能删除文档；该文档的金标对象仍进入 FN，失败率另报。数据 ID 缺失或重复\n须报错。集合分母为零时采用预先固定的零值约定，并保留原始计数。\nmicro-F1 先汇总对象再计算，不等于分类别 F1 均值或逐文档 F1 均值。F1 采用百\n分制，差值以百分点表示。跨种子报告均值及样本标准差；文档级置信区间在每次重\n采样后重新汇总计数，重复文本按组重采样。旧表的“±”在缺少原始统计记录时保留\n原符号，不追认成某一种统计量。\n2.6 两个阶段的闭环边界\n两个阶段的区别在于改变什么以及保留什么。训练阶段输入已有标注的文档，只\n改变指定组件的文字表达，目标是保持组件角色和关系监督；推理阶段输入没有金标\n的新文档，原文保持不变，允许修改模型预测的组件与关系。训练增强不是对论文正\n文的润色，推理修正也不是再次改写待分析文章。\n13",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 768,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 382
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 104
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 64
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 49
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 26
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 12.0,
+        "characters": 9
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      115.72,
+      524.45,
+      593.03
+    ]
+  },
+  {
+    "physical_page": 18,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n图 2-1 训练监督保持与推理结构恢复的两阶段框架\n训练路径以合格的原文—增强文配对更新生成器，测试路径只将新原文交给训练\n后的模型。图中的结论专项建模、多候选生成和初始重排序继承 ICIC 基础；关系影\n响域与成对因素学习、依赖闭合事务及其接受决策是本论文的深化内容。训练辅助头\n不进入测试路径，推理评分也不回传训练生成器。这里的闭环表示每个阶段都有检查\n和失败出口，不表示把预测结果重新当作金标进行自训练。\n第三章辅助头在训练金标跨度上学习因素标签，第四章评分器在交叉拟合预测上\n判断完整对象是否正确。二者的目标和负例不同，不直接共用概率。训练改进在推理\n14",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 307,
+    "images": 1,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 174
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 49
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 20
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 6
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      574.93,
+      523.45,
+      746.63
+    ]
+  },
+  {
+    "physical_page": 19,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n策略固定时评价，推理改进在同一生成检查点及候选宇宙内评价；跨训练检查点不强\n迫使用完全相同的候选，因为候选质量本身属于训练效果。\n2.7 本章小结\n本章以完整语义对象统一组件、二元关系及多前提超边，明确候选覆盖、评分可\n靠性和搜索能力的区分。严格评价与语料特定约束为后续两项方法提供共同接口，也\n限定了形式性质和实验结果能够支持的结论范围。\n15",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 198,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 120
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 28
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 9
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 4
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 4
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      226.88
+    ]
+  },
+  {
+    "physical_page": 20,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n第三章 面向结论组件的关系感知增强学习\n3.1 研究问题与前期基础\n论辩组件的文本表达、篇章角色及其关系不能彼此割裂。将一个结论改写为意思\n相近的句子，并不自动保证其与原有论据仍构成相同方向和类型的关系；只检查改写\n区域内部，也可能遗漏该区域与全文其他组件之间的变化。本章研究如下问题：在训\n练图的组件身份和标签固定时，如何改变局部表达，并把受影响的关系约束转化为生\n成器可利用的监督。\nC\n组件错误还会限制关系恢复。在组件集合固定的预测条件下，令 hit 为跨度和类\nR C\n型均正确匹配的金标组件集合， reach 为全部端点都属于 hit 的金标关系集合。当\n|R|>0 Recall ≤|R |/|R|\n时，有 rel reach ，因为任何正确关系必须首先具有正确端点。该\n结论同样适用于要求全部源成员正确的超边，但只给出可达上界，不保证可达关系被\n正确识别，也不证明结论比其他类型更值得优先增强。\n本文以作者 ICIC 2026 工作中的结论专项适配、线索提示与句子辅助监督为基础\n[34]，进一步引入完整关系影响域约束和原文—增强文成对学习。前者明确检查哪些\n标签可能因改写失效，后者将两个视图间的组件对应和关系对应作用于共享生成表\n示。专项适配、提示及辅助头共同服务于这一训练侧贡献，不分别计作独立创新。\n结构保持增强及一致性学习已有相关研究。QOS 通过论辩结构保持改写继承标\n注[35]；关系抽取中的 ConsistRE 将关系条件用于文本生成[38]，Wang 等研究关系保\n持增强与多视图一致性[36]。本章以上述工作为参照，将约束具体化为论辩组件改写\n所涉及的端点影响域，并通过成对因素学习连接监督保持与共享表示更新。关系条件\n和一致性损失本身不单独作为新增贡献。\n结论中心取样也不以“结论在所有语料中均稀有”为前提。AAEC 保留\nMajorClaim、Claim、Premise；CDCP 保留 Policy、Value、Fact、Testimony、\nReference。Policy/Value 作为本章专项模块的触发类别，不等于它们与 AAEC 的\nClaim 语义相同。类型频次、关系度和分类难度分别统计；AAEC 的 stance 属性不转\n为普通关系，缺少普通关系的 MajorClaim 仍可用于组件学习。\n16",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1003,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 537
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 156
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 143
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 33
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 19
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 13
+      }
+    ],
+    "body_bbox": [
+      79.4,
+      124.88,
+      524.3,
+      680.63
+    ]
+  },
+  {
+    "physical_page": 21,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n3.2 结论专项生成表示\n3.2.1 类型条件低秩适配\n模型以 Qwen2.5-7B-Instruct 为生成骨干，冻结基础权重，在注意力投影中配置全\n局与结论专项低秩分支。LoRA 的低秩参数化沿用已有方法[32]。对于 W ∈ℝ d out ×d in，\n0\n定义\nα α\nh′ t =W 0 h t + r B g A g h t +g t r B c A c h t , A · ∈ℝ r×d in,B · ∈ℝ d out ×r. （3-1）\n全局分支参与全部位置的计算，结论分支由 g t ∈{0,1} 控制。组件字段按 id、\ntype、span 序列化。只有已经可见的生成前缀包含完整闭合的结论类型值时，门控才\n在当前组件的后续字段开启，并在该组件对象结束后关闭。AAEC 的触发类型为\nClaim/MajorClaim，CDCP 为 Policy/Value；输入位置、尚未闭合的类型字段和关系区\ng =0\n域均令 t 。教师强制训练使用相同前缀规则，不读取当前位置之后的金标类型。\n该门控表示“已选择结论类型之后的字段适配”，主要直接影响随后生成的跨度等\nr=16 α =32\n内容，不能回溯纠正同一组件已经输出的类型。参考配置取 、 ，并设置\n单一全局 rank-32 分支作为参数量匹配对照。两条 rank-16 分支与单条 rank-32 分支的\n参数规模可比，不意味着激活路径和运行成本相同。\n3.2.2 线索提示与原有监督\n连续提示采用可训练向量提供输入条件，其基础来自参数高效提示调优[33]。本\n章对 therefore、thus、in conclusion、consequently、hence、to conclude 进行不区分大\n小写的词边界匹配。命中任一短语时，在聊天模板的输入嵌入之前插入四个向量\nP ∈ℝ d\n；未命中则不插入占位向量。提示位置不计入原文坐标。\ni\n词典只决定是否启用提示，不直接赋予结论标签。显式标记可能出现在非结论表\n达中，隐式结论也可能没有标记。有关话语标记增强的研究表明，其收益不能由标记\n数量直接推定[40]；因此，原始视图和增强视图各自依据输入文本触发提示，而不强\n制复制触发状态。\n生成目标对有效回答 token（含 EOS）取平均，聊天输入和提示向量不参与该项\n损失：\n1\nL gen (x ,G)=- T ∑T t= y 1 log p θ ( y t ∣x , y <t ). （3-2）\ny\n17",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1065,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 401
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 175
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 129
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 59
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.01,
+        "characters": 20
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 17
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.23,
+        "characters": 17
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      114.79,
+      523.75,
+      741.31
+    ]
+  },
+  {
+    "physical_page": 22,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n句子辅助任务沿用 ICIC 专项训练思路。根据句末标点和文档结尾确定句子边\n界，对输入原文对应的最后一层隐藏状态进行句内均值池化，经线性层和 sigmoid 得\nz^ z =1\n到 i。句子与结论类金标跨度有交集时令 i ，否则为零；跨句组件可以标记多个\n句子。定义\n1\nL sent =- N ∑ i N = s 1 [z i log z^ i +(1- z i )log(1- z^ i )],L ICIC = L gen + λ sent L sent . （3-3）\ns\nλ =0.5\n参考配置取 sent 。句子头只读取输入表示，不池化金标回答；其监督用于\n共享表示学习，不在推理输出中增加字段。本节明确当前方法的技术接口，不将这些\n配置视为已经追溯确认的历史实验实现。\n3.3 完整关系影响域约束的文本增强\n3.3.1 改写区域与关系因素\n本章的文本改写是训练数据增强：只替换已标注组件所对应的文字，不重写整篇\n文章，也不重新决定组件类型或关系答案。改写集合由组件组成，不必对应一个连续\n段落。“内部”与“跨边界”均相对于这个集合定义，与是否跨句、跨段没有直接等价关\n系。\n表 3-1 给出贯穿本章的人工二元关系示意。为便于中文阅读而构造该片段，不将\n其视为 AAEC 或 CDCP 的真实样本，也不据此推断两个语料的具体标注结果。\n表 3-1 关系保持改写的组件示意\n组件 角色 原始文字 本轮处理\nc 1 Claim 学校应该增加图书馆经费。 可改写\nc 2 Premise 图书馆现有座位不足，而且开放时间偏短。 可改写\nc 3 Claim 图书馆应该延长开放时间。 文字只读\nc 4 Claim 食堂应该增加素食窗口。 文字只读\n在此示意中，人为设定 c 2 →c 1和 c 2 →c 3为 Support， c 2 →c 4为 NONE。可改写集合\n取 A={c 1 ,c 2 } ：前一条 Support 的两端都在集合内，属于内部因素；后一条 Support 只\nc →c\n有一端在集合内，属于跨边界因素； 2 4也是跨边界因素，只是它的标签状态为\n18",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 915,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 299
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 102
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 68
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 51
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 43
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.18,
+        "characters": 26
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 22
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 22
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      99.24,
+      523.45,
+      739.13
+    ]
+  },
+  {
+    "physical_page": 23,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nNONE。NONE 表示该合法端点组合没有标注关系，不是一种需要输出的边，不\n是“尚未判定”，也不等于组件不存在。\n图 3-1 可改写组件及关系状态的检查范围示意\n图 3-1 中的位置分类与标签状态相互独立。内部组合和跨边界组合都可能带有正\n关系标签，也都可能为 NONE。检查已有关系是为了防止支持、攻击或方向发生改\n变；检查 NONE 则是为了防止改写引入原标注中不存在的新关系。图仅画出用于说\n明的组合，实际检查范围由下述定义确定。\nG=(C ,R)\n对训练金标图 ，优先选择结论角色组件及其直接入邻居作为可改写集\nA\n合 ；超边的入邻居包含完整源成员。其余原文保持只读。不存在合适结论中心时，\n按固定规则选择一般组件。中心规则在增强前确定，不利用验证集或测试集标签选择\n易改写样本。\n19",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 373,
+    "images": 1,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 204
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 56
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 21
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.8,
+      737.88
+    ]
+  },
+  {
+    "physical_page": 24,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nΩ(C) ω=(S,v) S\n记 为协议允许的完整端点组合集合，因素 由非空源组件集合\n和目标 v 构成。AAEC 中 |S|=1 ，枚举全部合法有向组件对；内部正边、边界正边和\ny\n其余合法对均纳入候选。因素标签 ω 为协议规定的关系状态，无标注关系时记作\nNONE。若协议允许同一端点组合具有多个标签，则使用合法标签组合表示状态，不\n能通过任取一个标签丢失监督。\nCDCP 保留 ({c i ,…,c i },c j ,ℓ) 的原生多前提超边， ℓ∈{Reason,Evidence} ，源成\n1 k\n员按原文顺序规范化，不展开为若干独立二元关系。训练因素宇宙包括全部金标超边\n的端点组合，以及满足源范围规则、最多含三个源成员的候选组合；超过三个源成员\n的金标关系全部保留。NONE 仅在这一声明的有限宇宙中定义，并不声称枚举了组件\n集合的所有子集。连续性依据所选组件序列判定，不能以原文字符之间没有间隙替\n代。该预算使超过三个源成员的训练因素缺乏同元数 NONE 对照，形成长度相关的\n监督偏置，需分元数报告诊断，不能将此辅助头作为长超边正确性评分器。\nV (ω)=S∪{v}\n设 ，完整影响域定义为\n𝒟 ={ω∈Ω(C):V (ω)∩ A≠∅}. （3-4）\nA\n{(u,v):u∈ A∨v∈ A ,(u,v)∈Ω(C)} A\n二元情形即 。两端均在 中的因素属于内部\n因素，只有部分端点在 A 中的属于边界因素。NONE 表示当前标注协议中的无边状\n态，不是两段文字在任何解释下都不存在联系。本章的“完整”指预先声明宇宙内按端\n点关联定义的影响因素均被检查，不是全文语义影响完备性的保证。改写仍可能经指\n代或篇章语境影响两个只读端点，其域外漂移纳入人工审计。若因资源限制裁剪，则\n记录因素覆盖率，并将该设置标记为近似版本。\n3.3.2 条件生成与坐标输运\n增强模型接收全文、可改写组件的槽位和类型、只读端点目录及影响域标签。条\n件可采用“全部合法端点目录、显式正关系表、其余因素为 NONE”的无损编码，避免\n逐条重复大量无边因素；验证和训练时仍按展开后的因素执行。输出限定为组件 ID\n到替换文本的映射，不允许新增组件、修改类型或自行重建关系表。\n程序按原始字符区间执行槽位替换，随后对完整文档重新分词，建立组件对应\nφ:C ⟶C ′ ,(s ,e ,t )⟼(s′ ,e′ ,t ). （3-5）\nc c c c c c\n组件 ID 仅用于追踪身份，新的跨度由回填文本计算。只读组件也可能因前文长\n度变化而移动，因而必须更新全部组件坐标。 φ 是组件之间的双射，不是新旧 token\nφ φ(G)\n之间的双射。关系和超边的全部端点按 输运，得到 。重叠槽位、坐标往返不\n20",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1169,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 572
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 197
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 81
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 81
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 47
+      },
+      {
+        "font": "ABAAAA+OpenSymbol",
+        "size": 12.0,
+        "characters": 34
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 11
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      97.54,
+      523.75,
+      765.74
+    ]
+  },
+  {
+    "physical_page": 25,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n一致或无法无损输运的尝试直接拒绝，原始训练样本仍保留，不通过删除异常金标来\n迁就增强操作。\n沿用表 3-1， c 1可改写为“学校应为图书馆投入更多经费”， c 2可改写为“当前图书\n馆的座位数量不够，开放时长也较短”。目标是改变表达，而保留组件角色及两条\nSupport。程序不沿用原字符位置，而根据回填后的长度重新确定 c 1、 c 2以及后续只读\nφ\n组件的坐标，再通过 迁移关系端点。\nc c c\n若 2只被改成“图书馆现有座位不足”，它仍可能支持 1，却删除了支持 3的开放\n时长信息。此时，仅检查内部正边会遗漏问题，跨边界检查应将该变体识别为候选拒\n绝项。同样，若改写加入支持 c 4的新内容，即使两条原 Support 仍然存在，原 NONE\n标签也不再适合直接继承。语义验证器可能漏判，故这些条件是筛选目标，实际可靠\n性仍由第五章的审计判断。\n3.3.3 接受规则与来源控制\n筛选首先检查格式、槽位身份、坐标往返和全部端点引用；随后在全文上下文中\n检查论辩角色、指代、否定、模态和立场，并逐项核对影响域中的关系方向、标签及\nNONE 状态；最后检查重复程度和机械添加结论词等退化改写。拓扑检查不额外施加\n数据协议未要求的无环性等限制。\n语义验证器采用独立于增强模型参数的固定模型与提示。验证时向其提供待判定\n的文本、跨度及任务定义，不预先给出待判断因素的金标答案；验证器先分类，再由\n程序与原标签比较。各阶段记录判定和拒绝原因。独立参数不等于误差独立，模型判\n断也不能充当语义保持证明，因而质量审计同时盲查接受样本、拒绝样本及普通改写\n样本。\n任何一个受检标签发生漂移均拒绝整个变体，不删除失败关系后继续使用剩余部\n分。参考生成预算为每篇源文档最多四次尝试、最多接受两个变体；预算耗尽后保留\n已有通过样本，无通过样本则只保留原文，不无限重试。生成版本、提示、随机种\n子、源组件、 φ 、拒绝原因和 token 成本共同存档。原文及其全部变体始终属于同一\n数据划分。\nd N τ a\n全文回填并不自动重平衡类别。若源文档 含 d,τ 个类型 的组件，接受 d 个\nN ′ =N +∑ a N\n变体，则存储样本中的该类总数为 τ τ d d d,τ。各源文档接受数相同会同比\n增加所有类型，而非只增加结论。因此，类别分布、表达多样性和标签保持分别报\n告，不能用增强数量替代有效性证据。多样化增强已有相应研究[39]，本章同时考察\n约束强度、接受率与表达变化的代价。\n21",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1066,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 621
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 185
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 75
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 11
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 9
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 9
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.75,
+      762.28
+    ]
+  },
+  {
+    "physical_page": 26,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n3.4 共享表示上的成对图因素学习\n增强样本通过检查后，还需要让模型学会“不同表达对应相同论辩功能”。本节保\n留原文和增强文各自的金标训练，同时比较对应组件与关系的预测分布。例如，表 3-\n1 中的 c 2换了说法后仍应被识别为论据，其对 c 1、 c 3的关系判断也应与原文一致。这\n一目标约束的是类型与关系判断，而不是要求新旧文本具有相同词序、长度或跨度坐\n标。仅使两个预测相同仍可能得到共同错误，因此成对约束必须与金标监督配合。\n3.4.1 输入表示与训练头\n单纯复制标注没有显式约束原文与改写文本的预测行为。本章在共享生成器上增\n加组件类型头和关系状态头，使用金标跨度定位训练因素。下游生成器输入只含任务\n指令及原文或增强文，不包含增强生成阶段的金标槽位、类型和关系条件；这些标注\nhx\n只用于定位监督及计算损失。令 为模型输入子词的隐藏状态，以原文字符跨度和\ni\n分词器 offset mapping 确定组件对应子词集合 B x (c) ，排除聊天模板及连续提示位\n置，并显式补偿其索引位移；无法一致映射则报错。句子头使用同一映射规则。以\nhx\n表示全文输入结束且回答尚未开始处的隐藏状态，定义\nend\nux= MeanPool hx, px (c)=softmax f ([ux;hx ]). （3-6）\nc i∈B (c) i C C c end\nx\n因果模型的早期 token 只能访问左侧上下文，因此跨度池化本身不是双向编码。\n拼接\nhx\n提供一个可访问完整输入的上下文通道，但不等同于所有跨度 token 都具有\nend\n双向注意力。该向量不能取自金标回答末尾，组件头也不输入待预测的金标类型。\n关系头显式区分源和目标，写为\npx (S,v)=softmax f ([ Pool({ux:c∈S});ux;hx ;η(S,v)]), （3-7）\nR R c v end\nf f Pool η\n其中 C、 R 为两层感知机， 取源成员表示的算术均值。 包括源成员数、\n源起点的最小值和均值、源终点的最大值和均值，以及目标起止位置；坐标均除以文\n档 token 数，不包含金标类型或关系标签。二元关系使用单一源表示；超边按规范顺\n序组织源成员，并以完整源集合和目标为监督对象。该头的输出包含 NONE，不能\n把“某个源成员与目标相关”替代为“整个超边正确”。两个头均只用于训练，金标跨度\n定位不向测试阶段提供任何组件或标签。\n22",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1049,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 504
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 160
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 63
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 41
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 35
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 11.88,
+        "characters": 31
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 23
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.21,
+        "characters": 17
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      118.88,
+      523.85,
+      695.13
+    ]
+  },
+  {
+    "physical_page": 27,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n3.4.2 对齐与金标锚定\n定义\nA+= A∪⋃ V (ω).\nω∈𝒟A （3-8）\ny ≠NONE\nω\n即改写组件以及通过正边或超边相连的只读端点。NONE 因素进入关系项，但不\nx′\n因此把全部远处组件都纳入组件对齐。对于一个通过筛选的视图 ，组件对齐为\n1\nLalign(x ,x′)= ∑ JS( px (c), px′(φ(c))),\nC | A+| c∈A+ C C （3-9）\n1 1\nJS( p,q)= KL( p‖ p)+ KL(q‖ p) p=( p+q)/2\n其中 ， 。不对任一视图停止梯\n2 2\n度。\n将影响域划分为正关系组 D + 和 NONE 组 D 0，令 ℬ={b∈{+,0}:|D b |>0} 。关系\n对齐采用组间、组内两级平均：\n1 1\nLalign(x ,x′)= ∑ ∑ JS( px (ω), px′(φ(ω))).\nR |ℬ| b∈ℬ|D | ω∈D b R R （3-10）\nb\n这样可避免数量较多的 NONE 因素仅凭数量淹没正关系。当 𝒟 A\n=∅\n时，该项置\n零并跳过空域关系检查，不人为添加关系；全文其他关系的生成监督仍保留。A+\n为\n空时组件对齐也置零。\n低 JS 可能来自两个视图一起预测错误，故每个视图同时接受金标监督。组件头\n交叉熵在该视图全部组件上取平均，关系头交叉熵在声明因素宇宙的正关系与 NONE\nS(x ,G)\n非空组之间分别归一化；二者相加记作 。空组件或空因素部分分别置零。金\n标锚定用于限制退化一致性，不构成排除全部退化解的数学保证。\n3.4.3 按源文档归一化及梯度接口\nd m\n设文档 接受 d 个变体，同源头监督定义为\nS(x ,G )+∑m d S(x′ ,φ (G ))\nL\nh\nsu\nea\np\nds,d\n= d d\n1\nj=\n+\n1\nm\nd j j d . （3-11）\nd\nm Lalign Lalign\n成对项同样先在该文档的 d 个变体上取平均，记作 C,d 、 R,d 。总目标为\n1\nL = L (x ,G )+ ρ ∑m d L (x′ ,φ (G ))\nd ICIC d d m j=1 ICIC d j j d\nd\n（3-12）\n1\n+ λ Lsup + λ Lalign+ λ Lalign,L= ∑N L .\nsup heads,d C C,d R R,d N d=1 d\n23",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1021,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 246
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 90
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 90
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 87
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 46
+      },
+      {
+        "font": "ABAAAA+OpenSymbol",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 12.0,
+        "characters": 30
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 25
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      112.28,
+      523.75,
+      745.29
+    ]
+  },
+  {
+    "physical_page": 28,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nm =0\n约定 d 时整项增强损失和两个对齐项为零，原文生成、句子监督及原文头监\nρ\n督仍保留。 控制同源增强的总权重，避免接受更多变体的文档仅因复制数量获得成\n倍权重。外层按源文档等权采样；梯度累积的最后一个不足批次按实际源文档数归一\n化。其余损失系数在验证集确定，测试集不参与选择。\n对齐损失经输入隐藏状态回传共享全局 LoRA，并在相应视图触发时更新连续提\n示。输入阶段的结论门控为零，因此该损失不直接更新结论专项分支；后者仍由原文\n及增强文的生成损失训练。辅助目标必须作用于共享生成表示，而不只是训练两个附\n加分类器，具体梯度核验见附录 F.2。\n上述训练头预测给定金标跨度条件下的标签，不预测跨度是否正确，其概率也不\n是完整对象正确率。第四章在实际预测错误上训练的推理评分器与之分开；本章不将\n两个头直接用作图修正的接受依据。\n3.5 算法过程与性质\n算法 3-1 概括训练数据构造和参数学习，两阶段均只访问训练划分。\n算法 3-1 关系感知增强学习\n输入：训练文档及金标图、数据协议、固定增强与验证模型、每文档尝试和接受\n预算。输出：带结论专项表示的生成器。\n1. 按源文档确定划分，检查坐标及标签协议，建立因素宇宙 Ω(C) 。\n2. 选取改写集合 A ，构造 𝒟 A，保留原文和完整金标图。\n3. 在预算内生成槽位文本，回填全文并建立 φ ；结构检查失败则记录并拒绝。\n4. 检查角色、全部影响因素和表达退化；任一检查失败则拒绝整个变体，通过则保存\n视图及映射。\n5. 对每篇源文档及其通过变体计算生成损失和句子损失，保留原有专项门控规则。\n6. 从回答之前的输入表示计算两类头监督和非空域对齐，按同源变体及源文档两级归\n一化。\n7. 优化共享可训练参数和辅助头；验证及测试时移除辅助头，仅以输入原文执行生\n成。\nφ\n性质一：标注输运保持。 若可改写槽位互不冲突、 为组件双射，且类型和每\nφ G φ(G)\n个完整关系因素均按 输运，则 与 的组件数、组件类型及带方向和标签的\n关联结构保持。证明为：双射保证每个原组件恰对应一个新组件；端点逐一映射保证\n24",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 912,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 547
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 146
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 60
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 33
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "KAAAAA+STSongti-SC-Bold",
+        "size": 12.0,
+        "characters": 11
+      },
+      {
+        "font": "JBAAAA+STSongti-SC-Bold",
+        "size": 11.0,
+        "characters": 10
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      97.54,
+      523.45,
+      757.88
+    ]
+  },
+  {
+    "physical_page": 29,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n每条关系及超边既不新增也不丢失，逆映射可恢复原图。该性质针对标注对象成立，\n不能证明改写后的自然语言仍支持这些标签。\ny\n性质二：单因素预测稳定的充分条件。 对某一因素，设原视图正确类别为 ，\np δ = p -max p >0 q ‖ p-q‖ <δ /2\n分布 的间隔为 y k≠y k 。若增强视图分布 满足 ∞ ，则\nargmax q= y 。因为对任意 k ≠ y ， q y -q k > p y - p k -δ ≥0 。这只是逐因素条件，平均 JS 降\n低不意味着每个因素均满足该界，也不能使原先错误的预测自动正确。\n两项性质解释了标签输运与预测约束的作用范围，不构成新的通用等变学习定\n理。本章约束的是辅助图因素分布，而非证明自回归生成的完整图分布严格等变。文\n本语义漂移、验证器偏差、金标噪声与候选宇宙外关系均可能破坏预期效果；最终判\n断仍以未参与增强的真实测试文本为依据。\n3.6 独立实验协议\n本章方法需要分别回答“增强数据是否更可靠”和“相同增强数据上的学习目标是\n否有效”。前者通过普通改写、QOS 式改写及影响域消融比较，后者固定增强集合、\n辅助头、源权重和更新预算，仅改变是否采用成对因素对齐。结论中心与随机中心在\n规模、长度和关系度上匹配，以检验中心选择的作用。各组使用相同推理策略，不启\n用第四章新增修正，以隔离训练侧增量。\n标签漂移、表达变化、接受覆盖和生成成本用于解释数据构造；原始测试文本上\n的严格组件与关系指标用于判断最终任务效果。CovEReD 的研究也提示增强一致性\n与原始任务表现需要分别检验[37]。详细对照、资源口径及审计安排统一见第五章\n5.2、5.3 和 5.5，已有结果不代替本章新增方法的独立验证。\n3.7 本章小结\n本章在 ICIC 结论专项训练基础上，将增强约束从局部正关系扩展到声明因素宇\n宙内的完整影响域，并通过槽位映射建立原文与增强文的组件、关系对应。成对辅助\n头在保留生成和句子监督的同时约束共享表示，使标签输运与参数学习具有明确接\n口。其适用边界是：结构保持不等于语义保持，辅助一致性不等于生成正确率，结论\n中心也不自动带来类别重平衡。下一章保持输入文本不变，研究预测组件及其依赖关\n系的联合修正。\n25",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 965,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 521
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 163
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 63
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 33
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 31
+      },
+      {
+        "font": "KAAAAA+STSongti-SC-Bold",
+        "size": 12.0,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 12.0,
+        "characters": 14
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      524.5,
+      710.03
+    ]
+  },
+  {
+    "physical_page": 30,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n第四章 多候选驱动的依赖闭合论辩图修正\n端到端论辩挖掘的预测错误不仅表现为关系标签错误，也包括组件遗漏、多检、\n边界偏移以及组件划分粒度不当。组件是关系的端点，修正一个组件可能同时改变多\n条关系的身份与合法性。因此，组件修正不能只比较节点自身的得分，关系修正也不\n能始终假设上游组件正确。本章在前期多候选重排序与有界修正方法 MCR-BR 的基\n础上，研究有限候选空间内的组件—关系协同修正。\n本章方法记为 MCR-BR-J。其中，J 仅标识联合修正版，不构成独立于本章研究\n内容的第三项创新。方法保留完整候选图生成与初始重排序，将修正单位扩展为冲突\n闭合的组件集合替换，并同步重建所有依赖于变化端点的候选关系。通过固定文本证\n据评分、代价敏感效用和有限预算，使每次修改的对象、依据及停止条件保持一致。\n本章首先说明与前期工作的继承关系，再给出候选表示、联合事务、求解算法及其理\n论边界。\n4.1 研究问题与前期方法的继承\n作者前期 ICIC 工作提出了多候选重排序与有界修正框架，在不同组件假设上构\n建完整论辩图，并结合连接覆盖、语义连贯性和形式合法性选择候选。原版修正不仅\n处理关系，还包含组件类型转换与跨度替换，因而不能将“允许组件修改”本身作为本\n章新增贡献。为区分版本，以下将原版记为 BR-O，将固定组件的保守关系修正版记\n为 BR-C。[34]\nBR-C 固定初始组件、覆盖评价节点及其阈值，只删除关系或重新预测限定源节\n点的出边。这一约束避免了组件被错误修改，同时明确了其能力上限：若正确跨度从\n未进入初始图，则仅调整关系不能恢复该组件。BR-O 的修改范围更宽，但按节点或\n有限出边组织动作时，不能完整表达“一组旧组件被一组新组件替换，同时重新判断\n全部相关关系”的决策。特别是在拆分、合并和类型改变中，沿用旧端点编号并不意\n味着原关系对象仍然有效。\n已有联合结构预测使用因子或整数规划表达组件和关系之间的约束，组件与关系\n联合建模本身已有明确研究基础。[46]近期 Re-Cent 也结合跨度抽取与关系纠正，说\n明“抽取后再纠正”不是新的通用范式。[43]另有框架讨论组件合并、改写与关系重\n建；本章则保持原文不变，以可定位跨度为对象，不生成隐含前提。[44]本章的具体\n研究对象是：在 MCR 已保留的竞争假设以及有限补充候选中，如何以可变组件集合\n26",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1013,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 672
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 143
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 70
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 35
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 12
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      130.48,
+      523.45,
+      751.63
+    ]
+  },
+  {
+    "physical_page": 31,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n为修改单位，闭合处理其入边、出边及原无边状态，并依据同一评分体系比较完整修\n改结果。\nx G\n据此，本章将问题定义为有预算的结构选择。给定原文 、初始图 0 和预先构\nG\n建的候选宇宙，算法选择有限次结构事务，输出合法图 。候选空间限定可恢复的对\n象，事务邻域限定一次允许跨越的结构变化，评分器提供修改依据，预算限定搜索代\n价。这四者分别影响性能，不能仅用最终 F1 的变化解释全部机制。\n理解这一流程可以从一次边界修正开始：模型把表 3-1 中的 c 2只抽取为“图书馆现\n有座位不足”，另一个候选却包含“而且开放时间偏短”。选择较长跨度会改变组件对\n象，原来连接短跨度的关系不能仅因显示编号相同就继续保留。算法须先构造“新组\n件及其关系”的完整候选状态，再判断整个修改是否值得提交。原文始终不变，修改\n的是对原文的结构解释。\n27",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 392,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 244
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 73
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 8
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 4
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 7.2,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.55,
+      309.73
+    ]
+  },
+  {
+    "physical_page": 32,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n图 4-1 组件替换及受影响关系的事务式处理示意\n图 4-1 展示修改单位和接受顺序，不预设较长跨度一定正确。旧对象删除后，其\n入边和出边均失效；新对象的合法关系组合重新评分，包括此前没有输出关系的位\n置。只有完整方案满足整图约束、预算及效用门，才一起提交；否则保留修改前的完\n整状态。\n28",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 171,
+    "images": 1,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 85
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 20
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 5
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 5
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      564.13,
+      523.45,
+      668.83
+    ]
+  },
+  {
+    "physical_page": 33,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n4.2 多候选完整图与初始选择\n4.2.1 组件假设及完整图生成\nx K\n给定文档 ，生成器通过预先固定的采样和提示配置产生 组组件假设：\n𝒞={C(1),…,C(K)}. （4-1）\n每个组件包含原文跨度与类型。随后，关系生成器在固定的\nC(k)\n上预测关系，形\n成\nG(k)=(C(k),R(k))。关系阶段不得悄悄重写组件；无法解析的输出记为失败，失败调\n用仍计入总成本。同一候选的原始输出、解析结果及坐标转换均保留，避免将后处理\n改变误认为生成模型的预测。\n这一流程比较的是完整结构，而非先依据组件置信度选定一组组件，再只对该组\n预测关系。不同候选之间的边界、类型和连接差异，既为初始选择提供信息，也为后\n续集合替换保留竞争假设。全部候选来自预测，不使用评价集金标准补充遗漏对象。\n4.2.2 原始覆盖评分的保留与边界\n为保持与前期方法的可比性，初始选择沿用原 MCR 的加权形式：\nE (G)=0.4 E (G)+0.4 E (G)+0.2E (G). （4-2）\nrank dens coh val\n设\n𝒬(G)\n为预测图中的覆盖评价节点，\np\nr\n∈{0,1}\n为关系语义验证结果，\nd\nc\nin\noh\n( j)\nj\n为指向节点 且通过验证的关系数，则\n1 { din ( j) } 1\nE\ndens\n(G)=\n|𝒬(G)|\n∑\nj∈𝒬(G)\nmin co\nτ\nh ,1 ,E\ncoh\n(G)=\n|R|\n∑\nr∈R\np\nr\n. （4-3）\nj\n空覆盖集合或空关系集合的对应分量取零。AAEC 的覆盖节点为预测 Claim，\nCDCP 为预测 Policy/Value；MajorClaim 不因缺少普通关系而被强制补边。本版确定\nτ =2 τ =1\n性参考配置按节点是否存在出边设置结构角色阈值：无出边取 j ，否则取 j 。\n这是本版明确采用的设计配置，不反推为全部历史实验已经核实的执行细节。CDCP\n原生超边按完整关系计一次入边，不按源成员数重复增加覆盖。\nE val 在可解析性、跨度、类型及引用等全部协议检查通过时取 1，否则取 0；无\n环等结构条件仅在相应数据协议要求时启用。同分时按候选生成槽位选择。加权得分\n不等价于合法性硬约束，因此选出的候选还需通过所有对照共用的确定性合法化步\n骤，得到 G 0。本版基础步骤仅执行无歧义的坐标规范化、相同语义对象去重及 ID 重\n排，并同步更新引用；歧义 ID、越界、非法类型或剩余结构冲突直接报失败，不由\n29",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1065,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 453
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 156
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 55
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 42
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 41
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 22
+      },
+      {
+        "font": "ABAAAA+OpenSymbol",
+        "size": 12.0,
+        "characters": 22
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      114.79,
+      524.15,
+      765.89
+    ]
+  },
+  {
+    "physical_page": 34,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n此阶段额外猜测跨度、删除冲突组件或补边。规则、变更和成本单独记录；不能得到\n合法状态时不进入学习型修正。\np\n覆盖与连贯性共用 r，不是相互独立的证据。覆盖集合与当前边数还会改变均\n分的分母，删除低分对象或改变组件类型可能提高平均分，却未必提高真实准确率。\n本章因此保留上述评分用于初始候选选择，但不将它直接延用为可变组件修正的接受\n目标。\n4.3 固定候选宇宙与语义对象表示\n4.3.1 跨度候选及冲突关系\nU K\n修正开始前构建有限跨度集合 ，其来源包括： 个候选图中的全部跨度；独\n立全文跨度头给出的补充候选；有限边界扰动、相邻候选的合并跨度以及长跨度的切\n分候选。独立跨度头采用文本编码器与边界或跨度预测头，使所有生成候选共同遗漏\n的区域仍有进入修正空间的机会。补充候选数量、最大长度及扰动范围均在开发阶段\nU\n固定，搜索过程中不再扩展 。\n对跨度 u∈U ，状态为 NULL 或一个合法组件类型。令\n𝒱={(u,t ):u∈U ,t ∈𝒯(u)} 为带类型组件候选集合，预测组件满足 C ⊆𝒱。同一跨度\n至多选择一个类型；不同跨度是否冲突遵循数据协议。若不允许重叠，则按两两交叠\n定义冲突；若允许特定嵌套，则保留合法组合。重叠的传递连通块中可能存在互不冲\n突的两个跨度，不能用“整个连通块至多选一个”替代两两冲突判断。\n组件语义键由文档哈希、坐标版本、起止位置及类型组成，显示编号仅用于序列\n化。类型或边界变化均产生新语义对象，而不是对旧编号的无成本改名。原始字符坐\n标与模型 token 坐标保留映射，去重与精确评价使用同一规范化规则。\n候选构建必须包含合法化后初始图的全部对象，不能只保留合法化前的原始候\n选。字符坐标、评价 token 及模型子词分别维护映射；跨度编码使用第二、三章的\noffset mapping 规则，评价不直接使用模型子词编号。\n4.3.2 关系候选与无边状态\n在 𝒱 上构建固定关系候选集合 P 。二元关系对象包含完整源组件、目标组件、\nP\n方向与关系标签；其语义键随任一端点的跨度或类型变化而变化。 包含初始关系，\n并覆盖预算允许的合法端点与标签组合。不存在关系以 NONE 状态表示：它不是需\n要输出的边，而是某一候选关系槽位未选择任何正关系标签。\n30",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 974,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 564
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 157
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 49
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 37
+      },
+      {
+        "font": "LBAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 15
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      524.2,
+      759.98
+    ]
+  },
+  {
+    "physical_page": 35,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n关系候选必须覆盖初始图中没有边的可行组合，否则算法只能删除或重标已有关\n系，无法补回遗漏关系。明显不相容的端点组合可提前排除，资源裁剪则需保存原因\n和候选来源。候选召回上限分别在组件、完整关系及所需集合替换层面衡量；“金标\n准对象在池中”和“当前事务邻域可以恢复它”并非同一个条件。\n4.4 冲突闭合的集合替换与关系事务\n4.4.1 集合替换动作\nC B D\n令当前组件集合为 ，一次提议指定新增集合 与主动删除集合 0。首先将\nB∩C B D\n中语义未变的对象视为保留项，从 及 0 中同时移除，再补齐所有与新增对\n象冲突的旧组件：\nD= D ∪{c∈C :∃b∈B,Conflict(c,b)},C ′ =(C∖D)∪B. （4-4）\n0\nB D\n内部必须兼容。即使某个冲突组件位于提议窗口之外，也必须进入 ；否则，\n新状态仍可能含有非法重叠。扩大删除集合超过预算时，提议被拒绝，不能通过忽略\n窗口外冲突获得虚假的局部可行性。\n0→1 1→0 1→1 1→2 2→1\n主邻域包含 、 、 、 和 ，对应遗漏补回、多检删除、类\n|D|+|B|≤3\n型或边界替换、拆分和合并。本版初始设计限制每事务 。限制在冲突闭合\n后检查，而非只按最初指定的集合计数。更大邻域属于预算敏感性设置，不另列为方\n法创新。\n4.4.2 依赖闭合与纯关系动作\n“依赖闭合”在本章指：组件对象被删除或替换后，将所有引用它的关系以及新对\n象可能参与的关系一起纳入决策，避免只评估组件本身而遗漏关系损失。训练阶段的\nNONE 来自既有标注，需要在改写后保持；本章的 NONE 是当前预测未选择正关系\n的状态，可能包含漏检，因此允许被改为一条经评分和约束接受的关系。\n令\nA= D∪B\n表示变化的完整组件对象，\nP\nA 包含\nP\n中接触\nA\n任一对象的全部候\n选关系。该集合同时覆盖入边、出边、原有正关系和原 NONE 槽位。删除旧组件\n后，所有引用旧语义键的关系必须删除；加入新组件后，其合法入出关系重新参与选\n择，不能按旧显示编号继承。\nS\n对于组件保持不变但关系存在错误的情形，保留纯关系提议 R，定义事务关系\n空间\n31",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 924,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 490
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 148
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 42
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 40
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 11.91,
+        "characters": 16
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 15
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.85,
+      752.83
+    ]
+  },
+  {
+    "physical_page": 36,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nP =P ∪S . （4-5）\ntx A R\nRelationOnly 事务取 D=B=∅ ，通过 S R 表达增边、删边、换标签或反向。一个\nS\n槽位进入 R 时，其全部合法标签候选一同进入；反向修改同时包含两个方向，避免\n仅在已有方向中重选标签。\nC′ G′ =(C ′ ,R′)\n对每个 ，算法先求出受影响关系的最优可行补全，再比较完整的\nC′\n，而非先依据组件分数提交 。事务外关系保持固定，但全局约束在整图上检查。\n如果新状态需要修改事务外关系才能合法，则显式扩大事务并重新计费，或拒绝提\n议。依赖闭合保证没有漏记端点变化造成的关系失效，并不意味着自然语言的语义影\n响只发生在一跳范围内。\n沿用图 4-1，记短跨度旧对象为\ncold\n，完整跨度候选为\ncnew\n。即使二者都显示\n2 2\n为“组件 2”且都标为 Premise，它们的语义键仍不同。所有以\ncold\n为端点的旧关系先从\n2\ncnew c c c\n候选修改状态中全部移除；涉及\n2\n与 1、 3、 4及其他合法端点的组合重新参与选\n择，不能按第三章示意图预置答案。若组件效用增加，但重建后的关系效用下降，则\n依照 4.6.2 的分项门拒绝整个方案。若两个分项均不下降、总增益达到严格门限且满\n足约束与预算，则整体接受。这个例子说明联合评价如何处理关系代价，不声称自动\n评分等于真实正确性。\n4.5 完整对象评分及训练外候选学习\n4.5.1 固定文本证据评分器\n评分器分别估计组件与关系完整对象精确正确的概率：\nq (c∣x),q (r∣x). （4-6）\nC R\n组件头根据跨度及全文表示预测 NULL/类型分布。关系头接收端点跨度表示、\n待核查端点类型、方向、关系标签及全文证据，以二元监督判断整个关系对象是否正\n确。其正例要求端点跨度、端点类型和关系标签同时满足精确匹配；仅在金标准端点\n上训练的关系分类准确率，不能替代这里的对象正确性概率。\n本版采用固定文本编码、跨度 MLP 与有向端点组合 MLP 的基本实现。评分器\n与生成器使用不同参数，但不据此假定其错误彼此独立。评分器也不同于第三章用于\n辅助训练的预测头：前者学习真实候选中的正确与错误对象，后者服务于原文和增强\n文的配对监督。\n32",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 962,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 527
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 131
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 45
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 45
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 20
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 14
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      109.27,
+      524.12,
+      745.13
+    ]
+  },
+  {
+    "physical_page": 37,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n同一文档的文本表示、模型版本、校准参数及候选得分在搜索开始前冻结。缓存\n同时绑定完整语义键，不以显示编号代替端点身份。不将当前图的度数、已选边数或\nq\n动态重编码加入 ，从而使同一个对象在不同搜索状态中具有相同分值。评分失败不\n默认为零概率，而是按预先声明的失败策略拒绝相关提议并记录。\n4.5.2 OOF 候选与校准\n评分器需要接触实际推理产生的错误，而不是只区分人工构造的容易负例。训练\n部分按源文档分组进行 out-of-fold（OOF）候选生成。对每一持出折，生成器和跨度\n头均不得训练于该折文档及其增强变体，再对持出文档产生完整候选、边界扰动和关\n系组合。候选与训练金标准进行精确匹配后，形成评分器监督数据。用于比较两种训\n练方法时，OOF 池共同包含两类生成器的候选并保留来源，避免评分器只适应某一\n生成器。\n错误跨度和错误端点类型构成完整对象负例，原 NONE 槽位中的关系候选也必\n须进入训练池，但其正负标签由训练金标准决定，不能因生成器未输出该边便将其标\n负。若过采样困难负例或正例，应保存采样概率；用于校准的数据保持自然候选分\n布，不能以人工平衡比例替代部署先验。开发集按源文档分为校准部分与策略选择部\n分，分别用于概率校准及代价、阈值和预算选择。最终模型只在规定训练数据上重\n训，测试集不参与上述过程。\n本版以训练内三折 OOF 作为初始配置。折数和开发划分须随复现实验一并报\n告，而非被视为历史实验的已核实设置。OOF 生成器的训练规模小于最终生成器，\n候选分布可能发生变化，因此校准部分还需检查最终生成器产生的候选。候选级校准\n并不直接保证被搜索选中的动作可靠；后续评价还需区分有益、中性和有害修改，观\n察选择后偏差与多轮误改。\n4.6 代价敏感效用与保守接受门\n4.6.1 固定计数效用\nX ∈{C ,R} 0<κ <2\n对对象类别 ，设固定系数 X ，定义\nΦ (G)=2∑ q (o∣x)-κ | X(G)|,Φ(G)=w Φ (G)+w Φ (G), （4-7）\nX o∈X(G) X X C C R R\nw ,w >0 w =w =1 κ\n其中 C R 。主配置以 C R 为起点， X 在开发阶段预先声明的范围内\n确定并冻结。基线 F1 可以用于初始化候选值，但不构成最优性依据。若为平衡两类\n对象数量而缩放，只使用固定训练集尺度，不除以当前图的组件数或关系数。\n33",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1029,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 528
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 164
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 72
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 36
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 30
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      748.83
+    ]
+  },
+  {
+    "physical_page": 38,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nY\n该效用具有明确的代价解释。令 X 为真实对象集合，且暂假设\nq (o∣x)=P(o∈Y ∣x) F P =| X(G)|-T P F N =|Y |-T P\nX X 。由 X X、 X X X，得到\nΦ (G)=(2-κ )𝔼[|Y |∣x]-𝔼[κ F P +(2-κ )F N ∣x]. （4-8）\nX X X X X X X\n第一项不随预测图变化，故最大化该效用等价于最小化固定误检与漏检代价的条\n件期望风险。该推导依赖期望的线性性，不要求对象正确性相互独立。候选池外真实\n对象造成的漏检同样属于不可改变的部分；池内错误与池外遗漏必须分别分析。\n此处采用的是代价敏感代理，不是期望 F1。一般 F1 决策涉及真实标签数量与对\n象正确事件之间的依赖，仅有普通边际概率通常不足以计算最优决策。[41]特定条件\n下的 F1 最优阈值结论，也不能通过代入任意基线 F1 直接用于本章结构搜索。[42]上\n述风险恒等式为评分提供解释，不作为独立的基础理论创新。\n4.6.2 接受规则与编辑成本\n候选事务必须满足完整图合法、剩余预算允许以及\nΔΦ ≥0, ΔΦ ≥0, ΔΦ>δ >0. （4-9）\nC R\n两个分项门限制以明显降低某类代理效用为代价换取另一类增益，总效用门排除\n等分修改。它们是保守代理条件，可能拒绝真实有益的结构替换，也不保证真实组件\n或关系 F1 不下降。数值容差与正间隔 δ 在评价前固定，不通过测试结果调整。\nd =|D|+|B| d =|R △ R′ |\n组件编辑成本为 C ，关系成本为 R 。类型或边界变化引起的\n旧关系删除与新关系加入分别计费。成本仅用于硬预算和同效用时少改优先，不加入\nG\n效用作为“接近初始图”的奖励。累计编辑量与最终图相对 0 的净变化分别记录，避\n免反复修改同一对象却只报告最后一次差异。\n4.7 局部整数规划与有界事务执行\n4.7.1 每个组件提议的关系补全\n主求解器采用“有界组件提议＋局部 ILP 关系补全”。对一个已经通过冲突检查的\nC′\n，令\nz\nc\n=𝕀[c∈C ′ ]\n为固定组件状态，\ny\nr\n∈{0,1}\n表示关系候选\nr∈P\n是否被选取。\n目标为\nmax w Φ (C ′)+w ∑ (2q (r∣x)-κ ) y . （4-10）\ny C C R r∈P R R r\n34",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1000,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 402
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 121
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 57
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 47
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 30
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 28
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 11.92,
+        "characters": 26
+      },
+      {
+        "font": "ABAAAA+OpenSymbol",
+        "size": 12.0,
+        "characters": 22
+      }
+    ],
+    "body_bbox": [
+      79.41,
+      96.64,
+      523.9,
+      727.29
+    ]
+  },
+  {
+    "physical_page": 39,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n组件项在单次求解中为常数，但在比较不同提议时不可省略。求解包含以下约\n束：\n∑ z ≤1,z + z ≤1若 Conflict(c,d);\nt∈𝒯(u) (u,t) c d\ny ≤ z ∀ c∈Ends(r),∑ y ≤1∀ s;\nr c r∈Γ r （4-11）\ns\ny =𝕀[r∈R]∀r∉P ,G′ ∈𝒢 .\nr tx 𝒜\nΓ s 表示同一关系槽位的互斥标签候选，全为零对应 NONE；𝒢 𝒜 表示所采用协议\n的整图合法集合。前两项组件约束也作为提议合法性的显式检查。自环、非法类型组\n合及越界跨度在候选构建时排除，关系约束保证被选关系的全部端点存在，且不能绕\n过固定外部结构。若协议要求无环，引入\n0≤o\nc\n≤ M -1\n、\nM =|𝒱|\n，对全部候选二元边\n加入\no ≥o +1- M (1- y ). （4-12）\nv u (u,v,ℓ)\n该式同时覆盖固定外部边；超边在协议要求时对各源成员到目标的方向分别加入\n相同约束。不要求无环时不额外施加该限制。对于 CDCP 的源范围规则，在固定的\nC′ y =0\n上计算候选超边是否合法，不合法者强制 h ，包括因此失效的事务外超边；若\n这与外部固定约束冲突，当前事务不可行，必须扩大事务或拒绝。\n分项效用门与编辑预算同样纳入 ILP。设\ny0=𝕀[r∈R]\n，关系编辑成本可线性写\nr\n为\nd\nR\n=∑\nr:y0=1\n(1- y\nr\n)+∑\nr:y0=0\ny\nr\n. （4-13）\nr r\nd ,d ΔΦ , ΔΦ ≥0\n将 C R 限制在各自剩余预算内，并约束 C R 。严格总效用门在数值实\nΔΦ>δ\n现中采用固定正间隔及比较容差，提交前再次验证 。这些条件必须参与求\n解，不能先求无约束最高分结果、发现它违规后便断言不存在可接受结果。\n4.7.2 提议队列、回退与终止\n候选分歧、边界不确定性、跨度头补充区域和关系不确定性用于组织有限提议队\n列；优先级仅决定搜索顺序，不代替接受依据。本版设计起点为每轮最多 32 个提\n议、最多接受 3 次事务；求解时间上限在硬件小试后冻结。这些数值是待检验的工程\n配置，不是已经测量的最优参数。\n35",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 926,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 383
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 125
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 58
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 36
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 12.0,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.41,
+      100.73,
+      523.9,
+      680.33
+    ]
+  },
+  {
+    "physical_page": 40,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n算法 4-1 多候选驱动的依赖闭合修正\n输入：文档 x，K 个候选图，候选与求解预算\n1. 以原 MCR 选择候选，执行共用合法化，得到 G0；G ← G0。\n2. 构建并冻结 U、P、对象评分、代价系数及接受阈值。\n3. 生成当前状态的有限提议队列，设置独立 no-op 回退项。\n4. 对预算内的每个 (D0, B, SR)：\na. 抵消相同对象，完成冲突闭合，构造 C'。\nb. 构造包含入边、出边与 NONE 的关系事务空间。\nc. 固定外部关系，通过局部 ILP 求受约束的最佳补全。\nd. 对可行解重新验算合法性、效用门和完整编辑成本。\n5. 在已找到的合格事务中选总效用最高者，同分时少改优先，\n再按规范化语义键排序消除并列。\n6. 若存在合格事务，原子提交并返回步骤 3；否则保留当前图。\n7. 达到预算即停止，输出当前图及全部尝试、拒绝和提交记录。\nno-op 是求解器外的独立选择，不需要满足严格增分条件。对于已改变组件的提\n议，其局部关系 ILP 不一定包含原图，因此不能把“ILP 内存在空编辑”作为回退保\n障。所有修改先在副本中执行，通过复核后一次提交；拒绝或中断时保留最后一个完\n整合法状态。\n求解超时但找到可行解时，可使用经复核的 incumbent，并记录求解间隙；未找\n到可行解则记录状态，不解释为数学不可行。只有完整检查本轮声明的队列，才可称\n该队列中未找到合格动作。候选构造、评分调用、全部求解尝试及失败处理均计入成\n本，不能只计最终接受的修改。\n4.8 机制性质与适用边界\n4.8.1 局部差值的精确计算\n命题 4-1：固定候选宇宙及对象评分时，两个预测状态之间的效用差可由新增、\n删除对象精确计算。\nX ∈{C ,R} a (o)=2q (o∣x)-κ\n证明：对 ，记 X X X，则\nΔΦ =∑ a (o)-∑ a (o). （4-14）\nX o∈X(G′)∖X(G) X o∈X(G)∖X(G′) X\n两状态共有对象的得分相同，在求差时相消。依赖闭合将端点变化引起的旧关系\n失效、新关系加入纳入差集，因而不会漏算关系项。该性质来自固定可分解目标，不\n36",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 925,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "OBAAAA+STSongti-SC-Regular",
+        "size": 9.5,
+        "characters": 272
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 248
+      },
+      {
+        "font": "CBAAAA+CourierNewPSMT",
+        "size": 9.5,
+        "characters": 94
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 77
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 28
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 23
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 7.2,
+        "characters": 18
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      102.95,
+      523.45,
+      751.78
+    ]
+  },
+  {
+    "physical_page": 41,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n意味着模型已经正确判断自然语言语义。若搜索中改变对象分数，则上述差值计算不\n再适用。\n4.8.2 集合事务的可达性\n命题 4-2：存在合法状态，使全部单对象改动均不能通过严格改进条件，而一个\n集合替换可以通过。\na,b c κ =0.4\n构造两个互不重叠的旧组件 ，新跨度 同时覆盖二者。取 C ，\nq (a)=q (b)=0.3 q (c)=0.6 0.2,0.2,0.8\nC C ， C ，对应效用为 。这些边际与合法分布\n0.3{a,b}+0.6{c}+0.1∅ {a,b} 0.4\n相容。初始集合 的效用为 ：单独删除任一组件\nc {a,b}→{c}\n降分，直接插入 或仅替换其中一个组件产生冲突；整体 则合法且增分\n0.4 w =1 0<δ <0.4\n。取 C 、 并保持关系不变，即满足全部效用门。若一对一提议通过\n冲突闭合同时删除两个旧组件，它事实上已扩展为上述集合事务，不再属于受限的单\n对象动作。\n该例说明成组事务可以跨越单对象严格改进的限制，而非证明真实样本上的 F1\n必然提高。它也不意味着集合事务具有任意大小的搜索能力；本章默认邻域不能跨越\n所有可能的局部障碍。\n4.8.3 有限终止与 F1 边界\n命题 4-3：在有限候选状态空间内，严格提高同一固定 Φ 的接受序列不可能重复\n访问状态，因此必定有限终止。\n证明：若回到某个已访问状态，该状态的固定效用应与先前相同；但每次接受均\n严格增分，形成矛盾。有限状态数进一步排除无限无重复序列。实际算法还受到尝\n试、时间和编辑预算约束，因预算停止不代表局部最优或全局最优。\n对于单项语料 micro-F1，设真实正确数为 T 、预测数为 P 0、金标准数为 Q ，\nF =2T /(P +Q)\n0 。当修改前后分母均非零时，直接展开可得\n2 ΔT - F ΔP\nF′ - F= 0 .\n（4-15）\nP +Q+ ΔP\n0 0\n该恒等式说明真实增益同时取决于正确数和预测数的变化。推理时不知道真实\nΔT F κ\n与 ，估计概率及固定 也不能替代它们。即使候选级校准良好，仍不能得到每\n次事务的误差上界。因此，本章只保证接受过程的代理效用单调，不宣称真实 F1 单\n调、期望 F1 最优或全局最优。\n37",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 959,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 453
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 150
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 49
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 35
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 25
+      },
+      {
+        "font": "ZAAAAA+LiberationSerif",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "ABAAAA+OpenSymbol",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      744.43
+    ]
+  },
+  {
+    "physical_page": 42,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n4.9 数据协议与方法比较\nAAEC 保留 MajorClaim、Claim、Premise 及其规定关系接口。Claim stance 作为\n属性处理，不静默改为普通 Support/Attack。文档级或段落级输入、跨段关系范围和\n跨度规范均须固定；同一文档的切片不得跨训练与测试。缺少普通关系的\nMajorClaim 仍参与组件评价，但不虚构其关系修正收益。\nCDCP 主配置保留原生多前提关系：\nh=({c ,…,c },c ,ℓ),ℓ∈{Reason,Evidence}. （4-16）\ni i j\n1 k\n源成员按原文顺序规范化，整条超边作为一个精确对象。候选、评分、预算及评\n价均采用这一单位；一个成员正确不等于整条关系正确。与采用预处理或结构转换的\n既有研究比较时，必须明确相应协议。[46]\n超边候选由初始图关系及预算内可共存的成员组合构成。初始设计对新增组合最\n多包含 3 个源成员，但保留初始图已有的更长超边，并单报裁剪覆盖损失。源范围连\n续性按所选组件序列检查，不以字符间没有空隙代替。任一源成员或目标变化均使旧\n超边整体失效；评分器使用有序成员聚合及成员数量、位置特征，ILP 要求全部成员\n和目标同时存在。组件变化还可能影响事务外超边的范围合法性，此时按整图约束扩\n大事务或拒绝，不能仅检查相交端点。原生超边结果与二元投影结果分别报告，不混\n用分数。\n同目标全局 ILP 以可变组件指示量 z c共同求解。对每个超边 h ，若候选组件 c 按位\ny + z ≤1\n置位于其最左与最右源成员之间、但不属于该源集合，则加入 h c ，并结合全部\n端点存在和组件兼容约束，以保证被选源成员在最终组件序列中连续。局部 ILP 的固\nC′\n定 预检是这一约束的特例。构建候选时不依据整个候选宇宙的固定邻接关系剪掉\n潜在合法源集合，因为中间候选可能最终不被选择。\n方法比较共享生成器、候选池和合法初始图，分别考察 MCR-only、BR-O、BR-\nC、新评分器下的 RelationOnly、组件先改后重建关系、单对象动作及完整集合事\n务。其中 RelationOnly 虽固定组件，但评分目标不同于 BR-C，不能用前者代替后\n者。旧均分、固定计数效用与其他明确目标也需在同一候选条件下比较，区分候选改\n善、评分改善和搜索范围扩大。\n表 4-1 概括容易混淆的推理版本。整系统比较保留各原版机制；用于归因的受控\n比较则另外固定候选、对象评分及相应资源口径，不能将两种比较混称为同条件消\n融。\n38",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1083,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 566
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 157
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 137
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 58
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 36
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 9
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      117.39,
+      523.45,
+      756.73
+    ]
+  },
+  {
+    "physical_page": 43,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n表 4-1 推理方法的修改对象与决策接口\n方法 组件处理 关系处理与决策\nMCR-only 选定初始候选后不修正 不执行后续学习型修正\nBR-O 原版类型及候选跨度等动作 采用前期修正流程与评分\nBR-C 固定初始组件 固定覆盖目标的保守关系修正\nRelationOnly 固定组件 使用新对象评分与效用，只改变关系\n顺序组件及关系修正 先决定组件变化 随后重建关系，用于比较决策顺序\nBR-J 兼容组件集合替换 受影响关系重建后整体接受或回退\n同目标全局 ILP 联合选择候选组件 在共同目标与整图约束下联合选边\n全局 ILP 是必要的强对照。它在相同候选、对象评分和整图协议下同时选择全部\n组件与关系；局部方法不是新的通用整数规划技术。若全局模型的末态可行域包含局\n部算法输出，则充分求解的全局目标值不会低于局部结果。比较中应明确局部累计预\n算与全局净编辑预算的差别，并同时报告同时间预算下的可行解、求解间隙及充分求\n解结果。局部事务的研究价值在于有限算力下的修正质量、可审计性与成本，而非声\n称理论上超越相同目标的全局最优解。\n新配置的结论需要独立实验支持。前期 BR-O 或 BR-C 的记录不能直接归于本章\n联合修正版；第五章将区分历史结果、适用协议和新增验证项目。\n4.10 本章小结\n本章将 MCR 保留的多种结构假设转化为固定候选空间，以冲突闭合的组件集合\n替换及完整关系依赖重建作为修正单位。固定对象评分使修改差值可以精确核算，代\n价敏感效用明确了误检与漏检的取舍，分项门与预算约束使接受和停止条件可复现。\n相较于仅冻结组件或逐项修改，本章进一步表达了拆分、合并与关系重建之间的耦\n合；其有效性仍取决于候选覆盖、评分质量及预算内的可达性，不能由代理目标的单\n调性直接推出。\n39",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 773,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 333
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 163
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 87
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 35
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 21
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 20
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 15
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      107.07,
+      523.45,
+      684.78
+    ]
+  },
+  {
+    "physical_page": 44,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n第五章 实验设计与结果分析\n5.1 验证目标与证据分层\n实验围绕两个问题展开：关系感知增强学习是否在相同监督资源下改善真实文本\n的组件与关系抽取；依赖闭合修正是否在相同候选与评分条件下取得更好的恢复、误\n改和成本折中。完整系统总分只回答组合表现，不能替代两个研究问题的独立验证。\n本文区分四类证据：已公开 ICIC 论文中的原版结果用于说明前期基础；旧稿补\n充记录保留尚待配置和出处核准的信息；已有训练集上的 CPU 轻量诊断检查候选和\n评分路线的信号及失败模式；第三、四章新增方法的正式验证则应绑定新增实现、模\n型、预测和评价记录。前三类证据不自动升级为第四类，理论性质也不能替代效果比\n较。\n表 5-1 证据状态与可支持的判断\n证据类别 当前材料 可支持范围 不能支持的结论\nICIC 公开结 官方公开论文的原版表 前期 MCR-BR 及配套模 新增增强、闭合事务或原\n果 格 块的报告结果 生超边实现的实证收益\n旧稿补充记 分类别表及历史配置文 保留研究记录、定位材料 无 run ID 的组件分类消融\n录 字 差异 归因\nCPU 路线诊 官方训练集内部分组划 候选覆盖及弱评分器的局 正式 LLM 方法复现或强\n断 分、脚本和日志 部可行性 基线上的收益\n新增方法验 在未接入结果时声称已达\n本章定义的协议与对照 形成可复核的验证标准\n证 预期或显著优越\n5.2 数据、划分与运行身份\n5.2.1 域内协议\nAAEC 采用其组件标签及 Support/Attack 关系，不将 stance 转换成普通边。CDCP\n保留五种组件类型和 Reason/Evidence 多前提关系。正式实验首先冻结数据发布版\n本、原文哈希、文档 ID、坐标映射和异常样本清单，再定义训练、开发及测试划\n40",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 773,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 237
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 114
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 72
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 68
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 54
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 22
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 20
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 19
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      523.45,
+      751.23
+    ]
+  },
+  {
+    "physical_page": 45,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n分。历史文献协议可作为复现轨道另报，但不与新增严格端到端协议拼成一张排名\n表。\n所有原文及其增强变体按源文档共同分组，不跨划分；同文本不同 ID 还需按全\n文哈希去重或分组。生成器只使用训练数据；增强中心选择、提示调整、早停和超参\n数筛选不使用测试标签。评分器的训练候选由训练集内部三折交叉拟合产生，确保每\n个文档的候选不是由在该文档标签上拟合的生成器直接产生。两种训练方案分别生成\n其交叉拟合候选，避免只在较弱或单一策略的错误分布上训练评分器。\n开发集按源文档划为校准部分与策略选择部分，分别用于概率校准及阈值、预算\n选择；数据不足时使用预先固定的交叉验证安排，并报告每个阶段的用途。最终冻结\n所有选择后，测试集仅用于一次完整报告。独立模型和独立划分降低某些偏差，但不\n能证明评分误差与生成误差独立。\n5.2.2 配置与成本\n每次运行以数据、增强集合、模型 checkpoint、配置、代码与评价器的哈希组合\n定义身份。继承的骨干和原稿参数不是新增方法的最佳配置证明。第四章的候选上\n限、事务大小和尝试预算先作为工程起点，在开发集上形成性能—成本曲线后冻结。\n所有未通过筛选的增强尝试、被拒绝的修正事务、候选生成和评分开销都纳入统计。\n训练报告有效更新步数、源文档访问量、增强 token 量、可训练参数量和设备时\n间；推理报告生成与验证调用、输入输出 token、CPU 求解时间、端到端时延及峰值\n显存。局部 ILP 和全局 ILP 使用同一求解器、线程设置和时间上限定义；超时保留可\n行解、上界或 gap，不把“运行到时限”写成“求得最优”。缓存可减少实际调用，但仍\n分别报告逻辑预算与实际成本。\n5.3 第一项研究：增强与学习的可识别比较\n5.3.1 数据构造对照\n训练基础 T0 保留 ICIC 专项适配、线索提示及句子辅助目标，不含本论文新增增\n强与因素对齐。以相同源文档、中心分布、总生成预算和优化步数构造普通改写、结\n构条件改写、完整影响域改写及 QOS 式结构保持增强对照。QOS 是直接论辩增强近\n邻，不能仅用完全无结构的普通改写作为唯一基线[35]。\n普通改写与结构条件改写之间只隔离生成条件时，可以共用后续全文筛选；但这\n种普通改写并非完全不使用结构信息，应明确称为“无显式关系条件生成＋共同筛\n41",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 988,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 574
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 144
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 85
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 52
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LBAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 12
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      759.98
+    ]
+  },
+  {
+    "physical_page": 46,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n选”。另设尽可能复现原方法的 QOS 轨道，记录其条件、筛选及资源差异，不能将显\n著改造后的版本仍称为无差别复现。\n完整影响域的消融依次去掉跨边界正关系检查、NONE 检查，其他生成与筛选规\n则保持一致。由于检查强度改变接受率，同时报告两种资源视角：固定总尝试预算下\n的效果，及匹配接受样本量与训练步数下的效果。后者可能需要更多生成成本，不能\n隐去这部分代价。随机中心与结论中心按组件数、文本长度及关系度匹配，报告无法\n匹配的源文档和分布差异。\n5.3.2 同数据学习对照\n固定一份已接受的增强数据，比较“仅生成与原句子监督”“增加组件/关系头监\n督”“进一步增加成对因素对齐”。这样才能确定收益来自更多可用文本、辅助标签，\n还是成对约束本身。去掉对齐的对照仍保留相同辅助头和源文档权重，以免把参数或\n数据权重变化误归于对齐。\n表 5-2 训练侧必要对照及其回答的问题\n对照 固定条件 变化因素 验证问题\n骨干、推理、更新预 是否增加接受的文本 一般数据增量是否已有\nT0 与普通增强\n算 变体 收益\nQOS 式与关系感知增\n源文档、预算、评价 约束范围及生成机制 是否超过直接近邻\n强\n中心、生成器及资源 新增检查是否减少标签\n局部正边与完整影响域 跨边界及 NONE 约束\n口径 漂移\n同数据去对齐与完整学 增强集合、头、权\n成对因素损失 学习目标的净增量\n习 重、步数\n结论与匹配随机中心 大小、长度、关系度 中心选择偏置 结论优先是否必要\n辅助头性能与原文—变体一致性只作为中间指标。主结论仍以未改写真实测试文\n本上的组件与严格关系 P/R/F1 为依据，并分开报告结论类、非结论类、边界、类型\n及关系端点错误。对显式线索有无及线索扰动分组分析，检验提升是否主要依\n赖“therefore”等表面词。\n42",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 782,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 295
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 131
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 103
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 49
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 36
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 26
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 15
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      729.38
+    ]
+  },
+  {
+    "physical_page": 47,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n5.3.3 标签可靠性审计\n从接受和拒绝变体中，按数据集、端点位置类别（内部或跨边界）及关系状态\n（各正关系标签或 NONE）交叉分层抽样，避免将 NONE 误作第三种位置类别。人\n工判断者在不知道方法名称和自动判定的条件下，对角色、否定模态、指代、方向及\n标签保持进行判断；记录分歧和裁决，不在尚未开展时补填人数或一致性系数。公开\n审计样本 ID 及准则，并报告抽样误差。若自动筛选主要通过拒绝复杂关系提高表面\n保持率，应报告覆盖损失，不能只列接受样本的准确率。\n5.4 第二项研究：候选、评分与闭合修正\n5.4.1 三个相互分离的诊断\n候选诊断计算严格组件覆盖、完整关系全部端点覆盖及满足兼容约束的可达\nOracle。组件逐项覆盖只是必要条件：两个各自正确的对象可能因错误冲突规则不能\n同时进入图；超边端点齐备也不意味着正确源集合已列入关系候选。因而同时报告对\n象覆盖、可行图上界、单次事务可达上界及有限多轮可达上界，不能把它们合并为一\n个“Oracle”。\n评分诊断在固定提案上判断修改后真实任务变化。分别报告有益、无益及有害修\n改的排序质量，完整对象概率的可靠性图、Brier 分数、校准误差，以及严格接受后\n的净 TP/FP/FN 变化。构造扰动与模型自然错误分开；校准文档和最终策略评估文档\n分开。针对不同图大小、事务类型、超边元数及训练方案检查分布漂移。随机因素上\n的良好校准不足以保证搜索选出的高分事务可靠。\n搜索诊断固定候选宇宙和全部评分，比较找到的效用、尝试次数、接受次数、编\n辑数及耗时。只有这样才能把收益归于闭合搜索而非更好的候选或更强评分器。若固\n定评分几乎不能区分好坏修改，则增加搜索可能更有效地放大错误，不能据形式性质\n继续宣称安全改进。\n5.4.2 方法和强对照\nMCR-only 为仅选择初始完整图；BR-O 为原 ICIC 式修正；BR-C 固定组件及初始\n覆盖目标；BR-J 为本论文主方案。由于 O、C 与 J 的候选和评分不同，这组系统比较\n只能回答完整方案差异，必须另加同候选、同评分的控制比较。\n43",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 898,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 462
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 154
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 76
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 65
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 22
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 18
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      112.28,
+      524.1,
+      721.53
+    ]
+  },
+  {
+    "physical_page": 48,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n表 5-3 推理侧对照及归因\n对照 对齐要求 主要问题 必须报告的代价\nMCR-only、BR-O、 同一生成检查点及初 系统总体效果与原工 新增候选、评分和求解\nBR-C、BR-J 始候选 作递进 全部成本\n同一初始图及预算口 是否只是删除错误关\n仅删边后处理 Recall 及真阳性损失\n径 系获益\n顺序组件修正再预测关 同一宇宙、评分、动 是否需要事务联合接 组件单步拒绝导致的不\n系 作预算 受 可达情况\n同动作不同评分 事务集合与搜索顺序 完整对象效用的作用 错误高分及接受后风险\n集合替换及闭合的作\n同评分不同动作 固定评分和候选 编辑数量与事务大小\n用\n同一候选与效用、包 可行解、gap、最优性\n同目标全局 ILP 局部修正的预算价值\n含局部终态的可行域 状态及耗时\n等预算通用重写或重生 相同 token 或调用资 专门修正是否值得额 解析失败、幻觉跨度及\n成 源 外机制 全部成本\n全局 ILP 采用局部终态的松弛可行域：固定相同候选宇宙、评分和合法性规则，\n组件与关系效用分别不低于初始图，最终净编辑量不超过局部累计编辑预算。局部方\n法的每一步分量非下降及累计预算，蕴含其最终状态满足上述约束；反向不成立，因\n此全局域包含局部可达终态，不称二者同域。全局 ILP 充分求解时，其效用不低于局\n部可行解，这是包含关系决定的数学上界，不应主张相反结果。局部方法可争取较低\n成本或更好的真实 F1；后者可能说明代理目标存在偏差，不代表其效用超过全局最\n优。不加分量门或采用其他净预算的全局版本单列。\n5.4.3 风险、主动恢复与解释案例\n按插入、删除、重定型、边界替换、拆分、合并及仅关系修改分组，报告尝试、\n合法、接受、真实有益和真实有害的事务数。主动恢复必须确实新增正确组件或完整\n关系；净收益为正但主要来自删去大量错误预测的结果不能直接表述为“恢复遗漏结\n构”。同时报告原本正确对象的保留率、误删、误加、端点修改后的关系重建准确率\n及无修改比例。\n44",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 862,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 282
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 207
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 72
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 68
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 37
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 32
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      107.07,
+      523.45,
+      757.58
+    ]
+  },
+  {
+    "physical_page": 49,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n案例分析采用预先固定的误差类别和抽样规则，至少包含成功恢复、错误接受、\n错误拒绝、候选不可达和预算耗尽。逐例给出原文、金标、初始图、被替换组件、闭\n合域、效用差与实际 TP/FP/FN 差。不能仅挑选流畅的自然语言解释，而遗漏错误的\n跨度或关系。\n5.5 组合设计、统计与决策标准\n核心组合是训练 T0/T1 与推理 I0/I1 的 2×2 设计。T0 为继承 ICIC 训练基础，T1\n在其上增加第三章方法；I0 为 MCR-only，I1 为 BR-J。对每个训练检查点缓存自己的\n候选，并在 I0/I1 之间固定。两个不同训练检查点产生不同候选是训练效果的一部\n分，不为了“控制变量”强迫它们使用同一池。\n每个核心配置使用预先登记的多个随机种子，正式最低方案为 3 个，资源许可优\n先 5 个；这是一项实验要求，不是已完成的重复次数。主指标预先限定为组件和严格\n关系 micro-F1，其他指标用于机制分析。跨种子差值与文档级配对重采样共同报告，\n重复文本按组处理；不将多种子的每个文档当作独立重复扩大样本量。报告区间、效\n应量及失败配置，不依据结果临时挑选显著检验。\n表 5-4 两项贡献的支持与收缩条件\n研究判断 支持所需证据 不满足时的处理\n完整影响域确有价 比直接近邻或局部约束更少漂移， 将范围检查定位为质量控制，不宣\n值 并在资源匹配下有可复核收益 称独立性能创新\n成对学习有独立增 相同增强数据和辅助头下稳定改善 删除或降级对齐模块，不用一致性\n量 真实测试指标 指标替代任务收益\n事务闭合有独立价 同评分、同候选下优于顺序或单项 收缩为可解释的组合实现，保留负\n值 修正的风险—收益折中 结果\n相对强全局解码或重生成有明确成\n局部修正值得使用 不以更多模块数量证明必要性\n本或风险优势\n两项可构成完整研 两条主线各有独立问题、机制、证 保留 ICIC 基础，调整新增主张而非\n究 据，且贡献归属明确 虚构两个全新发明\n组合不必呈现超加性增益。只要两个阶段在其固定条件下分别有稳定作用，便可\n讨论互补性；若某一阶段只在另一阶段存在时有效，应将依赖条件写明，不夸大普适\n45",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 921,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 310
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 171
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 92
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 88
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 62
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 35
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      760.38
+    ]
+  },
+  {
+    "physical_page": 50,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n性。研究质量由证据、比较公平性和问题重要性共同决定，不由创新点数量自动保证\n学位评审或会议录用。\n5.6 已有结果及轻量诊断的解释\n5.6.1 ICIC 前期结果\nICIC 公开论文报告原版 Full 在 AAEC 的组件 F1 为 83.71、关系 F1 为 64.83，在\nCDCP 分别为 76.45 和 38.17[34]。这些数值说明前期系统具有值得深化的实验基础，\n但不证明第三章新增强、第四章新效用或闭合事务已经有效。其指标口径、数据处理\n和统计量仍应与原始评价记录绑定；尤其 CDCP 旧结果不能自动解释为本论文严格原\n生超边结果。\n原稿域内表、消融、验证器、Oracle、行为统计与跨域表在附录 E 按原数值保\n留，并注明前期归属。分类别组件表未在本轮核对的 ICIC 公开表中找到对应，且其\nSingle-Pass 组件 F1 为 81.67，与主结果表的 77.82 不同；在 run ID 明确前不据此估计\n训练增强的净贡献。原版行为表含组件替换及类型修改，也不能移作 BR-C 或 BR-J\n的动作分布。\n5.6.2 训练集内 CPU 诊断\n已有轻量诊断仅使用官方训练集内容：AAEC 纳入 322 篇，按拟合、校准、审计\n划为 191、65、66 篇；CDCP 在记录排除文档 00411 后纳入 580 篇，对应 348、116、\n116 篇。划分按完整文本哈希分组，测试文件未用于解析、拟合、选择或评分。\nAAEC 使用固定版本镜像及官方划分文件，尚未证明镜像与原下载包逐字节一致；\nCDCP 数据异常及跨度映射问题保留在日志中。\n诊断使用稀疏线性模型生成组件和候选，初始 typed component F1 为 AAEC\n25.42、CDCP 4.89。这样弱的基线，尤其 CDCP 的过度分割，不能代表前期 LLM 系\n统的错误分布。除候选恢复和组件评分外，诊断还包含给定金标跨度与类型、仅单前\n提关系的条件分类；它不包含本论文端到端完整关系效用、原生多前提修正、闭合事\n务或 ILP。因此，本节不把其改善幅度写成正式方法的预期增量。已记录的收敛警告\n进一步限定其用途为预算受限路线检查。\n该诊断的研究价值是把后续投入的条件具体化：必须在真实 LLM 自然错误上重\n新验证候选可达性和接受可靠性，并特别检查在弱基线中易见、在强基线中可能缩小\n的恢复空间。它不支持跳过强对照或直接推定新路线成功。\n46",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1044,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 491
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 191
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 147
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 43
+      },
+      {
+        "font": "JAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 12.0,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LBAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 15
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 12
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.55,
+      755.98
+    ]
+  },
+  {
+    "physical_page": 51,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n5.7 跨语料补充协议\nAAEC 到 CDCP 迁移可沿用前期粗粒度协议，但须作为独立轨道：AAEC 的\nMajorClaim 和 Claim 归为 Claim，Premise 保持；CDCP 的 Policy 和 Value 归为\nClaim，Fact、Testimony 和 Reference 归为 Premise。该映射是工程上的功能归约，不\n主张不同语料类型天然等价。\n关系标签可在补充轨道中归约为有向无标签连接。若将 CDCP 多前提超边投影为\n多个源到目标的连接，必须在协议名称中标记“二元投影”，固定去重和计数规则，并\n同时报告受影响的原生关系数量。投影结果不能用于宣称原生超边抽取能力，也不能\n与域内严格 Relation-F1 计算所谓性能下降。\n真正的零样本迁移不使用目标训练或开发标签调整评分、阈值、映射和预算。若\nCDCP 标签用于校准，则该轨道应命名为目标域校准迁移，不再称零样本。域内\nCDCP 训练实验与迁移实验分别维护模型和数据用途清单。前期粗粒度结果见附录\nE，新增方法只有在同协议输出接入后才能作递进比较。\n5.8 预期情景占位及结果分析框架\n本节为预期情景占位，不是实验结果。表 5-5 至表 5-10 中的数值由人工设定，用\n于检查比较关系、计算示例和论文叙述是否完整；它们不是模型运行输出、文献报\n告、统计估计或性能承诺。后缀 P 表示 placeholder，不是显著性检验的 p 值。所有情\n景数值须在正式报告前整体替换；不能只删除 P 或“非实测”说明。数据中的正向趋势\n代表待检验假设，不是接受实验结果的标准，真实的持平、下降及失败均应保留。\n前期成绩只在 5.6 及附录 E 按其原协议报告，不进入本节的同协议排名。尤其\nCDCP 的本节情景采用第二章的原生超边定义，不能将其与 ICIC 旧表的分数直接相\n减。标准差、置信区间、显著性、真实运行时间、人工判断者人数及一致性系数均不\n在本版虚构填入。\n5.8.1 两个阶段的独立作用\nT0 表示保留 ICIC 专项建模基础但不增加第三章新增强和成对因素学习；T1 表示\n完整关系感知增强学习。I0 为 MCR-only 初始图，不执行新增修正；I1 为第四章 BR-\nJ。同一训练检查点的 I0 和 I1 使用同一初始图与候选缓存，T0 与 T1 各自产生自己的\n候选。四格比较在两个数据集上分别进行，采用组件与严格完整关系 micro-F1，分数\n以百分制表示。\n47",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1062,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 506
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 187
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 152
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 47
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 20
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LBAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 14
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 9
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      117.39,
+      523.65,
+      760.58
+    ]
+  },
+  {
+    "physical_page": 52,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n表 5-5 两阶段组合的预期情景占位\nAAEC 组件 AAEC 关系 CDCP 组件\n配置 CDCP 超边 F1\nF1 F1 F1\nT0＋I0 83.0P 63.0P 76.0P 36.0P\nT1＋I0 84.0P 65.0P 77.0P 38.0P\nT0＋I1 83.8P 65.0P 77.0P 39.0P\nT1＋I1 84.8P 67.0P 78.0P 41.0P\n注：全部为人为设定的占位值，非实测。P 仅标记占位；各格不是多种子均值，\n不带显著性含义。表中基线行也不是已公开成绩。\n在该假设情景中，不使用 BR-J 时，训练侧的关系 F1 增量在 AAEC 和 CDCP 上均\n为 2.0P 个百分点；固定 T1 检查点后，推理侧对应增量为 2.0P 和 3.0P 个百分点。两\n项同时启用相对 T0＋I0 的关系增量分别为 4.0P 和 5.0P 个百分点。四格关系 F1 的交\n互差“完整组合−仅训练−仅修正＋均关闭”为 0.0P，刻意不预设超加性。若正式结果\n呈现类似模式，只能在报告区间和配对比较后讨论两个阶段各自有效，不能由组合总\n分直接证明某个内部模块必要。\n正式主结果需同时给出 P/R/F1、各随机种子成绩和汇总定义。若 F1 提高主要由\nPrecision 上升而 Recall 下降产生，应继续核对误删；若只有 T1＋I1 改善，则将结论\n限定为两阶段依赖，不能沿用“独立有效”的分析。\n5.8.2 关系约束与成对学习的归因\n表 5-6 采用 I0 推理，完整方法行必须与表 5-5 的 T1＋I0 一致。生成与筛选对照采\n用匹配接受样本量、源文档访问量及训练更新预算的轨道，额外生成尝试另行计费；\n正式报告还应提供固定总尝试预算的另一条轨道。两种资源口径不得合并为同一结\n论。表中的 QOS 式方法是按本文共同接口组织的直接近邻对照，不冒充 QOS 原论文\n成绩。\n表 5-6 训练侧消融的预期情景占位\nAAEC 组件 AAEC 关系 CDCP 组件\n训练配置 CDCP 超边 F1\nF1 F1 F1\nT0 无新增强 83.0P 63.0P 76.0P 36.0P\n48",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 926,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 288
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 119
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 105
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 94
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 48
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 33
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 26
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 22
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      105.77,
+      523.9,
+      743.42
+    ]
+  },
+  {
+    "physical_page": 53,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nAAEC 组件 AAEC 关系 CDCP 组件\n训练配置 CDCP 超边 F1\nF1 F1 F1\n普通改写＋共同筛选 83.3P 63.5P 76.2P 36.5P\nQOS 式结构增强 83.5P 64.1P 76.4P 37.0P\n去跨边界正关系检查 83.6P 64.2P 76.5P 37.2P\n去 NONE 检查 83.7P 64.3P 76.6P 37.3P\n同数据仅基础训练损失 83.6P 64.0P 76.5P 37.0P\n同数据同辅助头去对齐 83.8P 64.4P 76.7P 37.4P\n匹配随机中心 83.9P 64.8P 76.9P 37.9P\nT1 完整关系感知学习 84.0P 65.0P 77.0P 38.0P\n注：全部为人为设定的占位值，非实测。“同数据”两行与 T1 复用完全相同的已\n接受增强集合；其中“同数据同辅助头去对齐”还保持相同辅助头、权重和步数，仅移\n除成对对齐损失。其他生成对照不声称拥有同一增强集合。去检查及随机中心行保留\n其余学习设置。\n若实测接近该情景，完整学习相对同数据去对齐的关系增量均为 0.6P 个百分\n点，才是成对约束的候选证据；相对“仅基础训练损失”的差异同时包含辅助头监督，\n不能全部归于对齐。关系影响域的作用则由跨边界、NONE 及直接近邻对照分别解\n释，不能只用“普通改写较弱”支持整项创新。\n本情景将结论中心与匹配随机中心的差距设得很小，避免预设所有设计都必然必\n要。若真实差距不稳定，应将结论优先降为任务启发式，而非核心创新成立的前提。\n增强标签可靠性仍需 5.3.3 的盲评：报告抽样框及接受与拒绝样本，并按内部／跨边\n界位置和正关系／NONE 状态交叉统计标签保持率与抽样误差；本版不捏造人工审计\n成绩。若改进只来自过滤掉困难文本，还需报告覆盖损失，不能仅据接受集保持率解\n释任务收益。\n5.8.3 组件与关系联合修正的归因\n表 5-7 固定 T1 生成检查点。上半部分是整系统比较，其中 BR-O、BR-C 可能使\n用不同评分或动作集合；下半部分在 BR-J 的固定候选宇宙和对象评分下比较顺序修\n49",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 918,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 313
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 170
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 122
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 50
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 38
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 24
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      87.72,
+      523.45,
+      738.28
+    ]
+  },
+  {
+    "physical_page": 54,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n正、闭合事务及全局 ILP。整系统胜负与闭合机制的净增量是两个问题，不合并解\n释。\n表 5-7 推理侧比较的预期情景占位\nAAEC 组件 AAEC 关系 CDCP 组件\n推理方法 CDCP 超边 F1\nF1 F1 F1\nMCR-only I0 84.0P 65.0P 77.0P 38.0P\n原版 BR-O 系统 84.3P 66.0P 77.3P 39.0P\n固定组件 BR-C 系统 84.0P 66.2P 77.0P 39.3P\n仅删边控制 84.0P 65.8P 77.0P 38.6P\n同候选同评分 顺序修正 84.5P 66.3P 77.5P 39.6P\n同候选同评分 BR-J 84.8P 67.0P 78.0P 41.0P\n同目标全局 ILP 84.9P 66.8P 78.1P 40.8P\n注：全部为人为设定的占位值，非实测。BR-C 和仅删边不改变组件，组件 F1 应\n与 I0 完全相同。全局 ILP 行是假定求得最优解时的情景，不表示已有求解日志；其\n目标效用不得低于同条件局部解，但真实 F1 不受该顺序约束。\n如果真实比较保持表中关系，BR-J 相对顺序修正的关系差值为 AAEC 0.7P、\nCDCP 1.4P 个百分点。这仍需结合操作预算、候选缓存及评分器哈希，才能讨论事务\n接受的作用。BR-J 与原版系统的差值还包含候选和评分变化，不能单独命名为“依赖\n闭合收益”。\n全局 ILP 在此情景下的组件分数略高、关系分数略低于 BR-J，用于提醒代理目\n标与评价目标可能不一致，不是局部算法优于全局最优的预设结论。正式实验必须报\n告最优性状态、时间限制、可行解和 gap；超时解不享有理论目标上界的保证。若全\n局 ILP 在同等成本下全面占优，应明确缩小局部修正的适用范围。\n5.8.4 候选可达性与评分可靠性\n表 5-8 只针对 T1 的冻结候选宇宙，候选覆盖以金标完整对象为分母，Oracle 以\n同一严格关系指标和合法性条件为准。单轮和多轮可达空间均包含 no-op；多轮允许\n的轨迹包含单轮轨迹，全局可行空间包含这些终态。组件覆盖、关系候选覆盖与关系\nF1 分别报告，不能互相替代。\n50",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 939,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 340
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 166
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 87
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 75
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 32
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 31
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 24
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      753.53
+    ]
+  },
+  {
+    "physical_page": 55,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n表 5-8 候选与可达性诊断的预期情景占位\n诊断量 AAEC CDCP\n严格组件候选覆盖率 百分比 93.0P 88.0P\n全部关系端点覆盖率 百分比 89.0P 76.0P\n完整关系候选覆盖率 百分比 86.0P 72.0P\n初始图严格关系 F1 65.0P 38.0P\n单轮可达 Oracle 关系 F1 74.0P 51.0P\n多轮可达 Oracle 关系 F1 75.0P 52.0P\n全局可行图 Oracle 关系 F1 77.0P 54.0P\nBR-J 严格关系 F1 67.0P 41.0P\n注：全部为人为设定的占位值，非实测。完整关系候选覆盖不超过全部端点覆\n盖；单轮 Oracle 不超过多轮，多轮不超过全局。Oracle 使用金标，仅作诊断，不参与\n测试时选择或调参；这里的金标目标 Oracle 不是按预测效用求解的全局 ILP。\n若真实候选覆盖较高而 BR-J 远低于可达 Oracle，应进一步定位评分或搜索问\n题，不能仅用 Oracle 存在就断言系统可实现对应收益。CDCP 必须要求完整源集合和\n目标同时出现；只覆盖若干单前提连接不算覆盖原生超边。反之，若关系对象根本未\n进入候选，改进评分器也无法将其恢复，应先处理候选来源和剪枝规则。\n表 5-9 采用固定提案集合开展评分诊断，不让不同评分器通过各自搜索产生难度\n不同的提案。评分器在训练文档内部交叉拟合预测上学习，校准和策略选择按 5.2 划\n分；表中的接受可靠性还需在真实搜索选出的事务上单独报告，不能从固定提案诊断\n直接推出。\n51",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 686,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 216
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 112
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 85
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 49
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 49
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 30
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 20
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      104.22,
+      523.45,
+      602.83
+    ]
+  },
+  {
+    "physical_page": 56,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n表 5-9 固定提案评分诊断的预期情景占位\nCDCP 有益\nAAEC 有益 AAEC 关系 CDCP 超边\n评分方式\n排序\n排序 AUROC Brier Brier\nAUROC\n仅端点条件标签评分 0.65P 0.61P 不适用 不适用\n完整对象评分 未校准 0.73P 0.69P 0.18P 0.22P\n完整对象评分 经校准 0.73P 0.69P 0.15P 0.19P\n注：全部为人为设定的占位值，非实测。AUROC 以严格关系 F1 是否提高定义\n有益提案，平局及下降合为非有益，其比例另报；事务分数采用固定总效用差，类别\n不足时指标记不适用。Brier 以完整关系是否严格正确为标签，预测对象包括跨度、\n类型及全部端点。端点条件标签概率不是完整对象概率，不计算同口径 Brier。\n该情景允许校准降低 Brier 而不提高排序 AUROC，避免将校准等同于更强的排\n序能力。正式报告还需给出非有益中的平局和有害比例、完整组件 Brier、可靠性图\n及分组结果。即使固定提案排序改善，搜索仍可能集中选择错误高分事务；只有接受\n后净 TP/FP/FN 及误改率同时受控，才能支持使用该评分规则。\n5.8.5 误改风险与计算代价\n表 5-10 仅演示 T1 下的 AAEC 同候选同评分比较，防止单张表过宽。CDCP 按同\n样字段单列正式结果，并按超边元数分层。接受单元定义为算法一次完整提交；为避\n免顺序方法与事务方法的分组粒度不同造成误导，还必须报告固定文档级的净 TP/\nFP/FN 及编辑数，不能仅比较单元比例。\n表 5-10 AAEC 风险与成本的预期情景占位\n有益单元率 有害单元率 预测效用增\n同评分方法 推理时延比\n百分比 百分比 量\n顺序组件及关系修正 67.0P 18.0P 5.2P 1.30P\nBR-J 闭合事务 75.0P 10.0P 6.0P 1.40P\n全局 ILP 最优情景 不适用 不适用 6.4P 2.50P\n52",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 853,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 247
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 105
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 74
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 64
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 50
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 49
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 41
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 36
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      105.77,
+      523.45,
+      712.52
+    ]
+  },
+  {
+    "physical_page": 57,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n注：全部为人为设定的占位值，非实测。单元率分母为所有已接受单元，按提交\n前后严格关系 F1 的正、负、零变化分为有益、有害和中性；中性比例为剩余部分。\n效用增量为相对相同初始图的每文档平均固定预测效用变化，全局行假定各文档证明\n最优。时延比以同检查点 MCR-only 总推理时延为 1，包括候选补充、评分、失败尝\n试及求解，不包含训练。\n在此假设情景中，BR-J 相较顺序修正减少有害提交，但付出更高推理成本；它\n也没有达到全局最优的代理效用。若实测出现这种折中，可结合预算曲线讨论采用条\n件。相反，若误改率下降只来自极少提交，应同时展示总接受量和文档覆盖；若收益\n主要来自删除错误关系，则不能称为主动恢复。插入、拆分和合并的贡献须由新增正\n确组件或完整关系的净计数支持。\n全部正式成本表还应列出实际硬件、token、调用、训练时间及峰值显存。本版\n不把时延比换算成尚未测得的秒数。没有正式样本数及预测文件时，不从上述比例反\n推事务计数，也不绘制看似来自多次运行的误差线。\n5.8.6 可恢复场景与失败场景的机制分析\n以下延续表 3-1 和图 4-1 的人为示意，用于解释不同错误需要什么条件才能恢\n复。它们没有真实文档 ID、模型输出或运行轨迹，不作为成功率、误改率或数据集\n表现的证据。正式案例分析须用真实记录替换或另列，不能只为这些示意补上样本编\n号。\nc\n在组件遗漏场景中，假设原文包含 3，初始图却没有抽出它。固定组件的关系修\nc c\n正无法生成以 3为端点的完整正确关系。若独立跨度提议或其他生成候选提供了 3，\nBR-J 可以将其作为插入提议，并同时重新选择涉及该对象的合法关系。只有组件与\n关系的完整方案通过接受条件，插入才会提交。这个场景将“候选中存在可用对\n象”与“评分和搜索实际选中该对象”分开，也说明候选覆盖不能直接解释为恢复成\n绩。\ncold cnew\n在边界替换场景中，初始组件 只包含“图书馆现有座位不足”，候选 覆盖完\n2 2\n整论据。顺序策略可能先接受组件变化，再发现原有关系的完整对象已经失效；闭合\n事务则把删除旧关系、判断新关系及其效用一并计算。若新组件的分数提高却伴随关\n系分项下降，事务会被拒绝。这种拒绝说明接受规则限制了某类代理代价交换，但不\n证明被拒绝的修改在真实评价上一定有害。\nc\n失败可能发生在不同环节。若 3或所需完整超边未进入候选宇宙，修正器无法恢\n复它；若错误对象被评分器高估，一次通过全部代理门限的事务仍可能降低真实\n53",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1067,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 648
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 184
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 66
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 34
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 15
+      },
+      {
+        "font": "LBAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 14
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      99.24,
+      523.45,
+      762.28
+    ]
+  },
+  {
+    "physical_page": 58,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nF1；若可用修改超出当前集合规模或剩余预算，则系统返回原图或最后一个合法状\n态。前者对应候选覆盖问题，第二种对应评分问题，第三种对应搜索范围与成本限\n制，不能都归结为“模型没有理解语义”。\n真实案例应同时保存原文、初始图、候选来源、变化组件、全部受影响关系、接\n受或拒绝原因及修改前后的严格计数。案例按预先声明的规则覆盖有益、有害和未修\n改三类结果，分别解释哪些机制发挥作用、哪里失败。单个可解释案例说明运行过\n程，整体效果仍由主结果、控制比较和风险统计共同判断。\n5.8.7 由占位稿转为实证稿\n替换以整张表及其相邻分析为单位：先绑定数据划分、代码与评价器、\ncheckpoint、候选缓存、评分器及随机种子，再读取真实预测生成统计。跨表复用行\n必须来自同一配置，不可分别填入“接近预期”的值。若结果改变方向，应同步修改分\n析、摘要及结论，不根据本节趋势筛选种子或舍弃失败运行。\n本节未给近年的外部方法伪造复现成绩，QOS 式占位行也不构成超越原论文的\n证据。正式结果需接入可比的直接近邻复现、等资源重生成、同动作不同评分及人工\n标签审计；不具可比条件的文献只作方法讨论。完成这些证据后，才能将 5.5 中的支\n持与收缩条件转为实证判断。\n5.9 本章小结\n本章以独立对照连接两项研究问题与可观察结果。训练侧区分增强数据质量和成\n对学习的增量，推理侧区分候选覆盖、评分能力和事务搜索的作用；组合比较进一步\n说明两个阶段的互补及依赖条件。已有结果、P 后缀占位数值与人工机制案例分别承\n担研究基础、分析框架和流程解释的作用，后两者不增加实证证据。最终结论需同时\n回应严格抽取指标、误改风险和计算成本，而不只报告完整系统总分。\n54",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 740,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 439
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 154
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 44
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 21
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "SAAAAA+HiraginoSansGB-W6",
+        "size": 12.0,
+        "characters": 9
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "LBAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      591.43
+    ]
+  },
+  {
+    "physical_page": 59,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n第六章 总结与展望\n6.1 研究总结\n本文围绕组件与关系之间的依赖，构建从训练监督保持到推理结构恢复的端到端\n论辩挖掘框架。训练阶段改变指定组件的表达，保持经过检查的图监督；推理阶段保\n持原文不变，改变模型预测的组件与关系。两项研究共享任务表示，分别作用于学习\n过程和结构决策过程，具有独立的问题与验证接口。\n对于 RQ1，第一项研究在作者 ICIC 结论专项建模基础上，给出关系感知增强与\n成对因素学习方案。其方法层面的回答是：改写影响范围应按组件端点依赖界定，在\n内部与跨边界组合上同时检查正关系和 NONE；通过标注输运建立新旧组件对应，再\n用金标监督与成对约束共同更新共享表示。由此，数据构造和学习目标形成明确接\n口。它们是否分别提高数据可靠性和真实测试表现，需由第五章的近邻比较与同数据\n消融回答，不能用一致性指标替代任务效果。\n对于 RQ2，第二项研究在 ICIC 多候选重排序与有界修正基础上，以兼容组件集\n合替换、依赖关系重建和整体事务接受处理结构变化。组件修改带来的关系失效、补\n回和删除进入同一比较，固定完整对象评分与计数效用提供可核算的接受依据。局部\n差值及有限终止性质解释了算法在固定候选和目标下的行为；候选覆盖、评分误差与\n预算仍限制实际恢复能力。同候选同评分的对照用于检验事务机制的独立作用，形式\n性质不构成真实 F1 或全局最优保证。\n本文在 AAEC 和保留原生多前提关系的 CDCP 上组织验证框架，以直接近邻、\n同数据损失消融、同评分动作比较和全局结构化解码区分不同机制。训练监督保持与\n推理结构恢复构成统一研究主线，但两项贡献仍分别接受检验。本版保留的 P 后缀占\n位数值和人工示意只支持写作与机制说明，不支持定量效果结论；完成材料接入后，\n应依据真实观察同步更新本节和摘要。\n6.2 局限性\n训练侧的主要限制是语义检查与一致性目标可能共同偏向容易改写、关系显式的\n样本。有限候选影响域也不能保证覆盖所有潜在语义变化；NONE 仅表示当前标注无\n关系，可能包含标注不完备性。过强对齐还可能压制有效表达差异。需要同时衡量标\n签可靠性、表达多样性、接受覆盖和真实任务性能。\n55",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 931,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 649
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 127
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 35
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 25
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 9
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      523.45,
+      748.78
+    ]
+  },
+  {
+    "physical_page": 60,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n推理侧的主要限制是候选宇宙和评分器。未被提议的正确跨度或超边不可恢复；\n固定分数在反复搜索后可能出现选择偏差；双分量非下降门也可能拒绝真实有益但代\n理分量下降的事务。预算化集合替换只能覆盖有限的分割合并规模，不能承诺修复任\n意组件错误。全局 ILP 强对照还将检验局部恢复是否具有独立的成本或风险价值。\n数据侧的限制包括语料规模、标注差异及历史结果的协议可比性。训练集内\nCPU 诊断不能代表完整 LLM 系统，粗粒度迁移不能代表原生超边迁移。前期论文中\n的共同成果需要明确引用和个人贡献说明，本论文不将既有模块改名后宣称为新增发\n明。\n6.3 后续工作\n后续研究首先可考察候选空间与计算代价的关系。更大的跨度集合和超边组合可\n能覆盖更多错误，但也会增加评分、约束求解和错误高分候选被选中的风险。扩展候\n选需要同时观察覆盖、恢复、误改及成本，而不能仅以候选召回提高作为依据。\n另一方向是语义检查与评分可靠性。训练增强中的标签漂移和推理修正中的错误\n接受都受模型判断影响，但两者的输入及监督目标不同。可针对隐式关系、长超边和\n含否定或模态的文本开展分组分析，研究检查器和评分器在何种条件下失效，并评估\n是否需要更保守的拒绝策略。\n上述方向是现有框架的扩展，不代替本文核心验证。当前版本接入真实预测、完\n成独立消融并核对实现与正文的一致性，属于本研究的定稿条件，集中列于附录 A、\nD 及 F.3，不作为未来研究来回避。本文不新增强化学习、多代理辩论或新的跨语言\n任务。\n56",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 661,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 428
+      },
+      {
+        "font": "MAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 117
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 37
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 4
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      100.73,
+      523.45,
+      532.88
+    ]
+  },
+  {
+    "physical_page": 61,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n参考文献\n[1] LAWRENCE J, REED C. Argument mining: A survey[J]. Computational Linguistics, 2019, 45(4):\n765–818. DOI: 10.1162/coli_a_00364. 来源\n[2] STAB C, GUREVYCH I. Parsing argumentation structures in persuasive essays[J]. Computational\nLinguistics, 2017, 43(3): 619–659. DOI: 10.1162/COLI_a_00295. 来源\n[3] PARK J, CARDIE C. A corpus of eRulemaking user comments for measuring evaluability of\narguments[C]//Proceedings of the Eleventh International Conference on Language Resources and\nEvaluation. Miyazaki: European Language Resources Association, 2018. 来源\n[4] EGER S, DAXENBERGER J, GUREVYCH I. Neural end-to-end learning for computational\nargumentation mining[C]//Proceedings of the 55th Annual Meeting of the Association for\nComputational Linguistics, Volume 1. Vancouver: Association for Computational Linguistics,\n2017: 11–22. DOI: 10.18653/v1/P17-1002. 来源\n[5] MORIO G, OZAKI H, MORISHITA T, et al. Towards better non-tree argument mining: Proposition-\nlevel biaffine parsing with task-specific parameterization[C]//Proceedings of the 58th Annual\nMeeting of the Association for Computational Linguistics. Association for Computational\nLinguistics, 2020: 3259–3266. DOI: 10.18653/v1/2020.acl-main.298. 来源\n[6] CAPUTO E, GRECO S, LA CAVA L. Argument component segmentation with fine-tuned large\nlanguage models[C]//Findings of the Association for Computational Linguistics: EACL 2026.\nRabat: Association for Computational Linguistics, 2026: 5154–5167. DOI:\n10.18653/v1/2026.findings-eacl.272. 来源\n[7] KAWARADA M, HIRAO T, UCHIDA W, et al. Argument mining as a text-to-text generation\ntask[C]//Proceedings of the 18th Conference of the European Chapter of the Association for\nComputational Linguistics, Volume 1. St. Julian’s: Association for Computational Linguistics,\n2024: 2002–2014. DOI: 10.18653/v1/2024.eacl-long.121. 来源\n[8] CABESSA J, HERNAULT H, MUSHTAQ U. Argument mining with fine-tuned large language\nmodels[C]//Proceedings of the 31st International Conference on Computational Linguistics. Abu\nDhabi: Association for Computational Linguistics, 2025: 6624–6635. 来源\n[9] DAS N, VAIBHAV V, CHOUDHARY Y S, et al. End-to-end argument mining through\nautoregressive argumentative structure prediction[EB/OL]. arXiv:2510.16363v1, 2025[2026-09-\n14]. DOI: 10.48550/arXiv.2510.16363. 来源\n[10] CAPUTO E, GRECO S, LA CAVA L. ARGUS: Towards end-to-end argument mining with large\nlanguage models[C]//Proceedings of the AAAI Conference on Artificial Intelligence, 2026, 40(48):\n41547–41549. DOI: 10.1609/aaai.v40i48.42335. 来源\n[11] LI H, SCHLEGEL V, SUN Y, et al. Large language models in argument mining: A survey[EB/OL].\narXiv:2506.16383v6, 2025[2026-09-13]. DOI: 10.48550/arXiv.2506.16383. 来源\n[12] SUN Y, CHEN G, YANG C, et al. Discourse structure-aware prefix for generation-based end-to-end\nargumentation mining[C]//Findings of the Association for Computational Linguistics: ACL 2024.\nBangkok: Association for Computational Linguistics, 2024: 11597–11613. DOI:\n10.18653/v1/2024.findings-acl.689. 来源\n57",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 3021,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 2951
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 12
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 12
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 4
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.57,
+      522.93,
+      742.88
+    ]
+  },
+  {
+    "physical_page": 62,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n[13] DAS N, SARADHI V V, ANAND A. On the role of key phrases in argument mining[C]//Findings\nof the Association for Computational Linguistics: NAACL 2025. Albuquerque: Association for\nComputational Linguistics, 2025: 5774–5787. DOI: 10.18653/v1/2025.findings-naacl.319. 来源\n[14] SUN Y, CHEN G, ALINEJAD-ROKNY H, et al. Learning first-order logic rules for argumentation\nmining[C]//Proceedings of the 63rd Annual Meeting of the Association for Computational\nLinguistics, Volume 1. Vienna: Association for Computational Linguistics, 2025: 14133–14148.\nDOI: 10.18653/v1/2025.acl-long.691. 来源\n[15] DING B, QIN C, ZHAO R, et al. Data augmentation using LLMs: Data perspectives, learning\nparadigms and challenges[C]//Findings of the Association for Computational Linguistics: ACL\n2024. Bangkok: Association for Computational Linguistics, 2024: 1679–1705. DOI:\n10.18653/v1/2024.findings-acl.97. 来源\n[16] EVURU C K, GHOSH S, KUMAR S, et al. CoDa: Constrained generation based data augmentation\nfor low-resource NLP[C]//Findings of the Association for Computational Linguistics: NAACL\n2024. Mexico City: Association for Computational Linguistics, 2024: 3754–3769. DOI:\n10.18653/v1/2024.findings-naacl.238. 来源\n[17] PEI Y, BHUSE P, LIU Z, et al. SegMix: A simple structure-aware data augmentation\nmethod[EB/OL]. arXiv:2311.09505v1, 2023[2026-09-13]. DOI: 10.48550/arXiv.2311.09505. 来源\n[18] SUN W, LI M, DAVIS J, et al. Weakly-supervised argument mining with boundary refinement and\nrelation denoising[C]//Proceedings of the Ninth Fact Extraction and VERification Workshop\n(FEVER). Rabat: Association for Computational Linguistics, 2026: 1–12. DOI:\n10.18653/v1/2026.fever-1.1. 来源\n[19] GENG S, JOSIFOSKI M, PEYRARD M, et al. Grammar-constrained decoding for structured NLP\ntasks without finetuning[C]//Proceedings of the 2023 Conference on Empirical Methods in Natural\nLanguage Processing. Singapore: Association for Computational Linguistics, 2023: 10932–10952.\nDOI: 10.18653/v1/2023.emnlp-main.674. 来源\n[20] MADAAN A, TANDON N, GUPTA P, et al. Self-Refine: Iterative refinement with self-\nfeedback[EB/OL]. arXiv:2303.17651v2, 2023[2026-09-13]. DOI: 10.48550/arXiv.2303.17651. 来\n源\n[21] HUANG J, CHEN X, MISHRA S, et al. Large language models cannot self-correct reasoning\nyet[EB/OL]. arXiv:2310.01798v2, 2024[2026-09-13]. DOI: 10.48550/arXiv.2310.01798. 来源\n[22] WANG X, WEI J, SCHUURMANS D, et al. Self-consistency improves chain of thought reasoning\nin language models[EB/OL]. arXiv:2203.11171v4, 2023[2026-09-13]. DOI:\n10.48550/arXiv.2203.11171. 来源\n[23] TRAN N, LITMAN D, GODLEY A. Using large language models to analyze students’ collaborative\nargumentation in classroom discussions[C]//Proceedings of the Artificial Intelligence in\nMeasurement and Education Conference (AIME-Con): Full Papers. Pittsburgh: National Council on\nMeasurement in Education, 2025: 111–125. 来源\n[24] XIAO Y, LI S. ARGUS: Argumentation-based minimal-change repair for verifiable LLM self-\nexplanations[C]//Proceedings of the 42nd Conference on Uncertainty in Artificial Intelligence.\nProceedings of Machine Learning Research, 2026, 337: 7536–7551. 来源\n[25] MORIO G, OZAKI H, MORISHITA T, et al. End-to-end argument mining with cross-corpora\nmulti-task learning[J]. Transactions of the Association for Computational Linguistics, 2022, 10: 639\n–658. DOI: 10.1162/tacl_a_00481. 来源\n58",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 3367,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 3297
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 13
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 13
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      87.82,
+      523.78,
+      754.32
+    ]
+  },
+  {
+    "physical_page": 63,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n[26] SAVIGNY H, YUN B. AMELIA: A family of multi-task end-to-end language models for\nargumentation[J]. Argument & Computation, 2026, 17(1). DOI: 10.1177/19462174251413169. 来\n源\n[27] FEGER M, BOLAND K, DIETZE S. Limited generalizability in argument mining: State-of-the-art\nmodels learn datasets, not arguments[C]//Proceedings of the 63rd Annual Meeting of the\nAssociation for Computational Linguistics, Volume 1. Vienna: Association for Computational\nLinguistics, 2025: 23900–23915. DOI: 10.18653/v1/2025.acl-long.1164. 来源\n[28] ZHAO X, WANG K, PENG W. ORCHID: A Chinese debate corpus for target-independent stance\ndetection and argumentative dialogue summarization[C]//Proceedings of the 2023 Conference on\nEmpirical Methods in Natural Language Processing. Singapore: Association for Computational\nLinguistics, 2023: 9358–9375. DOI: 10.18653/v1/2023.emnlp-main.582. 来源\n[29] CHENG L, BING L, HE R, et al. IAM: A comprehensive and large-scale dataset for integrated\nargument mining tasks[C]//Proceedings of the 60th Annual Meeting of the Association for\nComputational Linguistics, Volume 1. Dublin: Association for Computational Linguistics, 2022:\n2277–2287. DOI: 10.18653/v1/2022.acl-long.162. 来源\n[30] VASWANI A, SHAZEER N, PARMAR N, et al. Attention is all you need[EB/OL].\narXiv:1706.03762, 2017[2026-09-13]. DOI: 10.48550/arXiv.1706.03762. 来源\n[31] QWEN TEAM. Qwen2.5 technical report[EB/OL]. arXiv:2412.15115, 2024[2026-09-13]. DOI:\n10.48550/arXiv.2412.15115. 来源\n[32] HU E J, SHEN Y, WALLIS P, et al. LoRA: Low-rank adaptation of large language models[EB/OL].\narXiv:2106.09685, 2021[2026-09-13]. DOI: 10.48550/arXiv.2106.09685. 来源\n[33] LESTER B, AL-RFOU R, CONSTANT N. The power of scale for parameter-efficient prompt\ntuning[C]//Proceedings of the 2021 Conference on Empirical Methods in Natural Language\nProcessing. Association for Computational Linguistics, 2021: 3045–3059. DOI:\n10.18653/v1/2021.emnlp-main.243. 来源\n[34] TANG C, PENG M, TIAN G. Improving end-to-end argument mining with LLMs via multi-\ncandidate reranking and bounded repair[C/OL]//ICIC2026 Posters: Poster Volume I. Toronto,\n2026[2026-09-20]. DOI: 10.65286/icic.v22i1.76896. 来源\n[35] BAO J, HUANG Y, SUN Y, et al. Exploring quality and diversity in synthetic data generation for\nargument mining[C]//Proceedings of the 2025 Conference on Empirical Methods in Natural\nLanguage Processing. Suzhou: Association for Computational Linguistics, 2025: 26581–26604.\nDOI: 10.18653/v1/2025.emnlp-main.1351. 来源\n[36] WANG X, SHEN H, QI H, et al. Enhancing low-resource joint entity and relation extraction using\nlarge language models within semi-supervised learning[J]. ACM Transactions on Knowledge\nDiscovery from Data, 2026, 20(3): 49:1–49:25. DOI: 10.1145/3799423. 来源\n[37] MODARRESSI A, KÖKSAL A, SCHUETZE H. Consistent document-level relation extraction via\ncounterfactuals[C]//Findings of the Association for Computational Linguistics: EMNLP 2024.\nMiami: Association for Computational Linguistics, 2024: 11501–11507. DOI:\n10.18653/v1/2024.findings-emnlp.672. 来源\n[38] ZHENG Y, KE W, LIU Q, et al. Making LLMs as fine-grained relation extraction data\naugmentor[C]//Proceedings of the Thirty-Third International Joint Conference on Artificial\nIntelligence. International Joint Conferences on Artificial Intelligence Organization, 2024: 6660–\n6668. DOI: 10.24963/ijcai.2024/736. 来源\n59",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 3368,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 3299
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 13
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 13
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      87.82,
+      522.64,
+      754.32
+    ]
+  },
+  {
+    "physical_page": 64,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n[39] ZHONG Y, GAO Y, ZHANG X, et al. ODDA: An OODA-driven diverse data augmentation\nframework for low-resource relation extraction[C]//Findings of the Association for Computational\nLinguistics: ACL 2025. Vienna: Association for Computational Linguistics, 2025: 267–285. DOI:\n10.18653/v1/2025.findings-acl.15. 来源\n[40] ROCHA G, LOPES CARDOSO H, BELOUADI J, et al. Cross-genre argument mining: Can\nlanguage models automatically fill in missing discourse markers?[J]. Argument & Computation,\n2025, 16(1): 3–35. DOI: 10.3233/AAC-230008. 来源\n[41] WAEGEMAN W, DEMBCZYŃSKI K, JACHNIK A, et al. On the Bayes-optimality of F-measure\nmaximizers[J]. Journal of Machine Learning Research, 2014, 15(103): 3513–3568. 来源\n[42] LIPTON Z C, ELKAN C, NARAYANASWAMY B. Thresholding classifiers to maximize F1\nscore[EB/OL]. arXiv:1402.1892v2, 2014[2026-09-20]. DOI: 10.48550/arXiv.1402.1892. 来源\n[43] LI Z, ZHANG F, LYU K, et al. Re-Cent: A relation-centric framework for joint zero-shot relation\ntriplet extraction[C]//Proceedings of the 31st International Conference on Computational\nLinguistics. Abu Dhabi: Association for Computational Linguistics, 2025: 7344–7354. 来源\n[44] PIROZELLI P, ROCHA V H N, COZMAN F G, et al. An LLM-based system for argument\nreconstruction[EB/OL]. arXiv:2605.13793v1, 2026[2026-09-20]. DOI:\n10.48550/arXiv.2605.13793. 来源\n[45] GUO C, PLEISS G, SUN Y, et al. On calibration of modern neural networks[C]//Proceedings of the\n34th International Conference on Machine Learning. Proceedings of Machine Learning Research,\n2017, 70: 1321–1330. 来源\n[46] NICULAE V, PARK J, CARDIE C. Argument mining with structured SVMs and\nRNNs[C]//Proceedings of the 55th Annual Meeting of the Association for Computational\nLinguistics, Volume 1. Vancouver: Association for Computational Linguistics, 2017: 985–995.\nDOI: 10.18653/v1/P17-1091. 来源\n60",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1854,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 1803
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "TAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 8
+      },
+      {
+        "font": "IAAAAA+STSongti-SC-Regular",
+        "size": 12.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      87.82,
+      520.03,
+      464.13
+    ]
+  },
+  {
+    "physical_page": 65,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n附录 A 复现与证据核验清单\n本附录区分历史结果材料接入和新增设计验证。作者已说明既有实验完成，“待核验”仅\n表示现有材料尚未完成对应，不据此判断实验未发生，也不补造历史日志。事项编号沿用旧\n稿，位置更新到本版本；新增事项另列。\n表 A-1 核验事项与最低证据\n编号 对应事项 最低材料\nR01 结论类别分布与增强权重 固定划分的类型数、跨度长度、关系度及原始/加权计数\n生成模型、提示、源ID、接受与拒绝记录、标注输运映\nR02 训练增强身份\n射\nR03 类型门控因果性 字段顺序、首token 及边界处理、训练和推理门控轨迹\nR04 提示及原有辅助目标 词典、位置、子词映射、句子标签和损失归一化\nR05 附录E分类别结果冲突 81.67与77.82、两处83.71对应的run ID及配置\nR06 候选规范化 重叠规则、语义身份、ID 重映射及失败样本\nR07 旧评分与触发 ICIC 覆盖节点、阈值、分量定义与实现对应\nR08 原版动作范围 每类动作前置条件、端点变化、回退及实际执行记录\nR09 历史实验配置 划分、脚本、种子、重复数、硬件、“±”定义\nR10 基线及资源 外部数值出处、内部复现身份和预算差异\nR11 历史验证器 模型、提示、原候选池、逐关系判断材料\nR12 历史Oracle 选择指标、替换对象、端点匹配及计数方式\nR13 历史行为统计 统计分母、尝试/接受定义、各阶段前后数量\nR14 历史迁移协议 映射、输出标签、目标数据用途及二元投影说明\nN01 原生CDCP支持 超边往返、完整源集合评价、长超边及源范围测试\nN02 因素学习与无泄漏 输入模板、子词索引、金标锚定、空域及梯度测试\nN03 评分器训练与校准 三折OOF 候选、真实负例、校准/策略划分及长度分组\nN04 闭合事务实现 冲突集合、完整依赖域、求解状态、no-op及原子回退\nN05 新增方法效果 近邻、同数据/同评分消融、2×2及误改—成本材料\n闭合事项须由原始材料或明确标识的新运行解决；新代码中存在某个接口，不等于历史\n表已经可复现，也不等于新方法已经通过实证验证。\n61",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 914,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "EBAAAA+STSongti-SC-Regular",
+        "size": 10.0,
+        "characters": 499
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 168
+      },
+      {
+        "font": "FBAAAA+TimesNewRomanPSMT",
+        "size": 10.0,
+        "characters": 119
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 11
+      },
+      {
+        "font": "QBAAAA+STSongti-SC-Bold",
+        "size": 10.0,
+        "characters": 10
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 4
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      129.54,
+      521.45,
+      722.84
+    ]
+  },
+  {
+    "physical_page": 66,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n附录 B 运行身份与事务记录规范\nB.1 数据与模型身份\n每次运行保存 run ID、源文档 ID 及完整文本哈希、数据版本与划分、原字符/评价 token\n映射、模型权重 revision、提示和配置哈希、代码版本、环境、种子及运行时间。增强变体保\n存其唯一源文档及组件对应，不能以变体 ID 单独重新划分数据。派生结果同时指向其候选缓\n存、评分缓存和评价配置。\nB.2 评分与接受轨迹\n每个文档保存原始候选输出、统一合法化结果、MCR 分量、初始图、固定候选宇宙及\n其来源。每次尝试保存删除集合、加入集合、冲突扩张、关系闭合域、原状态和求解后状\n态、组件与关系效用差、语义编辑成本、求解状态与剩余预算。拒绝必须具有明确原因：非\n法、候选不可达、不可行、分量下降、总增益不足、预算超限或求解失败。\n所有分数缓存以完整语义对象及评分器版本为键，不以可变 JSON 编号为键。提交后若\n改变因素宇宙、评分器、校准温度或效用系数，必须开始新的实验配置，不能沿用“固定目\n标”的证明。离线真实 TP/FP/FN 差只进入审计日志，不作为在线接受输入。\nB.3 no-op、失败及预算\n无修改状态是独立的可行回退项。候选构造失败、局部求解不可行、超时未得到可接受\n解或队列耗尽，均返回当前图并保留失败原因。事务计费按实际加入/删除的组件和完整关系\n对象，不按“打包一次”计为一个编辑。尝试、接受、求解及模型调用预算分别记录，被拒绝\n操作不能从成本中消失。\nB.4 自动测试的最低覆盖\n测试至少覆盖坐标往返、原生超边匹配、同坐标不同类型、纯 ID 重排、相互重叠但非\n传递的候选冲突、组件插入使超边源连续性变化、原 NONE 因素新增、纯关系修改、拆分与\n合并、双分量接受门、空增强、空因素域、预算耗尽和原子回退。对可枚举小图，用穷举比\n较 ILP 最优值与局部差分计算；构造测试用于证明实现遵循定义，不能替代真实数据收益。\n62",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 835,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 466
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 185
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 49
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 29
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 21
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 13
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      524.45,
+      679.14
+    ]
+  },
+  {
+    "physical_page": 67,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n附录 C 前期成果归属与研究辅助说明\nC.1 前期共同成果\nChen Tang、Min Peng 和 Gang Tian 的 ICIC 2026 公开论文构成本研究的直接基础[34]。\n其已公开机制和本论文新增设计的对应关系见表 1-2。前期数值保留在附录 E；引用与结果归\n属不因其属于作者近期成果而省略。最终学位论文成果页中的本人分工、合作贡献及发表状\n态应由作者据正式材料核准，不仅依据署名顺序推断。\nC.2 辅助工具与责任边界\n研究辅助用于文献定位和核对、方法讨论、论证边界检查、参考代码、稿件修订及排\n版。作者应独立审阅方法、引用和代码，并对研究事实、贡献归属和结果解释负责。自动生\n成的文字、理论例子和软件测试不作为未开展的人工判断或正式模型实验记录。新增方法不\n将“假设结果符合预期”改写为已观察到的效果。\n数据使用以原始发布条款为准，公开下载不自动意味着可任意再分发。论文公开材料应\n避免携带未获许可的语料副本、访问凭据或不必要的个人信息。作者声明、授权页、资助、\n伦理审批及致谢不由辅助系统代填，应按真实情况与学校要求补充。\n63",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 499,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 258
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 109
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 43
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 15
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 15
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      523.2,
+      424.84
+    ]
+  },
+  {
+    "physical_page": 68,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n附录 D 参考实现与新增方法的对应状态\nD.1 既有工程身份\nargument_mining_0914 是根据讨论后建的参考项目，不是找回的 ICIC 原始实验仓库。其\n0915 工程记录覆盖数据转换、严格二元评价、专项训练、匹配增强、候选缓存、原版动作和\n保守关系修正。此前 75 项自动测试以及随机初始化小模型的前后向、短训练和重载测试属于\n软件验证，不代表 Qwen2.5-7B 在真实语料上的效果。\nresearch_0920 另包含训练集内 CPU 诊断，已读取公开 AAEC/CDCP 训练数据并记录异\n常；它并未实现完整 BR-J 或成对因素学习。因而旧工程中“数据尚未导入”的历史状态不能泛\n指本版本全部材料，但也不能由诊断读取成功推断完整训练管线已支持原生超边。\n表 D-1 正文机制与参考工程对应\n机制 已有基础 本版仍需的实现与验证\n结论门控、提示、 参考工程含因果门控和小模\n完整骨干运行、子词映射与正式训练绑定\n句子损失 型测试\n槽位改写及匹配对\n已有普通/结构条件增强框架 完整影响域、边界/NONE 审计和原生超边\n照\n成对因素学习 正文新增定义 全文读出、头监督、源权重及梯度接口\n多候选与 O/C 修正 已有缓存及两版动作 同池同预算绑定与历史结果复现\nCPU 诊断含组件候选与交叉 真实 LLM 预测、完整关系/超边、校准及\n完整对象评分\n拟合起点 策略隔离\n集合替换、冲突依赖、内层求解、双门及\n闭合事务与 ILP 正文新增定义\n回退\n严格 CDCP 超边评 旧二元工程全链路升级，禁止默认 expand\n诊断保留原生关系审计信息\n价 替代\nD.2 参数来源与复现范围\n既有参考配置中 Qwen2.5-7B-Instruct、rank 16、alpha 32、四个提示向量、句子权重\n0.5、K=3 和 MCR 权重 0.4/0.4/0.2 沿用原稿文字；这仅确认设计取值来源，不确认历史运行\n64",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 843,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 190
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 170
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 127
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 91
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 74
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 29
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "LAAAAA+HiraginoSansGB-W6",
+        "size": 16.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      523.85,
+      760.74
+    ]
+  },
+  {
+    "physical_page": 69,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n身份。旧工程的学习率、epoch、batch、随机种子和调用上限中有后建选择，不能补填为\nICIC 原实验配置。新损失权重、候选数量、代价系数及事务预算按第三至五章协议另行确\n定。\n本次正文修改不等于已将新增机制合入实验项目。复现时应先完成协议与单元测试，再\n交付运行配置、逐例输出及严格评价结果。软件可运行、形式性质成立、实验有效和满足送\n审要求是不同层次的判断，不相互替代。\n65",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 217,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 110
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 59
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 14
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      },
+      {
+        "font": "HAAAAA+TimesNewRomanPSMT",
+        "size": 12.0,
+        "characters": 2
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      96.43,
+      521.45,
+      188.79
+    ]
+  },
+  {
+    "physical_page": 70,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n附录 E 前期数值与协议存档\n本附录逐表保留 0915-v1 稿件中的原始数字和方法行。除表 E-1 及协议映射表外，相应\n数值可在 ICIC 公开版本中找到；“可找到”不等于本次独立复现。所有结果均不属于 0920-v1\n新增机制。旧表“±”的统计定义、划分及评价脚本仍按附录 A 核验，不由新协议追认。\nE.1 AAEC 组件分类别旧稿记录\n表 E-1 AAEC 组件分类别旧稿记录\n方法 MajorClaim-F1 Claim-F1 Comp-F1\nFLAN-T5 (XXL) 71.23 76.45 80.15\nLLM Single-Pass 73.45 78.21 81.67\nOurs (Full) 77.34 81.77 83.71\n来源为旧稿补充记录；未在 ICIC 公开版中找到对应分类别表。Single-Pass 的 81.67 与表\nE-2 的 77.82 尚需 run ID 解释，不用于新增强的独立归因。\nE.2 ICIC 原版 AAEC 域内结果记录\n表 E-2 ICIC 原版 AAEC 域内结果记录\n方法 Comp-F1 Support-F1 Attack-F1 Relation-F1\nFLAN T5-XXL 80.15 62.34 48.72 61.19\nGPT-4-turbo 20-shot 55.51 29.86 18.45 28.38\nRoBERTa-large MTL 76.43±0.55 54.21±0.52 41.83±0.67 52.15±0.54\nLLM Single-Pass 77.82±0.51 58.43±0.45 44.21±0.62 56.87±0.48\nLLM w/ Constrained Decoding 78.54±0.46 59.12±0.42 45.33±0.58 57.65±0.45\nLLM w/ DAG Post-process 78.91±0.49 59.45±0.48 45.87±0.61 58.12±0.47\nLLM Multi-Sample (LogProb) 79.45±0.38 60.12±0.41 46.58±0.55 58.94±0.42\nLLM w/ Self-Refine 79.82±0.45 60.75±0.43 47.12±0.56 59.63±0.45\nOurs (K =1, w/o correction) 81.24±0.44 61.87±0.39 48.34±0.58 60.73±0.41\nOurs (Verifier-only Rerank,\n82.18±0.40 63.15±0.36 49.82±0.52 62.21±0.38\nK =3)\nOurs (Full, K =3) 83.71±0.42 65.92±0.38 51.47±0.54 64.83±0.38\n66",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1225,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 626
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 144
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 127
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 78
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 41
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 20
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      128.18,
+      520.5,
+      751.44
+    ]
+  },
+  {
+    "physical_page": 71,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n对应 ICIC 公开版 Table 1 的 AAEC 部分[34]。所有方法名及数值按旧稿保留；外部结果\n的评价差异需按原文核验，不能视为统一严格协议下的复现。\nE.3 ICIC 原版 CDCP 域内结果记录\n表 E-3 ICIC 原版 CDCP 域内结果记录\n方法 Comp-F1 Reason-F1 Evidence-F1 Relation-F1\nFLAN T5-XXL 72.68 35.24 28.41 33.96\nRoBERTa-large MTL 68.52±0.58 31.45±0.61 25.72±0.73 30.23±0.64\nLLM Single-Pass 71.35±0.48 33.82±0.52 27.15±0.68 32.64±0.55\nLLM w/ DAG Post-process 72.14±0.50 34.65±0.49 28.02±0.63 33.51±0.52\nLLM w/ Self-Refine 72.95±0.47 35.58±0.48 28.94±0.60 34.42±0.50\nOurs (K =1, w/o correction) 74.56±0.45 36.94±0.46 30.27±0.58 35.78±0.48\nOurs (Verifier-only Rerank,\n75.12±0.41 37.85±0.44 31.42±0.55 36.64±0.45\nK =3)\nOurs (Full, K =3) 76.45±0.43 39.12±0.45 32.86±0.57 38.17±0.46\n对应 ICIC 公开版 Table 1 的 CDCP 部分[34]。该表不证明本论文原生多前提超边的严格\n抽取性能。\nE.4 ICIC 原版模块消融记录\n表 E-4 ICIC 原版模块消融记录\n配置 Comp-F1 Relation-F1 ΔComp ΔRel\nFull Method 83.71±0.42 64.83±0.38 — —\nK =1, w/o correction 81.24±0.44 60.73±0.41 -2.47 -4.10\nw/o Claim-specific Adapter 81.96±0.48 63.08±0.44 -1.75 -1.75\nw/o Cue-aware Prompting 82.34±0.45 62.87±0.40 -1.37 -1.96\nw/o Multi-Objective 82.89±0.43 63.54±0.39 -0.82 -1.29\nw/o Validity Signal E 81.56±0.46 61.92±0.43 -2.15 -2.91\nval\n对应 ICIC 公开版 Table 2[34]。专项适配、线索、多候选及有效性消融不等于完整影响\n域、成对学习和事务闭合消融。\n67",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 1225,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 681
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 116
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 105
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 73
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 43
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 20
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "RAAAAA+HiraginoSansGB-W6",
+        "size": 14.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      91.23,
+      517.1,
+      764.64
+    ]
+  },
+  {
+    "physical_page": 72,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nE.5 ICIC 原版验证器替换记录\n表 E-5 ICIC 原版验证器替换记录\nTop-1 一致\n验证器 Comp-F1 Relation-F1 修正触发率\n率\nQwen2.5-7B（默认） 83.71 64.83 100.0% 42.5%\nLlama-3-8B（独立） 83.71 64.55 94.2% 43.8%\n对应 ICIC 公开版 Table 3[34]。原二元验证器一致性不能替代新完整对象评分器的正确\n性校准；自比较的一致率不构成真实性证据。\nE.6 ICIC 原版 Oracle 记录\n表 E-6 ICIC 原版 Oracle 记录\n条件 Comp-F1 Relation-F1 ΔRel\n预测组件与当前选择器 83.71±0.42 64.83±0.38 —\nCandidate Oracle（ K =3 中择优） 85.12±0.36 67.24±0.34 +2.41\nCondition Oracle（金标准组件输入） — 78.42±0.35 +13.59\nOutput Oracle（金标准替换） 100.00 83.35±0.32 +18.52\n对应 ICIC 公开版 Table 5[34]。保留原名称，不改称新候选宇宙的可达率、原生超边上\n界或局部搜索最优值。\nE.7 ICIC 原版修正行为记录\n表 E-7 ICIC 原版修正行为记录\n指标 结果\n修正触发率 42.5%\n触发文档平均迭代轮数 1.8\n触发文档平均动作数 2.4\n68",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 659,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 200
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 79
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 60
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 44
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 37
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 35
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 30
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 28
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      116.58,
+      513.65,
+      739.22
+    ]
+  },
+  {
+    "physical_page": 73,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n指标 结果\nLocalRerun 占比 45.2%\nRemoveEdge 占比 24.8%\nReplace 占比 19.5%\nPromote/Demote 占比 10.5%\n无效 ID 比例 18.5% → 2.1%\nJSON 格式错误比例 6.2% → 0.0%\n不连贯边比例 22.4% → 5.8%\n整体 E val通过率 75.3% → 97.9%\n对应 ICIC 公开版 Table 6[34]。Replace 及 Promote/Demote 明确属于 BR-O，不能移作\nBR-C 或 BR-J 的行为分布；动作占比不等于真实错误分布。\nE.8 前期粗粒度组件映射\n表 E-8 前期粗粒度组件映射\n数据集原标签 粗粒度标签 映射依据\nAAEC MajorClaim Claim 表达全文立场\nAAEC Claim Claim 表达局部结论\nAAEC Premise Premise 提供支撑或反驳理由\nCDCP Policy Claim 提出行动方案或规范性主张\nCDCP Value Claim 表达评价性或价值判断\nCDCP Fact Premise 提供可核验事实\nCDCP Testimony Premise 提供经验或证言\nCDCP Reference Premise 提供外部来源\n这是单独迁移协议的标签归约，不改变 AAEC/CDCP 的原生域内标签，也不证明标签在\n语义上天然等价。\n69",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 634,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 258
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 61
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 59
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 50
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 42
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 21
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 19
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      107.42,
+      521.55,
+      757.14
+    ]
+  },
+  {
+    "physical_page": 74,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\nE.9 ICIC 原版 AAEC 到 CDCP 迁移记录\n表 E-9 ICIC 原版 AAEC 到 CDCP 迁移记录\n方法 Coarse Component-F1 Unlabeled Link-F1\nFLAN T5-XXL\n52.34±0.65 31.25±0.72\n（zero-shot）\nLLM Single-Pass\n54.87±0.58 33.42±0.68\n（zero-shot）\nOurs (K =1, w/o\n57.23±0.52 38.76±0.61\ncorrection, zero-shot)\nOurs (Full, zero-\n60.78±0.48 43.21±0.55\nshot)\n对应 ICIC 公开版 Table 4[34]。有向无标签 Link-F1 与严格原生关系 F1 分开；目标数据\n用途及多前提投影口径仍需历史材料核准。\n70",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 408,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 138
+      },
+      {
+        "font": "XAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 10.5,
+        "characters": 78
+      },
+      {
+        "font": "PAAAAA+TimesNewRomanPSMT",
+        "size": 11.0,
+        "characters": 40
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 34
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "QAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 14.0,
+        "characters": 16
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 13
+      },
+      {
+        "font": "BAAAAA+TimesNewRomanPS-BoldMT",
+        "size": 9.0,
+        "characters": 8
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      116.58,
+      515.1,
+      371.89
+    ]
+  },
+  {
+    "physical_page": 75,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n附录 F 符号与阅读索引\nF.1 核心术语与符号\n表 F-1 列出方法阅读中最容易混淆的对象。相同字母在不同章节中的局部定义以其首次\n定义为准，尤其第三章的可改写集合与第四章的变化组件集合不能互换。\n表 F-1 核心符号及其语义\n符号或术语 含义 使用边界\nD\n推理修正过程中不改写原文；第四章\nx或D\n输入原始文档\n另指删除集合\n显示 ID 不替代跨度和类型构成的语义身\nc=(s,e,t )\n跨度起止位置及类型组成的组件\n份\nG=(C ,R) 组件集合及完整关系集合 CDCP 关系对象保留完整源集合\nA 第三章 允许替换文字的组件集合 不等于连续段落，也不由测试标签选择\nΩ(C)\n协议声明的合法端点组合宇宙 有限范围，不枚举任意潜在语义联系\n𝒟 A 至少一个端点属于 A 的因素集合 同时包含内部及跨边界组合\nA\n内部与跨边界 关系端点相对于 的位置类别 与有无关系标签是两个维度\n该合法端点组合无标注或未选正 训练保持金标状态；推理允许修复预测\nNONE\n关系 漏检\nNULL 候选跨度不被选作组件 不等于关系槽位的 NONE\nφ 原文到增强文的组件对应 组件双射，不要求新旧 token 一一对应\nG\n0 经共同合法化步骤得到的初始图 与原始重排序胜者可能不同\n跨度、带类型组件及关系候选宇\nU ,𝒱 ,P\n修正开始前固定；这里的\nP\n不是精确率\n宙\nD,B 第四章 删除旧组件和加入新组件的集合 冲突扩张后检查预算； A= D∪B\nq ,q\nC R 完整组件及关系对象正确性估计 不同于训练时给定金标跨度的标签概率\n71",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 692,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 293
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 99
+      },
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 45
+      },
+      {
+        "font": "YAAAAA+LiberationSerif-Italic",
+        "size": 12.0,
+        "characters": 29
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 24
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 23
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 11
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      124.88,
+      519.1,
+      747.72
+    ]
+  },
+  {
+    "physical_page": 76,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n符号或术语 含义 使用边界\nΦ C ,Φ R ,Φ 组件、关系及总代理效用 用于接受决策，不等于真实 F1\n不提交修改，保留当前完整合法 独立回退选择，不强制每个文档发生编\nno-op\n图 辑\nF.2 实现核验接口\n标注输运按原始字符区间替换指定槽位，回填全文后重新分词并更新全部组件位置。字\n符坐标、评价 token 和模型子词分别保存映射，训练头只读取输入文档表示，排除聊天模\n板、连续提示和金标回答。重叠槽位或坐标往返不一致的变体拒绝使用，不能通过删掉问题\n标注使其看似合法。\n梯度检查单独反传成对对齐项，确认至少一个共享生成参数具有非零梯度，检查隐藏状\n态没有被分离，且表示中不包含金标回答。输入阶段结论专项门控关闭，因此该对齐项不直\n接训练专项分支；专项分支由生成损失更新。验证和测试移除训练辅助头，推理评分器采用\n第四章单独定义的数据和目标。\n事务检查比较修改前后完整语义对象，而不只比较显示编号。新组件与旧组件冲突时应\n扩张删除集合；旧端点失效时删除全部依赖关系；新端点的合法组合重新参与选择。整图检\n查发现事务外结构也需变化时，显式扩张并重新计费，或拒绝整个提议。中断、无可行解或\n预算不足时返回最后一个完整合法状态，具体字段见附录 B。\nF.3 研究问题与材料入口\n表 F-2 将读者关心的问题对应到方法、对照与记录。该索引提供核查位置，不表示表中\n要求的正式实验已经完成或已提供全部材料。\n表 F-2 阅读与核查索引\n要回答的问题 正文入口 结果或记录入口\n训练改写和推理修正有什么区别 2.6 及图 2-1 第三、四章算法的输入输出\n内部 跨边界 NONE 分别是什么 3.3.1 及图 3-1 5.3.3 交叉分层标签审计\n改写后位置变化如何处理 3.3.2 附录 B.1 及 F.2 的映射检查\n成对学习是否独立有效 3.4 5.3.2 同数据去对齐对照\n为什么组件及关系要一起决定 4.4 及图 4-1 5.4 及 5.8.3 同评分比较\n72",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 861,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 317
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 116
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 111
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 63
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 38
+      },
+      {
+        "font": "SBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 35
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 28
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      107.53,
+      521.45,
+      759.82
+    ]
+  },
+  {
+    "physical_page": 77,
+    "text": "1007-v1 完整修订稿 含非实测占位 勿送审\n要回答的问题 正文入口 结果或记录入口\n候选或评分失败会怎样 4.3 至 4.7 5.8.4 及 5.8.6 机制分析\n与 ICIC 相比新增什么 1.3.3 及表 1-2 附录 C 成果归属与附录 E 历史表\n正式结论还需核对什么 5.8.7 附录 A 和 D 及真实预测运行材料\n本版定稿待办包括：将 P 后缀占位数值及相邻分析整体替换为真实统计；将人工机制示\n意与真实运行案例分开；绑定数据划分、配置、预测及评价器；核对本人分工与学校封面、\n声明和授权要求。只有材料确实支持结论时，才能更新摘要与总结中的效果判断并撤去占位\n提示。\n73",
+    "width": 595.303937007874,
+    "height": 841.889763779528,
+    "characters": 296,
+    "images": 0,
+    "fonts": [
+      {
+        "font": "NAAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 81
+      },
+      {
+        "font": "VAAAAA+TimesNewRomanPSMT",
+        "size": 10.5,
+        "characters": 37
+      },
+      {
+        "font": "WAAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 29
+      },
+      {
+        "font": "RBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 27
+      },
+      {
+        "font": "PBAAAA+STSongti-SC-Regular",
+        "size": 10.5,
+        "characters": 19
+      },
+      {
+        "font": "UAAAAA+STSongti-SC-Bold",
+        "size": 10.5,
+        "characters": 17
+      },
+      {
+        "font": "CAAAAA+STSongti-SC-Bold",
+        "size": 9.0,
+        "characters": 16
+      },
+      {
+        "font": "SBAAAA+STSongti-SC-Regular",
+        "size": 11.0,
+        "characters": 12
+      }
+    ],
+    "body_bbox": [
+      79.45,
+      108.97,
+      520.95,
+      273.89
+    ]
+  }
+]

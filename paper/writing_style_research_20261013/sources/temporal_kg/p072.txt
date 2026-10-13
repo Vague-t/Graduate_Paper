@@ -1,0 +1,38 @@
+基于结构增强语言模型的时序知识图谱推理方法研究
+相较于标准 LoRA 微调方法仅引入了较小的额外时间开销。结合其在预测性能与解释
+生成质量上的显著提升，该额外计算成本在实践中是可接受的。
+4.5.8 案例分析
+本节通过一个具体的案例对比分析，进一步体现 GETER 在可解释时序推理任务
+中的优势。具体地，基于 Mistral 模型，对比基于 LoRA 微调的方法与 GETER 在预测
+结果与推理过程上的差异。选取如下正样本查询：（澳大利亚警方，开展实质性合作，
+澳大利亚公民，2014-11-16），其真实标签为“Yes”。相关结果如表4.14所示。
+表4.14GETER与基线方法的案例对比
+查询: Police(Australia)willEngageinmaterialcooperationCitizen(Australia)on2014-11-16
+方法 预测任务输出 解释生成任务输出
+LoRA微调 7 No. Based on the information provided, it is predicted that Police (Aus-
+tralia)willnotengageinmaterialcooperationwithCitizen(Australia)on
+2014-11-16. This prediction issupported bya seriesof events leadingup
+tothisdate,whichindicateapatternofconflictandadversarialinteractions
+betweenthepoliceandcitizens.Inthedayspreceding2014-11-16,thepo-
+lice have been involved in multiple actions against citizens, including ar-
+rests,detentions,andchargeson2014-11-12,13,and14...... Despitesome
+expressions of intent to negotiate or meet, the overall pattern of behavior
+suggestsalackofcooperativeengagement. Giventhiscontextofongoing
+conflict and legal actions, it is reasonable to conclude that material coop-
+erationbetweenthepoliceandcitizensisunlikelytooccuron2014-11-16.
+GETER 3 Yes. Basedonthesequenceofeventsoutlinedinthedocument,itisplau-
+sible to predict that the Police in Australia will engage in material coop-
+eration with Australian citizens on November 16, 2014. This prediction
+is supported by a series of interactions ...... However, alongside these
+actions, the police also made several appeals and requests to citizens
+on the same dates, suggesting a willingness to engage in dialogue or
+seek assistance. Additionally, the police expressed an intent to meet
+or negotiate with citizens on multiple occasions, including November
+11andNovember14,whichimpliesashifttowardsmorecollaborative
+engagement. Despitetheconfrontationalactions,suchastheuseofforce
+andaccusations,thepolicealsodemonstratedacapacityforreconciliation
+byreturningorreleasingindividualsonNovember14. Thisdualapproach
+ofenforcementandnegotiation, combinedwiththepolice’sexpressedin-
+tenttomeetandcooperate,supportsthelikelihoodofmaterialcooperation
+occurringonNovember16,2014.
+59

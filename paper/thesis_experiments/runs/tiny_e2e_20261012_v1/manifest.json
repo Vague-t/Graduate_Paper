@@ -1,0 +1,364 @@
+{
+  "status": "completed",
+  "command": "smoke",
+  "configuration": {
+    "augmentation": {
+      "attempts": 4,
+      "accepted": 2
+    },
+    "generation": {
+      "candidates": 3,
+      "temperature": 0.7,
+      "max_new_tokens": 512
+    },
+    "head": {
+      "hidden": 64,
+      "dropout": 0.1
+    },
+    "span_training": {
+      "epochs": 1,
+      "lr": 0.001,
+      "seed": 17,
+      "batch_size": 64
+    },
+    "score_training": {
+      "epochs": 1,
+      "lr": 0.001,
+      "seed": 17,
+      "batch_size": 64
+    },
+    "candidates": {
+      "supplement_spans": 64,
+      "supplement_types_per_span": 2,
+      "supplement_slots": 4096,
+      "preflight_slot_limit": 50000,
+      "cdcp_model_group_proposals": 64,
+      "cdcp_total_group_proposals": 256,
+      "max_new_sources": 3,
+      "max_span_tokens": 64,
+      "acyclic": false,
+      "one_outgoing": false
+    },
+    "legacy": {
+      "density_weight": 0.4,
+      "coherence_weight": 0.4,
+      "validity_weight": 0.2,
+      "root_threshold": 2.0,
+      "other_threshold": 1.0,
+      "rounds": 3,
+      "accepted_per_round": 2,
+      "actions_per_error": 4,
+      "max_attempts": 24,
+      "acyclic": false
+    },
+    "repair": {
+      "kappa_c": 1.0,
+      "kappa_r": 1.0,
+      "weight_c": 1.0,
+      "weight_r": 1.0,
+      "delta": 0.01,
+      "numeric_tol": 1e-09,
+      "component_budget": 24,
+      "relation_budget": 96,
+      "max_transaction_components": 3,
+      "attempts": 128,
+      "accepts": 12,
+      "rounds": 4,
+      "round_attempts": 32,
+      "round_accepts": 3,
+      "batch_size": 8,
+      "global_variable_limit": 2500,
+      "time_limit": 5.0,
+      "total_time_limit": 90.0,
+      "lex_call_limit": 64,
+      "global_tie_break": "initial_state",
+      "local_tie_break": "graph_key",
+      "queue_limit": 10000,
+      "acyclic": false,
+      "one_outgoing": false,
+      "allow_set_actions": false,
+      "presolve": true
+    },
+    "profile": {
+      "name": "local_random_tiny_cpu",
+      "purpose": "synthetic_and_unit_debug_only",
+      "not_pretrained": true,
+      "note": "CLI augment/rank/groups still use the explicitly configured local Qwen chat backend; pure tiny smoke itself is offline."
+    },
+    "model": {
+      "backend": "tiny",
+      "model_name": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": null,
+      "hidden_size": 32,
+      "layers": 1,
+      "attention_heads": 4,
+      "head_hidden": 64,
+      "lora_rank": 4,
+      "lora_alpha": 8,
+      "lora_dropout": 0,
+      "head_dropout": 0,
+      "four_bit": false,
+      "gradient_checkpointing": false,
+      "device": "cpu",
+      "dtype": "float32",
+      "max_input_tokens": 1024,
+      "max_output_tokens": 512,
+      "max_context": 2048,
+      "seed": 17,
+      "local_files_only": true
+    },
+    "training": {
+      "variant": "T1",
+      "epochs": 1,
+      "learning_rate": 0.0002,
+      "weight_decay": 0.01,
+      "warmup_ratio": 0.03,
+      "microbatch_sources": 1,
+      "accumulation": 1,
+      "gradient_clip": 1.0,
+      "lambda_sentence": 0.5,
+      "lambda_supervision": 1.0,
+      "lambda_component": 0.5,
+      "lambda_relation": 0.5,
+      "seed": 17,
+      "max_steps": 1,
+      "max_factors": 50000
+    },
+    "chat": {
+      "model_id": "models/Qwen2.5-0.5B-Instruct",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "device": "cpu",
+      "dtype": "float32",
+      "load_in_4bit": false,
+      "max_context": 2048,
+      "max_new_tokens": 512,
+      "max_calls": 10000,
+      "max_total_output_tokens": 1000000,
+      "local_files_only": true,
+      "seed": 17
+    },
+    "encoder": {
+      "backend": "tiny",
+      "hidden_size": 32,
+      "seed": 17,
+      "vocab_size": 4096
+    }
+  },
+  "started_unix": 1791819929.68702,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "inputs": {
+    "configs/local_tiny.json": "0600f0b64e4af022410c9ad9c129a8189144febf5723f597352c2cac7f903101"
+  },
+  "code": {
+    "__init__.py": "17143f1a5cb7c3e09031e8ffe8f03df22a7e8be7fdfd68cdd979249596c6550f",
+    "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+    "augmentation.py": "d40c6210bce6ba66c702dd539b40ffb2e0de6ce60400c5a69f65ef27455ec2ac",
+    "candidates.py": "c1053c08bcacc51c5d7b53278df0008c2e3bbd3f7753ae85e8c9ab92788965f7",
+    "chat.py": "385eb0a76dd3d5c618b93dd7844ba25af6b4d4c1494aa85f787449d0cb12205b",
+    "cli.py": "47ff2d3b08a5f5698b59e1f32258624083d327aac4f01a8325e000ed2997da11",
+    "data.py": "e0e27eca955945f1380a58161215c6ef27c68d4ade84570035dded2e6a35364e",
+    "evaluation.py": "9ea3a4c0cfeea4b7a5b19875b242680f50b345a5604c2b3323baf88c83bf0390",
+    "io.py": "74c556e7860531a965b47acc24e7785d378d691629f3123cb09c405e0e07b26a",
+    "legacy.py": "816e00ddc4017c01e59c60ea310103389da6c5e26338742d626ddeb38b9b2c3b",
+    "modeling.py": "658a90b052cdc92106980525d72dde1d6145a00b57271a60d2e872a64d85307e",
+    "policy.py": "ce635ec26516f9d5e849d43c7a1e5f667a5010196cf42257d9569e47b253b1be",
+    "proposals.py": "37d7f76b11974c22e3ea11578ae765531a6ed15fccfba4aae9a59fc80f51cdbc",
+    "repair.py": "5a92a5cd5ee9d604bed1265725f678352d188a77c2e54172b55e3cd09b7d2f7f",
+    "schema.py": "bbff6a9304b8817624bb582feb1c51dc273ace5d6149a0ac3f32bf2b7b6ae725",
+    "scoring.py": "62746e9531a691226592bb2c5dd6b29a580a9f9f0f5afc861cae6710b8ad3214",
+    "smoke.py": "1a6b1bc6f3b8a05e24a219a424cb11f814120917534e51e5c0b555a9337f3d0f",
+    "training.py": "118c3cf20284d82c2c5e246e887b2d44f6e2b3061907422a0f3d08ff55afe2c4",
+    "workflow.py": "3a001e8f41ca2a7c6a886e1a3337a975d43c400b24e7ee4d1ec035fa63a9bd1c"
+  },
+  "evidence_type": "EXECUTED_CODE_OUTPUT_NOT_HISTORICAL_THESIS_RESULTS",
+  "elapsed_seconds": 1.8627598750172183,
+  "diagnostic_kind": "CONSTRUCTED_TINY_END_TO_END",
+  "benchmark_evidence": false,
+  "corpora": [
+    {
+      "corpus": "aaec",
+      "evidence_type": "CONSTRUCTED_SOFTWARE_DIAGNOSTIC",
+      "training_steps": 1,
+      "loss": 8.20620346069336,
+      "accepted_fixture_views": 1,
+      "scorer_history": [
+        {
+          "epoch": 1,
+          "loss": 1.1185072234698705,
+          "objects": 7
+        },
+        {
+          "epoch": 2,
+          "loss": 1.0718978984015328,
+          "objects": 7
+        }
+      ],
+      "calibration": {
+        "component": {
+          "slope": 73.18525301040326,
+          "intercept": 86.30287512249069,
+          "fitted": true,
+          "observations": 5
+        },
+        "relation": {
+          "slope": 284.47550046632733,
+          "intercept": 68.13593644372729,
+          "fitted": true,
+          "observations": 3
+        }
+      },
+      "span_history": [
+        {
+          "epoch": 1,
+          "loss": 0.7953486686403101,
+          "boundary_and_type_observations": 22
+        }
+      ],
+      "span_proposals": 4,
+      "strict_metrics_on_fixture": {
+        "method": "fixture-I1",
+        "seed": 17,
+        "documents": 1,
+        "failures": {},
+        "protocol": "native_char_complete_source_set_strict_micro; canonical_dedup_all_methods; zero_denominator=0",
+        "metrics": {
+          "aaec": {
+            "component": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "n_pred": 3,
+              "n_gold": 3,
+              "precision": 100.0,
+              "recall": 100.0,
+              "f1": 100.0
+            },
+            "relation": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "n_pred": 1,
+              "n_gold": 1,
+              "precision": 100.0,
+              "recall": 100.0,
+              "f1": 100.0
+            }
+          }
+        }
+      },
+      "repair_methods": [
+        "Global",
+        "Single",
+        "SetLocal",
+        "RelationOnly",
+        "Sequential",
+        "I1"
+      ]
+    },
+    {
+      "corpus": "cdcp",
+      "evidence_type": "CONSTRUCTED_SOFTWARE_DIAGNOSTIC",
+      "training_steps": 1,
+      "loss": 8.898159980773926,
+      "accepted_fixture_views": 1,
+      "scorer_history": [
+        {
+          "epoch": 1,
+          "loss": 1.187262773513794,
+          "objects": 8
+        },
+        {
+          "epoch": 2,
+          "loss": 1.1466842293739319,
+          "objects": 8
+        }
+      ],
+      "calibration": {
+        "component": {
+          "slope": 22.267632494633517,
+          "intercept": 34.62276770192736,
+          "fitted": true,
+          "observations": 5
+        },
+        "relation": {
+          "slope": 499.93523009430584,
+          "intercept": 217.2202949603344,
+          "fitted": true,
+          "observations": 4
+        }
+      },
+      "span_history": [
+        {
+          "epoch": 1,
+          "loss": 0.9341317848725752,
+          "boundary_and_type_observations": 22
+        }
+      ],
+      "span_proposals": 4,
+      "strict_metrics_on_fixture": {
+        "method": "fixture-I1",
+        "seed": 17,
+        "documents": 1,
+        "failures": {},
+        "protocol": "native_char_complete_source_set_strict_micro; canonical_dedup_all_methods; zero_denominator=0",
+        "metrics": {
+          "cdcp": {
+            "component": {
+              "tp": 3,
+              "fp": 0,
+              "fn": 0,
+              "n_pred": 3,
+              "n_gold": 3,
+              "precision": 100.0,
+              "recall": 100.0,
+              "f1": 100.0
+            },
+            "relation": {
+              "tp": 1,
+              "fp": 0,
+              "fn": 0,
+              "n_pred": 1,
+              "n_gold": 1,
+              "precision": 100.0,
+              "recall": 100.0,
+              "f1": 100.0
+            }
+          }
+        }
+      },
+      "repair_methods": [
+        "Global",
+        "Single",
+        "SetLocal",
+        "RelationOnly",
+        "Sequential",
+        "I1"
+      ]
+    }
+  ],
+  "outputs": {
+    "aaec/repairs.json": "401456abd3b7a077748a8e599f34cc36b5aa399dc696e75084c19de74b008c65",
+    "aaec/report.json": "02d36756b0af99ea32d61fea1975dc39dbdc7d475966280de3eb932e6aaa022d",
+    "aaec/scorer.pt": "8fd2fcc71fded2b16012d651dc0495e1c96f21490dbc398ef3fb47ab2ecd0146",
+    "aaec/snapshot.json": "e7b57684f46f61b6924e85eb3aae80274871c1f893b18a5d3405d60426d31899",
+    "aaec/views.jsonl": "d302787ee2e8d79015059567bacd539bbbc8b3299dea73ae1a62c324ad76b956",
+    "cdcp/repairs.json": "9bf89b966a88242209f496caa2c9e4b35bbeb547a151f5203cd25e6baeca903c",
+    "cdcp/report.json": "34af630520d72958f7bef7f0ece26bc0a19a4075d7b4979b76b9e5b76119185e",
+    "cdcp/scorer.pt": "13d7ae7e5723d090b9c04b217ac427515edfba43f59a4198b295cd47aab4dd2f",
+    "cdcp/snapshot.json": "0c88355142febe6537b88972f80f30dfa41630c9d72968ebbf6713a8804ad7b9",
+    "cdcp/views.jsonl": "2652c5d7b0dacbf45bbc9c2abf4770ae216ce54b920101f8534fc0d9b8080253",
+    "aaec/training/optimizer_state.pt": "a7e5c37473744fca31c9c64d65a95584e702fe93126767fe0ffce15ea2e78241",
+    "aaec/training/training_log.jsonl": "cfc5ba8b4342c04e0d56661c83f8ede0627798ac574dd99488f5249e917df158",
+    "aaec/training/run_manifest.json": "ac1f07950b6b2996ca5596a000af0e31a538b1623153ae9aa77039a1c5240d19",
+    "aaec/training/checkpoint/adapter.pt": "fe01f13cd06ebf65bd7c49fbf6045fd37eafa5c654abf4ed9e5051fba35da65c",
+    "aaec/training/checkpoint/model_config.json": "e69f79aaae82ecef52674ac28ef1301f0b5f6aca80ca9db4a33f4781f144c171",
+    "aaec/training/checkpoint/model_manifest.json": "e69e0fa40485b3bc762b9cd16b455eeef22b41bc1e3bffb6a5f9e49711e85ac3",
+    "cdcp/training/optimizer_state.pt": "178187b94a48f50777ce6bb4838bf55fd6eca1f9e267dc9f9844db639470871d",
+    "cdcp/training/training_log.jsonl": "e7674551b310379c68fdc0c39dc10a96bf8b209cb626022210da5bd9cb209d17",
+    "cdcp/training/run_manifest.json": "34100ca53dc5a66bfe17ff66d27003659bba79833655b8e187d454b5b517e22e",
+    "cdcp/training/checkpoint/adapter.pt": "6c1a123faa712a0e215125fb64410f7d6e81c930b43e21d305911f3622e09813",
+    "cdcp/training/checkpoint/model_config.json": "e69f79aaae82ecef52674ac28ef1301f0b5f6aca80ca9db4a33f4781f144c171",
+    "cdcp/training/checkpoint/model_manifest.json": "e69e0fa40485b3bc762b9cd16b455eeef22b41bc1e3bffb6a5f9e49711e85ac3"
+  }
+}

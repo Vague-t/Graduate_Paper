@@ -1,0 +1,193 @@
+{
+  "pool": {
+    "input": {
+      "doc_id": "cdcp_00785",
+      "corpus": "cdcp",
+      "text": "I think it should be kept uniform. It seems to make sense for sellers to send notification.",
+      "source_group": "cdcp:1ecb6f954e183c7f81b5507688b50b9d495c12db88a68f0857c3c30cc7134a40",
+      "split": "fit"
+    },
+    "universe": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 34,
+          "type": "policy"
+        },
+        {
+          "id": "c1",
+          "start": 0,
+          "end": 34,
+          "type": "reference"
+        },
+        {
+          "id": "c2",
+          "start": 1,
+          "end": 34,
+          "type": "policy"
+        },
+        {
+          "id": "c3",
+          "start": 35,
+          "end": 91,
+          "type": "value"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c3"
+          ],
+          "target": "c0",
+          "type": "evidence"
+        },
+        {
+          "sources": [
+            "c3"
+          ],
+          "target": "c0",
+          "type": "reason"
+        }
+      ]
+    },
+    "initial": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 34,
+          "type": "policy"
+        },
+        {
+          "id": "c1",
+          "start": 35,
+          "end": 91,
+          "type": "value"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c1"
+          ],
+          "target": "c0",
+          "type": "reason"
+        }
+      ]
+    },
+    "protected": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 34,
+          "type": "policy"
+        },
+        {
+          "id": "c1",
+          "start": 35,
+          "end": 91,
+          "type": "value"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c1"
+          ],
+          "target": "c0",
+          "type": "reason"
+        }
+      ]
+    },
+    "metadata": {
+      "evidence_type": "CONSTRUCTED_DIAGNOSTIC_POOL_USING_TRAIN_LABELS",
+      "natural_distribution": false
+    },
+    "key": "88109e7e1c2581326d75b5493ae47a737e585186d894ca594b2e05b73bc2e5df"
+  },
+  "scores": {
+    "pool_key": "88109e7e1c2581326d75b5493ae47a737e585186d894ca594b2e05b73bc2e5df",
+    "components": [
+      0.051899846643209444,
+      0.057706184685230255,
+      0.03993311151862144,
+      0.13140702247619632
+    ],
+    "relations": [
+      0.9999781413128233,
+      0.9999780246633158
+    ],
+    "metadata": {
+      "pool_key": "88109e7e1c2581326d75b5493ae47a737e585186d894ca594b2e05b73bc2e5df",
+      "scorer_identity": "a7e0ea903f2964569f34afc5074ab9c0b277767c65bc69ec8ac38f2566add3bd",
+      "failure": null,
+      "calibrated": false,
+      "fit_source_groups": [
+        "cdcp:1ecb6f954e183c7f81b5507688b50b9d495c12db88a68f0857c3c30cc7134a40"
+      ],
+      "calibration_source_groups": []
+    }
+  },
+  "result": {
+    "graph": {
+      "components": [
+        {
+          "id": "c0",
+          "start": 0,
+          "end": 34,
+          "type": "policy"
+        },
+        {
+          "id": "c1",
+          "start": 35,
+          "end": 91,
+          "type": "value"
+        }
+      ],
+      "relations": [
+        {
+          "sources": [
+            "c1"
+          ],
+          "target": "c0",
+          "type": "reason"
+        }
+      ]
+    },
+    "status": "no_strict_gain",
+    "ledger": [],
+    "metadata": {
+      "solver_status": "optimal",
+      "primary_optimal": true,
+      "secondary_optimal": true,
+      "tie_break_complete": false,
+      "raw_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "solver_calls": 3,
+      "tie_break_rule": "initial_state",
+      "lex_calls": 1,
+      "elapsed_seconds": 0.0025466250954195857,
+      "method": "Global",
+      "budget_semantics": "net",
+      "pool_hash": "88109e7e1c2581326d75b5493ae47a737e585186d894ca594b2e05b73bc2e5df",
+      "score_hash": "a0bcce6033fcb5a05f791951608b7de90c51925fdad00fb0fffd7f0fcca141c3"
+    }
+  },
+  "scorer_history": [
+    {
+      "epoch": 1,
+      "loss": 1.9981206417083741,
+      "objects": 5
+    }
+  ],
+  "span_history": [
+    {
+      "epoch": 1,
+      "loss": 0.319823827474348,
+      "boundary_and_type_observations": 93
+    }
+  ],
+  "proposed_spans": 4
+}

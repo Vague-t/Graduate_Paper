@@ -1,0 +1,27 @@
+{
+  "render_directory": "/Users/channtang/Downloads/paper/_revision_1008_v4/render_pass6",
+  "source_sha256": "9dea07abbf986cf499c1ab3ff8ba249989ca1815481dfefa220ede70b24b7080",
+  "docx_sha256": "7e5808c0726790d5e6e2383ab942bcf256aa765822f944b819229149b2f9b654",
+  "pdf_sha256": "1a27ca58f5d35b85bdc04f3e5dcb811b311e424388dd82430c2b15078a621166",
+  "physical_pages": 89,
+  "all_final_pages_opened_original_resolution": true,
+  "review_batches": [
+    {"reviewer": "v3_structure_audit", "pages": "1-30", "result": "PASS", "notes": "Final pass6 pages reopened individually at original resolution. Three-level TOC, dot leaders, page labels, table2-2 continuation and figures are readable. Pages18 and26 are expected chapter-ending short pages."},
+    {"reviewer": "v4_docx", "pages": "31-60", "result": "PASS", "notes": "Final pass6 pages reopened individually at original resolution. Native equations, algorithm indents and continued captions, teaching example, figures and tables readable; no clipping or overlap. Revised chapter3 conclusion now finishes on page42; page43 starts chapter4, eliminating the two-line near-empty page."},
+    {"reviewer": "v3_repair_audit", "pages": "61-89", "result": "PASS", "notes": "Final pass6 pages reopened individually at original resolution. Numeric tables, references1-46 and appendicesA-F readable. TableE-7 continues on84-85 and tableF-1 on87-88 with repeated headings; finalF-2 complete. Printed page labels51-79 continuous."}
+  ],
+  "algorithm_layout": {
+    "algorithm3-1": {"pages": [36,37], "split_before_step": 25, "reason": "Separates completed data-construction loop from training loop; same source semantics and sequential line numbers."},
+    "algorithm4-1": {"pages": [53,54], "split_before_step": 21, "reason": "Continues before complete conditional block; all wrapped lines retain semantic indentation."}
+  },
+  "table_continuations": {
+    "table2-2": {"pages": [23,24], "split_before_data_row": 4},
+    "tableE-7": {"pages": [84,85], "split_before_data_row": 5},
+    "tableF-1": {"pages": [87,88], "split_before_data_row": 14}
+  },
+  "mechanical_gate": "final_audit.json PASS; 167 verified labels, 165 native-TOC cached entries match final PDF, 378 native math objects, 32 numbered equations, 27 tables, 2 algorithms, 7 images, 46 references, 125 preserved P placeholders.",
+  "template_fidelity": "Current retainedv3 hash unchanged; 18 preserve-only package parts unchanged; 3-section A4 geometry unchanged.",
+  "container_integrity": "unzip -t passed for final DOCX",
+  "visual_result": "PASS",
+  "scope_limit": "Document layout/package QA only; no empirical, citation-fact, school-compliance or all-Word-version certification."
+}

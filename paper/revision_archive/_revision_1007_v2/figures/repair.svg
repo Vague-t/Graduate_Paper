@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="157mm" height="117.1222mm" viewBox="0 0 445.0393700787402 332" role="img">
+<title>repair</title><desc>固定原文上替换一个完整组件，并在一个原子事务中重建其所有依赖关系。</desc>
+<g font-family="Arial Unicode MS, Noto Sans CJK SC, Songti SC, sans-serif">
+<rect width="445.0393700787402" height="332" fill="white"/>
+<rect x="15" y="8" width="415" height="36" rx="3" fill="rgb(245,245,245)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="222.500" y="23.375" font-size="9.4" text-anchor="middle" fill="rgb(15,15,15)" textLength="75.200" lengthAdjust="spacingAndGlyphs">输入原文始终不变</text>
+<text x="222.500" y="35.875" font-size="9.4" text-anchor="middle" fill="rgb(15,15,15)" textLength="175.461" lengthAdjust="spacingAndGlyphs">“图书馆现有座位不足，而且开放时间偏短”</text>
+<rect x="15" y="57" width="176" height="47" rx="3" fill="rgb(255,255,255)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="103.000" y="71.625" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="63.565" lengthAdjust="spacingAndGlyphs">旧 c2 · Premise</text>
+<text x="103.000" y="84.125" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="83.700" lengthAdjust="spacingAndGlyphs">图书馆现有座位不足</text>
+<text x="103.000" y="96.625" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="46.500" lengthAdjust="spacingAndGlyphs">（短跨度）</text>
+<rect x="254" y="57" width="176" height="47" rx="3" fill="rgb(235,235,235)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="342.000" y="71.625" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="63.565" lengthAdjust="spacingAndGlyphs">新 c2 · Premise</text>
+<text x="342.000" y="84.125" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="93.000" lengthAdjust="spacingAndGlyphs">图书馆现有座位不足，</text>
+<text x="342.000" y="96.625" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="74.400" lengthAdjust="spacingAndGlyphs">而且开放时间偏短</text>
+<polyline points="191.000,80.500 254.000,80.500" fill="none" stroke="rgb(31,31,31)" stroke-width="1.2"/>
+<polygon points="254.000,80.500 250.036,82.409 250.036,78.591" fill="rgb(31,31,31)"/>
+<text x="222.500" y="72.000" font-size="9.2" text-anchor="middle" fill="rgb(15,15,15)" textLength="18.400" lengthAdjust="spacingAndGlyphs">替换</text>
+<text x="222.520" y="120.000" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="191.168" lengthAdjust="spacingAndGlyphs">跨度不同即为不同对象；不按显示 ID 继承原边</text>
+<rect x="31" y="135" width="383" height="36" rx="3" fill="rgb(255,255,255)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="222.500" y="150.375" font-size="9.4" text-anchor="middle" fill="rgb(15,15,15)" textLength="118.551" lengthAdjust="spacingAndGlyphs">删除旧 c2 的全部入边与出边</text>
+<text x="222.500" y="162.875" font-size="9.4" text-anchor="middle" fill="rgb(15,15,15)" textLength="204.721" lengthAdjust="spacingAndGlyphs">重新判定新 c2 的全部合法关系组合，包括 NONE</text>
+<polyline points="222.520,171.000 222.520,184.000" fill="none" stroke="rgb(31,31,31)" stroke-width="1"/>
+<polygon points="222.520,184.000 220.611,180.036 224.429,180.036" fill="rgb(31,31,31)"/>
+<rect x="31" y="184" width="383" height="32" rx="3" fill="rgb(255,255,255)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="222.500" y="197.375" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="176.700" lengthAdjust="spacingAndGlyphs">外部关系保持固定，但须重新核对整图约束</text>
+<text x="222.500" y="209.875" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="158.100" lengthAdjust="spacingAndGlyphs">如产生外部依赖冲突：扩大事务或拒绝</text>
+<polyline points="222.520,216.000 222.520,229.000" fill="none" stroke="rgb(31,31,31)" stroke-width="1"/>
+<polygon points="222.520,229.000 220.611,225.036 224.429,225.036" fill="rgb(31,31,31)"/>
+<rect x="31" y="229" width="383" height="36" rx="3" fill="rgb(235,235,235)" stroke="rgb(56,56,56)" stroke-width="1.1"/>
+<text x="222.500" y="244.375" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="158.100" lengthAdjust="spacingAndGlyphs">组件分项效用不降；关系分项效用不降</text>
+<text x="222.500" y="256.875" font-size="9.3" text-anchor="middle" fill="rgb(15,15,15)" textLength="176.700" lengthAdjust="spacingAndGlyphs">总效用增益大于正阈值；整图合法且预算内</text>
+<rect x="31" y="285" width="171" height="25" rx="3" fill="rgb(235,235,235)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="116.500" y="301.125" font-size="9.1" text-anchor="middle" fill="rgb(15,15,15)" textLength="127.400" lengthAdjust="spacingAndGlyphs">全部通过：组件＋关系原子提交</text>
+<rect x="243" y="285" width="171" height="25" rx="3" fill="rgb(255,255,255)" stroke="rgb(56,56,56)" stroke-width="0.8"/>
+<text x="328.500" y="301.125" font-size="9.0" text-anchor="middle" fill="rgb(15,15,15)" textLength="135.000" lengthAdjust="spacingAndGlyphs">任一不满足：整体回退，保留原图</text>
+<polyline points="145.000,265.000 145.000,285.000" fill="none" stroke="rgb(31,31,31)" stroke-width="1"/>
+<polygon points="145.000,285.000 143.091,281.036 146.909,281.036" fill="rgb(31,31,31)"/>
+<polyline points="300.000,265.000 300.000,285.000" fill="none" stroke="rgb(31,31,31)" stroke-width="1" stroke-dasharray="3 2"/>
+<polygon points="300.000,285.000 298.091,281.036 301.909,281.036" fill="rgb(31,31,31)"/>
+<text x="222.520" y="325.000" font-size="9" text-anchor="middle" fill="rgb(76,76,76)" textLength="135.000" lengthAdjust="spacingAndGlyphs">人为构造的机制示意；非实测结果</text>
+</g></svg>

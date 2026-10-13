@@ -1,0 +1,1156 @@
+{
+  "output": "/Users/channtang/Downloads/paper/report_1007_v2_full.docx",
+  "source_sha256": "d7b1e7d15a6751a3e3335b1eba8d38d0d1d6e4c752c7bd225c41446d0946696c",
+  "retained_template_sha256": "e7e86b26385e5e2a858cc54830817ea7c11d3652a76c3a85103a328161db51e9",
+  "native_equations": 302,
+  "tables": [
+    {
+      "caption": "表1-1 近邻方法与本文研究位置",
+      "rows": 6,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "研究",
+        "QOS[35]",
+        "ConsistRE与CovEReD[38][37]",
+        "AASP[9]",
+        "Re-Cent[43]",
+        "前期MCR-BR[34]"
+      ]
+    },
+    {
+      "caption": "表1-2 前期成果与本论文深化内容",
+      "rows": 5,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "研究层次",
+        "训练与表示",
+        "候选生成与选择",
+        "组件及关系修正",
+        "评分与评价"
+      ]
+    },
+    {
+      "caption": "表2-1 域内任务与评价边界",
+      "rows": 3,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "语料",
+        "AAEC",
+        "CDCP"
+      ]
+    },
+    {
+      "caption": "表2-2 共享实验配置与运行绑定字段",
+      "rows": 12,
+      "numeric": false,
+      "parts": 2,
+      "row_keys": [
+        "配置项目",
+        "数据与划分",
+        "骨干与分词器",
+        "参数高效适配",
+        "提示与句子监督",
+        "生成与初始选择",
+        "优化器与训练规模",
+        "评分器数据",
+        "新增损失与候选预算",
+        "求解器与时限",
+        "硬件与环境",
+        "随机种子与统计"
+      ]
+    },
+    {
+      "caption": "表3-1 关系保持改写的组件示意",
+      "rows": 5,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "组件",
+        "$c_1$",
+        "$c_2$",
+        "$c_3$",
+        "$c_4$"
+      ]
+    },
+    {
+      "caption": "表3-2 训练侧必要对照及其回答的问题",
+      "rows": 6,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "对照",
+        "T0与普通增强",
+        "QOS式与关系感知增强",
+        "局部正边与完整影响域",
+        "同数据去对齐与完整学习",
+        "结论与匹配随机中心"
+      ]
+    },
+    {
+      "caption": "表3-3 训练侧消融的预期情景占位",
+      "rows": 10,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "训练配置",
+        "T0 无新增强",
+        "普通改写＋共同筛选",
+        "QOS式结构增强",
+        "去跨边界正关系检查",
+        "去NONE检查",
+        "同数据仅基础训练损失",
+        "同数据同辅助头去对齐",
+        "匹配随机中心",
+        "T1 完整关系感知学习"
+      ]
+    },
+    {
+      "caption": "表3-4 增强成功与失败案例的报告字段（待实测）",
+      "rows": 5,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "案例类别",
+        "接受且保持",
+        "接受但漂移",
+        "拒绝但保持",
+        "拒绝且漂移"
+      ]
+    },
+    {
+      "caption": "表4-1 推理方法的修改对象与决策接口",
+      "rows": 8,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "方法",
+        "MCR-only",
+        "BR-O",
+        "BR-C",
+        "RelationOnly",
+        "顺序组件及关系修正",
+        "BR-J",
+        "同目标全局ILP"
+      ]
+    },
+    {
+      "caption": "表4-2 推理侧对照及归因",
+      "rows": 8,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "对照",
+        "MCR-only、BR-O、BR-C、BR-J",
+        "仅删边后处理",
+        "顺序组件修正再预测关系",
+        "同动作不同评分",
+        "同评分不同动作",
+        "同目标全局ILP",
+        "等预算通用重写或重生成"
+      ]
+    },
+    {
+      "caption": "表4-3 推理侧比较的预期情景占位",
+      "rows": 8,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "推理方法",
+        "MCR-only I0",
+        "原版BR-O系统",
+        "固定组件BR-C系统",
+        "仅删边控制",
+        "同候选同评分 顺序修正",
+        "同候选同评分 BR-J",
+        "同目标全局ILP"
+      ]
+    },
+    {
+      "caption": "表4-4 候选与可达性诊断的预期情景占位",
+      "rows": 9,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "诊断量",
+        "严格组件候选覆盖率 百分比",
+        "全部关系端点覆盖率 百分比",
+        "完整关系候选覆盖率 百分比",
+        "初始图严格关系F1",
+        "单轮可达Oracle关系F1",
+        "多轮可达Oracle关系F1",
+        "全局可行图Oracle关系F1",
+        "BR-J严格关系F1"
+      ]
+    },
+    {
+      "caption": "表4-5 固定提案评分诊断的预期情景占位",
+      "rows": 4,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "评分方式",
+        "仅端点条件标签评分",
+        "完整对象评分 未校准",
+        "完整对象评分 经校准"
+      ]
+    },
+    {
+      "caption": "表4-6 AAEC风险与成本的预期情景占位",
+      "rows": 4,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "同评分方法",
+        "顺序组件及关系修正",
+        "BR-J闭合事务",
+        "全局ILP 最优情景"
+      ]
+    },
+    {
+      "caption": "表5-1 两阶段组合的预期情景占位",
+      "rows": 5,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "配置",
+        "T0＋I0",
+        "T1＋I0",
+        "T0＋I1",
+        "T1＋I1"
+      ]
+    },
+    {
+      "caption": "表A-1 复现材料的关联字段",
+      "rows": 7,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "材料",
+        "数据与划分",
+        "增强集合",
+        "模型与配置",
+        "候选与评分",
+        "事务与求解",
+        "评价与统计"
+      ]
+    },
+    {
+      "caption": "表E-1 AAEC组件分类别旧稿记录",
+      "rows": 4,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "方法",
+        "FLAN-T5 (XXL)",
+        "LLM Single-Pass",
+        "**Ours (Full)**"
+      ]
+    },
+    {
+      "caption": "表E-2 ICIC原版AAEC域内结果记录",
+      "rows": 12,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "方法",
+        "FLAN T5-XXL",
+        "GPT-4-turbo 20-shot",
+        "RoBERTa-large MTL",
+        "LLM Single-Pass",
+        "LLM w/ Constrained Decoding",
+        "LLM w/ DAG Post-process",
+        "LLM Multi-Sample (LogProb)",
+        "LLM w/ Self-Refine",
+        "Ours ($K=1$, w/o correction)",
+        "Ours (Verifier-only Rerank, $K=3$)",
+        "**Ours (Full, $K=3$)**"
+      ]
+    },
+    {
+      "caption": "表E-3 ICIC原版CDCP域内结果记录",
+      "rows": 9,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "方法",
+        "FLAN T5-XXL",
+        "RoBERTa-large MTL",
+        "LLM Single-Pass",
+        "LLM w/ DAG Post-process",
+        "LLM w/ Self-Refine",
+        "Ours ($K=1$, w/o correction)",
+        "Ours (Verifier-only Rerank, $K=3$)",
+        "**Ours (Full, $K=3$)**"
+      ]
+    },
+    {
+      "caption": "表E-4 ICIC原版模块消融记录",
+      "rows": 7,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "配置",
+        "Full Method",
+        "$K=1$, w/o correction",
+        "w/o Claim-specific Adapter",
+        "w/o Cue-aware Prompting",
+        "w/o Multi-Objective",
+        "w/o Validity Signal $E_{val}$"
+      ]
+    },
+    {
+      "caption": "表E-5 ICIC原版验证器替换记录",
+      "rows": 3,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "验证器",
+        "Qwen2.5-7B（默认）",
+        "Llama-3-8B（独立）"
+      ]
+    },
+    {
+      "caption": "表E-6 ICIC原版Oracle记录",
+      "rows": 5,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "条件",
+        "预测组件与当前选择器",
+        "Candidate Oracle（$K=3$中择优）",
+        "Condition Oracle（金标准组件输入）",
+        "Output Oracle（金标准替换）"
+      ]
+    },
+    {
+      "caption": "表E-7 ICIC原版修正行为记录",
+      "rows": 12,
+      "numeric": true,
+      "parts": 2,
+      "row_keys": [
+        "指标",
+        "修正触发率",
+        "触发文档平均迭代轮数",
+        "触发文档平均动作数",
+        "LocalRerun占比",
+        "RemoveEdge占比",
+        "Replace占比",
+        "Promote/Demote占比",
+        "无效ID比例",
+        "JSON格式错误比例",
+        "不连贯边比例",
+        "整体$E_{val}$通过率"
+      ]
+    },
+    {
+      "caption": "表E-8 前期粗粒度组件映射",
+      "rows": 9,
+      "numeric": false,
+      "parts": 1,
+      "row_keys": [
+        "数据集原标签",
+        "AAEC MajorClaim",
+        "AAEC Claim",
+        "AAEC Premise",
+        "CDCP Policy",
+        "CDCP Value",
+        "CDCP Fact",
+        "CDCP Testimony",
+        "CDCP Reference"
+      ]
+    },
+    {
+      "caption": "表E-9 ICIC原版AAEC到CDCP迁移记录",
+      "rows": 5,
+      "numeric": true,
+      "parts": 1,
+      "row_keys": [
+        "方法",
+        "FLAN T5-XXL（zero-shot）",
+        "LLM Single-Pass（zero-shot）",
+        "Ours ($K=1$, w/o correction, zero-shot)",
+        "**Ours (Full, zero-shot)**"
+      ]
+    },
+    {
+      "caption": "表F-1 核心符号及其语义",
+      "rows": 17,
+      "numeric": false,
+      "parts": 2,
+      "row_keys": [
+        "符号或术语",
+        "$x$或$D$",
+        "$c=(s,e,t)$",
+        "$G=(C,R)$",
+        "$A$ 第三章",
+        "$\\Omega(C)$",
+        "$\\mathcal D_A$",
+        "内部与跨边界",
+        "NONE",
+        "NULL",
+        "$\\phi$",
+        "$G_0$",
+        "$U,\\mathcal V,P$",
+        "$D,B$ 第四章",
+        "$q_C,q_R$",
+        "$\\Phi_C,\\Phi_R,\\Phi$",
+        "no-op"
+      ]
+    },
+    {
+      "caption": "表F-2 方法与实验的阅读索引",
+      "rows": 10,
+      "numeric": false,
+      "parts": 2,
+      "row_keys": [
+        "阅读问题",
+        "训练改写与推理修正的区别",
+        "内部跨边界与NONE的含义",
+        "改写后如何迁移标注",
+        "成对学习是否独立有效",
+        "组件和关系为何整体决策",
+        "候选评分与搜索各限制什么",
+        "两项研究如何组合",
+        "与ICIC相比深化了什么",
+        "迁移结果如何解释"
+      ]
+    }
+  ],
+  "display_equations": [
+    {
+      "number": "2-1",
+      "source": "P_\\theta(Y\\mid D)=\\prod_{t=1}^{L}P_\\theta(y_t\\mid D,y_{<t})."
+    },
+    {
+      "number": "2-2",
+      "source": "W=W_0+\\frac{\\alpha}{r}BA,\\quad A\\in\\mathbb R^{r\\times d_{in}},\\quad B\\in\\mathbb R^{d_{out}\\times r}."
+    },
+    {
+      "number": "2-3",
+      "source": "G_{\\mathrm{rank}}=\\arg\\max_{G\\in\\mathcal S}E_{\\mathrm{rank}}(G),\\qquad G_0=L_{\\mathcal A}(G_{\\mathrm{rank}})."
+    },
+    {
+      "number": "2-4",
+      "source": "P=\\frac{TP}{TP+FP},\\quad R=\\frac{TP}{TP+FN},\\quad F_1=\\frac{2TP}{2TP+FP+FN}."
+    },
+    {
+      "number": "3-1",
+      "source": "\nh'_t=W_0h_t+\\frac{\\alpha}{r}B_gA_gh_t\n+g_t\\frac{\\alpha}{r}B_cA_ch_t,\n\\qquad A_\\cdot\\in\\mathbb R^{r\\times d_{in}},\\quad B_\\cdot\\in\\mathbb R^{d_{out}\\times r}.\n"
+    },
+    {
+      "number": "3-2",
+      "source": "\nL_{gen}(x,G)=-\\frac1{T_y}\\sum_{t=1}^{T_y}\\log p_\\theta(y_t\\mid x,y_{<t}).\n"
+    },
+    {
+      "number": "3-3",
+      "source": "\nL_{sent}=-\\frac1{N_s}\\sum_{i=1}^{N_s}\n\\left[z_i\\log\\hat z_i+(1-z_i)\\log(1-\\hat z_i)\\right],\\qquad\nL_{ICIC}=L_{gen}+\\lambda_{sent}L_{sent}.\n"
+    },
+    {
+      "number": "3-4",
+      "source": "\n\\mathcal D_A=\\{\\omega\\in\\Omega(C):V(\\omega)\\cap A\\ne\\varnothing\\}.\n"
+    },
+    {
+      "number": "3-5",
+      "source": "\n\\phi:C\\longrightarrow C',\\qquad\n(s_c,e_c,t_c)\\longmapsto(s'_c,e'_c,t_c).\n"
+    },
+    {
+      "number": "3-6",
+      "source": "\nu_c^x=\\operatorname{MeanPool}_{i\\in B_x(c)}h_i^x,\\qquad\np_C^x(c)=\\operatorname{softmax}f_C([u_c^x;h_{end}^x]).\n"
+    },
+    {
+      "number": "3-7",
+      "source": "\np_R^x(S,v)=\\operatorname{softmax}f_R\n\\big([\\operatorname{Pool}(\\{u_c^x:c\\in S\\});u_v^x;\n h_{end}^x;\\eta(S,v)]\\big),\n"
+    },
+    {
+      "number": "3-8",
+      "source": "\nA^+=A\\cup\\bigcup_{\\substack{\\omega\\in\\mathcal D_A\\\\y_\\omega\\ne\\mathrm{NONE}}}V(\\omega).\n"
+    },
+    {
+      "number": "3-9",
+      "source": "\nL_C^{align}(x,x')=\\frac1{|A^+|}\\sum_{c\\in A^+}\n\\operatorname{JS}\\big(p_C^x(c),p_C^{x'}(\\phi(c))\\big),\n"
+    },
+    {
+      "number": "3-10",
+      "source": "\nL_R^{align}(x,x')=\\frac1{|\\mathcal B|}\\sum_{b\\in\\mathcal B}\n\\frac1{|D_b|}\\sum_{\\omega\\in D_b}\n\\operatorname{JS}\\big(p_R^x(\\omega),p_R^{x'}(\\phi(\\omega))\\big).\n"
+    },
+    {
+      "number": "3-11",
+      "source": "\nL_{heads,d}^{sup}=\\frac{S(x_d,G_d)+\\sum_{j=1}^{m_d}S(x'_{dj},\\phi_j(G_d))}{1+m_d}.\n"
+    },
+    {
+      "number": "3-12",
+      "source": "\n\\begin{aligned}\nL_d={}&L_{ICIC}(x_d,G_d)\n+\\rho\\frac1{m_d}\\sum_{j=1}^{m_d}L_{ICIC}(x'_{dj},\\phi_j(G_d))\\\\\n&+\\lambda_{sup}L_{heads,d}^{sup}\n+\\lambda_C\\bar L_{C,d}^{align}\n+\\lambda_R\\bar L_{R,d}^{align},\\qquad\nL=\\frac1{N}\\sum_{d=1}^{N}L_d.\n\\end{aligned}\n"
+    },
+    {
+      "number": "4-1",
+      "source": "\n\\mathcal C=\\{C^{(1)},\\ldots,C^{(K)}\\}.\n"
+    },
+    {
+      "number": "4-2",
+      "source": "\nE_{\\mathrm{rank}}(G)=0.4E_{\\mathrm{dens}}(G)\n+0.4E_{\\mathrm{coh}}(G)+0.2E_{\\mathrm{val}}(G).\n"
+    },
+    {
+      "number": "4-3",
+      "source": "\nE_{\\mathrm{dens}}(G)=\n\\frac1{|\\mathcal Q(G)|}\\sum_{j\\in\\mathcal Q(G)}\n\\min\\left\\{\\frac{d^{\\mathrm{in}}_{\\mathrm{coh}}(j)}{\\tau_j},1\\right\\},\n\\qquad\nE_{\\mathrm{coh}}(G)=\\frac1{|R|}\\sum_{r\\in R}p_r.\n"
+    },
+    {
+      "number": "4-4",
+      "source": "\nD=D_0\\cup\\{c\\in C:\\exists b\\in B,\\operatorname{Conflict}(c,b)\\},\n\\qquad C'=(C\\setminus D)\\cup B.\n"
+    },
+    {
+      "number": "4-5",
+      "source": "\nP_{\\mathrm{tx}}=P_A\\cup S_R.\n"
+    },
+    {
+      "number": "4-6",
+      "source": "\nq_C(c\\mid x),\\qquad q_R(r\\mid x).\n"
+    },
+    {
+      "number": "4-7",
+      "source": "\n\\Phi_X(G)=2\\sum_{o\\in X(G)}q_X(o\\mid x)-\\kappa_X|X(G)|,\n\\qquad\n\\Phi(G)=w_C\\Phi_C(G)+w_R\\Phi_R(G),\n"
+    },
+    {
+      "number": "4-8",
+      "source": "\n\\Phi_X(G)=(2-\\kappa_X)\\mathbb E[|Y_X|\\mid x]\n-\\mathbb E[\\kappa_XFP_X+(2-\\kappa_X)FN_X\\mid x].\n"
+    },
+    {
+      "number": "4-9",
+      "source": "\n\\Delta\\Phi_C\\ge0,\\qquad \\Delta\\Phi_R\\ge0,\\qquad\n\\Delta\\Phi>\\delta>0.\n"
+    },
+    {
+      "number": "4-10",
+      "source": "\n\\max_y\\ w_C\\Phi_C(C')+\nw_R\\sum_{r\\in P}(2q_R(r\\mid x)-\\kappa_R)y_r.\n"
+    },
+    {
+      "number": "4-11",
+      "source": "\n\\begin{aligned}\n&\\sum_{t\\in\\mathcal T(u)}z_{(u,t)}\\le1,\n&&z_c+z_d\\le1\\quad\\text{若 }\\operatorname{Conflict}(c,d);\\\\\n&y_r\\le z_c\\quad \\forall c\\in\\operatorname{Ends}(r),\n&&\\sum_{r\\in\\Gamma_s}y_r\\le1\\quad\\forall s;\\\\\n&y_r=\\mathbb I[r\\in R]\\quad\\forall r\\notin P_{\\mathrm{tx}},\n&&G'\\in\\mathcal G_{\\mathcal A}.\n\\end{aligned}\n"
+    },
+    {
+      "number": "4-12",
+      "source": "\no_v\\ge o_u+1-M(1-y_{(u,v,\\ell)}).\n"
+    },
+    {
+      "number": "4-13",
+      "source": "\nd_R=\\sum_{r:y_r^0=1}(1-y_r)+\\sum_{r:y_r^0=0}y_r.\n"
+    },
+    {
+      "number": "4-14",
+      "source": "\n\\Delta\\Phi_X=\n\\sum_{o\\in X(G')\\setminus X(G)}a_X(o)\n-\\sum_{o\\in X(G)\\setminus X(G')}a_X(o).\n"
+    },
+    {
+      "number": "4-15",
+      "source": "\nF'-F=\\frac{2\\Delta T-F\\Delta P_0}{P_0+Q+\\Delta P_0}.\n"
+    },
+    {
+      "number": "4-16",
+      "source": "\nh=(\\{c_{i_1},\\ldots,c_{i_k}\\},c_j,\\ell),\n\\qquad \\ell\\in\\{\\mathrm{Reason},\\mathrm{Evidence}\\}.\n"
+    }
+  ],
+  "algorithms": [
+    {
+      "caption": "算法3-1 关系感知增强学习",
+      "lines": 30,
+      "total_lines": 33
+    },
+    {
+      "caption": "算法4-1 多候选驱动的依赖闭合修正",
+      "lines": 26,
+      "total_lines": 28
+    }
+  ],
+  "images": 7,
+  "headings": [
+    [
+      1,
+      "摘要"
+    ],
+    [
+      1,
+      "Abstract"
+    ],
+    [
+      1,
+      "第一章 绪论"
+    ],
+    [
+      2,
+      "1.1 研究背景与问题提出"
+    ],
+    [
+      2,
+      "1.2 国内外研究现状"
+    ],
+    [
+      3,
+      "1.2.1 端到端论辩挖掘与生成建模"
+    ],
+    [
+      3,
+      "1.2.2 关系保持数据增强"
+    ],
+    [
+      3,
+      "1.2.3 结构化预测与论辩图修正"
+    ],
+    [
+      3,
+      "1.2.4 综合评述与本文研究位置"
+    ],
+    [
+      2,
+      "1.3 研究问题与主要研究工作"
+    ],
+    [
+      3,
+      "1.3.1 研究问题"
+    ],
+    [
+      3,
+      "1.3.2 主要研究内容"
+    ],
+    [
+      3,
+      "1.3.3 前期成果与本论文的关系"
+    ],
+    [
+      2,
+      "1.4 论文组织结构"
+    ],
+    [
+      1,
+      "第二章 任务表示与方法基础"
+    ],
+    [
+      2,
+      "2.1 论辩组件与关系表示"
+    ],
+    [
+      3,
+      "2.1.1 组件及二元关系"
+    ],
+    [
+      3,
+      "2.1.2 多前提关系与任务边界"
+    ],
+    [
+      2,
+      "2.2 合法结构与对象身份"
+    ],
+    [
+      3,
+      "2.2.1 语料约束与候选范围"
+    ],
+    [
+      3,
+      "2.2.2 语义身份与序列化"
+    ],
+    [
+      2,
+      "2.3 生成建模与参数高效适配"
+    ],
+    [
+      2,
+      "2.4 候选空间与结构决策"
+    ],
+    [
+      2,
+      "2.5 严格评价与统计口径"
+    ],
+    [
+      2,
+      "2.6 公共实验协议"
+    ],
+    [
+      3,
+      "2.6.1 数据划分与使用范围"
+    ],
+    [
+      3,
+      "2.6.2 运行配置与可复现记录"
+    ],
+    [
+      3,
+      "2.6.3 统计分析与计算成本"
+    ],
+    [
+      2,
+      "2.7 训练与推理的接口"
+    ],
+    [
+      2,
+      "2.8 本章小结"
+    ],
+    [
+      1,
+      "第三章 面向结论组件的关系感知增强学习"
+    ],
+    [
+      2,
+      "3.1 引言"
+    ],
+    [
+      2,
+      "3.2 前期专项建模基础"
+    ],
+    [
+      3,
+      "3.2.1 类型条件低秩适配"
+    ],
+    [
+      3,
+      "3.2.2 线索提示与原有监督"
+    ],
+    [
+      2,
+      "3.3 关系影响域与标注迁移"
+    ],
+    [
+      3,
+      "3.3.1 改写区域与关系因素"
+    ],
+    [
+      3,
+      "3.3.2 条件生成与标注迁移"
+    ],
+    [
+      3,
+      "3.3.3 接受规则与来源控制"
+    ],
+    [
+      2,
+      "3.4 成对组件与关系学习"
+    ],
+    [
+      3,
+      "3.4.1 输入表示与训练头"
+    ],
+    [
+      3,
+      "3.4.2 对齐与金标锚定"
+    ],
+    [
+      3,
+      "3.4.3 按源文档归一化及梯度接口"
+    ],
+    [
+      2,
+      "3.5 算法及性质"
+    ],
+    [
+      3,
+      "3.5.1 数据构造与参数学习"
+    ],
+    [
+      3,
+      "3.5.2 性质与适用条件"
+    ],
+    [
+      2,
+      "3.6 实验与分析"
+    ],
+    [
+      3,
+      "3.6.1 实验设置与比较方法"
+    ],
+    [
+      3,
+      "3.6.2 增强质量与标签可靠性"
+    ],
+    [
+      3,
+      "3.6.3 主结果及学习消融"
+    ],
+    [
+      3,
+      "3.6.4 中心选择与线索依赖"
+    ],
+    [
+      3,
+      "3.6.5 构造成本与案例分析"
+    ],
+    [
+      2,
+      "3.7 本章小结"
+    ],
+    [
+      1,
+      "第四章 多候选驱动的依赖闭合论辩图修正"
+    ],
+    [
+      2,
+      "4.1 引言"
+    ],
+    [
+      2,
+      "4.2 候选生成与初始图"
+    ],
+    [
+      3,
+      "4.2.1 组件假设及完整图生成"
+    ],
+    [
+      3,
+      "4.2.2 原始覆盖评分的保留与边界"
+    ],
+    [
+      3,
+      "4.2.3 固定跨度候选与组件冲突"
+    ],
+    [
+      3,
+      "4.2.4 完整关系候选与无边状态"
+    ],
+    [
+      2,
+      "4.3 组件集合替换与受影响关系重建"
+    ],
+    [
+      3,
+      "4.3.1 冲突闭合的集合替换"
+    ],
+    [
+      3,
+      "4.3.2 全部受影响关系与纯关系事务"
+    ],
+    [
+      2,
+      "4.4 对象评分与事务接受"
+    ],
+    [
+      3,
+      "4.4.1 固定文本证据评分器"
+    ],
+    [
+      3,
+      "4.4.2 训练外候选与概率校准"
+    ],
+    [
+      3,
+      "4.4.3 固定计数效用"
+    ],
+    [
+      3,
+      "4.4.4 分项接受门与编辑成本"
+    ],
+    [
+      2,
+      "4.5 求解算法及性质"
+    ],
+    [
+      3,
+      "4.5.1 局部整数规划关系补全"
+    ],
+    [
+      3,
+      "4.5.2 有界执行、原子提交与回退"
+    ],
+    [
+      3,
+      "4.5.3 固定评分下的精确差值"
+    ],
+    [
+      3,
+      "4.5.4 集合事务的可达性"
+    ],
+    [
+      3,
+      "4.5.5 有限终止与真实指标边界"
+    ],
+    [
+      2,
+      "4.6 实验与分析"
+    ],
+    [
+      3,
+      "4.6.1 推理协议与方法对照"
+    ],
+    [
+      3,
+      "4.6.2 组件与关系联合修正的独立作用"
+    ],
+    [
+      3,
+      "4.6.3 候选覆盖与预算内可达性"
+    ],
+    [
+      3,
+      "4.6.4 完整对象评分的可靠性"
+    ],
+    [
+      3,
+      "4.6.5 误改风险与计算预算"
+    ],
+    [
+      3,
+      "4.6.6 真实案例的对照与失败分析"
+    ],
+    [
+      2,
+      "4.7 本章小结"
+    ],
+    [
+      1,
+      "第五章 两阶段框架的综合分析"
+    ],
+    [
+      2,
+      "5.1 两阶段组合设计"
+    ],
+    [
+      3,
+      "5.1.1 训练与推理开关"
+    ],
+    [
+      3,
+      "5.1.2 主效应与相互作用"
+    ],
+    [
+      2,
+      "5.2 组合表现与误差分析"
+    ],
+    [
+      3,
+      "5.2.1 四格结果与解释范围"
+    ],
+    [
+      3,
+      "5.2.2 组合后的错误结构"
+    ],
+    [
+      2,
+      "5.3 整体成本与方法互补性"
+    ],
+    [
+      3,
+      "5.3.1 训练投入与推理开销"
+    ],
+    [
+      3,
+      "5.3.2 质量与成本的选择条件"
+    ],
+    [
+      2,
+      "5.4 跨语料适用性"
+    ],
+    [
+      3,
+      "5.4.1 标签映射与迁移设定"
+    ],
+    [
+      3,
+      "5.4.2 域外错误与适用边界"
+    ],
+    [
+      2,
+      "5.5 本章小结"
+    ],
+    [
+      1,
+      "第六章 总结与展望"
+    ],
+    [
+      2,
+      "6.1 研究总结"
+    ],
+    [
+      2,
+      "6.2 研究局限"
+    ],
+    [
+      3,
+      "6.2.1 训练监督的可靠性"
+    ],
+    [
+      3,
+      "6.2.2 候选与决策的限制"
+    ],
+    [
+      3,
+      "6.2.3 证据与适用范围"
+    ],
+    [
+      2,
+      "6.3 后续研究方向"
+    ],
+    [
+      1,
+      "参考文献"
+    ],
+    [
+      1,
+      "附录A 数据处理与复现协议"
+    ],
+    [
+      2,
+      "A.1 坐标与结构数据"
+    ],
+    [
+      2,
+      "A.2 配置与结果的关联"
+    ],
+    [
+      2,
+      "A.3 其他语料与语言的范围"
+    ],
+    [
+      1,
+      "附录B 评分与事务执行记录"
+    ],
+    [
+      2,
+      "B.1 数据与模型身份"
+    ],
+    [
+      2,
+      "B.2 评分与接受轨迹"
+    ],
+    [
+      2,
+      "B.3 回退与预算"
+    ],
+    [
+      2,
+      "B.4 实现一致性测试"
+    ],
+    [
+      1,
+      "附录C 成果归属与研究声明"
+    ],
+    [
+      2,
+      "C.1 前期共同成果"
+    ],
+    [
+      2,
+      "C.2 数据与材料可得性"
+    ],
+    [
+      2,
+      "C.3 研究辅助与伦理说明"
+    ],
+    [
+      2,
+      "C.4 资助与利益冲突"
+    ],
+    [
+      1,
+      "附录D 前期实验基础与轻量诊断"
+    ],
+    [
+      2,
+      "D.1 前期结果的使用范围"
+    ],
+    [
+      2,
+      "D.2 训练集内诊断设置"
+    ],
+    [
+      2,
+      "D.3 诊断的启示与限制"
+    ],
+    [
+      1,
+      "附录E 前期数值与协议存档"
+    ],
+    [
+      2,
+      "E.1 AAEC组件分类别旧稿记录"
+    ],
+    [
+      2,
+      "E.2 ICIC原版AAEC域内结果记录"
+    ],
+    [
+      2,
+      "E.3 ICIC原版CDCP域内结果记录"
+    ],
+    [
+      2,
+      "E.4 ICIC原版模块消融记录"
+    ],
+    [
+      2,
+      "E.5 ICIC原版验证器替换记录"
+    ],
+    [
+      2,
+      "E.6 ICIC原版Oracle记录"
+    ],
+    [
+      2,
+      "E.7 ICIC原版修正行为记录"
+    ],
+    [
+      2,
+      "E.8 前期粗粒度组件映射"
+    ],
+    [
+      2,
+      "E.9 ICIC原版AAEC到CDCP迁移记录"
+    ],
+    [
+      1,
+      "附录F 符号与阅读索引"
+    ],
+    [
+      2,
+      "F.1 核心术语与符号"
+    ],
+    [
+      2,
+      "F.2 实现接口补充"
+    ],
+    [
+      2,
+      "F.3 研究问题阅读索引"
+    ]
+  ],
+  "captions": [
+    "图1-1 原始文本中的组件与关系示意",
+    "表1-1 近邻方法与本文研究位置",
+    "图1-2 组件关系依赖下的两项研究内容",
+    "表1-2 前期成果与本论文深化内容",
+    "表2-1 域内任务与评价边界",
+    "表2-2 共享实验配置与运行绑定字段",
+    "图2-1 训练监督保持与推理结构恢复的两阶段接口",
+    "表3-1 关系保持改写的组件示意",
+    "图3-1 可改写组件及关系状态的检查范围示意",
+    "图3-2 关系感知增强学习的训练架构",
+    "算法3-1 关系感知增强学习",
+    "表3-2 训练侧必要对照及其回答的问题",
+    "表3-3 训练侧消融的预期情景占位",
+    "表3-4 增强成功与失败案例的报告字段（待实测）",
+    "图4-1 组件替换及受影响关系的事务式处理示意（人为构造）",
+    "算法4-1 多候选驱动的依赖闭合修正",
+    "图4-2 多候选驱动的依赖闭合修正执行流程",
+    "表4-1 推理方法的修改对象与决策接口",
+    "表4-2 推理侧对照及归因",
+    "表4-3 推理侧比较的预期情景占位",
+    "表4-4 候选与可达性诊断的预期情景占位",
+    "表4-5 固定提案评分诊断的预期情景占位",
+    "表4-6 AAEC风险与成本的预期情景占位",
+    "表5-1 两阶段组合的预期情景占位",
+    "表A-1 复现材料的关联字段",
+    "表E-1 AAEC组件分类别旧稿记录",
+    "表E-2 ICIC原版AAEC域内结果记录",
+    "表E-3 ICIC原版CDCP域内结果记录",
+    "表E-4 ICIC原版模块消融记录",
+    "表E-5 ICIC原版验证器替换记录",
+    "表E-6 ICIC原版Oracle记录",
+    "表E-7 ICIC原版修正行为记录",
+    "表E-8 前期粗粒度组件映射",
+    "表E-9 ICIC原版AAEC到CDCP迁移记录",
+    "表F-1 核心符号及其语义",
+    "表F-2 方法与实验的阅读索引"
+  ],
+  "page_cache_loaded": true,
+  "rendered_or_visually_verified": false,
+  "counts": {
+    "display_equations": 32,
+    "inline_equations": 270,
+    "tables": 27
+  }
+}

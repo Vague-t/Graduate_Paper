@@ -1,0 +1,25 @@
+﻿代号,作者年份,题名,来源链接,读取范围,使用边界
+B01,Roth & Yih (2004),A Linear Programming Formulation for Global Inference in Natural Language Tasks,https://aclanthology.org/W04-2401/,原论文全文，前轮已读,联合实体与关系约束推断的既有基础；不能把联合选择或ILP本身当作新贡献。
+B02,Luan et al. (2018),"Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction",https://aclanthology.org/D18-1360/,原论文及项目页，前轮已读,SciERC的实体、关系与共指任务；本轮仅把实体关系部分作为近距离适配。
+B03,Lin et al. (2020),A Joint Neural Model for Information Extraction with Global Features,https://aclanthology.org/2020.acl-main.713/,原论文§3.4—3.5、§5及案例,OneIE已联合处理节点与连接，其全局特征与解码是强相关比较对象。
+B04,Lu et al. (2022),Unified Structure Generation for Universal Information Extraction,https://aclanthology.org/2022.acl-long.395/,原论文§1—2,UIE以识别与关联组织多种抽取任务；统一表示和多任务覆盖不是本论文独有。
+B05,Lou et al. (2023),Universal Information Extraction as Unified Semantic Matching,https://ojs.aaai.org/index.php/AAAI/article/view/26563,原始发表页摘要,USM作为统一模式与结构提取参照；本轮未逐项复现其实现。
+B06,Zhang et al. (2021),Aspect Sentiment Quad Prediction as Paraphrase Generation,https://aclanthology.org/2021.emnlp-main.726/,原论文任务定义及隐式要素描述,ASQP含方面、类别、观点与情感；与ACOS的设定及数据不能混写。
+B07,Cai et al. (2021),Aspect-Category-Opinion-Sentiment Quadruple Extraction with Implicit Aspects and Opinions,https://aclanthology.org/2021.acl-long.29/,原论文摘要、§5.1评价,ACOS同时考虑隐式方面与观点，采用完整四元组精确匹配。
+B08,Ebner et al. (2020),Multi-Sentence Argument Linking,https://aclanthology.org/2020.acl-main.718/,原论文，前轮已读,RAMS的角色跨度链接；给定触发词条件与端到端事件抽取分开。
+B09,Kim et al. (2011),Overview of Genia Event Task in BioNLP Shared Task 2011,https://aclanthology.org/W11-1802/,原论文任务定义及递归事件讨论,事件可成为另一事件的论元，要求多层身份依赖。
+B10,Ning et al. (2018),A Multi-Axis Annotation Scheme for Event Temporal Relations,https://aclanthology.org/P18-1122/,原论文§2，尤其PDF第3页,MATRES涉及事件起点及时间轴，不能把所有事件强制排序到同一条时间轴。
+B11,Ning et al. (2019),An Improved Neural Baseline for Temporal Relation Extraction,https://aclanthology.org/D19-1642/,原始论文摘要与方法信息,已有全局ILP推断，时序约束本身不是新方法。
+B12,Ning et al. (2018),Joint Reasoning for Temporal and Causal Relations,https://aclanthology.org/P18-1212/,原始发表页及作者项目页,时序与因果联合约束的比较来源；因果方向与时间关系的具体约束依任务定义。
+B13,Lee et al. (2017),End-to-end Neural Coreference Resolution,https://aclanthology.org/D17-1018/,原论文建模与§7—8、表1,跨度与先行词链接、实体簇；CoNLL评价不是简单的成对关系F1。
+B14,Xu et al. (2022),XFUND: A Benchmark Dataset for Multilingual Visually Rich Form Understanding,https://aclanthology.org/2022.findings-acl.253/,原论文§2.5、§4.2,语义实体与键值关系、文本/坐标/图像输入；给定实体和预测实体评价需分别核对。
+B15,Yang et al. (2022),Panoptic Scene Graph Generation,https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/222_ECCV_2022_paper.php,原论文PDF第7页任务与指标,场景图以分割区域为对象，R@K、mR@K和掩码IoU匹配不同于严格文本对象F1。
+B16,Cai & Knight (2013),Smatch: an Evaluation Metric for Semantic Feature Structures,https://aclanthology.org/P13-2131/,原论文PDF第2—3页,AMR评价涉及图间变量映射；不能按原始节点编号直接比较。
+B17,Opitz (2023),SMATCH++: Standardized and Extended Evaluation of Semantic Graphs,https://aclanthology.org/2023.findings-eacl.118/,原始发表页,语义图评价的标准化与扩展，后续实验应固定评价器及配置。
+B18,Scholak et al. (2021),PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models,https://aclanthology.org/2021.emnlp-main.779/,原论文§2及表1,除语法检查外还含别名、列和作用域检查，不能把它描述为仅管括号。
+B19,Yu et al. (2018),Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task,https://aclanthology.org/D18-1425/,原始发表页与项目说明,SQL结构和数据库模式迁移；原始Spider不代表已覆盖所有后续SQL基准。
+B20,McDonald et al. (2005),Non-Projective Dependency Parsing using Spanning Tree Algorithms,https://aclanthology.org/H05-1066/,原论文解码与实验,固定词节点、边可加时存在专用树解码方法，通用修正未必必要。
+B21,Nivre et al. (2020),Universal Dependencies v2: An Evergrowing Multilingual Treebank Collection,https://aclanthology.org/2020.lrec-1.497/,原始发表页与官方指南入口,基本依存树与增强依存图等设定需区分；标准树约束不可无条件扩展。
+B22,Liu et al. (2022),TLogic: Temporal Logical Rules for Explainable Link Forecasting on Temporal Knowledge Graphs,https://ojs.aaai.org/index.php/AAAI/article/view/20330,原始发表页摘要,时序知识图谱链路预测任务与实体跨度联合修正不同。
+B23,Thorne et al. (2018),FEVER: a Large-scale Dataset for Fact Extraction and VERification,https://aclanthology.org/N18-1074/,原论文任务与证据评价说明,证据集合和结论标签相互依赖，但形式约束不能证明自然语言蕴含。
+B24,Ping et al. (2023),UniEX: An Effective and Efficient Framework for Unified Information Extraction via a Span-extractive Perspective,https://aclanthology.org/2023.acl-long.907/,原始发表页摘要,跨度式统一抽取的相关工作；本轮仅用于指出统一抽取并非新的任务范式。

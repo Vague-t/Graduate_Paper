@@ -1,0 +1,392 @@
+[P000; PDF页1; Normal]
+分类号：____________　　　　　　　　密　级：____________
+
+[P001; PDF页1; Normal]
+U D C：____________　　　　　　　　编　号：10486
+
+[P002; PDF页待定位; Normal]
+硕士学位论文
+
+[P003; PDF页1,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,140,142; Normal]
+面向关系感知学习与依赖闭合修正的
+端到端论辩挖掘方法研究
+
+[P004; PDF页1; Normal]
+研究生姓名：（盲审版本隐去）
+
+[P005; PDF页1; Normal]
+学　　号：（盲审版本隐去）
+
+[P006; PDF页1; Normal]
+指导教师姓名、职称：（盲审版本隐去）
+
+[P007; PDF页1; Normal]
+专业名称：（盲审版本隐去）
+
+[P008; PDF页1; Normal]
+研究方向：（盲审版本隐去）
+
+[P009; PDF页待定位; Normal]
+二〇二六年十月
+
+[P010; PDF页2; Normal]
+End-to-End Argument Mining via Relation-Aware Learning and Dependency-Closed Repair
+
+[P011; PDF页待定位; Normal]
+By
+
+[P012; PDF页待定位; Normal]
+***
+
+[P013; PDF页2; Normal]
+Supervised By
+
+[P014; PDF页待定位; Normal]
+***
+
+[P015; PDF页2; Normal]
+Wuhan University
+
+[P016; PDF页2; Normal]
+October, 2026
+
+[P017; PDF页待定位; Normal]
+论文原创性声明
+
+[P018; PDF页3; Normal]
+本人郑重声明：所呈交的学位论文，是本人在导师指导下，独立进行研究工作所取得的研究成果。除文中已经标明引用的内容外，本论文不包含任何其他个人或集体已发表或撰写的研究成果。对本文的研究做出贡献的个人和集体，均已在文中以明确方式标明。本声明的法律结果由本人承担。
+
+[P019; PDF页3; Normal]
+学位论文作者（签名）：
+
+[P020; PDF页待定位; Normal]
+日期：　　　年　　月　　日
+
+[P021; PDF页4; Normal]
+武汉大学学位论文使用授权协议书
+
+[P022; PDF页4; Normal]
+本学位论文作者愿意遵守武汉大学关于保存、使用学位论文的管理办法及规定，即：学校有权保存学位论文的印刷本和电子版，并提供文献检索与阅览服务；学校可以采用影印、缩印、数字化或其它复制手段保存论文；在以教学与科研服务为目的前提下，学校可以在校园网内公布部分或全部内容。
+
+[P023; PDF页4; Normal]
+一、在本论文提交当年，同意在校园网内以及中国高等教育文献保障系统（CALIS）、高校学位论文系统提供查询及前十六页浏览服务。
+
+[P024; PDF页4; Normal]
+二、在本论文提交□当年/□一年/□两年/□三年以后，同意在校园网内允许读者在线浏览并下载全文，学校可以为存在馆际合作关系的兄弟高校用户提供文献传递服务和交换服务。（保密论文解密后遵守此规定）
+
+[P025; PDF页3,4; Normal]
+论文作者（签名）：
+
+[P026; PDF页待定位; Normal]
+学　　号：
+
+[P027; PDF页待定位; Normal]
+学　　院：
+
+[P028; PDF页待定位; Normal]
+日期：　　　年　　月　　日
+
+[P029; PDF页待定位; Normal]
+
+
+[P030; PDF页待定位; Heading 1]
+摘要
+
+[P031; PDF页5; Body Text]
+论辩挖掘旨在识别文本中的论点、前提等论辩组件及组件之间的支持与攻击关系，将非结构化的论述转化为可分析的论辩结构，从而为写作评价、舆情分析等应用提供支持。近年来，大语言模型凭借较强的上下文语义理解能力，能够以统一的生成方式从原始文本直接输出组件边界、类型及组件之间的关系，从而联合处理多个子任务；然而，组件与关系之间相互依赖，模型在训练与推理阶段仍面临以下两方面挑战。首先，现有数据增强方法难以保证改写后监督的可靠性：这类方法通常默认改写保持原文语义并直接继承全部原标注，而局部改写可能改变组件的论辩角色或组件之间的关系，使沿用的标注成为错误监督。其次，生成结果中的结构错误难以通过单独修正组件或关系得到一致纠正：生成的论辩图中常含有边界或类型错误的组件，而组件一旦被修改，以其为端点的关系随之失效，单独修正组件或单独修正关系都难以得到结构一致的论辩图。
+
+[P032; PDF页5; Body Text]
+针对上述问题，本文围绕端到端论辩挖掘中组件与关系之间的相互依赖，按照从训练到推理的顺序开展两项递进的研究：首先在训练阶段判断局部改写后哪些监督仍然可靠，以改进模型的学习信号；进而以所得模型为起点，在推理阶段对其预测结果中残余的组件错误及其关联关系进行联合决策，从而同时提升训练信号的可靠性与输出结构的一致性。具体工作如下：
+
+[P033; PDF页5; Body Text]
+（1）针对数据增强中局部改写可能使原标注失效的问题，本文提出可靠监督与一致性学习方法。该方法以单个组件类型或一组端点之间的关系状态（称为因素）为粒度判断监督是否可靠：首先，确定每处改写可能影响的组件与关系范围，即关系影响域，并将原标注无损地迁移到改写文本上；其次，对影响域内的因素逐项进行语义审核，仅保留仍然成立的可靠因素；在训练阶段，原文提供完整的论辩图监督，改写文本则与原文构成成对视图，仅在可靠因素上提供辅助监督并施加一致性约束。在英文议论文与公共政策评论两个广泛使用的论辩挖掘语料上的实验结果表明，与作为基础方法的多候选重排序与有界修正方法相比，该方法使严格关系F1分别提高2.56%和3.30%；人工分层审核显示，被接受关系因素的加权不安全率估计为0.81%和0.91%。
+
+[P034; PDF页5; Body Text]
+（2）在上述模型的基础上，针对其预测结果中残余的组件错误会使关联关系随之失效的问题，本文进一步提出结构约束联合修正方法，在不更新抽取模型参数的前提下对初始预测图中的组件与关系进行联合修正。一方面，将组件修改与全部受影响关系的重建组织为不可拆分的依赖闭合事务，使组件及其关联关系一同被接受或拒绝；另一方面，在预先固定的对象评分下构造组件与关系的分项效用门，并结合编辑预算决定是否接受修改，从而控制误改风险与修改范围；在此基础上，提供全局整数规划与集合局部搜索两种求解方式。实验结果表明，在第一项工作所得模型上追加该方法，严格关系F1进一步显著提高3.38%和5.68%；与相同预算的重新生成相比，该方法在取得更高F1的同时保留了98%以上的原有正确关系，直接作用于基础方法的模型时同样带来稳定提升。
+
+[P035; PDF页6; Body Text]
+综上所述，本文先改进训练监督、再修正推理结构，逐步处理组件与关系之间的依赖。以9B规模骨干为例，两项方法依次叠加后，模型在两个语料上取得71.63和50.77的严格关系F1，相对同骨干的基础方法分别提高5.94%和8.98%；在多个开源大语言模型骨干上，完整方法均取得一致且显著的提升，两阶段恢复的关系重叠很少、增益基本可以叠加，表明推理阶段的联合修正能够在训练改进的基础上继续发挥作用。本文研究表明，在训练中仅沿用改写后仍然可靠的监督、在推理中对组件与关系进行联合决策，能够有效提升基于大语言模型的端到端论辩挖掘性能，为结构化输出的可靠学习与一致修正提供了可行的技术路径。
+
+[P036; PDF页6; Body Text]
+关键词：论辩挖掘；大语言模型；数据增强；一致性学习；结构化预测；联合修正
+
+[P037; PDF页7,10; Heading 1]
+Abstract
+
+[P038; PDF页7; Body Text]
+Argument mining aims to identify argumentative components, such as claims and premises, together with the support and attack relations between them, thereby turning unstructured discourse into analyzable argument structures for applications such as writing assessment and public opinion analysis. With their strong contextual semantic understanding, large language models can generate component boundaries, types, and relations directly from raw text in a unified manner and thus handle multiple subtasks jointly. However, because components and relations depend on each other, two challenges remain in training and inference. First, existing data augmentation methods cannot guarantee that supervision remains reliable after rewriting: they generally assume that rewriting preserves meaning and inherit all original annotations, whereas a local rewrite may change the argumentative role of a component or its relations with other components, turning the inherited labels into erroneous supervision. Second, structural errors in generated outputs can hardly be corrected consistently by repairing components or relations separately: generated argument graphs often contain components with incorrect boundaries or types, and once a component is modified, every relation that uses it as an endpoint becomes invalid, so correcting components alone or relations alone can hardly yield a consistent argument graph.
+
+[P039; PDF页7; Body Text]
+To address these challenges, this thesis studies the interdependence between components and relations in end-to-end argument mining through two progressive studies that follow the order of training and inference. The first study improves the learning signal by determining which supervision remains reliable after local rewriting; building on the resulting model, the second study makes joint decisions on the residual component errors in its predictions and on their associated relations. Together, the two studies improve both the reliability of training signals and the consistency of output structures. The main work is as follows.
+
+[P040; PDF页7; Body Text]
+(1) To address the problem that local rewriting may invalidate original annotations, this thesis proposes a method of reliable supervision with consistency learning. The method judges reliability at the level of factors, i.e., the type of a single component or the relation status between a set of endpoints. It first determines the relation influence domain of each rewrite, namely the components and relations that may be affected, and transfers the original annotations losslessly to the rewritten text; it then audits the factors within this domain one by one and retains only the reliable factors whose labels still hold. During training, the original text provides full argument-graph supervision, while the rewritten text, which forms a paired view with the original, contributes auxiliary supervision and consistency constraints only on reliable factors. Experiments on two widely used English argument mining corpora of persuasive essays and public policy comments show that, compared with the base method of multi-candidate reranking and bounded repair, the proposed method improves strict relation F1 by 2.56% and 3.30%, respectively. Stratified human auditing estimates the weighted unsafe rates of accepted relation factors at 0.81% and 0.91%.
+
+[P041; PDF页8; Body Text]
+(2) Building on this model, and to address the problem that residual component errors in its predictions invalidate their associated relations, this thesis further proposes a structure-constrained joint repair method, which jointly revises the components and relations of the initial predicted graph without updating the parameters of the extraction model. On the one hand, a component modification and the reconstruction of all affected relations are organized into an indivisible dependency-closed transaction, so that the component and its associated relations are accepted or rejected together. On the other hand, per-type utility gates for components and relations are built on frozen object scores and combined with edit budgets to decide whether a modification is accepted, thereby controlling the risk and scope of edits. Both a global integer programming solver and a set-based local search are provided. Applied to the model obtained in the first study, the method further improves strict relation F1 by 3.38% and 5.68%. Compared with regeneration under the same budget, it achieves higher F1 while retaining more than 98% of the originally correct relations, and it also yields consistent gains when applied directly to the model of the base method.
+
+[P042; PDF页9; Body Text]
+In summary, this thesis first improves training supervision and then repairs inference-time structures, addressing the dependency between components and relations step by step. Taking a 9B-scale backbone as an example, the full method with both stages achieves strict relation F1 scores of 71.63 and 50.77 on the two corpora, outperforming the base method with the same backbone by 5.94% and 8.98%. Consistent and significant gains are observed across multiple open-source large language model backbones, and the relations recovered by the two stages overlap little, so that their gains are largely additive and joint repair continues to contribute on top of the improved training. These results indicate that retaining only the supervision that remains reliable after rewriting during training and making joint decisions on components and relations during inference can effectively improve end-to-end argument mining based on large language models, offering a practical path toward reliable learning and consistent repair of structured outputs.
+
+[P043; PDF页9; Body Text]
+Keywords: Argument Mining; Large Language Models; Data Augmentation; Consistency Learning; Structured Prediction; Joint Repair
+
+[P044; PDF页待定位; Front Heading]
+目录
+
+[P045; PDF页待定位; Normal]
+
+
+[P046; PDF页待定位; TOC 1]
+ | 摘要 | I
+
+[P047; PDF页待定位; TOC 1]
+ | Abstract | III
+
+[P048; PDF页待定位; TOC 1]
+ | 主要符号对照表 | IX
+
+[P049; PDF页待定位; TOC 1]
+ | 第1章 绪论 | 1
+
+[P050; PDF页待定位; TOC 2]
+ | 1.1 研究背景与意义 | 1
+
+[P051; PDF页待定位; TOC 2]
+ | 1.2 国内外研究现状 | 3
+
+[P052; PDF页待定位; TOC 3]
+ | 1.2.1 端到端论辩挖掘方法 | 3
+
+[P053; PDF页待定位; TOC 3]
+ | 1.2.2 论辩挖掘中的数据增强 | 5
+
+[P054; PDF页待定位; TOC 3]
+ | 1.2.3 结构化预测与预测结果修正 | 6
+
+[P055; PDF页待定位; TOC 2]
+ | 1.3 主要研究内容 | 8
+
+[P056; PDF页待定位; TOC 2]
+ | 1.4 论文组织结构 | 11
+
+[P057; PDF页待定位; TOC 1]
+ | 第2章 相关理论与技术 | 12
+
+[P058; PDF页待定位; TOC 2]
+ | 2.1 论辩挖掘任务与结构表示 | 12
+
+[P059; PDF页待定位; TOC 3]
+ | 2.1.1 论辩组件与关系 | 12
+
+[P060; PDF页待定位; TOC 3]
+ | 2.1.2 组件的字符级表示 | 13
+
+[P061; PDF页待定位; TOC 2]
+ | 2.2 大语言模型与参数高效微调 | 15
+
+[P062; PDF页待定位; TOC 3]
+ | 2.2.1 注意力机制与自回归生成 | 15
+
+[P063; PDF页待定位; TOC 3]
+ | 2.2.2 参数高效微调与连续提示 | 16
+
+[P064; PDF页待定位; TOC 2]
+ | 2.3 数据增强与一致性学习 | 17
+
+[P065; PDF页待定位; TOC 2]
+ | 2.4 候选评分与结构化决策 | 18
+
+[P066; PDF页待定位; TOC 2]
+ | 2.5 本章小结 | 19
+
+[P067; PDF页待定位; TOC 1]
+ | 第3章 基于可靠监督与一致性学习的论辩挖掘方法 | 20
+
+[P068; PDF页待定位; TOC 2]
+ | 3.1 引言 | 20
+
+[P069; PDF页待定位; TOC 2]
+ | 3.2 总体框架与基础模型 | 21
+
+[P070; PDF页待定位; TOC 2]
+ | 3.3 基于关系影响域的可靠增强数据构造 | 23
+
+[P071; PDF页待定位; TOC 3]
+ | 3.3.1 改写范围与关系影响域 | 23
+
+[P072; PDF页待定位; TOC 3]
+ | 3.3.2 改写生成与标注迁移 | 26
+
+[P073; PDF页待定位; TOC 3]
+ | 3.3.3 语义审核与因素掩码 | 26
+
+[P074; PDF页待定位; TOC 3]
+ | 3.3.4 标注迁移与改写案例 | 28
+
+[P075; PDF页待定位; TOC 2]
+ | 3.4 一致性学习模型与训练 | 30
+
+[P076; PDF页待定位; TOC 3]
+ | 3.4.1 辅助预测头与一致性约束 | 33
+
+[P077; PDF页待定位; TOC 3]
+ | 3.4.2 损失归一化与参数更新 | 35
+
+[P078; PDF页待定位; TOC 3]
+ | 3.4.3 算法流程与性质分析 | 36
+
+[P079; PDF页待定位; TOC 2]
+ | 3.5 实验与分析 | 37
+
+[P080; PDF页待定位; TOC 3]
+ | 3.5.1 数据集与评价指标 | 37
+
+[P081; PDF页待定位; TOC 3]
+ | 3.5.2 对照方法 | 38
+
+[P082; PDF页待定位; TOC 3]
+ | 3.5.3 实验环境与参数设置 | 40
+
+[P083; PDF页待定位; TOC 3]
+ | 3.5.4 主要结果与消融分析 | 43
+
+[P084; PDF页待定位; TOC 3]
+ | 3.5.5 增强数据的人工审核 | 46
+
+[P085; PDF页待定位; TOC 3]
+ | 3.5.6 训练成本与跨骨干表现 | 50
+
+[P086; PDF页待定位; TOC 2]
+ | 3.6 本章小结 | 52
+
+[P087; PDF页待定位; TOC 1]
+ | 第4章 基于结构约束的论辩图联合修正方法 | 54
+
+[P088; PDF页待定位; TOC 2]
+ | 4.1 引言 | 54
+
+[P089; PDF页待定位; TOC 2]
+ | 4.2 候选生成与初始图 | 57
+
+[P090; PDF页待定位; TOC 3]
+ | 4.2.1 多候选生成与初始图选择 | 57
+
+[P091; PDF页待定位; TOC 3]
+ | 4.2.2 候选空间构建 | 58
+
+[P092; PDF页待定位; TOC 2]
+ | 4.3 对象评分与接受准则 | 60
+
+[P093; PDF页待定位; TOC 3]
+ | 4.3.1 对象评分器与策略选择 | 60
+
+[P094; PDF页待定位; TOC 3]
+ | 4.3.2 效用函数与接受条件 | 61
+
+[P095; PDF页待定位; TOC 2]
+ | 4.4 依赖闭合事务的构造 | 62
+
+[P096; PDF页待定位; TOC 3]
+ | 4.4.1 组件冲突消解 | 62
+
+[P097; PDF页待定位; TOC 3]
+ | 4.4.2 受影响关系的重建 | 63
+
+[P098; PDF页待定位; TOC 3]
+ | 4.4.3 事务示例 | 64
+
+[P099; PDF页待定位; TOC 2]
+ | 4.5 求解算法及性质 | 66
+
+[P100; PDF页待定位; TOC 3]
+ | 4.5.1 集合局部搜索 | 66
+
+[P101; PDF页待定位; TOC 3]
+ | 4.5.2 全局整数规划求解 | 69
+
+[P102; PDF页待定位; TOC 3]
+ | 4.5.3 方法性质分析 | 71
+
+[P103; PDF页待定位; TOC 3]
+ | 4.5.4 求解方式的选择 | 72
+
+[P104; PDF页待定位; TOC 2]
+ | 4.6 实验与分析 | 74
+
+[P105; PDF页待定位; TOC 3]
+ | 4.6.1 实验设置 | 74
+
+[P106; PDF页待定位; TOC 3]
+ | 4.6.2 主要结果与消融分析 | 78
+
+[P107; PDF页待定位; TOC 3]
+ | 4.6.3 候选覆盖与评分质量分析 | 84
+
+[P108; PDF页待定位; TOC 3]
+ | 4.6.4 推理成本分析 | 94
+
+[P109; PDF页待定位; TOC 3]
+ | 4.6.5 与第3章方法的衔接分析 | 96
+
+[P110; PDF页待定位; TOC 3]
+ | 4.6.6 多前提关系分析 | 103
+
+[P111; PDF页待定位; TOC 3]
+ | 4.6.7 不同骨干模型上的结果 | 104
+
+[P112; PDF页待定位; TOC 3]
+ | 4.6.8 与外部系统及已发表结果的比较 | 106
+
+[P113; PDF页待定位; TOC 2]
+ | 4.7 本章小结 | 110
+
+[P114; PDF页待定位; TOC 1]
+ | 第5章 总结与展望 | 111
+
+[P115; PDF页待定位; TOC 2]
+ | 5.1 全文工作总结 | 111
+
+[P116; PDF页待定位; TOC 2]
+ | 5.2 未来工作展望 | 112
+
+[P117; PDF页待定位; TOC 1]
+ | 参考文献 | 114
+
+[P118; PDF页待定位; TOC 1]
+ | 致谢 | 126
+
+[P119; PDF页待定位; TOC 1]
+ | 附录A 个人简历 | 127
+
+[P120; PDF页待定位; TOC 1]
+ | 附录B 在学期间参与的科研项目 | 128
+
+[P121; PDF页待定位; TOC 1]
+ | 附录C 在学期间取得的学术成果 | 129
+
+[P122; PDF页待定位; Normal]
+
+
+[P123; PDF页待定位; Heading 1]
+主要符号对照表
+
+[T00; PDF页待定位; 表格]
+符号 | 含义 | 定义位置
+x、x′ | 原文及其改写文本 | 2.1.2
+A | 被改写组件的集合 | 3.3.1
+DA | 关系影响域：可审核因素中至少一个端点位于A内的因素 | 3.3.1
+JA | 实际审核的因素集合，包括受影响正关系和抽样的NONE | 3.3.3
+φ | 原文组件到改写组件的对应映射 | 3.3.2
+mC、mR | 组件与关系因素的可靠性掩码 | 3.3.3
+Ωsem | 可审核的因素集合，排除语义未知的多前提子集 | 3.3.3
+G0；I0 / I1 | 初始图；MCR-BR推理流程 / 追加联合修正的推理流程 | 2.4、4.2.1
+U；V；P | 跨度；带类型组件；完整关系候选池 | 4.2.2
+qC；qR | 完整组件与完整关系的固定评分 | 4.3.1
+ΦC；ΦR；Φ | 组件、关系与总效用 | 4.3.2
+RDC；BR-J | 追加的联合修正；集合局部搜索子程序 | 4.1、4.5.1
+δ；BC；BR | 严格改进阈值；组件与关系编辑预算 | 4.3.2、4.4.2
+T0／T1 | MCR-BR的训练配置／第3章可靠监督与一致性学习方法的训练配置 | 3.5.3
+T0I0、T1I0、T0I1、T1I1 | 训练配置与推理配置的四种组合，如T1I1表示第3章训练配置加第4章联合修正 | 4.6.5
+
+[P124; PDF页待定位; Normal]

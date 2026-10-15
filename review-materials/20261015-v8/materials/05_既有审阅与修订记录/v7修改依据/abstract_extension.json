@@ -1,0 +1,73 @@
+{
+  "abstract_cn": [
+    "论辩挖掘旨在识别文本中的论点、前提及其支持与攻击关系，为写作评价、舆情分析等应用提供结构化依据。近年来，大语言模型能够从原始文本直接生成组件及其关系，推动了端到端论辩挖掘的发展。然而，组件与关系之间的相互依赖仍给模型学习和结果修正带来困难：局部改写可能改变组件的论辩角色或关联关系，使直接继承的标注成为错误监督；预测图中的组件错误又会影响多条关系，仅对局部对象进行独立修正，难以兼顾整体结构的一致性。",
+    "针对上述问题，论文从训练监督的可靠性和预测结构的联合修正两个方面开展研究。前者通过筛选有效的增强监督改进模型学习，后者面向训练后仍然存在的结构错误，在保持抽取模型参数不变的条件下联合调整组件与关系，两项工作共同服务于端到端论辩挖掘的准确性提升。具体研究内容如下：",
+    "（1）针对局部改写后原标注可能失效的问题，提出可靠监督与一致性学习方法。该方法先确定改写可能影响的组件与关系范围，并建立原文与改写文本之间的组件对应关系，再通过语义审核筛选仍然可靠的组件类型和关系状态。训练时，原文提供完整的论辩图监督，改写文本仅在通过审核的部分提供辅助监督与一致性约束，从而利用增强数据补充学习信号并减少错误监督的影响。在英文议论文与公共政策评论两个语料上的实验表明，与同骨干的基准模型相比，该方法使严格关系F1分别由65.69%和41.79%提高至68.25%和45.08%。",
+    "（2）针对组件错误及其关联关系难以协调修正的问题，提出结构约束联合修正方法。该方法将组件修改与全部受影响关系的重建组织为共同接受或拒绝的操作，在固定候选与对象评分的条件下，结合结构约束、分项效用和编辑预算选择修正结果，以控制修改范围并减少对原有正确结构的破坏。该方法既可作用于第一项工作得到的模型，也可独立用于基准模型。实验表明，在可靠监督与一致性学习的基础上追加联合修正，两个语料上的严格关系F1进一步提高至71.63%和50.77%；与相同预算的重新生成相比，联合修正取得了更高的F1，并保留了98%以上的原有正确关系。",
+    "两项方法分别改进模型的学习信号与预测结果，在同一开源大语言模型系列的三种骨干配置上均取得性能提升。研究结果表明，训练阶段对可靠监督的筛选与利用，以及推理阶段对组件和关系的联合决策，能够相互补充，为提升生成式论辩结构抽取的准确性提供可行方法。"
+  ],
+  "abstract_en": [
+    "Argument mining identifies claims, premises, and their support or attack relations to provide structured evidence for applications such as writing assessment and public opinion analysis. Large language models have advanced end-to-end argument mining by generating components and relations directly from text. However, their interdependence presents challenges for both learning and repair. Local rewriting may change argumentative roles or relations, making inherited annotations unreliable. Component errors in predicted graphs may also affect multiple relations, making independent local corrections insufficient to maintain structural consistency.",
+    "This thesis addresses these challenges through reliable training supervision and joint repair of predicted structures. The first study improves learning by selecting valid supervision from augmented data. The second addresses residual structural errors by jointly revising components and relations without updating the extraction model. Together, the two studies aim to improve end-to-end argument mining accuracy. The main contributions are as follows.",
+    "(1) A reliable supervision and consistency learning method is proposed to address annotation invalidation after local rewriting. It identifies potentially affected components and relations, aligns components between the original and rewritten texts, and audits the validity of component types and relation states. The original text provides complete graph supervision, whereas the rewritten text contributes auxiliary supervision and consistency constraints only for accepted annotations. This uses augmented learning signals while reducing erroneous supervision. On persuasive essay and public policy comment corpora, strict relation F1 increases from 65.69% and 41.79% to 68.25% and 45.08%, respectively, compared with the baseline using the same backbone.",
+    "(2) A structure-constrained joint repair method is proposed to coordinate component corrections with their affected relations. Component edits and reconstruction of all affected relations are accepted or rejected together. With fixed candidates and object scores, structural constraints, separate utility requirements, and edit budgets guide repair decisions to limit changes and preserve correct structures. The method can be applied either to the model from the first study or independently to the baseline. Adding joint repair after reliable supervision and consistency learning further increases strict relation F1 to 71.63% and 50.77% on the two corpora. Compared with regeneration under the same budget, joint repair achieves higher F1 while preserving more than 98% of previously correct relations.",
+    "The two methods improve learning signals and predicted structures, respectively, and yield performance gains across three backbone configurations from the same open-source large language model family. These results indicate that selecting and using reliable supervision during training complements joint decisions on components and relations during inference, providing a practical approach to more accurate generative argument structure extraction."
+  ],
+  "keywords_cn": "关键词：论辩挖掘；大语言模型；一致性学习；结构化预测；联合修正",
+  "keywords_en": "Keywords: Argument Mining, Large Language Models, Consistency Learning, Structured Prediction, Joint Repair",
+  "simulation_declaration": {
+    "title": "修订工作稿说明",
+    "text": "本稿第4.6.9节及表4.29中的ArgUNSC数值为用于安排后续实验与展示预期分析方式的模拟结果，尚未进行对应的模型运行，不属于实测实验。表中统一假定评价对象含1000条金标关系，由预设的真阳性、假阳性和假阴性计数计算严格关系F1；该分母不表示ArgUNSC真实划分的规模。模拟结果不纳入摘要、主要贡献或全文实测结论，也不代表已经完成跨领域验证；后续须以固定数据版本、真实划分和实际预测结果整体替换该节数值与分析，再用于正式送审。其余既有AAEC、CDCP正式实验结果沿用已完成的实测数据。"
+  },
+  "extension": {
+    "heading": "4.6.9 面向外交话语的跨领域扩展",
+    "paragraphs": [
+      "为考察联合修正方法在不同语言使用场景中的适用性，扩展检验选择外交话语语料ArgUNSC[103]。该语料包含144篇联合国安全理事会发言，标注论点、前提及其论辩联系。与议论文和公共政策评论相比，外交发言的表达方式与关系组织具有不同特点，因此适合用于考察语域变化下的端到端组件与关系抽取。该扩展仍属于论辩挖掘任务，其重点是领域变化后的适配能力。",
+      "扩展设计沿用T0I0、T1I0、T0I1和T1I1四种配置，分别检验可靠监督与一致性学习、联合修正及二者组合的作用。数据处理保留ArgUNSC原生的论点、前提、支持与攻击标注，并按原文字符跨度建立组件身份；数据划分以完整发言为单位，抽取模型与对象评分器仅使用训练部分进行拟合，参数选择与最终评价分别使用独立数据。修正约束依照该语料的二元关系定义配置，不直接套用其他语料的类别限制。评价采用完整端点、方向与标签均匹配的严格关系F1，同时保留解析失败和初始化失败样本的金标分母。",
+      "表4.29给出了四种配置的预期趋势。T1I0的严格关系F1为59.95%，高于T0I0的55.56%；在不改变训练配置时，T0I1达到61.54%，用于检验联合修正是否能够独立改善预测结构；组合配置T1I1达到65.23%，用于检验训练改进后仍然存在的结构错误能否继续得到修正。与T0I0相比，T1I0增加了正确关系并减少了误报；在T1I0基础上追加联合修正后，正确关系进一步增加，误报继续减少。",
+      "两项方法组合后的增幅不必严格等于其单独增幅之和：训练阶段已改善的部分错误，可能减少推理阶段可继续修正的空间。因此，跨领域验证除比较总体F1外，还应统计候选对完整金标关系的覆盖率、联合修正保留原有正确关系的比例，以及训练与修正阶段恢复关系的重叠情况。后续检验将据此区分候选不足、评分偏差和修正规则受限三类原因，分析预期趋势能否在外交话语中成立。"
+    ],
+    "table": {
+      "title": "表4.29 ArgUNSC跨领域扩展的模拟结果",
+      "headers": ["配置", "真阳性", "假阳性", "假阴性", "严格关系F1（%）"],
+      "rows": [
+        ["T0I0", "500", "300", "500", "55.56"],
+        ["T1I0", "550", "285", "450", "59.95"],
+        ["T0I1", "560", "260", "440", "61.54"],
+        ["T1I1", "605", "250", "395", "65.23"]
+      ],
+      "insert_after_paragraph_index": 1
+    },
+    "construction": {
+      "nature": "hypothetical_count_construction_not_dataset_measurement",
+      "assumed_gold_relations": 1000,
+      "formula": "F1 = 100 * 2 * TP / (2 * TP + FP + FN)",
+      "gold_count_is_not_real_argunsc_split": true,
+      "seeds_hardware_and_actual_split_not_claimed": true,
+      "statistical_significance_not_claimed": true,
+      "same_task_cross_domain_only": true,
+      "do_not_add_to_abstract_or_empirical_conclusions": true
+    }
+  },
+  "new_reference": {
+    "number": 103,
+    "text": "[103] POIAGANOVA M, STEDE M. From debates to diplomacy: Argument mining across political registers[C]//Proceedings of the 12th Argument Mining Workshop. Vienna: Association for Computational Linguistics, 2025: 205-216.",
+    "authors": ["Maria Poiaganova", "Manfred Stede"],
+    "title": "From Debates to Diplomacy: Argument Mining Across Political Registers",
+    "year": 2025,
+    "pages": "205–216",
+    "doi": "10.18653/v1/2025.argmining-1.20",
+    "verified_url": "https://aclanthology.org/2025.argmining-1.20/",
+    "author_data_repository": "https://github.com/mpoiaganova/political-argument-mining",
+    "verification": "ACL Anthology official metadata opened on 2026-10-15; authors, title, venue, year, pages and DOI verified."
+  },
+  "integration_notes": [
+    "替换原稿P031至P035中文摘要、P038至P042英文摘要；P036、P043关键词保留。",
+    "4.6.9应插入4.7之前；目录由Word域更新，不手工伪造页码。",
+    "表号4.29为原稿末表4.28之后的暂定号；若主代理精简表格并重编号，应同步修改篇首声明、正文回指和表题。",
+    "第4.6.1节目前称全部实验均沿用既有数据设置，需要缩小为AAEC/CDCP主实验；ArgUNSC另见4.6.9。",
+    "新增引文首次出现在ArgUNSC小节。若主代理移动引用顺序，应调整[103]与全文编号一致。",
+    "历史报告已有另一套Luna探索性ArgUNSC运行且未出现改善；这些结果不能被本次模拟值覆盖，不能把模拟称作旧实验更新。",
+    "模拟表只含关系指标，不伪造组件F1、显著性、置信区间、硬件耗时、种子均值或真实数据划分。"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "title": "v6至当前v8的重要澄清与审阅边界",
+  "note": "user_quote/user_quotes字段为用户原话；context_summary/current_implemented_scope/review_instruction为整理说明或已核对文件事实，不能反向当作用户原话。",
+  "records": [
+    {
+      "id": "CLAR-01",
+      "topic": "9B、4B、7B正式实验的完成状态",
+      "kind": "user_verbatim_with_context",
+      "user_quote": "已完成，正文已替换为实测结果",
+      "context_summary": "用户回答询问v5中的9B、4B、7B正式实验是否已完成并替换正文的澄清问题。",
+      "review_instruction": "以用户确认及当前正文为实测状态依据；旧的“未启动服务器计算”等历史报告不能自动推翻后续已完成声明。需要核查某个数值时核查对应当前表和运行证据，不把旧探索记录直接当作现稿来源。",
+      "source": "本对话用户send_user_message_question_reply，所回复问题明确列举9B、4B、7B。"
+    },
+    {
+      "id": "CLAR-02",
+      "topic": "MCR-BR属于作者既有工作",
+      "kind": "user_verbatim_with_review_boundary",
+      "user_quote": "局限可以笼统的这么说，或者说不需要太准确，其实MCR-BR也是我自己的工作",
+      "context_summary": "用户回应v6综合审阅中MCR-BR缺陷应描述准确的建议。",
+      "review_instruction": "理解为作者确认既有工作的归属，并不需要反复把全文定位为建立在单一外部基线之上。既有配置、新增方法和文献来源仍应清楚；不能将MCR-BR已有能力改写为不存在，也不能删除必要归属。此句为审阅解释，不是用户原话。",
+      "source": "本对话v6审阅后的用户回复。"
+    },
+    {
+      "id": "CLAR-03",
+      "topic": "ArgUNSC模拟内容的明确授权",
+      "kind": "user_verbatim_with_implemented_scope",
+      "user_quote": "ArgUNSC先按照实验符合预期写进去吧，文章开头加一个模拟声明就行，不要在文中再重复",
+      "context_summary": "用户授权先按预期趋势准备新增语料章节和模拟数值；没有要求或声称已经运行正式ArgUNSC实验。",
+      "current_implemented_scope": "20261015当前v8篇首保留模拟声明，表题保留“模拟”；计数与F1是假定1000条金标关系后构造的示例，1000不是ArgUNSC真实划分的规模。模拟不进入摘要、贡献或实测结论，也未伪造种子、硬件耗时或显著性。",
+      "review_instruction": "新增Agent可评价实验设计、计数自洽和预期分析写法；不得将这些值称为实测或据此宣称方法已在ArgUNSC获得真实改善。后续真实实验应整体替换模拟表与分析。",
+      "source": "本对话v6审阅后的用户回复；当前v8首段声明、表4.28和v8逐条修订说明共同确认现行范围。"
+    },
+    {
+      "id": "CLAR-04",
+      "topic": "ArgUNSC是同一AM任务的第三语料，不是已验证跨任务或跨语料迁移",
+      "kind": "user_verbatim_with_protocol_fact",
+      "user_quote": "这个数据集应该和AAEC、CDCP是一样的吧？都是AM领域，并非扩展？为啥单开一节？",
+      "context_summary": "V7-06原批注。",
+      "current_implemented_scope": "v8标题改为“ArgUNSC语料上的补充评价”。ArgUNSC语域为外交发言，任务仍为端到端论辩挖掘；现有草案是在ArgUNSC内部训练、开发与测试，不能称为源语料训练到目标语料测试的迁移实验。当前单列用于区分模拟补充设计与AAEC/CDCP实测主结果。",
+      "review_instruction": "可以讨论未来真正的跨语料或跨任务实验，但不能把当前协议包装成已验证的通用迁移能力。",
+      "source": "本对话v7第6条批注；20261015 v8第4.6.9节及修订说明。"
+    },
+    {
+      "id": "CLAR-05",
+      "topic": "按论证需要调整篇幅，不盲目精简",
+      "kind": "user_verbatim",
+      "user_quote": "感觉这里上下都有点长，结合其他文章综合分析一下，避免废话太多。给出合理分析，不要我说精简就精简",
+      "context_summary": "V7-03，锚点为2.1.2组件的字符级表示；体现用户对全文润色的判断偏好。",
+      "review_instruction": "对照参考论文辨别必要定义、真实反例与重复流程。允许补足被压缩掉的论证；不能以字数减少或图表数量减少本身作为优化成果。",
+      "source": "本对话v7第3条原始批注。"
+    },
+    {
+      "id": "CLAR-06",
+      "topic": "学校格式规范优先，蒋文是主要写法参考",
+      "kind": "multiple_user_verbatim_quotes",
+      "user_quotes": [
+        "我上传了新的盲审版本_v2论文以及学校的论文规范要求，按照里面的格式要求改写一份新的符合学校格式规范的版本给我，内容本身不要改动！注意：格式包括但不限于 字体、字号、间距、表格样式、排版、引用格式、页眉等等，都需要对照规范",
+        "哦对，很多的格式、写法都需要严格参照几篇借鉴文章中蒋子浩的那一篇"
+      ],
+      "context_summary": "前者确立学校格式要求；后者指定几篇参考成稿中蒋文为优先借鉴对象。引用保留用户当时“蒋子浩”的原用字，工作区对应文档通常称“蒋梓浩”或“蒋文”。",
+      "review_instruction": "学校正式模板约束字体、字号、页边距、页眉、行距、编号等；蒋文及其他成稿帮助判断章节职责、段落写法和图表信息层次，不覆盖学校标准。早期“不动内容”是格式轮要求，后续已授权摘要、章节和相关内容修订；不要把它误读为本轮只能改格式。",
+      "source": "本对话最初排版请求及随后明确指定蒋文的用户消息。"
+    },
+    {
+      "id": "CLAR-07",
+      "topic": "百分制表达偏好与数值含义",
+      "kind": "multiple_user_verbatim_quotes",
+      "user_quotes": [
+        "百分点表述又出现了，不要，改成3.38%这种",
+        "百分点替换合理"
+      ],
+      "context_summary": "前者为V6-11，后者为用户接受“前后F1百分制分数”等替代写法。",
+      "review_instruction": "优先写“由68.25%提高至71.63%”。绝对差3.38不能在未说明口径时写成相对提高3.38%；不得为了统一符号改动原表实测数值。",
+      "source": "本对话v6第11条批注和v6审阅后的用户回复。"
+    },
+    {
+      "id": "CLAR-08",
+      "topic": "旧历史v8与当前20261015 v8是不同版本链",
+      "kind": "workspace_verified_fact_not_user_quote",
+      "user_quote": null,
+      "context_summary": "工作区存在重复使用v7/v8编号的多条历史链，版本编号不能单独用于判断新旧或证据归属。",
+      "examples": [
+        {
+          "version_chain": "旧历史1010链",
+          "path": "/workspace/Graduate_Paper/paper/历史报告/01_论文历史版本/report_1010_v8_full.docx",
+          "role": "历史稿，不是本次当前审阅正文"
+        },
+        {
+          "version_chain": "旧历史1010链",
+          "path": "/workspace/Graduate_Paper/paper/历史报告/02_评审与修改说明/1010_v8数据补充说明与待完成事项.md",
+          "role": "历史数据状态与待办说明"
+        },
+        {
+          "version_chain": "当前20261015链",
+          "path": "/workspace/thesis_v8_revision_20261015/论文_v8_批注修订与方法图重绘_含模拟补充.docx",
+          "role": "本次综合审阅应优先读取的当前正文"
+        }
+      ],
+      "review_instruction": "每次结论注明文件全名、版本链与日期。历史负结果、待运行状态和后续实测结果不能不加区分地拼接，也不能用模拟值覆盖真实历史结果。",
+      "source": "当前工作区文件清单与20261015 v8修订说明；不是用户逐字发言。"
+    }
+  ]
+}

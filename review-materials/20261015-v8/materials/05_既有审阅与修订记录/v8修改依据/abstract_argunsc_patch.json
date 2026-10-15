@@ -1,0 +1,227 @@
+{
+  "source_docx": "/workspace/thesis_v7_revision_20261015/论文_v7_结构压缩与格式修订_含模拟扩展.docx",
+  "edits": [
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "针对上述问题，论文从训练监督的可靠性和预测结构的联合修正两个方面开展研究。前者通过筛选有效的增强监督改进模型学习，后者面向训练后仍然存在的结构错误，在保持抽取模型参数不变的条件下联合调整组件与关系，两项工作共同服务于端到端论辩挖掘的准确性提升。具体研究内容如下：",
+      "new": "针对增强样本的标注失效与预测图中的结构错误，论文分别开展可靠监督学习和结构约束修正两项研究。第一项研究判断改写后哪些标注仍可参与训练，以改进模型的学习信号；第二项研究将组件修改及其关联关系纳入共同决策，在不更新抽取模型参数的条件下修正预测图，并检验该方法在基准模型和第一项研究所得模型上的作用。具体研究内容如下：",
+      "expected_matches": 1,
+      "v7_paragraph_index": 35,
+      "purpose": "以两个明确问题界定两项研究，并说明第二项的独立适用与递进检验；保留分项编号。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "（2）针对组件错误及其关联关系难以协调修正的问题，提出结构约束联合修正方法。该方法将组件修改与全部受影响关系的重建组织为共同接受或拒绝的操作，在固定候选与对象评分的条件下，结合结构约束、分项效用和编辑预算选择修正结果，以控制修改范围并减少对原有正确结构的破坏。该方法既可作用于第一项工作得到的模型，也可独立用于基准模型。实验表明，在可靠监督与一致性学习的基础上追加联合修正，两个语料上的严格关系F1进一步提高至71.63%和50.77%；与相同预算的重新生成相比，联合修正取得了更高的F1，并保留了98%以上的原有正确关系。",
+      "new": "（2）针对组件错误及其关联关系难以协调修正的问题，提出结构约束联合修正方法。该方法将组件修改与全部受影响关系的重建组织为共同接受或拒绝的操作，在固定候选与对象评分的条件下，结合结构约束、分项效用和编辑预算选择修正结果，以控制修改范围并减少对原有正确结构的破坏。对照实验表明，联合修正直接作用于基准模型时能够改善抽取性能，在第一项研究得到的模型上仍可继续修正残余错误，使两个语料的严格关系F1进一步提高至71.63%和50.77%；与相同预算的重新生成相比，联合修正取得了更高的F1，并保留了98%以上的原有正确关系。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 37,
+      "purpose": "将适用性陈述改为已有四配置实测对照所支持的独立作用与后续增益，不增加统计协同主张。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "两项方法分别改进模型的学习信号与预测结果，在同一开源大语言模型系列的三种骨干配置上均取得性能提升。研究结果表明，训练阶段对可靠监督的筛选与利用，以及推理阶段对组件和关系的联合决策，能够相互补充，为提升生成式论辩结构抽取的准确性提供可行方法。",
+      "new": "上述研究分别处理了增强监督的可靠利用与预测结构的协调修正问题。实测对照表明，可靠监督与一致性学习在不追加联合修正时改善了抽取性能，结构约束联合修正则在基准模型和训练改进模型上均能发挥作用；同一开源大语言模型系列的三种骨干配置进一步验证了两项方法在所考察设置下的效果。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 38,
+      "purpose": "以不同研究问题及独立适用的实测证据收束，删除空泛的相互补充结论。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "This thesis addresses these challenges through reliable training supervision and joint repair of predicted structures. The first study improves learning by selecting valid supervision from augmented data. The second addresses residual structural errors by jointly revising components and relations without updating the extraction model. Together, the two studies aim to improve end-to-end argument mining accuracy. The main contributions are as follows.",
+      "new": "This thesis investigates two problems: annotation invalidation in augmented data and structural errors in predicted graphs. The first study determines which annotations remain valid after rewriting and can be used for training, thereby improving the learning signal. The second makes joint decisions on component edits and their associated relations to repair predicted graphs without updating the extraction model. Its effects are examined both on the baseline and on the model obtained in the first study. The main contributions are as follows.",
+      "expected_matches": 1,
+      "v7_paragraph_index": 42,
+      "purpose": "与中文摘要的研究问题、独立应用及递进设置同步。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "(2) A structure-constrained joint repair method is proposed to coordinate component corrections with their affected relations. Component edits and reconstruction of all affected relations are accepted or rejected together. With fixed candidates and object scores, structural constraints, separate utility requirements, and edit budgets guide repair decisions to limit changes and preserve correct structures. The method can be applied either to the model from the first study or independently to the baseline. Adding joint repair after reliable supervision and consistency learning further increases strict relation F1 to 71.63% and 50.77% on the two corpora. Compared with regeneration under the same budget, joint repair achieves higher F1 while preserving more than 98% of previously correct relations.",
+      "new": "(2) A structure-constrained joint repair method is proposed to coordinate component corrections with their affected relations. Component edits and reconstruction of all affected relations are accepted or rejected together. With fixed candidates and object scores, structural constraints, separate utility requirements, and edit budgets guide repair decisions to limit changes and preserve correct structures. Controlled comparisons show that joint repair improves extraction when applied directly to the baseline and also corrects residual errors in the model obtained in the first study, further increasing strict relation F1 to 71.63% and 50.77% on the two corpora. Compared with regeneration under the same budget, joint repair achieves higher F1 while preserving more than 98% of previously correct relations.",
+      "expected_matches": 1,
+      "v7_paragraph_index": 44,
+      "purpose": "与中文第二项贡献同步，保留全部既有实测值。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "The two methods improve learning signals and predicted structures, respectively, and yield performance gains across three backbone configurations from the same open-source large language model family. These results indicate that selecting and using reliable supervision during training complements joint decisions on components and relations during inference, providing a practical approach to more accurate generative argument structure extraction.",
+      "new": "The two studies address the reliable use of augmented supervision and the coordinated repair of predicted structures, respectively. Controlled comparisons show that reliable supervision and consistency learning improve extraction without additional joint repair, while structure-constrained joint repair is effective on both the baseline and the model with improved training. Evaluation with three backbone configurations from the same open-source large language model family further supports the effectiveness of the two methods under the examined settings.",
+      "expected_matches": 1,
+      "v7_paragraph_index": 45,
+      "purpose": "与中文结尾同步，不声称统计协同或将模拟结果纳入摘要。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "本稿第4.6.9节及表4.28中的ArgUNSC数值为用于安排后续实验与展示预期分析方式的模拟结果，尚未进行对应的模型运行，不属于实测实验。表中统一假定评价对象含1000条金标关系，由预设的真阳性、假阳性和假阴性计数计算严格关系F1；该分母不表示ArgUNSC真实划分的规模。模拟结果不纳入摘要、主要贡献或全文实测结论，也不代表已经完成跨领域验证；后续须以固定数据版本、真实划分和实际预测结果整体替换该节数值与分析，再用于正式送审。其余既有AAEC、CDCP正式实验结果沿用已完成的实测数据。",
+      "new": "本稿第4.6.9节及表4.28中的ArgUNSC数值为用于安排第三语料补充评价与展示预期分析方式的模拟结果，仍为本次修订按作者要求设置的假定数值，尚未进行对应的模型运行，不属于实测实验。表中统一假定评价对象含1000条金标关系，由预设的真阳性、假阳性和假阴性计数计算严格关系F1；该分母不表示ArgUNSC真实划分的规模。该节设计是在ArgUNSC自身的训练、开发与测试划分上进行补充评价，模拟结果不纳入摘要、主要贡献或全文实测结论，也不构成跨任务泛化或跨语料迁移的证据。后续须以固定数据版本、真实划分和实际预测结果整体替换该节数值与分析，再用于正式送审。其余既有AAEC、CDCP正式实验结果沿用已完成的实测数据。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 1,
+      "purpose": "篇首统一声明范围改为第三语料补充评价，并明确模拟是用户授权假定值。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "为验证本章联合修正方法的有效性，本节围绕以下问题开展实验：（1）在第3章所得模型上追加联合修正，能否进一步提升组件与关系的抽取性能；（2）组件修改范围、组件与关系的共同接受、集合动作以及全局求解分别发挥何种作用；（3）与相同预算下的重新生成以及简单的阈值过滤相比，联合修正的效果如何；（4）对象评分的质量与推理阶段的计算成本如何；（5）联合修正与第3章方法如何衔接，在基础方法的模型上是否同样有效。AAEC与CDCP主实验所用的数据集、评价指标与显著性检验方法沿用3.5.1节和3.5.3节的设置，训练检查点统一采用第3章可靠监督与一致性学习方法得到的T1；在此基础上，I0表示继承自MCR-BR的推理流程（重排序、合法化与BR-O），I1表示在I0之上追加本章的联合修正，二者的差别仅在于推理阶段是否执行联合修正。4.6.5节在此基础上分析联合修正与第3章方法的衔接关系，4.6.6节至4.6.8节进一步给出多前提关系、不同骨干模型上的结果以及与外部系统的比较；4.6.9节单独讨论外交话语的跨领域扩展设计。",
+      "new": "为验证本章联合修正方法的有效性，本节围绕以下问题开展实验：（1）在第3章所得模型上追加联合修正，能否进一步提升组件与关系的抽取性能；（2）组件修改范围、组件与关系的共同接受、集合动作以及全局求解分别发挥何种作用；（3）与相同预算下的重新生成以及简单的阈值过滤相比，联合修正的效果如何；（4）对象评分的质量与推理阶段的计算成本如何；（5）联合修正与第3章方法如何衔接，在基础方法的模型上是否同样有效。AAEC与CDCP主实验所用的数据集、评价指标与显著性检验方法沿用3.5.1节和3.5.3节的设置，训练检查点统一采用第3章可靠监督与一致性学习方法得到的T1；在此基础上，I0表示继承自MCR-BR的推理流程（重排序、合法化与BR-O），I1表示在I0之上追加本章的联合修正，二者的差别仅在于推理阶段是否执行联合修正。4.6.5节在此基础上分析联合修正与第3章方法的衔接关系，4.6.6节至4.6.8节进一步给出多前提关系、不同骨干模型上的结果以及与外部系统的比较；4.6.9节另行给出ArgUNSC语料上的补充评价设计。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 521,
+      "purpose": "改正4.6.1对ArgUNSC的范围回指；其他主实验设置不变。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "4.6.9 面向外交话语的跨领域扩展",
+      "new": "4.6.9 ArgUNSC语料上的补充评价",
+      "expected_matches": 1,
+      "v7_paragraph_index": 619,
+      "purpose": "同一论辩挖掘任务下的第三语料评价，不称为跨任务或跨领域迁移实验。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "为考察联合修正方法在不同语言使用场景中的适用性，扩展检验选择外交话语语料ArgUNSC[103]。该语料包含144篇联合国安全理事会发言，标注论点、前提及其论辩联系。与议论文和公共政策评论相比，外交发言的表达方式与关系组织具有不同特点，因此适合用于考察语域变化下的端到端组件与关系抽取。该扩展仍属于论辩挖掘任务，其重点是领域变化后的适配能力。",
+      "new": "为考察两项方法在第三种论辩语料上的适用性，本节选择外交话语语料ArgUNSC[103]设置补充评价。该语料包含144篇联合国安全理事会发言，标注论点、前提及其论辩联系。与议论文和公共政策评论相比，外交发言的表达方式与关系组织有所不同，但评价任务仍为端到端组件与关系抽取。该设计在ArgUNSC自身的数据划分内完成训练、参数选择与测试，以补充前述两种语料上的评价。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 620,
+      "purpose": "明确同任务、不同语域、本语料内训练测试，移除泛化或迁移歧义。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "扩展设计沿用T0I0、T1I0、T0I1和T1I1四种配置，分别检验可靠监督与一致性学习、联合修正及二者组合的作用。数据处理保留ArgUNSC原生的论点、前提、支持与攻击标注，并按原文字符跨度建立组件身份；数据划分以完整发言为单位，抽取模型与对象评分器仅使用训练部分进行拟合，参数选择与最终评价分别使用独立数据。修正约束依照该语料的二元关系定义配置，不直接套用其他语料的类别限制。评价采用完整端点、方向与标签均匹配的严格关系F1，同时保留解析失败和初始化失败样本的金标分母。",
+      "new": "补充评价沿用T0I0、T1I0、T0I1和T1I1四种配置，分别检验可靠监督与一致性学习、联合修正及二者组合的作用。数据处理保留ArgUNSC原生的论点、前提、支持与攻击标注，并按原文字符跨度建立组件身份；拟以完整发言为单位固定训练、开发与测试划分，抽取模型与对象评分器仅使用训练部分进行拟合，参数选择与最终评价分别使用开发集和测试集。修正约束依照该语料的二元关系定义配置，不直接套用其他语料的类别限制。评价采用完整端点、方向与标签均匹配的严格关系F1，同时保留解析失败和初始化失败样本的金标分母。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 621,
+      "purpose": "明确数据划分尚属设计，不虚构已固定划分；本语料训练和独立测试。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "两项方法组合后的增幅不必严格等于其单独增幅之和：训练阶段已改善的部分错误，可能减少推理阶段可继续修正的空间。因此，跨领域验证除比较总体F1外，还应统计候选对完整金标关系的覆盖率、联合修正保留原有正确关系的比例，以及训练与修正阶段恢复关系的重叠情况。后续检验将据此区分候选不足、评分偏差和修正规则受限三类原因，分析预期趋势能否在外交话语中成立。",
+      "new": "两项方法组合后的增幅不必严格等于其单独增幅之和：训练阶段已改善的部分错误，可能减少推理阶段可继续修正的空间。因此，第三语料上的补充评价除比较总体F1外，还应统计候选对完整金标关系的覆盖率、联合修正保留原有正确关系的比例，以及训练与修正阶段恢复关系的重叠情况。后续检验将据此区分候选不足、评分偏差和修正规则受限三类原因，分析表中预期趋势能否在ArgUNSC上成立。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 623,
+      "purpose": "讨论仍针对模拟预期与后续检验，移除已完成跨领域验证的误读。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "第三，实验仅使用三个随机种子，且CDCP中长源关系的测试样本较少，相关的细粒度结论仍需更多数据验证；第四，本文仅在AAEC和CDCP两个英文语料上进行评价，方法在跨语言和跨领域场景中的效果还有待检验；第五，三种骨干均来自Qwen系列，其他模型家族上的效果尚未验证，第4章的分项效用门与编辑预算也尚未单独消融。",
+      "new": "第三，实验仅使用三个随机种子，且CDCP中长源关系的测试样本较少，相关的细粒度结论仍需更多数据验证；第四，本文的实测评价仅覆盖AAEC和CDCP两个英文语料，方法在跨语言和跨领域场景中的效果还有待检验；第五，三种骨干均来自Qwen系列，其他模型家族上的效果尚未验证，第4章的分项效用门与编辑预算也尚未单独消融。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 637,
+      "purpose": "全文局限保持实测范围，防止将第三语料模拟设计计入实测。"
+    },
+    {
+      "scope": "body_paragraph",
+      "match_mode": "exact",
+      "old": "（4）检验方法的跨语言与跨领域迁移能力：本文实验局限于两个英文语料，未来可在新领域和其他语言的论辩语料上检验方法的迁移能力，并分析改写审核与对象评分在不同语言和文体中的适用条件。",
+      "new": "（4）检验方法的跨语言与跨领域迁移能力：现有实测结果来自AAEC和CDCP两个英文语料，未来可设置在源语料上训练、在目标语料上直接测试或进行少量适配后测试的迁移实验，并在其他语言的论辩语料上检验改写审核与对象评分的适用条件。",
+      "expected_matches": 1,
+      "v7_paragraph_index": 642,
+      "purpose": "将真正的迁移设为后续实验，区分新语料内训练测试与跨语料迁移。"
+    },
+    {
+      "scope": "unique_table_cell_text",
+      "match_mode": "exact",
+      "old": "表4.28 ArgUNSC跨领域扩展的模拟结果",
+      "new": "表4.28 ArgUNSC补充评价的模拟结果",
+      "expected_matches": 1,
+      "purpose": "表题保留模拟标识，仅纠正评价定位；4行计数和F1完全不变。"
+    }
+  ],
+  "reference_abstract_evidence": [
+    {
+      "sample": "蒋文：基于结构增强语言模型的时序知识图谱推理方法研究",
+      "files": [
+        "/workspace/Graduate_Paper/paper/writing_style_research_20261013/sources/temporal_kg/p004.txt",
+        "/workspace/Graduate_Paper/paper/writing_style_research_20261013/sources/temporal_kg/p005.txt"
+      ],
+      "observed": "摘要在物理第4页用（1）引出第一项工作，在第5页用（2）引出第二项工作；两项分别讨论结构建模和可解释生成式推理。",
+      "short_evidence": [
+        "具体工作如下：",
+        "（1）针对预训练语言模型难以建模复杂结构依赖与全局历史演化规律的问题",
+        "（2）针对现有方法在推理可解释性方面的不足"
+      ]
+    },
+    {
+      "sample": "contrastive参考稿",
+      "files": [
+        "/workspace/Graduate_Paper/paper/writing_style_research_20261013/sources/contrastive/p007.txt",
+        "/workspace/Graduate_Paper/paper/writing_style_research_20261013/sources/contrastive/p008.txt"
+      ],
+      "observed": "物理第7页先列两项挑战，再用独立段落（1）（2）介绍SMiLE和ChapTER；第8页接续第二项并总结。",
+      "short_evidence": [
+        "论文工作主要包含以下两个部分：",
+        "（1）针对如何有效捕捉和融合知识图谱中的上下文语义知识与结构特征的问题",
+        "（2）针对如何有效融合知识图谱中的时序历史与文本语义知识的问题"
+      ]
+    },
+    {
+      "sample": "style_transfer参考稿",
+      "files": [
+        "/workspace/Graduate_Paper/paper/writing_style_research_20261013/sources/style_transfer/p007.txt"
+      ],
+      "observed": "物理第7页用（1）（2）标明两项挑战，又在工作介绍的连续段落内用（1）（2）区分小模型和大模型方法。",
+      "short_evidence": [
+        "针对上述挑战，论文展开以下探索：（1）针对计算资源有限的小模型",
+        "（2）针对拥有足够计算资源的大模型"
+      ]
+    },
+    {
+      "sample": "transformer参考稿",
+      "files": [
+        "/workspace/Graduate_Paper/paper/writing_style_research_20261013/sources/transformer/p004.txt"
+      ],
+      "observed": "物理第4页用1）2）3）列举CSformer的三项设计，属于一个综合方案的内部模块。说明编号本身不能证明研究独立性。",
+      "short_evidence": [
+        "主要包括：1）在 Transformer 模型多层堆叠编码器或解码器的单独一层内部",
+        "2）提出了分类信息层次融合的方法",
+        "3）在模型编码器或解码器层之间以及不同的分组之间"
+      ]
+    }
+  ],
+  "numbering_decision": "保留（1）（2）。四份参考摘要均使用编号，但编号只承担辨识功能；两项工作是否独立取决于问题、方法与对照证据，不能单凭编号。",
+  "abstract_cn_final": [
+    "论辩挖掘旨在识别文本中的论点、前提及其支持与攻击关系，为写作评价、舆情分析等应用提供结构化依据。近年来，大语言模型能够从原始文本直接生成组件及其关系，推动了端到端论辩挖掘的发展。然而，组件与关系之间的相互依赖仍给模型学习和结果修正带来困难：局部改写可能改变组件的论辩角色或关联关系，使直接继承的标注成为错误监督；预测图中的组件错误又会影响多条关系，仅对局部对象进行独立修正，难以兼顾整体结构的一致性。",
+    "针对增强样本的标注失效与预测图中的结构错误，论文分别开展可靠监督学习和结构约束修正两项研究。第一项研究判断改写后哪些标注仍可参与训练，以改进模型的学习信号；第二项研究将组件修改及其关联关系纳入共同决策，在不更新抽取模型参数的条件下修正预测图，并检验该方法在基准模型和第一项研究所得模型上的作用。具体研究内容如下：",
+    "（1）针对局部改写后原标注可能失效的问题，提出可靠监督与一致性学习方法。该方法先确定改写可能影响的组件与关系范围，并建立原文与改写文本之间的组件对应关系，再通过语义审核筛选仍然可靠的组件类型和关系状态。训练时，原文提供完整的论辩图监督，改写文本仅在通过审核的部分提供辅助监督与一致性约束，从而利用增强数据补充学习信号并减少错误监督的影响。在英文议论文与公共政策评论两个语料上的实验表明，与同骨干的基准模型相比，该方法使严格关系F1分别由65.69%和41.79%提高至68.25%和45.08%。",
+    "（2）针对组件错误及其关联关系难以协调修正的问题，提出结构约束联合修正方法。该方法将组件修改与全部受影响关系的重建组织为共同接受或拒绝的操作，在固定候选与对象评分的条件下，结合结构约束、分项效用和编辑预算选择修正结果，以控制修改范围并减少对原有正确结构的破坏。对照实验表明，联合修正直接作用于基准模型时能够改善抽取性能，在第一项研究得到的模型上仍可继续修正残余错误，使两个语料的严格关系F1进一步提高至71.63%和50.77%；与相同预算的重新生成相比，联合修正取得了更高的F1，并保留了98%以上的原有正确关系。",
+    "上述研究分别处理了增强监督的可靠利用与预测结构的协调修正问题。实测对照表明，可靠监督与一致性学习在不追加联合修正时改善了抽取性能，结构约束联合修正则在基准模型和训练改进模型上均能发挥作用；同一开源大语言模型系列的三种骨干配置进一步验证了两项方法在所考察设置下的效果。"
+  ],
+  "abstract_en_final": [
+    "Argument mining identifies claims, premises, and their support or attack relations to provide structured evidence for applications such as writing assessment and public opinion analysis. Large language models have advanced end-to-end argument mining by generating components and relations directly from text. However, their interdependence presents challenges for both learning and repair. Local rewriting may change argumentative roles or relations, making inherited annotations unreliable. Component errors in predicted graphs may also affect multiple relations, making independent local corrections insufficient to maintain structural consistency.",
+    "This thesis investigates two problems: annotation invalidation in augmented data and structural errors in predicted graphs. The first study determines which annotations remain valid after rewriting and can be used for training, thereby improving the learning signal. The second makes joint decisions on component edits and their associated relations to repair predicted graphs without updating the extraction model. Its effects are examined both on the baseline and on the model obtained in the first study. The main contributions are as follows.",
+    "(1) A reliable supervision and consistency learning method is proposed to address annotation invalidation after local rewriting. It identifies potentially affected components and relations, aligns components between the original and rewritten texts, and audits the validity of component types and relation states. The original text provides complete graph supervision, whereas the rewritten text contributes auxiliary supervision and consistency constraints only for accepted annotations. This uses augmented learning signals while reducing erroneous supervision. On persuasive essay and public policy comment corpora, strict relation F1 increases from 65.69% and 41.79% to 68.25% and 45.08%, respectively, compared with the baseline using the same backbone.",
+    "(2) A structure-constrained joint repair method is proposed to coordinate component corrections with their affected relations. Component edits and reconstruction of all affected relations are accepted or rejected together. With fixed candidates and object scores, structural constraints, separate utility requirements, and edit budgets guide repair decisions to limit changes and preserve correct structures. Controlled comparisons show that joint repair improves extraction when applied directly to the baseline and also corrects residual errors in the model obtained in the first study, further increasing strict relation F1 to 71.63% and 50.77% on the two corpora. Compared with regeneration under the same budget, joint repair achieves higher F1 while preserving more than 98% of previously correct relations.",
+    "The two studies address the reliable use of augmented supervision and the coordinated repair of predicted structures, respectively. Controlled comparisons show that reliable supervision and consistency learning improve extraction without additional joint repair, while structure-constrained joint repair is effective on both the baseline and the model with improved training. Evaluation with three backbone configurations from the same open-source large language model family further supports the effectiveness of the two methods under the examined settings."
+  ],
+  "chinese_han_characters": 891,
+  "english_word_count": 452,
+  "keep_keywords": true,
+  "data_policy": {
+    "argunsc_numbers_are_user_authorized_hypothetical_values": true,
+    "argunsc_not_an_executed_experiment": true,
+    "argunsc_is_same_argument_mining_task": true,
+    "argunsc_protocol_is_within_corpus_training_development_testing": true,
+    "argunsc_not_cross_task_generalization_or_demonstrated_transfer": true,
+    "argunsc_counts_f1_unchanged": true,
+    "aaec_cdcp_measured_results_unchanged": true,
+    "simulation_excluded_from_abstract_contributions_and_empirical_conclusions": true,
+    "retain_front_simulation_statement_and_simulated_table_caption": true
+  },
+  "integration_notes": [
+    "仅主文档唯一完整段落与唯一合并表头单元格做匹配；索引仅作v7定位提示，应用时以old文本为准。",
+    "目录中同名4.6.9条目由Word目录域刷新；不要把旧目录页码照搬至新稿。",
+    "保持ArgUNSC表4行数据不变，不把模拟表加入AAEC/CDCP主结果表或显著性检验。",
+    "若其他代理也改4.6.1整体段落，可只合并本补丁最后一句的范围回指。",
+    "除关于ArgUNSC定位与真实迁移展望的必要修订外，不修改已有理论中的标注迁移、坐标迁移等术语。",
+    "正文第4.6.9节表后预期数值分析段（v7段622）保持不变：它已明确称预期趋势，不将假定数值称为实测。"
+  ]
+}

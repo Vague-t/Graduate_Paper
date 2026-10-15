@@ -1,0 +1,56 @@
+{
+  "来源": "用户在聊天中提供的Diff comments",
+  "说明": "不是Word内嵌comments.xml；Page 3/7等是当时聊天侧长页面预览编号，不是当前PDF的A4页码。邻近文本保留当时显示的截断，公式以原稿为准。",
+  "comments": [
+    {
+      "id": "C01",
+      "file": "面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究_v3_盲审版.docx",
+      "side": "R",
+      "line": 1,
+      "target": "Page 3 paragraph",
+      "anchor": "page 3/7 at (95, 15496) sized 603x264 on 794x22621 page; anchor point: (397, 15496)",
+      "nearby": "本章方法的整体框架分为增强构造与参数学习两个阶段：构造阶段以训练文档及其标注为输入，输出改写后的全文、改写前后组件之间的对应关系 φ 以及可靠因素的掩码；学习阶段保留原文的完整生成监督，增强文本则只使用通过审核的因素，具体结构见 3.4 节图 3-2 。在模型结构上，本章以多候选重排序与有界修正方法（ Multi-Candidate Reranking and Bounded Repair ， MCR-BR ） [34] 为基础方法，其中类型条件 LoRA 的全局与结论双分支、结论线索提示和句子辅助监督均沿用 MCR-BR 的配置，本章新增的则是关系影响域约束、可靠因素监督与一致性目标。增强生成器 A 、自动审核器 V 与抽取生成器 G 分别负责构造改写文本、审核监督和抽取论辩结构（见表 3-8 ），三者通过组件对应关系与因素掩码相互衔接。",
+      "comment": "这里不要说以这个方法为基础了吧"
+    },
+    {
+      "id": "C02",
+      "file": "面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究_v3_盲审版.docx",
+      "side": "R",
+      "line": 2,
+      "target": "Page 5 table",
+      "anchor": "page 5/7 at (95, 2839) sized 605x1063 on 794x15407 page; anchor point: (398, 2839)",
+      "nearby": "算法 3-1 可靠监督与一致性学习 输入：训练文档及其标注 D train ，增强生成器A与自动审核器V， 每文档尝试上限 B try 、接受上限 B accept ，训练更新上限 U ， 审核模式 mode ∈ {FactorMask, FullFilter} 。 输出：训练后的生成器 θ ，以及增强样本和组件对应关系。 01 检查训练数据划分、去重分组与标注坐标 02 for 每篇源文档 d ∈ D train do 03 保留原文 x d 和完整金标图 G d ；令 Views d = ∅ 04 按3.3.1节选择改写中心及其全部源组件；无法处理则跳过该文档 05 构造候选因素集合 Ω( C d )，排除语义未知因素得到 Ω sem ，并确定改写集合 A 06 构造完整影响域 D A ；令 attempts = 0 07 while attempts < B try 且 | Views d | < B accept do 08 attempts ← attempts + 1 ；生成组件槽位的替换文本 09 回填全文、重新分词，建立全部组件的双射 φ 10 if 格式、槽位、坐标或",
+      "comment": "这里看是改成图或是精简内容，目前一个算法占了一页多，太冗余了"
+    },
+    {
+      "id": "C03",
+      "file": "面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究_v3_盲审版.docx",
+      "side": "R",
+      "line": 3,
+      "target": "Page 7 paragraph",
+      "anchor": "page 7/7 at (95, 7370) sized 603x261 on 794x40214 page; anchor point: (397, 7370)",
+      "nearby": "∑ t∈ T * ( u ) ​ z ( u,t ) ≤1, z c + z d ≤1 若 Conflict ( c,d ) ; y r ≤ z c ∀c∈ Ends ( r ) , ∑ r∈ Γ s ​ y r ≤1 ∀s; y r =I [ r∈R ] ∀r∉ P tx , G′∈ G A , （ 4- 11 ）",
+      "comment": "这里格式是有问题吗？"
+    },
+    {
+      "id": "C04",
+      "file": "面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究_v3_盲审版.docx",
+      "side": "R",
+      "line": 4,
+      "target": "Page 7 table",
+      "anchor": "page 7/7 at (95, 8494) sized 605x672 on 794x40214 page; anchor point: (398, 8494)",
+      "nearby": "算法 4-1 结构约束联合修正 输入：原文、生成候选、固定的评分与配置、资源预算。 输出：修正后的合法论辩图（或初始化失败状态）及修改记录。 01 按MCR-BR流程得到初始图： G rank ← 重排序； G pre ← L A ( G rank )； G 0 ← BR-O( G pre ) 02 if 无法得到合法的 G 0 then 03 return 初始化失败 04 end if 05 固定候选、评分及效用系数（构建失败返回 G 0 ）；初始化预算；G ← G 0 06 for 每一轮（不超过轮数上限和总预算） do 07 重置本轮计数；为当前状态建立（或继续使用）提议队列 08 while 队列非空且各项预算均未耗尽 do 09 从队列中取一批提议Q； G noop ← G；H ← ∅ 10 for Q中每个未评估且预算允许的提议 do 11 尝试次数加1；调用算法4-2进行评估，记录开销 12 若评估通过，将得到的新图加入H 13 end for 14 if H非空 then 15 按总效用最大、编辑最少的顺序选出最优新图 16 检查接受额度和编辑预算 17 若不满足，保",
+      "comment": "这里同理，本文出现了多次算法，这里甚至4-1；4-2连着两个算法"
+    },
+    {
+      "id": "C05",
+      "file": "面向关系感知学习与依赖闭合修正的端到端论辩挖掘方法研究_v3_盲审版.docx",
+      "side": "R",
+      "line": 5,
+      "target": "Page 7 image",
+      "anchor": "page 7/7 at (104, 9528) sized 586x781 on 794x40214 page; anchor point: (690, 10309)",
+      "nearby": "",
+      "comment": "这个图和算法是不是重复了？是不是可以把算法删了？"
+    }
+  ]
+}

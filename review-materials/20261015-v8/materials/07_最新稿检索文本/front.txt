@@ -1,0 +1,274 @@
+[V8-P0001] 模拟实验声明（修订讨论稿）
+
+[V8-P0002] 本稿第4.6.9节及表4.28中的ArgUNSC数值为用于安排第三语料补充评价与展示预期分析方式的模拟结果，尚未进行对应的模型运行，不属于实测实验。表中统一假定评价对象含1000条金标关系，由预设的真阳性、假阳性和假阴性计数计算严格关系F1；该分母不表示ArgUNSC真实划分的规模。该节设计是在ArgUNSC自身的训练、开发与测试划分上进行补充评价，模拟结果不纳入摘要、主要贡献或全文实测结论，也不构成跨任务泛化或跨语料迁移的证据。后续须以固定数据版本、真实划分和实际预测结果整体替换该节数值与分析，再用于正式送审。其余既有AAEC、CDCP正式实验结果沿用已完成的实测数据。
+
+[V8-P0003] 
+
+[V8-P0004] 分类号：____________　　　　　　　　密　级：____________
+
+[V8-P0005] U D C：____________　　　　　　　　编　号：10486
+
+[V8-P0006] 硕士学位论文
+
+[V8-P0007] 基于一致性学习与结构约束修正的端到端论辩挖掘研究
+
+[V8-P0008] 研究生姓名：（盲审版本隐去）
+
+[V8-P0009] 学　　号：（盲审版本隐去）
+
+[V8-P0010] 指导教师姓名、职称：（盲审版本隐去）
+
+[V8-P0011] 专业名称：（盲审版本隐去）
+
+[V8-P0012] 研究方向：（盲审版本隐去）
+
+[V8-P0013] 二〇二六年十月
+
+[V8-P0014] End-to-End Argument Mining via Consistency Learning and Structure-Constrained Repair
+
+[V8-P0015] By
+
+[V8-P0016] ***
+
+[V8-P0017] Supervised By
+
+[V8-P0018] ***
+
+[V8-P0019] Wuhan University
+
+[V8-P0020] October, 2026
+
+[V8-P0021] 论文原创性声明
+
+[V8-P0022] 本人郑重声明：所呈交的学位论文，是本人在导师指导下，独立进行研究工作所取得的研究成果。除文中已经标明引用的内容外，本论文不包含任何其他个人或集体已发表或撰写的研究成果。对本文的研究做出贡献的个人和集体，均已在文中以明确方式标明。本声明的法律结果由本人承担。
+
+[V8-P0023] 学位论文作者（签名）：
+
+[V8-P0024] 日期：　　　年　　月　　日
+
+[V8-P0025] 武汉大学学位论文使用授权协议书
+
+[V8-P0026] 本学位论文作者愿意遵守武汉大学关于保存、使用学位论文的管理办法及规定，即：学校有权保存学位论文的印刷本和电子版，并提供文献检索与阅览服务；学校可以采用影印、缩印、数字化或其它复制手段保存论文；在以教学与科研服务为目的前提下，学校可以在校园网内公布部分或全部内容。
+
+[V8-P0027] 一、在本论文提交当年，同意在校园网内以及中国高等教育文献保障系统（CALIS）、高校学位论文系统提供查询及前十六页浏览服务。
+
+[V8-P0028] 二、在本论文提交□当年/□一年/□两年/□三年以后，同意在校园网内允许读者在线浏览并下载全文，学校可以为存在馆际合作关系的兄弟高校用户提供文献传递服务和交换服务。（保密论文解密后遵守此规定）
+
+[V8-P0029] 论文作者（签名）：
+
+[V8-P0030] 学　　号：
+
+[V8-P0031] 学　　院：
+
+[V8-P0032] 日期：　　　年　　月　　日
+
+[V8-P0033] 
+
+[V8-P0034] 摘要
+
+[V8-P0035] 论辩挖掘旨在识别文本中的论点、前提及其支持与攻击关系，为写作评价、舆情分析等应用提供结构化依据。大语言模型能够从原始文本直接生成论辩结构，但组件与关系之间的相互依赖仍给模型学习和结果修正带来困难：局部改写可能改变组件的论辩角色或关联关系，使继承的标注成为错误监督；预测图中的组件错误会影响多条关系，独立修正局部对象又难以兼顾整体结构。
+
+[V8-P0036] 针对上述问题，论文分别研究增强监督的可靠利用与预测结构的协调修正：前者改善模型学习所依据的监督信号，后者在不更新抽取模型参数的条件下，联合决定组件及其关联关系的修改。具体研究内容如下：
+
+[V8-P0037] （1）针对局部改写后原标注可能失效的问题，提出可靠监督与一致性学习方法。该方法先确定改写可能影响的组件与关系范围，并建立原文与改写文本之间的组件对应关系，再通过语义审核筛选仍然可靠的组件类型和关系状态。训练时，原文提供完整的论辩图监督，改写文本仅在通过审核的部分提供辅助监督与一致性约束，从而利用增强数据补充学习信号并减少错误监督的影响。在英文议论文与公共政策评论两个语料上的实验表明，与同骨干的基准模型相比，该方法使严格关系F1分别由65.69%和41.79%提高至68.25%和45.08%。
+
+[V8-P0038] （2）针对组件错误及其关联关系难以协调修正的问题，提出结构约束联合修正方法。该方法将组件修改与全部受影响关系的重建组织为共同接受或拒绝的操作，在固定候选与对象评分的条件下，结合结构约束、分项效用和编辑预算选择修正结果，以控制修改范围并减少对原有正确结构的破坏。对照实验表明，联合修正直接作用于基准模型时能够改善抽取性能，在第一项研究得到的模型上仍可继续修正残余错误，使两个语料的严格关系F1进一步提高至71.63%和50.77%；与相同预算的重新生成相比，联合修正取得了更高的F1，并保留了98%以上的原有正确关系。
+
+[V8-P0039] 在同一开源大语言模型系列的三种骨干配置上，两项方法均取得性能提升。对照结果表明，可靠监督与一致性学习能够独立改善抽取效果，结构约束联合修正能够适用于不同训练配置的预测结果，并在可靠监督学习的基础上进一步提高完整论辩图的抽取准确性。
+
+[V8-P0040] 关键词：论辩挖掘；大语言模型；一致性学习；结构化预测；联合修正
+
+[V8-P0041] Abstract
+
+[V8-P0042] Argument mining identifies claims, premises, and their support or attack relations to provide structured evidence for applications such as writing assessment and public opinion analysis. Large language models can generate argument structures directly from text, but the interdependence of components and relations presents challenges for learning and repair. Local rewriting may change argumentative roles or relations, making inherited annotations unreliable. Component errors can affect multiple relations, while independent local corrections may fail to maintain structural consistency.
+
+[V8-P0043] This thesis investigates the reliable use of augmented supervision and the coordinated repair of predicted structures. The first study improves the supervision used for learning, while the second makes joint decisions on component edits and associated relations without updating the extraction model. The main contributions are as follows.
+
+[V8-P0044] (1) A reliable supervision and consistency learning method is proposed to address annotation invalidation after local rewriting. It identifies potentially affected components and relations, aligns components between the original and rewritten texts, and audits the validity of component types and relation states. The original text provides complete graph supervision, whereas the rewritten text contributes auxiliary supervision and consistency constraints only for accepted annotations. This uses augmented learning signals while reducing erroneous supervision. On persuasive essay and public policy comment corpora, strict relation F1 increases from 65.69% and 41.79% to 68.25% and 45.08%, respectively, compared with the baseline using the same backbone.
+
+[V8-P0045] (2) A structure-constrained joint repair method is proposed to coordinate component corrections with their affected relations. Component edits and reconstruction of all affected relations are accepted or rejected together. With fixed candidates and object scores, structural constraints, separate utility requirements, and edit budgets guide repair decisions to limit changes and preserve correct structures. Controlled comparisons show that joint repair improves extraction when applied directly to the baseline and also corrects residual errors in the model obtained in the first study, further increasing strict relation F1 to 71.63% and 50.77% on the two corpora. Compared with regeneration under the same budget, joint repair achieves higher F1 while preserving more than 98% of previously correct relations.
+
+[V8-P0046] Both methods improve performance across three backbone configurations from the same open-source large language model family. Controlled comparisons show that reliable supervision and consistency learning improve extraction independently, while structure-constrained joint repair can operate on predictions from different training configurations and further improve complete argument graph extraction when combined with reliable supervision learning.
+
+[V8-P0047] Keywords: Argument Mining, Large Language Models, Consistency Learning, Structured Prediction, Joint Repair
+
+[V8-P0048] 目录
+
+[V8-P0049] 
+
+[V8-P0050] 摘要I
+
+[V8-P0051] AbstractII
+
+[V8-P0052] 主要符号对照表VII
+
+[V8-P0053] 第1章 绪论1
+
+[V8-P0054] 1.1 研究背景与意义1
+
+[V8-P0055] 1.2 国内外研究现状2
+
+[V8-P0056] 1.2.1 端到端论辩挖掘方法3
+
+[V8-P0057] 1.2.2 论辩挖掘中的数据增强4
+
+[V8-P0058] 1.2.3 结构化预测与预测结果修正5
+
+[V8-P0059] 1.3 主要研究内容6
+
+[V8-P0060] 1.4 论文组织结构8
+
+[V8-P0061] 第2章 相关理论与技术9
+
+[V8-P0062] 2.1 论辩挖掘任务与结构表示9
+
+[V8-P0063] 2.1.1 论辩组件与关系9
+
+[V8-P0064] 2.1.2 组件的字符级表示10
+
+[V8-P0065] 2.2 大语言模型与参数高效微调11
+
+[V8-P0066] 2.2.1 注意力机制与自回归生成11
+
+[V8-P0067] 2.2.2 参数高效微调与连续提示12
+
+[V8-P0068] 2.3 数据增强与一致性学习13
+
+[V8-P0069] 2.4 候选评分与结构化决策14
+
+[V8-P0070] 2.5 本章小结15
+
+[V8-P0071] 第3章 基于可靠监督与一致性学习的论辩挖掘方法16
+
+[V8-P0072] 3.1 引言16
+
+[V8-P0073] 3.2 总体框架与基础模型17
+
+[V8-P0074] 3.3 基于关系影响域的可靠增强数据构造19
+
+[V8-P0075] 3.3.1 改写范围与关系影响域19
+
+[V8-P0076] 3.3.2 改写生成与标注迁移21
+
+[V8-P0077] 3.3.3 语义审核与因素掩码22
+
+[V8-P0078] 3.3.4 标注迁移与改写案例24
+
+[V8-P0079] 3.4 一致性学习模型与训练26
+
+[V8-P0080] 3.4.1 辅助预测头与一致性约束28
+
+[V8-P0081] 3.4.2 损失归一化与参数更新30
+
+[V8-P0082] 3.4.3 算法流程与性质分析31
+
+[V8-P0083] 3.5 实验与分析32
+
+[V8-P0084] 3.5.1 数据集与评价指标32
+
+[V8-P0085] 3.5.2 对照方法34
+
+[V8-P0086] 3.5.3 实验环境与参数设置35
+
+[V8-P0087] 3.5.4 主要结果与消融分析38
+
+[V8-P0088] 3.5.5 增强数据的人工审核40
+
+[V8-P0089] 3.5.6 训练成本与跨骨干表现43
+
+[V8-P0090] 3.6 本章小结45
+
+[V8-P0091] 第4章 基于结构约束的论辩图联合修正方法46
+
+[V8-P0092] 4.1 引言46
+
+[V8-P0093] 4.2 候选生成与初始图49
+
+[V8-P0094] 4.2.1 多候选生成与初始图选择49
+
+[V8-P0095] 4.2.2 候选空间构建50
+
+[V8-P0096] 4.3 对象评分与接受准则51
+
+[V8-P0097] 4.3.1 对象评分器与策略选择52
+
+[V8-P0098] 4.3.2 效用函数与接受条件53
+
+[V8-P0099] 4.4 依赖闭合事务的构造54
+
+[V8-P0100] 4.4.1 组件冲突消解54
+
+[V8-P0101] 4.4.2 受影响关系的重建55
+
+[V8-P0102] 4.4.3 事务示例56
+
+[V8-P0103] 4.5 求解算法及性质57
+
+[V8-P0104] 4.5.1 集合局部搜索57
+
+[V8-P0105] 4.5.2 全局整数规划求解60
+
+[V8-P0106] 4.5.3 方法性质分析62
+
+[V8-P0107] 4.5.4 求解方式的选择63
+
+[V8-P0108] 4.6 实验与分析64
+
+[V8-P0109] 4.6.1 实验设置65
+
+[V8-P0110] 4.6.2 主要结果与消融分析69
+
+[V8-P0111] 4.6.3 候选覆盖与评分质量分析74
+
+[V8-P0112] 4.6.4 推理成本分析81
+
+[V8-P0113] 4.6.5 与第3章方法的衔接分析83
+
+[V8-P0114] 4.6.6 多前提关系分析87
+
+[V8-P0115] 4.6.7 不同骨干模型上的结果89
+
+[V8-P0116] 4.6.8 与外部系统及已发表结果的比较91
+
+[V8-P0117] 4.6.9 ArgUNSC语料上的补充评价94
+
+[V8-P0118] 4.7 本章小结95
+
+[V8-P0119] 第5章 总结与展望97
+
+[V8-P0120] 5.1 全文工作总结97
+
+[V8-P0121] 5.2 未来工作展望98
+
+[V8-P0122] 参考文献100
+
+[V8-P0123] 致谢113
+
+[V8-P0124] 附录A 个人简历114
+
+[V8-P0125] 附录B 在学期间参与的科研项目115
+
+[V8-P0126] 附录C 在学期间取得的学术成果116
+
+[V8-P0127] 
+
+[V8-P0128] 主要符号对照表
+
+[V8-T001] 符号 | 含义 | 定义位置
+x、x′ | 原文及其改写文本 | 2.1.2
+A | 被改写组件的集合 | 3.3.1
+DA | 关系影响域：可审核因素中至少一个端点位于A内的因素 | 3.3.1
+JA | 实际审核的因素集合，包括受影响正关系和抽样的NONE | 3.3.3
+φ | 原文组件到改写组件的对应映射 | 3.3.2
+mC、mR | 组件与关系因素的可靠性掩码 | 3.3.3
+Ωsem | 可审核的因素集合，排除语义未知的多前提子集 | 3.3.3
+G0；I0 / I1 | 初始图；MCR-BR推理流程 / 追加联合修正的推理流程 | 2.4、4.2.1
+U；V；P | 跨度；带类型组件；完整关系候选池 | 4.2.2
+qC；qR | 完整组件与完整关系的固定评分 | 4.3.1
+ΦC；ΦR；Φ | 组件、关系与总效用 | 4.3.2
+RDC；BR-J | 追加的联合修正；集合局部搜索子程序 | 4.1、4.5.1
+δ；BC；BR | 严格改进阈值；组件与关系编辑预算 | 4.3.2、4.5.2
+T0／T1 | MCR-BR的训练配置／第3章可靠监督与一致性学习方法的训练配置 | 3.5.3
+T0I0、T1I0、T0I1、T1I1 | 训练配置与推理配置的四种组合，如T1I1表示第3章训练配置加第4章联合修正 | 4.6.5
+
+[V8-P0129] 

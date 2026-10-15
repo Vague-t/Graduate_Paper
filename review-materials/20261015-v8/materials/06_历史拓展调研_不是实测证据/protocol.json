@@ -1,0 +1,35 @@
+{
+  "status": "fixed before fitting and held-out evaluation",
+  "date": "2026-10-14",
+  "purpose": "CPU-only empirical mechanism pilot on real annotated texts, not full original large-model reproduction",
+  "seed": 17,
+  "tasks": ["Restaurant-ACOS quadruple extraction", "MATRES temporal relation classification with supplied events and query pairs"],
+  "acos": {
+    "split": "official train/dev/test; remove training texts duplicated in dev/test; split official dev by stable text hash into calibration and policy halves",
+    "span_candidates": "all text spans up to 5 tokens, top 4 per role plus semantic implicit value; no test gold insertion",
+    "record_candidates": "top 2 category/sentiment records for each aspect/opinion candidate pair; categories from training only",
+    "scoring": "CPU sparse logistic classifiers; calibration only on calibration half of dev",
+    "initial_state": "raw classifier scores >=0.5, records require selected endpoints",
+    "repair_grid": {"kappa_component": [0.4,0.7,1.0], "kappa_record": [0.4,0.7,1.0]},
+    "selection": "joint repair full-record micro-F1 on policy half of dev; ties prefer fewer edits, then larger kappas",
+    "budgets": {"component_symmetric_difference":4,"record_symmetric_difference":6},
+    "weight_component":1.0,
+    "weight_record":1.0,
+    "methods": ["initial", "record_only", "sequential", "joint_budget_gates", "joint_budget_no_gates", "global_no_budget_no_gates"],
+    "primary_comparison": "joint_budget_gates versus sequential using same candidates, scores, kappas and edit caps",
+    "metrics": ["exact complete quadruple micro-F1", "typed component F1", "initial true objects lost", "new false objects", "candidate recall", "edits", "solver time"]
+  },
+  "matres": {
+    "split": "TimeBank and AQUAINT by document: 80% fit, 10% calibration, 10% validation using stable hash; Platinum 20 documents held out",
+    "input": "supplied event mentions, attributes, text and annotated-pair query IDs; relation gold excluded from feature and solver inputs",
+    "scoring": "sparse four-class logistic model, scalar temperature fit on calibration documents",
+    "constraints": "consistent latent start-point ranks: BEFORE/AFTER strict, EQUAL equality, VAGUE unconstrained; only official main-axis pair labels",
+    "initial_legalization": "minimum number of changed pair labels, then maximum fixed score; cost reported separately",
+    "budget": "additional changes from common legal state <= max(1,ceil(0.1*queried_pairs))",
+    "methods": ["independent", "minimum_change_legal", "budgeted_joint", "global_unbudgeted"],
+    "metrics": ["four-class accuracy/micro-F1", "per-class and macro-F1", "non-VAGUE micro-F1", "order contradictions", "initial correct labels lost", "edits", "solver time"],
+    "time_limit_seconds_per_solve":5
+  },
+  "statistics": "2000 paired cluster bootstrap resamples; sentences grouped by identical text for ACOS, documents for MATRES; retain all held-out items and all failures",
+  "prohibitions": ["no artificial error injection", "no gold-derived test scores", "no gold candidate supplementation on held-out input", "no test-driven parameter selection", "no replacing negative results"]
+}
